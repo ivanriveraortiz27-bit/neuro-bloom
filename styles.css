@@ -1,0 +1,87 @@
+/* styles.css */
+body { 
+    margin: 0; 
+    font-family: sans-serif; 
+}
+
+/* Animaciones Base */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(-5%); }
+    50% { transform: translateY(0); }
+}
+
+.animate-fadeIn { 
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+
+.animate-slideIn { 
+    animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+
+.animate-bounce-slow { 
+    animation: bounce-slow 3s infinite ease-in-out; 
+}
+
+/* Pantalla de Carga Inicial */
+.loading-screen {
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    color: #81638b;
+}
+
+.loading-title {
+    font-size: 2rem; 
+    margin-bottom: 1rem;
+}
+
+/* Pantalla de Diagnóstico de Errores */
+.error-container {
+    padding: 2rem; 
+    color: #721c24; 
+    background-color: #f8d7da; 
+    border: 1px solid #f5c6cb; 
+    margin: 2rem; 
+    border-radius: 8px; 
+    font-family: monospace;
+}
+
+.error-title {
+    margin-top: 0;
+}
+
+/* Utilidades para formato de texto largo */
+.article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+}
+
+.article-content h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #81638b;
+}
+
+.article-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}

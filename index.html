@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuro Bloom - Creciendo con cada emoción</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="bg-slate-50">
+    <div id="root">
+        <div class="loading-screen">
+            <h2 class="loading-title">Cargando Neuro Bloom...</h2>
+            <p>Si este mensaje no desaparece en unos segundos, revisa tu conexión a internet.</p>
+        </div>
+    </div>
+
+    <script>
+        window.onerror = function(message, source, lineno, colno, error) {
+            const root = document.getElementById('root');
+            root.innerHTML = `
+                <div class="error-container">
+                    <h3 class="error-title">⚠️ Ocurrió un error al cargar</h3>
+                    <p><strong>Mensaje:</strong> ${message}</p>
+                    <p><strong>Línea:</strong> ${lineno}</p>
+                    <p>Por favor, verifica que tienes conexión a internet.</p>
+                </div>
+            `;
+            console.error(error);
+        };
+    </script>
+
+    <script type="text/babel">
+        try {
+            const { useState, useEffect, useRef } = React;
+
+            // --- Iconos Globales ---
+            const IconWrapper = ({ name, size = 24, className, color, ...props }) => {
+                const iconRef = useRef(null);
+                useEffect(() => {
+                    if (window.lucide) {
+                        window.lucide.createIcons({
+                            root: iconRef.current,
+                            nameAttr: 'data-lucide',
+                            attrs: { width: size, height: size, stroke: color || 'currentColor', class: className, ...props }
+                        });
+                    }
+                }, [name, size, className, color]);
+                return <i ref={iconRef} data-lucide={name} style={{ display: 'inline-flex' }}></i>;
+            };
+
+            const Heart = (props) => <IconWrapper name="heart" {...props} />;
+            const Activity = (props) => <IconWrapper name="activity" {...props} />;
+            const HeartHandshake = (props) => <IconWrapper name="heart-handshake" {...props} />;
+            const Sun = (props) => <IconWrapper name="sun" {...props} />;
+            const Calendar = (props) => <IconWrapper name="calendar" {...props} />;
+            const Menu = (props) => <IconWrapper name="menu" {...props} />;
+            const X = (props) => <IconWrapper name="x" {...props} />;
+            const ArrowLeft = (props) => <IconWrapper name="arrow-left" {...props} />;
+            const Shield = (props) => <IconWrapper name="shield" {...props} />;
+            const Brain = (props) => <IconWrapper name="brain" {...props} />;
+            const BookHeart = (props) => <IconWrapper name="book-heart" {...props} />;
+
+            // Helper para convertir el nombre de icono del JSON a Componente React
+            const getIconComponent = (name, props = {}) => {
+                switch(name) {
+                    case 'activity': return <Activity {...props} />;
+                    case 'heart': return <Heart {...props} />;
+                    case 'heart-handshake': return <HeartHandshake {...props} />;
+                    case 'sun': return <Sun {...props} />;
+                    case 'shield': return <Shield {...props} />;
+                    case 'brain': return <Brain {...props} />;
+                    case 'book-heart': return <BookHeart {...props} />;
+                    default: return <Activity {...props} />;
+                }
+            };
+
+            // --- DATOS GLOBALES FIJOS ---
+            const colors = {
+                primary: '#81638b',
+                secondary: '#b695c0',
+                lightLilac: '#dac9df',
+                actionBlue: '#2196f3',
+                skyBlue: '#81c9fa',
+                brainGreen: '#9BC496',
+                white: '#FFFFFF',
+                bgHome: '#FDF2F8',
+                bgIndicadores: '#FAF5FF',
+                bgBalance: '#EFF6FF',
+                bgAcompañamiento: '#F0FDFA',
+                bgCitas: '#FFF1F2'
+            };
+
+            const logoUrl = "https://i.ibb.co/WWs5xcSX/Neuro-Bloom-Logo-nbg.png";
+            const advertenciaCuestionario = "Este cuestionario es una herramienta de orientación y reflexión personal. No sustituye una evaluación, diagnóstico ni tratamiento psicológico o médico profesional. Si te identificas con varios de los síntomas o sientes que el agotamiento está afectando tu vida diaria, buscar acompañamiento profesional puede ser un paso importante para tu bienestar.";
+
+            // --- COMPONENTES UI ---
+            const Logo = ({ className }) => (
+                <div className={`flex items-center gap-3 ${className}`}>
+                    <img src={logoUrl} alt="Neuro Bloom Logo" className="h-full w-auto object-contain" />
+                </div>
+            );
+
+            const NavButton = ({ active, onClick, children, icon }) => (
+                <button
+                    onClick={onClick}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 text-lg font-bold tracking-wide ${
+                        active ? 'text-white shadow-md transform scale-105' : 'bg-white/50 hover:bg-white/80'
+                    }`}
+                    style={{ 
+                        backgroundColor: active ? colors.primary : 'rgba(255,255,255,0.5)',
+                        color: active ? colors.white : colors.primary
+                    }}
+                >
+                    {React.cloneElement(icon, { size: 20, color: active ? colors.white : colors.primary })}
+                    <span className="hidden lg:inline">{children}</span>
+                </button>
+            );
+
+            const CuestionarioView = ({ data, onBack }) => {
+                const [respuestas, setRespuestas] = useState({});
+                const [resultado, setResultado] = useState(null);
+
+                const calcularPuntaje = () => {
+                    const total = Object.values(respuestas).reduce((a, b) => a + b, 0);
+                    setResultado(total);
+                };
+
+                return (
+                    <div className="animate-fadeIn bg-white p-8 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
+                        <button onClick={onBack} className="flex items-center gap-2 mb-6 text-stone-500 hover:text-stone-800 transition-colors font-bold">
+                            <ArrowLeft size={20} /> Volver a Indicadores
+                        </button>
+                        
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="p-3 rounded-full text-white" style={{ backgroundColor: data.color }}>
+                                {getIconComponent(data.icon)}
+                            </div>
+                            <h2 className="text-3xl font-serif font-bold" style={{ color: colors.primary }}>{data.title}</h2>
+                        </div>
+                        
+                        <p className="text-lg text-stone-600 mb-8 leading-relaxed">{data.intro}</p>
+                        
+                        <div className="bg-orange-50 border-l-4 border-orange-400 p-4 mb-10 rounded-r-lg">
+                            <p className="text-sm text-orange-800 font-medium">{advertenciaCuestionario}</p>
+                        </div>
+
+                        <div className="space-y-8">
+                            {data.preguntas.map((pregunta, idx) => (
+                                <div key={idx} className="bg-stone-50 p-6 rounded-xl border border-stone-100">
+                                    <p className="font-bold text-stone-800 mb-4">{idx + 1}. {pregunta}</p>
+                                    <div className="flex flex-wrap gap-3">
+                                        {data.opciones.map((opc, oIdx) => (
+                                            <button 
+                                                key={oIdx}
+                                                onClick={() => setRespuestas({...respuestas, [idx]: opc.v})}
+                                                className={`px-4 py-2 rounded-full text-sm font-bold transition-all border ${
+                                                    respuestas[idx] === opc.v 
+                                                    ? 'bg-white shadow-md border-transparent scale-105' 
+                                                    : 'bg-transparent border-stone-300 hover:border-stone-400 text-stone-600'
+                                                }`}
+                                                style={{ color: respuestas[idx] === opc.v ? data.color : '' }}
+                                            >
+                                                {opc.l}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="mt-10 text-center">
+                            <button 
+                                onClick={calcularPuntaje}
+                                disabled={Object.keys(respuestas).length < data.preguntas.length}
+                                className="px-8 py-3 rounded-full text-white font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:-translate-y-1"
+                                style={{ backgroundColor: colors.primary }}
+                            >
+                                Ver Resultado Orientativo
+                            </button>
+                        </div>
+
+                        {resultado !== null && (
+                            <div className="mt-10 p-8 rounded-2xl bg-indigo-50 border border-indigo-100 animate-slideIn text-center">
+                                <h3 className="text-2xl font-bold mb-4" style={{ color: colors.primary }}>Tu puntuación: {resultado}</h3>
+                                <div className="space-y-3 mb-8 text-left max-w-lg mx-auto">
+                                    {data.interpretacion.map((int, i) => (
+                                        <div key={i} className="p-3 bg-white rounded-lg border border-indigo-50 shadow-sm text-stone-700">
+                                            <strong>{int.rango}:</strong> {int.texto}
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="p-6 bg-white rounded-xl italic text-stone-600 shadow-sm">
+                                    <h4 className="font-bold mb-2 no-italic" style={{ color: colors.primary }}>Reflexión (Guion de Apoyo)</h4>
+                                    "{data.guion}"
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                );
+            };
+
+            function NeuroBloom() {
+                const [activeSection, setActiveSection] = useState('home');
+                const [subView, setSubView] = useState(null);
+                const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+                
+                // Estados para manejar el JSON externo
+                const [appData, setAppData] = useState(null);
+                const [dataError, setDataError] = useState(false);
+
+                // Fetching del archivo JSON
+                useEffect(() => {
+                    fetch('./data.json')
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar data.json");
+                            return res.json();
+                        })
+                        .then(data => setAppData(data))
+                        .catch(err => {
+                            console.error(err);
+                            setDataError(true);
+                        });
+                }, []);
+
+                useEffect(() => {
+                    setSubView(null);
+                }, [activeSection]);
+
+                // Pantallas de validación de carga del JSON
+                if (dataError) {
+                    return (
+                        <div className="loading-screen bg-red-50 text-stone-800 p-8">
+                            <h2 className="text-2xl text-red-600 font-bold mb-4">Error de CORS al cargar los datos</h2>
+                            <p className="max-w-xl text-center mb-4">
+                                Has separado los datos a un archivo <code>data.json</code>. Por medidas de seguridad, los navegadores bloquean la lectura de archivos locales si abres el HTML directamente con doble clic (protocolo <code>file://</code>).
+                            </p>
+                            <p className="max-w-xl text-center p-4 bg-white rounded-lg border border-red-200">
+                                <strong>Solución:</strong> Abre la carpeta de tu proyecto en Visual Studio Code, instala la extensión <strong>"Live Server"</strong> y lanza la página desde ahí.
+                            </p>
+                        </div>
+                    );
+                }
+
+                if (!appData) {
+                    return (
+                        <div className="loading-screen">
+                            <h2 className="loading-title animate-pulse">Cargando base de datos Neuro Bloom...</h2>
+                        </div>
+                    );
+                }
+
+                const renderContent = () => {
+                    switch (activeSection) {
+                        case 'home':
+                            return (
+                                <div className="animate-fadeIn flex flex-col items-center justify-center text-center py-12">
+                                    <img src={logoUrl} alt="Neuro Bloom" className="w-full max-w-lg h-auto mx-auto drop-shadow-sm mb-6" />
+                                    
+                                    <p className="text-xl md:text-3xl font-serif font-bold tracking-wide mb-8" style={{ color: colors.primary }}>
+                                        “Habitarte también es una forma de florecer”
+                                    </p>
+                                    <p className="max-w-xl mb-12 text-lg text-stone-600 leading-relaxed">
+                                        Un espacio dedicado al bienestar emocional, la creatividad y la conexión humana, floreciendo desde el interior.
+                                    </p>
+                                    
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mt-10">
+                                        <div onClick={() => setActiveSection('indicadores')} className="cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
+                                            <Activity size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.primary }} />
+                                            <h3 className="font-bold text-lg text-stone-800">Indicadores Emocionales</h3>
+                                        </div>
+                                        <div onClick={() => setActiveSection('balance')} className="cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
+                                            <Sun size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.actionBlue }} />
+                                            <h3 className="font-bold text-lg text-stone-800">Balance Cotidiano</h3>
+                                        </div>
+                                        <div onClick={() => setActiveSection('acompanamiento')} className="cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
+                                            <HeartHandshake size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.secondary }} />
+                                            <h3 className="font-bold text-lg text-stone-800">Terapias</h3>
+                                        </div>
+                                        <div onClick={() => setActiveSection('citas')} className="cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
+                                            <Calendar size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.brainGreen }} />
+                                            <h3 className="font-bold text-lg text-stone-800">Agendar Cita</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+
+                        case 'indicadores':
+                            if (subView) {
+                                const data = appData.indicadores.find(d => d.id === subView);
+                                return <CuestionarioView data={data} onBack={() => setSubView(null)} />;
+                            }
+                            return (
+                                <div className="animate-fadeIn">
+                                    <div className="text-center mb-12">
+                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.primary }}>Indicadores Emocionales</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto">Cuestionarios de autoexploración para ayudarte a observar cómo te sientes y reconocer si tal vez necesitas apoyo.</p>
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {appData.indicadores.map(ind => (
+                                            <div key={ind.id} onClick={() => setSubView(ind.id)} className="cursor-pointer bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-stone-100 group transition-all">
+                                                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 text-white transition-transform group-hover:scale-110" style={{ backgroundColor: ind.color }}>
+                                                    {getIconComponent(ind.icon)}
+                                                </div>
+                                                <h3 className="text-xl font-bold mb-2 text-stone-800">{ind.title}</h3>
+                                                <p className="text-sm text-stone-500 line-clamp-3">{ind.intro}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            );
+
+                        case 'balance':
+                            if (subView) {
+                                const data = appData.balance.find(d => d.id === subView);
+                                return (
+                                    <div className="animate-fadeIn bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
+                                        <button onClick={() => setSubView(null)} className="flex items-center gap-2 mb-8 text-stone-500 hover:text-stone-800 transition-colors font-bold">
+                                            <ArrowLeft size={20} /> Volver a Balance
+                                        </button>
+                                        <h2 className="text-4xl font-serif font-bold mb-8" style={{ color: colors.primary }}>{data.title}</h2>
+                                        <div className="article-content" dangerouslySetInnerHTML={{ __html: data.contenido_html }}></div>
+                                    </div>
+                                );
+                            }
+                            return (
+                                <div className="animate-fadeIn">
+                                    <div className="text-center mb-12">
+                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.actionBlue }}>Balance en la Cotidianidad</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto">¿Cómo introducir el bienestar integral y el cuidado personal en tu rutina?</p>
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                                        {appData.balance.map(item => (
+                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-blue-50 group flex items-start gap-6">
+                                                <div className="p-4 rounded-xl bg-blue-50 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                                    {getIconComponent(item.icon)}
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-xl font-bold mb-2 text-stone-800">{item.title}</h3>
+                                                    <p className="text-sm text-stone-500 font-medium">Leer artículo &rarr;</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            );
+
+                        case 'acompanamiento':
+                            return (
+                                <div className="animate-fadeIn max-w-5xl mx-auto">
+                                    <div className="text-center mb-12">
+                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.secondary }}>Formas de Acompañamiento Terapéutico</h2>
+                                        <p className="text-stone-600">Describiendo enfoques para encontrar el que mejor se adapte a ti.</p>
+                                    </div>
+                                    <div className="grid md:grid-cols-3 gap-6">
+                                        {[
+                                            { t: "Terapia Cognitivo-Conductual", d: "Enfocada en identificar y cambiar patrones de pensamiento negativos y comportamientos que causan malestar. Ideal para ansiedad y depresión." },
+                                            { t: "Terapia Humanista", d: "Centrada en el desarrollo personal, la autoaceptación y el crecimiento. El objetivo es ayudarte a alcanzar tu máximo potencial reconociendo tu valor." },
+                                            { t: "Terapia Sistémica", d: "Analiza las dinámicas familiares y de pareja. Entiende que el individuo es parte de un sistema (vínculos) y busca sanar esas interacciones." }
+                                        ].map((terapia, idx) => (
+                                            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+                                                <div className="w-12 h-12 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-6"><Brain /></div>
+                                                <h3 className="text-xl font-bold mb-3 text-stone-800">{terapia.t}</h3>
+                                                <p className="text-stone-600 leading-relaxed">{terapia.d}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            );
+
+                        case 'citas':
+                            return (
+                                <div className="animate-fadeIn max-w-5xl mx-auto">
+                                    <div className="text-center mb-12">
+                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.brainGreen }}>Agendar Cita</h2>
+                                        <p className="text-stone-600">Encuentra al especialista adecuado e inicia tu proceso.</p>
+                                    </div>
+                                    <div className="grid md:grid-cols-2 gap-8">
+                                        {[
+                                            { nombre: "Psicología Clínica", esp: "Gestión Emocional y Ansiedad" },
+                                            { nombre: "Terapia de Pareja", esp: "Vínculos y Comunicación" },
+                                            { nombre: "Psicología Infantil", esp: "Crianza y Neurodesarrollo" },
+                                            { nombre: "Orientación Vocacional", esp: "Plan de Vida" }
+                                        ].map((esp, i) => (
+                                            <div key={i} className="flex items-center justify-between bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center text-stone-400">
+                                                        <Activity size={24} />
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="font-bold text-lg text-stone-800">{esp.nombre}</h4>
+                                                        <p className="text-sm text-stone-500">{esp.esp}</p>
+                                                    </div>
+                                                </div>
+                                                <button className="px-5 py-2 rounded-full text-white font-bold text-sm hover:-translate-y-1 transition-transform" style={{ backgroundColor: colors.brainGreen }}>
+                                                    Agendar
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            );
+
+                        default:
+                            return null;
+                    }
+                };
+
+                const getBgColor = () => {
+                    switch(activeSection) {
+                        case 'home': return colors.bgHome;
+                        case 'indicadores': return colors.bgIndicadores;
+                        case 'balance': return colors.bgBalance;
+                        case 'acompanamiento': return colors.bgAcompañamiento;
+                        case 'citas': return colors.bgCitas;
+                        default: return colors.offWhite;
+                    }
+                };
+
+                return (
+                    <div className="min-h-screen transition-colors duration-700 ease-in-out font-sans" style={{ backgroundColor: getBgColor() }}>
+                        <header className="sticky top-0 z-50 border-b border-stone-100 backdrop-blur-md bg-white/90">
+                            <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+                                <div className="cursor-pointer hover:opacity-80 transition-opacity h-full py-3" onClick={() => setActiveSection('home')}>
+                                    <Logo className="h-full" />
+                                </div>
+
+                                <nav className="hidden lg:flex gap-2">
+                                    <NavButton active={activeSection === 'home'} onClick={() => setActiveSection('home')} icon={<Heart />}>Inicio</NavButton>
+                                    <NavButton active={activeSection === 'indicadores'} onClick={() => setActiveSection('indicadores')} icon={<Activity />}>Indicadores</NavButton>
+                                    <NavButton active={activeSection === 'balance'} onClick={() => setActiveSection('balance')} icon={<Sun />}>Balance</NavButton>
+                                    <NavButton active={activeSection === 'acompanamiento'} onClick={() => setActiveSection('acompanamiento')} icon={<HeartHandshake />}>Terapias</NavButton>
+                                    <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Citas</NavButton>
+                                </nav>
+
+                                <button className="lg:hidden p-2 text-stone-600" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                    {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                                </button>
+                            </div>
+                        </header>
+
+                        {mobileMenuOpen && (
+                            <div className="fixed inset-0 z-40 pt-24 px-6 lg:hidden animate-slideIn bg-white">
+                                <div className="flex flex-col gap-4">
+                                    {['home', 'indicadores', 'balance', 'acompanamiento', 'citas'].map(sec => (
+                                        <button 
+                                            key={sec}
+                                            onClick={() => { setActiveSection(sec); setMobileMenuOpen(false); }}
+                                            className="text-left p-4 rounded-xl font-bold text-lg border border-stone-100 hover:bg-stone-50"
+                                            style={{ color: activeSection === sec ? colors.primary : '#444' }}
+                                        >
+                                            {sec.charAt(0).toUpperCase() + sec.slice(1)}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        <main className="max-w-7xl mx-auto px-6 py-12 min-h-[80vh]">
+                            {renderContent()}
+                        </main>
+
+                        <footer className="py-12 mt-12 bg-stone-900 text-stone-400 text-center">
+                            <p>© {new Date().getFullYear()} Neuro Bloom. Creciendo con cada emoción.</p>
+                        </footer>
+                    </div>
+                );
+            }
+
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<NeuroBloom />);
+        } catch (error) {
+            console.error(error);
+            document.body.innerHTML = '<div class="error-container"><h3 class="error-title">Error Crítico</h3><p>' + error.message + '</p></div>';
+        }
+    </script>
+</body>
+</html>

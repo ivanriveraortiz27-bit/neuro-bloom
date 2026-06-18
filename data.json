@@ -1,0 +1,233 @@
+{
+  "indicadores": [
+    {
+      "id": "ansiedad",
+      "title": "Ansiedad",
+      "icon": "activity",
+      "color": "#2196f3",
+      "intro": "La ansiedad no solo está en la mente. Puede manifestarse como cansancio, tensión muscular, problemas para dormir o una sensación constante de alerta, incluso cuando todo parece estar 'bien'.",
+      "preguntas": [
+        "Me preocupo de forma constante por diferentes aspectos de mi vida, incluso cuando no hay una razón clara.",
+        "Siento que me resulta difícil controlar mis pensamientos de preocupación.",
+        "Me siento tenso(a), inquieto(a) o con una sensación interna de nerviosismo la mayor parte del tiempo.",
+        "Tengo dificultad para concentrarme debido a preocupaciones o pensamientos repetitivos.",
+        "Me siento cansado(a) o fatigado(a), incluso sin haber realizado un esfuerzo físico importante.",
+        "Presento tensión muscular, dolores corporales o rigidez sin causa médica clara.",
+        "Tengo problemas para conciliar el sueño, mantenerlo o siento que mi descanso no es reparador.",
+        "Me siento irritable o reacciono con mayor intensidad ante situaciones cotidianas.",
+        "He notado síntomas físicos como molestias estomacales, sudoración o dificultad para respirar cuando estoy preocupado(a).",
+        "Siento que estas preocupaciones interfieren con mi bienestar, mis relaciones o mis actividades diarias."
+      ],
+      "opciones": [
+        {"l": "Nunca", "v": 0},
+        {"l": "Algunas veces", "v": 1},
+        {"l": "Frecuentemente", "v": 2},
+        {"l": "Casi todos los días", "v": 3}
+      ],
+      "interpretacion": [
+        { "rango": "0-10", "texto": "Ansiedad dentro de un rango esperado." },
+        { "rango": "11-20", "texto": "Presencia de ansiedad leve a moderada." },
+        { "rango": "21-30", "texto": "Ansiedad elevada; podría ser útil buscar orientación profesional." },
+        { "rango": "31-40", "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental." }
+      ],
+      "guion": "Muchas veces usamos la palabra ansiedad como algo cotidiano, pero no siempre entendemos qué significa realmente. La ansiedad es una emoción natural, todos la sentimos en algún momento. El problema aparece cuando la preocupación es constante, difícil de controlar y empieza a afectar nuestro descanso, nuestro cuerpo o nuestra vida diaria. Hablar de ansiedad es un acto de conciencia y de autocuidado. Y buscar ayuda profesional también lo es."
+    },
+    {
+      "id": "estres",
+      "title": "Estrés",
+      "icon": "activity",
+      "color": "#b695c0",
+      "intro": "El estrés no siempre es señal de debilidad, muchas veces es una respuesta a sostener demasiado durante mucho tiempo. Escucharlo a tiempo también es una forma de cuidarte.",
+      "preguntas": [
+        "Siento que tengo demasiadas responsabilidades y poco tiempo para mí.",
+        "Me cuesta relajarme, incluso cuando no estoy ocupada(o).",
+        "Me siento irritable, impaciente o con cambios de humor.",
+        "Me preocupo constantemente, aun por cosas pequeñas.",
+        "Presento tensión muscular (cuello, hombros, mandíbula o espalda).",
+        "Tengo dolores de cabeza, malestar estomacal o fatiga frecuente.",
+        "Siento el corazón acelerado o dificultad para respirar en momentos de presión.",
+        "Me siento físicamente agotada(o) la mayor parte del tiempo.",
+        "Tengo dificultades para dormir o mi descanso no es reparador.",
+        "He notado cambios en mi apetito.",
+        "Recurro al café, azúcar o alimentos poco saludables para mantenerme activa(o).",
+        "Siento que vivo en modo 'urgente' o 'automático'.",
+        "Me cuesta disfrutar el presente o momentos con mi familia.",
+        "Dejo mi descanso o autocuidado al final de la lista.",
+        "Siento que, si me detengo, todo se descontrola."
+      ],
+      "opciones": [
+        {"l": "Nunca", "v": 0},
+        {"l": "Algunas veces", "v": 1},
+        {"l": "Frecuentemente", "v": 2},
+        {"l": "Casi todo el tiempo", "v": 3}
+      ],
+      "interpretacion": [
+        { "rango": "0-15", "texto": "Estrés bajo. Nivel manejable, mantén hábitos de autocuidado." },
+        { "rango": "16-30", "texto": "Estrés moderado. Escucharte y hacer ajustes puede prevenir que aumente." },
+        { "rango": "31-45", "texto": "Estrés alto. Buscar apoyo y priorizar tu salud emocional es muy recomendable." }
+      ],
+      "guion": "Hay emociones que no siempre se notan, pero pesan. El cuerpo suele hablar antes que las palabras. Lo hace a través del insomnio, la irritabilidad, la falta de energía. No exagera. No falla. Solo intenta protegernos cuando llevamos demasiado tiempo sin escucharnos."
+    },
+    {
+      "id": "depresion",
+      "title": "Depresión",
+      "icon": "activity",
+      "color": "#81638b",
+      "intro": "La depresión no es simplemente estar triste ni tener un mal día. Es una experiencia emocional profunda que puede afectar la forma en que pensamos, sentimos y vivimos nuestro día a día.",
+      "preguntas": [
+        "Me siento triste, apagada(o) o vacía(o) sin una razón clara.",
+        "He perdido interés o ganas por actividades que antes disfrutaba.",
+        "Me siento culpable, insuficiente o muy dura(o) conmigo misma(o).",
+        "Siento que hago las cosas en automático, sin verdadera conexión emocional.",
+        "Me siento cansada(o) constantemente, incluso después de descansar.",
+        "Tengo dificultades para dormir o duermo más de lo habitual.",
+        "He notado cambios importantes en mi apetito o en mi peso.",
+        "Me cuesta concentrarme o tomar decisiones simples.",
+        "Siento que no soy suficiente o que decepciono a los demás.",
+        "He pensado que las personas a mi alrededor estarían mejor sin mí.",
+        "Cumplo con mis responsabilidades, pero emocionalmente me siento desconectada(o).",
+        "Me cuesta disfrutar momentos con mis hijos, mi familia o personas cercanas.",
+        "Siento que pedir ayuda es difícil o que debo poder sola(o) con todo."
+      ],
+      "opciones": [
+        {"l": "Nunca", "v": 0},
+        {"l": "Algunos días", "v": 1},
+        {"l": "La mayoría de los días", "v": 2},
+        {"l": "Casi todos los días", "v": 3}
+      ],
+      "interpretacion": [
+        { "rango": "General", "texto": "Si respondiste 'la mayoría de los días' o 'casi todos los días' en varias preguntas, especialmente tristeza persistente o vacío, es importante no minimizarlo. La depresión no es una falta de fuerza ni de amor por la vida. Buscar apoyo profesional es un acto de responsabilidad emocional y amor propio." }
+      ],
+      "guion": "A veces la depresión no es llorar todo el día. Puede verse como cansancio constante, perder interés, irritabilidad, o seguir cumpliendo con todo pero por dentro sentirte apagada. Pedir ayuda también es un acto de amor por ti y por quienes te aman."
+    },
+    {
+      "id": "burnout",
+      "title": "Burnout Emocional",
+      "icon": "activity",
+      "color": "#9BC496",
+      "intro": "El burnout no es flojera. Es una señal de que has estado dando más de lo que puedes sostener. Aparece cuando el cansancio ya no se quita durmiendo.",
+      "preguntas": [
+        "Me siento cansado/a incluso después de dormir o descansar.",
+        "Siento que mi energía se agota rápidamente durante el día.",
+        "Me cuesta levantarme por las mañanas o iniciar mis actividades.",
+        "Tengo dolores físicos sin una causa clara.",
+        "Me siento desmotivado/a o sin ganas de hacer cosas que antes disfrutaba.",
+        "Me siento irritable, impaciente o con poca tolerancia a la frustración.",
+        "Experimento una sensación de vacío, desconexión o apatía.",
+        "Siento que doy mucho y recibo poco reconocimiento.",
+        "Me cuesta concentrarme o tomar decisiones.",
+        "Siento que ya no rindo como antes, aunque me esfuerce.",
+        "Tengo pensamientos frecuentes como 'no puedo más'.",
+        "Me siento emocionalmente distante frente a mis responsabilidades.",
+        "Realizo mis actividades en 'modo automático', sin disfrute.",
+        "Siento que no tengo control sobre mis tiempos o mis límites.",
+        "Tengo problemas para dormir o mi descanso no es reparador."
+      ],
+      "opciones": [
+        {"l": "Nunca", "v": 0},
+        {"l": "A veces", "v": 1},
+        {"l": "Frecuentemente", "v": 2},
+        {"l": "Casi siempre", "v": 3}
+      ],
+      "interpretacion": [
+        { "rango": "0-15", "texto": "Nivel bajo de señales de burnout." },
+        { "rango": "16-30", "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente piden atención." },
+        { "rango": "31-45", "texto": "Riesgo alto de burnout emocional. Importante buscar apoyo." },
+        { "rango": "46-60", "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional." }
+      ],
+      "guion": "El burnout no tiene que ver con ser débil, flojo o exagerado. Tiene que ver con haber sostenido demasiadas responsabilidades durante demasiado tiempo. Escuchar ese cansancio no es rendirse, es un acto de conciencia y amor propio."
+    },
+    {
+      "id": "autoestima",
+      "title": "Baja Autoestima",
+      "icon": "heart",
+      "color": "#b695c0",
+      "intro": "Cuando la autoestima es baja, la relación contigo puede volverse exigente y poco amable. No porque no seas capaz, sino porque aprendiste a dudar de ti.",
+      "preguntas": [
+        "Suelo hablarme de manera dura o crítica cuando cometo un error.",
+        "Me cuesta reconocer mis logros; siento que 'no son para tanto'.",
+        "Dudo de mis decisiones y busco constantemente la aprobación de otros.",
+        "Siento culpa cuando pongo límites o digo que no.",
+        "Me comparo con otras personas y casi siempre salgo perdiendo.",
+        "Tengo miedo de equivocarme o de no cumplir expectativas ajenas.",
+        "Me resulta difícil confiar en mis capacidades.",
+        "A veces siento que no merezco cosas buenas o relaciones sanas.",
+        "Cuando algo sale mal, tiendo a culparme más de lo necesario.",
+        "Me exijo más de lo que le exigiría a alguien que quiero.",
+        "Me cuesta expresar lo que necesito por miedo a molestar.",
+        "Siento que, haga lo que haga, nunca es suficiente."
+      ],
+      "opciones": [
+        {"l": "Casi nunca", "v": 1},
+        {"l": "A veces", "v": 2},
+        {"l": "Frecuentemente", "v": 3},
+        {"l": "Casi siempre", "v": 4}
+      ],
+      "interpretacion": [
+        { "rango": "12-20", "texto": "Tu diálogo interno suele ser amable." },
+        { "rango": "21-32", "texto": "Señales de autoexigencia y duda. A veces eres muy duro/a contigo." },
+        { "rango": "33-48", "texto": "Indicadores de autoestima baja. Has aprendido a tratarte desde la exigencia." }
+      ],
+      "guion": "Si hoy sientes que eres muy duro contigo, quiero que sepas algo: no naciste hablándote así. Fortalecer tu autoestima no es volverte arrogante, es empezar a tratarte con más honestidad, menos juicio y más compasión."
+    },
+    {
+      "id": "dependencia",
+      "title": "Dependencia Emocional",
+      "icon": "heart-handshake",
+      "color": "#2196f3",
+      "intro": "La dependencia emocional no es amar demasiado. Es sentir que sin la otra persona te desarmas por dentro, adaptándote de más para no perder el vínculo.",
+      "preguntas": [
+        "Siento ansiedad o inquietud cuando la persona que quiero se distancia.",
+        "Me cuesta imaginar mi bienestar emocional sin esa persona en mi vida.",
+        "Tolero situaciones que me lastiman por miedo a perder la relación.",
+        "Suelo priorizar las necesidades del otro por encima de las mías.",
+        "Me cuesta expresar lo que necesito por temor a generar conflicto.",
+        "Cuando hay problemas en la relación, suelo culparme a mí primero.",
+        "Siento miedo intenso a estar sola/o o a que la relación termine.",
+        "Busco constantemente señales de que la otra persona me quiere.",
+        "Cuando la relación no está bien, todo mi estado emocional se ve afectado.",
+        "Me adapto demasiado a la forma de ser del otro para no perder el vínculo.",
+        "Me siento insegura/o de mi valor cuando no recibo atención.",
+        "A veces siento que sin esa relación 'me pierdo' o me quedo vacía/o."
+      ],
+      "opciones": [
+        {"l": "Casi nunca", "v": 1},
+        {"l": "A veces", "v": 2},
+        {"l": "Frecuentemente", "v": 3},
+        {"l": "Casi siempre", "v": 4}
+      ],
+      "interpretacion": [
+        { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relativamente segura." },
+        { "rango": "21-32", "texto": "Señales de dependencia emocional leve. Te vinculas desde el miedo." },
+        { "rango": "33-48", "texto": "Varios indicadores de dependencia. Sanar significa volver a ti." }
+      ],
+      "guion": "Sanar no significa dejar de amar, significa volver a ti. Recuperar tu espacio interno, tu voz, tu derecho a ser sin miedo. Una relación sana no te pide desaparecer para quedarte."
+    }
+  ],
+  "balance": [
+    {
+      "id": "equilibrio",
+      "title": "Vida en Equilibrio",
+      "icon": "sun",
+      "contenido_html": "<p>Vivimos en una cultura que aplaude a quien puede con todo. Pero casi nadie habla de lo que ocurre internamente cuando sostenemos demasiado tiempo un ritmo que no respeta nuestros límites. El equilibrio no es hacer todo perfecto. Es aprender a distribuir energía, no solo tiempo.</p><h3>1. Micro-balance diario</h3><p>No necesitas una vida perfecta para sentir equilibrio. Necesitas pequeñas acciones consistentes: 1 acción para avanzar, 1 para tu cuerpo, 1 para un vínculo, 1 solo para ti.</p><h3>2. Distribuir energía, no horas</h3><p>La fatiga de decisión demuestra que nuestra capacidad disminuye con cada elección. Equilibrar implica proteger energía mental para lo que sí transforma tu vida.</p><h3>3. Espacios de descarga</h3><p>No necesitas evitar el estrés. Necesitas espacios para procesarlo (escritura, silencio, terapia). Lo que no se procesa, se acumula.</p>"
+    },
+    {
+      "id": "crisis",
+      "title": "Autocuidado en Crisis",
+      "icon": "shield",
+      "contenido_html": "<p>No todas las etapas de la vida son estables. Una crisis emocional no siempre se ve dramática, a veces es llanto inesperado, tensión constante o pensamientos repetitivos. No es debilidad, es tu sistema nervioso pidiendo regulación.</p><h3>Protocolo NeuroBloom de Regulación</h3><ul><li><strong>Reduce estímulos:</strong> Apaga notificaciones, baja la luz.</li><li><strong>Regula la respiración:</strong> Inhala en 4, exhala en 6. Activa la calma fisiológica.</li><li><strong>Anclaje (5-4-3-2-1):</strong> 5 cosas que ves, 4 que tocas, 3 que escuchas, 2 que hueles, 1 que saboreas.</li><li><strong>Nombra lo que sientes:</strong> Di \"Estoy sintiendo ansiedad\". Disminuye la intensidad.</li><li><strong>Pide ayuda:</strong> Autocuidado no siempre es hacerlo sola.</li></ul>"
+    },
+    {
+      "id": "mindfulness",
+      "title": "Mindfulness Básico",
+      "icon": "brain",
+      "contenido_html": "<p>Mindfulness es aprender a estar presente sin reaccionar automáticamente. No elimina emociones. Modifica la relación que tienes con ellas. Puedes estar triste o cansada y practicar mindfulness. La práctica no exige que estés bien, exige que estés consciente.</p><h3>Práctica de 3 minutos</h3><ol class=\"list-decimal pl-6 mb-6\"><li>Detente físicamente y respira normal.</li><li>Pregúntate: ¿Qué estoy sintiendo?</li><li>Nómbralo con una palabra sencilla.</li><li>Observa dónde lo sientes en el cuerpo.</li><li>Permite que esté ahí sin intentar cambiarlo durante 3 respiraciones.</li></ol>"
+    },
+    {
+      "id": "recursos",
+      "title": "Recursos Recomendados",
+      "icon": "book-heart",
+      "contenido_html": "<p>Las historias y conversaciones correctas pueden abrir procesos profundos.</p><h3>Películas</h3><ul><li><strong>Inside Out:</strong> Regulación emocional y validación de la tristeza.</li><li><strong>The Pursuit of Happyness:</strong> Resiliencia y propósito.</li><li><strong>Little Miss Sunshine:</strong> Autenticidad y dinámicas familiares.</li></ul><h3>Libros</h3><ul><li><strong>Inteligencia emocional:</strong> Comprender decisiones.</li><li><strong>El hombre en busca de sentido:</strong> Resiliencia desde el significado.</li><li><strong>Los dones de la imperfección:</strong> Vulnerabilidad y autoestima.</li></ul>"
+    }
+  ]
+}
