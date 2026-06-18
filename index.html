@@ -66,6 +66,8 @@
             const Shield = (props) => <IconWrapper name="shield" {...props} />;
             const Brain = (props) => <IconWrapper name="brain" {...props} />;
             const BookHeart = (props) => <IconWrapper name="book-heart" {...props} />;
+            const PlayCircle = (props) => <IconWrapper name="play-circle" {...props} />;
+            const Library = (props) => <IconWrapper name="library" {...props} />;
 
             // Helper para convertir el nombre de icono del JSON a Componente React
             const getIconComponent = (name, props = {}) => {
@@ -77,6 +79,8 @@
                     case 'shield': return <Shield {...props} />;
                     case 'brain': return <Brain {...props} />;
                     case 'book-heart': return <BookHeart {...props} />;
+                    case 'play-circle': return <PlayCircle {...props} />;
+                    case 'library': return <Library {...props} />;
                     default: return <Activity {...props} />;
                 }
             };
@@ -93,8 +97,9 @@
                 bgHome: '#FDF2F8',
                 bgIndicadores: '#FAF5FF',
                 bgBalance: '#EFF6FF',
-                bgAcompañamiento: '#F0FDFA',
-                bgCitas: '#FFF1F2'
+                bgLibrary: '#F3E8FF',
+                bgCapsulas: '#FFF7ED',
+                bgCitas: '#F0FDFA'
             };
 
             const logoUrl = "https://i.ibb.co/WWs5xcSX/Neuro-Bloom-Logo-nbg.png";
@@ -123,6 +128,14 @@
                 </button>
             );
 
+            // Nuevo Componente Botón de Regreso
+            const BackButton = ({ onClick, text = "Volver" }) => (
+                <button onClick={onClick} className="flex items-center gap-2 mb-8 text-stone-500 hover:text-stone-800 transition-colors font-bold group w-fit">
+                    <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                    {text}
+                </button>
+            );
+
             const CuestionarioView = ({ data, onBack }) => {
                 const [respuestas, setRespuestas] = useState({});
                 const [resultado, setResultado] = useState(null);
@@ -134,18 +147,16 @@
 
                 return (
                     <div className="animate-fadeIn bg-white p-8 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
-                        <button onClick={onBack} className="flex items-center gap-2 mb-6 text-stone-500 hover:text-stone-800 transition-colors font-bold">
-                            <ArrowLeft size={20} /> Volver a Indicadores
-                        </button>
+                        <BackButton onClick={onBack} text="Volver a Cuestionarios" />
                         
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="p-3 rounded-full text-white" style={{ backgroundColor: data.color }}>
+                            <div className="p-3 rounded-full text-white" style={{ backgroundColor: data.color || colors.primary }}>
                                 {getIconComponent(data.icon)}
                             </div>
                             <h2 className="text-3xl font-serif font-bold" style={{ color: colors.primary }}>{data.title}</h2>
                         </div>
                         
-                        <p className="text-lg text-stone-600 mb-8 leading-relaxed">{data.intro}</p>
+                        {data.intro && <p className="text-lg text-stone-600 mb-8 leading-relaxed">{data.intro}</p>}
                         
                         <div className="bg-orange-50 border-l-4 border-orange-400 p-4 mb-10 rounded-r-lg">
                             <p className="text-sm text-orange-800 font-medium">{advertenciaCuestionario}</p>
@@ -165,7 +176,7 @@
                                                     ? 'bg-white shadow-md border-transparent scale-105' 
                                                     : 'bg-transparent border-stone-300 hover:border-stone-400 text-stone-600'
                                                 }`}
-                                                style={{ color: respuestas[idx] === opc.v ? data.color : '' }}
+                                                style={{ color: respuestas[idx] === opc.v ? (data.color || colors.primary) : '' }}
                                             >
                                                 {opc.l}
                                             </button>
@@ -196,10 +207,12 @@
                                         </div>
                                     ))}
                                 </div>
-                                <div className="p-6 bg-white rounded-xl italic text-stone-600 shadow-sm">
-                                    <h4 className="font-bold mb-2 no-italic" style={{ color: colors.primary }}>Reflexión (Guion de Apoyo)</h4>
-                                    "{data.guion}"
-                                </div>
+                                {data.guion && (
+                                    <div className="p-6 bg-white rounded-xl italic text-stone-600 shadow-sm">
+                                        <h4 className="font-bold mb-2 no-italic" style={{ color: colors.primary }}>Reflexión</h4>
+                                        "{data.guion}"
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
@@ -210,6 +223,7 @@
                 const [activeSection, setActiveSection] = useState('home');
                 const [subView, setSubView] = useState(null);
                 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+                const [indicadoresTab, setIndicadoresTab] = useState('info'); // 'info' o 'tests'
                 
                 // Estados para manejar el JSON externo
                 const [appData, setAppData] = useState(null);
@@ -270,22 +284,26 @@
                                         Un espacio dedicado al bienestar emocional, la creatividad y la conexión humana, floreciendo desde el interior.
                                     </p>
                                     
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mt-10">
-                                        <div onClick={() => setActiveSection('indicadores')} className="cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
+                                    <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl mt-10">
+                                        <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Activity size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.primary }} />
-                                            <h3 className="font-bold text-lg text-stone-800">Indicadores Emocionales</h3>
+                                            <h3 className="font-bold text-lg text-stone-800">Indicadores</h3>
                                         </div>
-                                        <div onClick={() => setActiveSection('balance')} className="cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
+                                        <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Sun size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.actionBlue }} />
                                             <h3 className="font-bold text-lg text-stone-800">Balance Cotidiano</h3>
                                         </div>
-                                        <div onClick={() => setActiveSection('acompanamiento')} className="cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
-                                            <HeartHandshake size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.secondary }} />
-                                            <h3 className="font-bold text-lg text-stone-800">Terapias</h3>
+                                        <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
+                                            <Library size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.secondary }} />
+                                            <h3 className="font-bold text-lg text-stone-800">Bloom Library</h3>
                                         </div>
-                                        <div onClick={() => setActiveSection('citas')} className="cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
+                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
+                                            <PlayCircle size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110 text-orange-400" />
+                                            <h3 className="font-bold text-lg text-stone-800">Cápsulas en Video</h3>
+                                        </div>
+                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Calendar size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.brainGreen }} />
-                                            <h3 className="font-bold text-lg text-stone-800">Agendar Cita</h3>
+                                            <h3 className="font-bold text-lg text-stone-800">Conoce y Agenda</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -293,23 +311,79 @@
 
                         case 'indicadores':
                             if (subView) {
-                                const data = appData.indicadores.find(d => d.id === subView);
-                                return <CuestionarioView data={data} onBack={() => setSubView(null)} />;
-                            }
-                            return (
-                                <div className="animate-fadeIn">
-                                    <div className="text-center mb-12">
-                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.primary }}>Indicadores Emocionales</h2>
-                                        <p className="text-stone-600 max-w-2xl mx-auto">Cuestionarios de autoexploración para ayudarte a observar cómo te sientes y reconocer si tal vez necesitas apoyo.</p>
-                                    </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                        {appData.indicadores.map(ind => (
-                                            <div key={ind.id} onClick={() => setSubView(ind.id)} className="cursor-pointer bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-stone-100 group transition-all">
-                                                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 text-white transition-transform group-hover:scale-110" style={{ backgroundColor: ind.color }}>
-                                                    {getIconComponent(ind.icon)}
+                                const infoData = appData.indicadores?.informacion?.find(d => d.id === subView);
+                                if (infoData) {
+                                    return (
+                                        <div className="animate-fadeIn bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
+                                            <BackButton onClick={() => setSubView(null)} text="Volver a Información" />
+                                            <div className="flex items-center gap-4 mb-8 border-b border-stone-100 pb-6">
+                                                <div className="p-3 rounded-full text-white" style={{ backgroundColor: infoData.color }}>
+                                                    {getIconComponent(infoData.icon)}
                                                 </div>
-                                                <h3 className="text-xl font-bold mb-2 text-stone-800">{ind.title}</h3>
-                                                <p className="text-sm text-stone-500 line-clamp-3">{ind.intro}</p>
+                                                <h2 className="text-4xl font-serif font-bold" style={{ color: colors.primary }}>{infoData.title}</h2>
+                                            </div>
+                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-serif text-justify">
+                                                {infoData.contenido.map((parrafo, idx) => (
+                                                    <p key={idx}>{parrafo}</p>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                                
+                                const testData = appData.indicadores?.cuestionarios?.find(d => d.id === subView);
+                                if (testData) {
+                                    return <CuestionarioView data={testData} onBack={() => setSubView(null)} />;
+                                }
+                            }
+
+                            return (
+                                <div className="animate-fadeIn max-w-6xl mx-auto space-y-12">
+                                    <div className="w-full">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    </div>
+                                    <div className="text-center">
+                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.primary }}>Indicadores Emocionales</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-lg">Infórmate sobre tu salud emocional y realiza ejercicios de autoexploración para identificar lo que estás sintiendo.</p>
+                                    </div>
+
+                                    {/* Tabs */}
+                                    <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white p-2 rounded-full shadow-sm border border-stone-100 w-fit mx-auto">
+                                        <button 
+                                            onClick={() => setIndicadoresTab('info')} 
+                                            className={`px-6 sm:px-8 py-3 rounded-full font-bold transition-all ${indicadoresTab === 'info' ? 'text-white shadow-md' : 'text-stone-500 hover:text-stone-800'}`}
+                                            style={{ backgroundColor: indicadoresTab === 'info' ? colors.primary : 'transparent' }}>
+                                            Información y Lectura
+                                        </button>
+                                        <button 
+                                            onClick={() => setIndicadoresTab('tests')} 
+                                            className={`px-6 sm:px-8 py-3 rounded-full font-bold transition-all ${indicadoresTab === 'tests' ? 'text-white shadow-md' : 'text-stone-500 hover:text-stone-800'}`}
+                                            style={{ backgroundColor: indicadoresTab === 'tests' ? colors.primary : 'transparent' }}>
+                                            Cuestionarios
+                                        </button>
+                                    </div>
+
+                                    {/* Tab Content */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {indicadoresTab === 'info' && appData.indicadores?.informacion?.map(item => (
+                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:border-purple-200 hover:shadow-md transition-all group flex flex-col">
+                                                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>
+                                                    {getIconComponent(item.icon)}
+                                                </div>
+                                                <h3 className="text-xl font-bold mb-3 text-stone-800 group-hover:text-purple-600 transition-colors">{item.title}</h3>
+                                                <p className="text-sm text-stone-500 line-clamp-3 flex-grow">{item.contenido[0]}</p>
+                                                <p className="text-sm font-bold text-purple-500 mt-4">Leer más &rarr;</p>
+                                            </div>
+                                        ))}
+                                        
+                                        {indicadoresTab === 'tests' && appData.indicadores?.cuestionarios?.map(item => (
+                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:border-blue-200 hover:shadow-md transition-all group flex flex-col">
+                                                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>
+                                                    {getIconComponent(item.icon)}
+                                                </div>
+                                                <h3 className="text-xl font-bold mb-3 text-stone-800 group-hover:text-blue-600 transition-colors">{item.title}</h3>
+                                                <p className="text-sm text-stone-500 line-clamp-3 flex-grow">{item.intro}</p>
+                                                <p className="text-sm font-bold text-blue-500 mt-4">Comenzar Test &rarr;</p>
                                             </div>
                                         ))}
                                     </div>
@@ -321,21 +395,31 @@
                                 const data = appData.balance.find(d => d.id === subView);
                                 return (
                                     <div className="animate-fadeIn bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
-                                        <button onClick={() => setSubView(null)} className="flex items-center gap-2 mb-8 text-stone-500 hover:text-stone-800 transition-colors font-bold">
-                                            <ArrowLeft size={20} /> Volver a Balance
-                                        </button>
-                                        <h2 className="text-4xl font-serif font-bold mb-8" style={{ color: colors.primary }}>{data.title}</h2>
-                                        <div className="article-content" dangerouslySetInnerHTML={{ __html: data.contenido_html }}></div>
+                                        <BackButton onClick={() => setSubView(null)} text="Volver a Balance" />
+                                        <div className="flex items-center gap-4 mb-8 border-b border-stone-100 pb-6">
+                                            <div className="p-3 rounded-full text-white" style={{ backgroundColor: data.color || colors.actionBlue }}>
+                                                {getIconComponent(data.icon)}
+                                            </div>
+                                            <h2 className="text-4xl font-serif font-bold" style={{ color: colors.actionBlue }}>{data.title}</h2>
+                                        </div>
+                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-serif text-justify">
+                                            {data.contenido.map((parrafo, idx) => (
+                                                <p key={idx}>{parrafo}</p>
+                                            ))}
+                                        </div>
                                     </div>
                                 );
                             }
                             return (
-                                <div className="animate-fadeIn">
+                                <div className="animate-fadeIn max-w-5xl mx-auto">
+                                    <div className="w-full mb-6">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    </div>
                                     <div className="text-center mb-12">
                                         <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.actionBlue }}>Balance en la Cotidianidad</h2>
                                         <p className="text-stone-600 max-w-2xl mx-auto">¿Cómo introducir el bienestar integral y el cuidado personal en tu rutina?</p>
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
                                         {appData.balance.map(item => (
                                             <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-blue-50 group flex items-start gap-6">
                                                 <div className="p-4 rounded-xl bg-blue-50 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
@@ -351,58 +435,145 @@
                                 </div>
                             );
 
-                        case 'acompanamiento':
+                        case 'library':
+                            if (subView) {
+                                const data = appData.cuentos.find(d => d.id === subView);
+                                return (
+                                    <div className="animate-fadeIn bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
+                                        <BackButton onClick={() => setSubView(null)} text="Volver a Bloom Library" />
+                                        <div className="flex items-center gap-4 mb-8 border-b border-stone-100 pb-6">
+                                            <div className="p-3 rounded-full text-white" style={{ backgroundColor: colors.secondary }}>
+                                                <BookHeart size={28} />
+                                            </div>
+                                            <h2 className="text-4xl font-serif font-bold text-stone-800">{data.title}</h2>
+                                        </div>
+                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-serif text-justify">
+                                            {data.contenido.map((parrafo, idx) => (
+                                                <p key={idx}>{parrafo}</p>
+                                            ))}
+                                        </div>
+                                    </div>
+                                );
+                            }
+
+                            const categorias = [
+                                { id: 'ninos', title: 'Para Niños', desc: 'Historias llenas de imaginación para descubrir emociones, valores y aprender a gestionarlos.' },
+                                { id: 'adolescentes', title: 'Para Adolescentes', desc: 'Relatos sobre la identidad, los cambios, la presión social y el mundo interior en crecimiento.' },
+                                { id: 'adultos', title: 'Para Adultos', desc: 'Reflexiones profundas sobre la sanación, los vínculos, las heridas del pasado y el reencuentro personal.' }
+                            ];
+
                             return (
                                 <div className="animate-fadeIn max-w-5xl mx-auto">
-                                    <div className="text-center mb-12">
-                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.secondary }}>Formas de Acompañamiento Terapéutico</h2>
-                                        <p className="text-stone-600">Describiendo enfoques para encontrar el que mejor se adapte a ti.</p>
+                                    <div className="w-full mb-6">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
-                                    <div className="grid md:grid-cols-3 gap-6">
-                                        {[
-                                            { t: "Terapia Cognitivo-Conductual", d: "Enfocada en identificar y cambiar patrones de pensamiento negativos y comportamientos que causan malestar. Ideal para ansiedad y depresión." },
-                                            { t: "Terapia Humanista", d: "Centrada en el desarrollo personal, la autoaceptación y el crecimiento. El objetivo es ayudarte a alcanzar tu máximo potencial reconociendo tu valor." },
-                                            { t: "Terapia Sistémica", d: "Analiza las dinámicas familiares y de pareja. Entiende que el individuo es parte de un sistema (vínculos) y busca sanar esas interacciones." }
-                                        ].map((terapia, idx) => (
-                                            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
-                                                <div className="w-12 h-12 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-6"><Brain /></div>
-                                                <h3 className="text-xl font-bold mb-3 text-stone-800">{terapia.t}</h3>
-                                                <p className="text-stone-600 leading-relaxed">{terapia.d}</p>
-                                            </div>
-                                        ))}
+                                    <div className="text-center mb-12">
+                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.secondary }}>Bloom Library</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto">Un espacio para nutrir tu mente y alma a través de recursos, recomendaciones y cuentos terapéuticos.</p>
+                                    </div>
+
+                                    {/* Introducción de Recursos Recomendados */}
+                                    <div className="bg-purple-50/50 p-8 lg:p-10 rounded-3xl border border-purple-100 mb-16 shadow-sm">
+                                        <h3 className="text-2xl font-bold mb-6 text-purple-800 flex items-center gap-3">
+                                            <Library className="text-purple-500" />
+                                            Recursos y Recomendaciones
+                                        </h3>
+                                        <div className="space-y-4 text-stone-700 leading-relaxed">
+                                            {appData.bloom_library.intro_text.map((parrafo, i) => (
+                                                <p key={i}>{parrafo}</p>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Sección de Cuentos */}
+                                    <div className="space-y-12">
+                                        <h3 className="text-3xl font-serif font-bold text-center mb-10 text-stone-800">Cuentos para el Alma</h3>
+                                        {categorias.map(cat => {
+                                            const cuentosCat = appData.cuentos.filter(c => c.categoria === cat.id);
+                                            if (cuentosCat.length === 0) return null;
+                                            
+                                            return (
+                                                <div key={cat.id} className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100">
+                                                    <h3 className="text-2xl font-bold mb-2 text-stone-800 border-b pb-4">{cat.title}</h3>
+                                                    <p className="text-stone-500 mb-6 mt-4">{cat.desc}</p>
+                                                    <div className="grid md:grid-cols-2 gap-4">
+                                                        {cuentosCat.map(cuento => (
+                                                            <div key={cuento.id} onClick={() => setSubView(cuento.id)} className="cursor-pointer group flex items-center justify-between p-5 rounded-2xl border border-stone-100 hover:border-purple-200 hover:bg-purple-50 transition-all shadow-sm hover:shadow-md">
+                                                                <div className="flex items-center gap-4">
+                                                                    <div className="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                                                        <BookHeart size={20} />
+                                                                    </div>
+                                                                    <h4 className="font-bold text-lg text-stone-700 group-hover:text-purple-800 transition-colors">{cuento.title}</h4>
+                                                                </div>
+                                                                <span className="text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity font-bold">&rarr;</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            );
+
+                        case 'capsulas':
+                            return (
+                                <div className="animate-fadeIn max-w-4xl mx-auto py-12">
+                                    <div className="w-full mb-6">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    </div>
+                                    <div className="text-center">
+                                        <h2 className="text-4xl font-serif font-bold mb-4 text-orange-500">Cápsulas en Video</h2>
+                                        <p className="text-stone-600 mb-12 text-lg">Espacio reservado para próximas reflexiones y guías audiovisuales de Neuro Bloom.</p>
+                                        <div className="p-16 bg-white rounded-3xl border border-stone-100 shadow-sm flex flex-col items-center justify-center">
+                                            <PlayCircle size={80} className="text-stone-200 mb-6 animate-pulse" />
+                                            <h3 className="text-2xl font-bold text-stone-400 mb-2">Próximamente</h3>
+                                            <p className="text-stone-400 max-w-md mx-auto">Estamos preparando el contenido en video para acompañar tu proceso de bienestar emocional.</p>
+                                        </div>
                                     </div>
                                 </div>
                             );
 
                         case 'citas':
                             return (
-                                <div className="animate-fadeIn max-w-5xl mx-auto">
-                                    <div className="text-center mb-12">
-                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.brainGreen }}>Agendar Cita</h2>
-                                        <p className="text-stone-600">Encuentra al especialista adecuado e inicia tu proceso.</p>
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-12">
+                                    <div className="w-full">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
-                                    <div className="grid md:grid-cols-2 gap-8">
-                                        {[
-                                            { nombre: "Psicología Clínica", esp: "Gestión Emocional y Ansiedad" },
-                                            { nombre: "Terapia de Pareja", esp: "Vínculos y Comunicación" },
-                                            { nombre: "Psicología Infantil", esp: "Crianza y Neurodesarrollo" },
-                                            { nombre: "Orientación Vocacional", esp: "Plan de Vida" }
-                                        ].map((esp, i) => (
-                                            <div key={i} className="flex items-center justify-between bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center text-stone-400">
-                                                        <Activity size={24} />
+                                    <div className="text-center">
+                                        <h2 className="text-4xl font-serif font-bold mb-4" style={{ color: colors.brainGreen }}>Conoce y Agenda Cita</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-lg">Inicia tu proceso de bienestar emocional. Encuentra al especialista adecuado y reserva tu espacio seguro con nosotros.</p>
+                                    </div>
+
+                                    {/* Agenda Section */}
+                                    <div className="bg-emerald-50/50 p-8 lg:p-12 rounded-3xl border border-emerald-100 shadow-inner">
+                                        <h3 className="text-2xl font-bold mb-8 text-stone-800 flex items-center gap-3">
+                                            <Calendar className="text-emerald-500" />
+                                            Especialidades Disponibles para Agendar
+                                        </h3>
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            {[
+                                                { nombre: "Psicología Clínica", esp: "Gestión Emocional y Ansiedad" },
+                                                { nombre: "Terapia de Pareja", esp: "Vínculos y Comunicación" },
+                                                { nombre: "Psicología Infantil", esp: "Crianza y Neurodesarrollo" },
+                                                { nombre: "Orientación Vocacional", esp: "Plan de Vida" }
+                                            ].map((esp, i) => (
+                                                <div key={i} className="flex items-center justify-between bg-white p-6 rounded-2xl shadow-sm border border-emerald-50 group hover:shadow-md hover:border-emerald-200 transition-all">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-14 h-14 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
+                                                            <Activity size={24} />
+                                                        </div>
+                                                        <div>
+                                                            <h4 className="font-bold text-lg text-stone-800">{esp.nombre}</h4>
+                                                            <p className="text-sm text-stone-500">{esp.esp}</p>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <h4 className="font-bold text-lg text-stone-800">{esp.nombre}</h4>
-                                                        <p className="text-sm text-stone-500">{esp.esp}</p>
-                                                    </div>
+                                                    <button className="px-6 py-2 rounded-full text-white font-bold text-sm shadow-md hover:-translate-y-1 transition-transform" style={{ backgroundColor: colors.brainGreen }}>
+                                                        Agendar
+                                                    </button>
                                                 </div>
-                                                <button className="px-5 py-2 rounded-full text-white font-bold text-sm hover:-translate-y-1 transition-transform" style={{ backgroundColor: colors.brainGreen }}>
-                                                    Agendar
-                                                </button>
-                                            </div>
-                                        ))}
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             );
@@ -417,7 +588,8 @@
                         case 'home': return colors.bgHome;
                         case 'indicadores': return colors.bgIndicadores;
                         case 'balance': return colors.bgBalance;
-                        case 'acompanamiento': return colors.bgAcompañamiento;
+                        case 'library': return colors.bgLibrary;
+                        case 'capsulas': return colors.bgCapsulas;
                         case 'citas': return colors.bgCitas;
                         default: return colors.offWhite;
                     }
@@ -435,8 +607,9 @@
                                     <NavButton active={activeSection === 'home'} onClick={() => setActiveSection('home')} icon={<Heart />}>Inicio</NavButton>
                                     <NavButton active={activeSection === 'indicadores'} onClick={() => setActiveSection('indicadores')} icon={<Activity />}>Indicadores</NavButton>
                                     <NavButton active={activeSection === 'balance'} onClick={() => setActiveSection('balance')} icon={<Sun />}>Balance</NavButton>
-                                    <NavButton active={activeSection === 'acompanamiento'} onClick={() => setActiveSection('acompanamiento')} icon={<HeartHandshake />}>Terapias</NavButton>
-                                    <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Citas</NavButton>
+                                    <NavButton active={activeSection === 'library'} onClick={() => setActiveSection('library')} icon={<Library />}>Library</NavButton>
+                                    <NavButton active={activeSection === 'capsulas'} onClick={() => setActiveSection('capsulas')} icon={<PlayCircle />}>Cápsulas</NavButton>
+                                    <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Agenda</NavButton>
                                 </nav>
 
                                 <button className="lg:hidden p-2 text-stone-600" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -448,14 +621,14 @@
                         {mobileMenuOpen && (
                             <div className="fixed inset-0 z-40 pt-24 px-6 lg:hidden animate-slideIn bg-white">
                                 <div className="flex flex-col gap-4">
-                                    {['home', 'indicadores', 'balance', 'acompanamiento', 'citas'].map(sec => (
+                                    {['home', 'indicadores', 'balance', 'library', 'capsulas', 'citas'].map(sec => (
                                         <button 
                                             key={sec}
                                             onClick={() => { setActiveSection(sec); setMobileMenuOpen(false); }}
                                             className="text-left p-4 rounded-xl font-bold text-lg border border-stone-100 hover:bg-stone-50"
                                             style={{ color: activeSection === sec ? colors.primary : '#444' }}
                                         >
-                                            {sec.charAt(0).toUpperCase() + sec.slice(1)}
+                                            {sec === 'library' ? 'Bloom Library' : sec.charAt(0).toUpperCase() + sec.slice(1)}
                                         </button>
                                     ))}
                                 </div>
@@ -466,7 +639,12 @@
                             {renderContent()}
                         </main>
 
-                        <footer className="py-12 mt-12 bg-stone-900 text-stone-400 text-center">
+                        <footer className="py-12 mt-12 bg-stone-900 text-stone-400 flex flex-col items-center justify-center text-center">
+                            <img 
+                                src={logoUrl} 
+                                alt="Neuro Bloom Logo Blanco" 
+                                className="h-16 w-auto mb-4 opacity-70 brightness-0 invert" 
+                            />
                             <p>© {new Date().getFullYear()} Neuro Bloom. Creciendo con cada emoción.</p>
                         </footer>
                     </div>
