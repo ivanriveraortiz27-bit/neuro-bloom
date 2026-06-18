@@ -35,6 +35,7 @@
         "title": "Baja Autoestima",
         "icon": "heart",
         "color": "#b695c0",
+        "imagen": "./Baja Autoestima.jpeg",
         "contenido": [
           "Baja autoestima: cuando la relación contigo se vuelve dura. La autoestima es la forma en la que te miras, te hablas y te tratas cada día. No se construye de un momento a otro; se va formando con las experiencias, los vínculos y los mensajes que, consciente o inconscientemente, fuiste recibiendo sobre tu valor.",
           "Cuando la autoestima es baja, la relación contigo puede volverse exigente y poco amable. No porque no seas capaz, sino porque aprendiste a dudar de ti, a compararte o a sentir que nunca es suficiente, incluso cuando estás haciendo lo mejor que puedes.",
@@ -106,6 +107,7 @@
         "title": "Estrés y su Impacto",
         "icon": "activity",
         "color": "#9BC496",
+        "imagen": "./Estres.jpeg",
         "contenido": [
           "¿QUÉ ES EL ESTRÉS? El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o demandantes. Puede surgir por pensamientos o situaciones que nos generan tensión, frustración, enojo o nerviosismo.",
           "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situaciones inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
@@ -321,26 +323,24 @@
       }
     ]
   },
-  "balance": [
-    {
-      "id": "equilibrio",
-      "title": "Vida en Equilibrio",
-      "icon": "sun",
-      "color": "#2196f3",
-      "contenido": [
-        "Estrategias para balancear responsabilidades y bienestar. Vivimos en una cultura que aplaude a quien puede con todo. Trabajo. Hijos. Metas. Relaciones. Salud. Estabilidad emocional. Pero casi nadie habla de lo que ocurre internamente cuando sostenemos demasiado tiempo un ritmo que no respeta nuestros límites.",
-        "El equilibrio no es hacer todo perfecto. Es aprender a distribuir energía, no solo tiempo. ¿Te sientes cansada incluso cuando duermes? ¿Te resulta difícil desconectarte sin sentir culpa? Si respondiste 'sí', no estás fallando. Probablemente estás sosteniendo más de lo que tu sistema puede integrar.",
-        "El mito del 'puedo con todo': El agotamiento no surge por debilidad personal, sino por un desbalance sostenido entre demanda y recuperación. No es que no seas fuerte. Es que nadie puede funcionar bien sin pausas reales.",
-        "Muchas veces confundimos responsabilidad con hiper-responsabilidad: Asumir tareas que no nos corresponden, resolver antes de que nos pidan ayuda, anticipar problemas constantemente, sentir que descansar es fallar. El equilibrio comienza cuando dejamos de medir nuestro valor por cuánto soportamos.",
-        "1. Micro-balance diario: No necesitas una vida perfecta para sentir equilibrio. Necesitas pequeñas acciones consistentes. Cada día incluye: 1 acción que avance tu responsabilidad principal, 1 acción para tu cuerpo, 1 acción para un vínculo significativo, 1 acción solo para ti.",
-        "2. Distribuir energía, no horas: No todas las tareas cuestan lo mismo emocionalmente. La fatiga de decisión demuestra que nuestra capacidad mental disminuye con cada elección que hacemos. Equilibrar implica proteger energía mental para lo que sí transforma tu vida.",
-        "3. Espacios de descarga emocional: No necesitas evitar el estrés. Necesitas espacios para procesarlo. Puede ser escritura reflexiva, terapia o silencio intencional. Lo que no se procesa, se acumula.",
-        "Herramienta práctica: Mapa de Energía Semanal. Divide tu semana en cuatro áreas: Responsabilidades, Cuidado físico, Vínculos, Espacio personal. Si una sola área domina más del 50% de tu energía, probablemente ahí esté el desbalance.",
-        "El equilibrio no es resistencia constante. Es consciencia constante. Es preguntarte: ¿Esto me está construyendo o me está desgastando? ¿Estoy eligiendo o estoy reaccionando? El equilibrio no es un destino al que se llega. Es una práctica diaria de honestidad contigo misma.",
-        "En NeuroBloom entendemos el equilibrio no como una división exacta entre responsabilidades y bienestar, sino como una relación consciente contigo misma. No romantizamos el 'poder con todo'. Elegimos construir de forma sostenible. Porque florecer no es acelerar hasta romperte. Es crecer con raíces fuertes."
-      ]
-    }
-  ],
+  "balance": {
+    "title": "Vida en Equilibrio",
+    "icon": "sun",
+    "color": "#2196f3",
+    "imagen": "./Habitos Sanos.jpg",
+    "contenido": [
+      "Estrategias para balancear responsabilidades y bienestar. Vivimos en una cultura que aplaude a quien puede con todo. Trabajo. Hijos. Metas. Relaciones. Salud. Estabilidad emocional. Pero casi nadie habla de lo que ocurre internamente cuando sostenemos demasiado tiempo un ritmo que no respeta nuestros límites.",
+      "El equilibrio no es hacer todo perfecto. Es aprender a distribuir energía, no solo tiempo. ¿Te sientes cansada incluso cuando duermes? ¿Te resulta difícil desconectarte sin sentir culpa? Si respondiste 'sí', no estás fallando. Probablemente estás sosteniendo más de lo que tu sistema puede integrar.",
+      "El mito del 'puedo con todo': El agotamiento no surge por debilidad personal, sino por un desbalance sostenido entre demanda y recuperación. No es que no seas fuerte. Es que nadie puede funcionar bien sin pausas reales.",
+      "Muchas veces confundimos responsabilidad con hiper-responsabilidad: Asumir tareas que no nos corresponden, resolver antes de que nos pidan ayuda, anticipar problemas constantemente, sentir que descansar es fallar. El equilibrio comienza cuando dejamos de medir nuestro valor por cuánto soportamos.",
+      "1. Micro-balance diario: No necesitas una vida perfecta para sentir equilibrio. Necesitas pequeñas acciones consistentes. Cada día incluye: 1 acción que avance tu responsabilidad principal, 1 acción para tu cuerpo, 1 acción para un vínculo significativo, 1 acción solo para ti.",
+      "2. Distribuir energía, no horas: No todas las tareas cuestan lo mismo emocionalmente. La fatiga de decisión demuestra que nuestra capacidad mental disminuye con cada elección que hacemos. Equilibrar implica proteger energía mental para lo que sí transforma tu vida.",
+      "3. Espacios de descarga emocional: No necesitas evitar el estrés. Necesitas espacios para procesarlo. Puede ser escritura reflexiva, terapia o silencio intencional. Lo que no se procesa, se acumula.",
+      "Herramienta práctica: Mapa de Energía Semanal. Divide tu semana en cuatro áreas: Responsabilidades, Cuidado físico, Vínculos, Espacio personal. Si una sola área domina más del 50% de tu energía, probablemente ahí esté el desbalance.",
+      "El equilibrio no es resistencia constante. Es consciencia constante. Es preguntarte: ¿Esto me está construyendo o me está desgastando? ¿Estoy eligiendo o estoy reaccionando? El equilibrio no es un destino al que se llega. Es una práctica diaria de honestidad contigo misma.",
+      "En NeuroBloom entendemos el equilibrio no como una división exacta entre responsabilidades y bienestar, sino como una relación consciente contigo misma. No romantizamos el 'poder con todo'. Elegimos construir de forma sostenible. Porque florecer no es acelerar hasta romperte. Es crecer con raíces fuertes."
+    ]
+  },
   "bloom_library": {
     "intro_text": [
       "Las historias, las ideas y las conversaciones correctas pueden abrir procesos profundos. Esta selección está pensada para ampliar perspectiva, fortalecer regulación emocional y fomentar autoconocimiento.",
@@ -529,7 +529,7 @@
         "Apenas terminó de leerlos, quiso decir algo, pero una sombra oscura cruzó la habitación, tan rápida que apenas pudo verla.",
         "Elara corrió tras ella, pensando que quizá había alguien dentro de la casa, sin embargo, apenas atravesó la puerta, esta se cerró de golpe detrás de ella, y la sombra desapareció.",
         "¿Qué era eso? ¿Qué era todo lo que estaba ocurriendo? ¿Fantasmas?... Nah. Elara no creía en esas cosas, eso era imposible.",
-        "La tercera puerta era la más grande que había visto hasta el momento, estaba cerrada con gruesas cadenas y tenía una madera tan vieja y áspera que casi dolía tocarla.",
+        "La third puerta era la más grande que había visto hasta el momento, estaba cerrada con gruesas cadenas y tenía una madera tan vieja y áspera que casi dolía tocarla.",
         "Después de mucho intentarlo, logró abrirla. Dentro encontró algo completamente distinto a lo que imaginaba. Cajas, objetos rotos, espejos dañados, cartas quemadas, nada parecía tener sentido.",
         "Salió de prisa. Necesitaba alejarse de aquella sensación.",
         "Intentó abrir la siguiente puerta para quitarse el nudo en la garganta y la ansiedad que le había dejado la habitación anterior. Pero ahí... Ahí encontró una puerta que no lograba abrir, parecía pintada a mano, delicada, blanca, como una de aquellas servilletas que las abuelas tejen con paciencia y amor, pequeños rosales decoraban la superficie con una precisión casi perfecta.",
@@ -735,7 +735,7 @@
         "Mateo, ¿y si en vez de exponer nos haces un video como si fueras un experto famoso en tu tema y solo lo proyectamos? le propuso.",
         "Mateo rápidamente dijo que sí y se dirigió a su casa. Al cabo de dos días, llegó el turno de Mateo, quien había enviado el video a su maestra la noche anterior.",
         "El video comenzó a reproducirse y de pronto aparecieron los más grandes e impresionantes datos sobre los osos polares. En Mateo había un brillo especial, el brillo que da sentirse escuchado.",
-        "Al finalizar el video y las actividades, Mateo fue felicitado por sus compañeros y por su maestra.",
+        "Al finalizar el video y las activities, Mateo fue felicitado por sus compañeros y por su maestra.",
         "Mateo aún tenía aquella mochila gigante, pero la maestra Luna se dio cuenta de que se había abierto un poco. Así que decidió llamarlo, aprovechando que sus compañeros habían salido al recreo.",
         "Mateo, ¿puedes sentarte conmigo un momento, por favor? preguntó la maestra Luna.",
         "Mateo se acercó.",
@@ -841,6 +841,36 @@
         "Porque el agotamiento no siempre se ve dramático. A veces se ve como eficiencia constante. Como estar siempre ocupada. Como no permitirte descansar porque 'todavía falta algo'. Pero si siempre falta algo… ¿cuándo te eliges tú?",
         "Equilibrio es preguntarte: ¿Esto me está construyendo o me está desgastando? ¿Estoy eligiendo… o solo estoy reaccionando? No se trata de hacerlo todo. Se trata de que ninguna parte de ti desaparezca.",
         "En NeuroBloom no buscamos vidas perfectas. Buscamos vidas sostenibles. Porque florecer no es acelerar hasta romperte. Es crecer con raíces fuertes. Y eso… también es equilibrio."
+      ]
+    }
+  ],
+  "especialistas": [
+    {
+      "id": "alberto-perez",
+      "nombre": "Alberto Pérez",
+      "titulo": "Psicólogo Clínico",
+      "imagen": "./Alberto Perez.jpeg",
+      "descripcion": "Avalado por la Federación Mexicana de Psicología.",
+      "enfoques": [
+        "Psicoterapia breve centrada en soluciones",
+        "Terapia cognitivo conductual",
+        "Psicoterapia familiar y de pareja",
+        "Psicosexualidad"
+      ]
+    },
+    {
+      "id": "fernanda-regalado",
+      "nombre": "Fernanda Isabel Regalado López",
+      "titulo": "Psicóloga Clínica",
+      "cedula": "15212017",
+      "imagen": "./Fernanda Regalado.jpeg",
+      "descripcion": "Maestrante en Terapia Cognitivo Conductual.",
+      "enfoques": [
+        "Ansiedad",
+        "Depresión",
+        "Estrés y regulación emocional",
+        "Autoestima",
+        "Terapia Cognitivo Conductual"
       ]
     }
   ]
