@@ -35,7 +35,7 @@
         "title": "Baja Autoestima",
         "icon": "heart",
         "color": "#b695c0",
-        "imagen": "./Baja Autoestima.jpeg",
+        "imagen": "./baja-autoestima.jpeg",
         "contenido": [
           "Baja autoestima: cuando la relación contigo se vuelve dura. La autoestima es la forma en la que te miras, te hablas y te tratas cada día. No se construye de un momento a otro; se va formando con las experiencias, los vínculos y los mensajes que, consciente o inconscientemente, fuiste recibiendo sobre tu valor.",
           "Cuando la autoestima es baja, la relación contigo puede volverse exigente y poco amable. No porque no seas capaz, sino porque aprendiste a dudar de ti, a compararte o a sentir que nunca es suficiente, incluso cuando estás haciendo lo mejor que puedes.",
@@ -107,13 +107,29 @@
         "title": "Estrés y su Impacto",
         "icon": "activity",
         "color": "#9BC496",
-        "imagen": "./Estres.jpeg",
+        "imagen": "./estres.jpeg",
         "contenido": [
           "¿QUÉ ES EL ESTRÉS? El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o demandantes. Puede surgir por pensamientos o situaciones que nos generan tensión, frustración, enojo o nerviosismo.",
           "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situaciones inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
           "¿CÓMO AFECTA EL ESTRÉS AL CUERPO? Ante el estrés, el cuerpo libera hormonas que aumentan la alerta, la tensión muscular y el ritmo cardíaco. Si esta activación se mantiene por mucho tiempo, puede aumentar el riesgo de problemas como presión alta, ansiedad, depresión, diabetes u otros padecimientos.",
           "SEÑALES DE EXCESO DE ESTRÉS: El estrés puede manifestarse a través de cansancio constante, dolores musculares o de cabeza, problemas digestivos, dificultad para dormir, irritabilidad o falta de concentración. Muchas veces no se reconoce que estos síntomas están relacionados con el estrés.",
           "¿CUÁNDO BUSCAR AYUDA? Es importante buscar apoyo profesional si el estrés se vuelve abrumador, interfiere con la vida diaria o provoca síntomas físicos o emocionales intensos. Pedir ayuda es una forma de cuidado y prevención."
+        ]
+      },
+      {
+        "id": "mindfulness-info",
+        "title": "Mindfulness Básico",
+        "icon": "brain",
+        "color": "#81c9fa",
+        "contenido": [
+          "Presencia consciente para vidas reales. Mindfulness no es dejar la mente en blanco. No es desconectarte del mundo. Y no es una práctica exclusiva de personas con tiempo ilimitado. Mindfulness es aprender a estar presente sin reaccionar automáticamente.",
+          "En la vida cotidiana reaccionamos más de lo que decidimos. Contestamos mensajes en automático. Respondemos desde el impulso. Interpretamos situaciones sin detenernos a observar lo que realmente sentimos. La atención plena interrumpe ese piloto automático.",
+          "¿Qué es realmente mindfulness? Es la capacidad de prestar atención al momento presente con una actitud de apertura y sin juicio. La práctica constante reduce estrés, ansiedad y reactividad emocional. No elimina emociones. Modifica la relación que tienes con ellas.",
+          "Qué no es mindfulness: No es evitar conflictos. No es positivismo forzado. No es espiritualidad vacía. No es 'siéntete bien todo el tiempo'. Es presencia con honestidad. Puedes estar triste, ansiosa o cansada y practicar mindfulness. La práctica no exige que estés bien. Exige que estés consciente.",
+          "Por qué funciona a nivel cerebral: Estudios en neurociencia han mostrado que la práctica regular fortalece áreas del cerebro relacionadas con la regulación emocional y la toma de decisiones, mientras reduce la hiperactivación de la amígdala. En términos simples: Menos reacción impulsiva. Más espacio entre emoción y respuesta.",
+          "Práctica NeuroBloom de 3 minutos: Detente físicamente. Respira normal, sin forzar. Pregúntate: ¿Qué estoy sintiendo en este momento? Nómbralo con una palabra sencilla (ej. 'ansiedad', 'cansancio'). Observa dónde lo sientes en el cuerpo. Permite que esté ahí sin intentar cambiarlo durante tres respiraciones.",
+          "Mindfulness en la vida real: Puedes practicar atención plena mientras tomas café sin revisar el celular, caminas y notas tu respiración, escuchas a alguien sin preparar mentalmente tu respuesta, o trabajas enfocada en una sola tarea.",
+          "Una verdad importante: Mindfulness no te convierte en una persona siempre calmada. Te convierte en una persona más consciente. Y la consciencia sostenida transforma patrones. No se trata de vivir en paz constante. Se trata de no vivir en reacción constante."
         ]
       }
     ],
@@ -188,7 +204,7 @@
         "title": "Cuestionario de Burnout Emocional",
         "icon": "activity",
         "color": "#9BC496",
-        "intro": "Escúchate con honestidad. Lee cada afirmación y marca la opción que más se acerque a cómo te has sentido en las últimas semanas o meses.",
+        "intro": "Escúchate con honestidad. Lee cada afirmación y marca la option que más se acerque a cómo te has sentido en las últimas semanas o meses.",
         "preguntas": [
           "Me siento cansado/a incluso después de dormir o descansar.",
           "Siento que mi energía se agota rápidamente durante el día.",
@@ -327,7 +343,7 @@
     "title": "Vida en Equilibrio",
     "icon": "sun",
     "color": "#2196f3",
-    "imagen": "./Habitos Sanos.jpg",
+    "imagen": "./habitos-sanos.jpeg",
     "contenido": [
       "Estrategias para balancear responsabilidades y bienestar. Vivimos en una cultura que aplaude a quien puede con todo. Trabajo. Hijos. Metas. Relaciones. Salud. Estabilidad emocional. Pero casi nadie habla de lo que ocurre internamente cuando sostenemos demasiado tiempo un ritmo que no respeta nuestros límites.",
       "El equilibrio no es hacer todo perfecto. Es aprender a distribuir energía, no solo tiempo. ¿Te sientes cansada incluso cuando duermes? ¿Te resulta difícil desconectarte sin sentir culpa? Si respondiste 'sí', no estás fallando. Probablemente estás sosteniendo más de lo que tu sistema puede integrar.",
@@ -529,7 +545,7 @@
         "Apenas terminó de leerlos, quiso decir algo, pero una sombra oscura cruzó la habitación, tan rápida que apenas pudo verla.",
         "Elara corrió tras ella, pensando que quizá había alguien dentro de la casa, sin embargo, apenas atravesó la puerta, esta se cerró de golpe detrás de ella, y la sombra desapareció.",
         "¿Qué era eso? ¿Qué era todo lo que estaba ocurriendo? ¿Fantasmas?... Nah. Elara no creía en esas cosas, eso era imposible.",
-        "La third puerta era la más grande que había visto hasta el momento, estaba cerrada con gruesas cadenas y tenía una madera tan vieja y áspera que casi dolía tocarla.",
+        "La tercera puerta era la más grande que había visto hasta el momento, estaba cerrada con gruesas cadenas y tenía una madera tan vieja y áspera que casi dolía tocarla.",
         "Después de mucho intentarlo, logró abrirla. Dentro encontró algo completamente distinto a lo que imaginaba. Cajas, objetos rotos, espejos dañados, cartas quemadas, nada parecía tener sentido.",
         "Salió de prisa. Necesitaba alejarse de aquella sensación.",
         "Intentó abrir la siguiente puerta para quitarse el nudo en la garganta y la ansiedad que le había dejado la habitación anterior. Pero ahí... Ahí encontró una puerta que no lograba abrir, parecía pintada a mano, delicada, blanca, como una de aquellas servilletas que las abuelas tejen con paciencia y amor, pequeños rosales decoraban la superficie con una precisión casi perfecta.",
@@ -735,7 +751,7 @@
         "Mateo, ¿y si en vez de exponer nos haces un video como si fueras un experto famoso en tu tema y solo lo proyectamos? le propuso.",
         "Mateo rápidamente dijo que sí y se dirigió a su casa. Al cabo de dos días, llegó el turno de Mateo, quien había enviado el video a su maestra la noche anterior.",
         "El video comenzó a reproducirse y de pronto aparecieron los más grandes e impresionantes datos sobre los osos polares. En Mateo había un brillo especial, el brillo que da sentirse escuchado.",
-        "Al finalizar el video y las activities, Mateo fue felicitado por sus compañeros y por su maestra.",
+        "Al finalizar el video y las actividades, Mateo fue felicitado por sus compañeros y por su maestra.",
         "Mateo aún tenía aquella mochila gigante, pero la maestra Luna se dio cuenta de que se había abierto un poco. Así que decidió llamarlo, aprovechando que sus compañeros habían salido al recreo.",
         "Mateo, ¿puedes sentarte conmigo un momento, por favor? preguntó la maestra Luna.",
         "Mateo se acercó.",
@@ -849,7 +865,7 @@
       "id": "alberto-perez",
       "nombre": "Alberto Pérez",
       "titulo": "Psicólogo Clínico",
-      "imagen": "./Alberto Perez.jpeg",
+      "imagen": "./alberto-perez.jpeg",
       "descripcion": "Avalado por la Federación Mexicana de Psicología.",
       "enfoques": [
         "Psicoterapia breve centrada en soluciones",
@@ -863,7 +879,7 @@
       "nombre": "Fernanda Isabel Regalado López",
       "titulo": "Psicóloga Clínica",
       "cedula": "15212017",
-      "imagen": "./Fernanda Regalado.jpeg",
+      "imagen": "./fernanda-regalado.jpeg",
       "descripcion": "Maestrante en Terapia Cognitivo Conductual.",
       "enfoques": [
         "Ansiedad",
