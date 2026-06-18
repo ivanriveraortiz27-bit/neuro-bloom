@@ -1,233 +1,847 @@
 {
-  "indicadores": [
-    {
-      "id": "ansiedad",
-      "title": "Ansiedad",
-      "icon": "activity",
-      "color": "#2196f3",
-      "intro": "La ansiedad no solo está en la mente. Puede manifestarse como cansancio, tensión muscular, problemas para dormir o una sensación constante de alerta, incluso cuando todo parece estar 'bien'.",
-      "preguntas": [
-        "Me preocupo de forma constante por diferentes aspectos de mi vida, incluso cuando no hay una razón clara.",
-        "Siento que me resulta difícil controlar mis pensamientos de preocupación.",
-        "Me siento tenso(a), inquieto(a) o con una sensación interna de nerviosismo la mayor parte del tiempo.",
-        "Tengo dificultad para concentrarme debido a preocupaciones o pensamientos repetitivos.",
-        "Me siento cansado(a) o fatigado(a), incluso sin haber realizado un esfuerzo físico importante.",
-        "Presento tensión muscular, dolores corporales o rigidez sin causa médica clara.",
-        "Tengo problemas para conciliar el sueño, mantenerlo o siento que mi descanso no es reparador.",
-        "Me siento irritable o reacciono con mayor intensidad ante situaciones cotidianas.",
-        "He notado síntomas físicos como molestias estomacales, sudoración o dificultad para respirar cuando estoy preocupado(a).",
-        "Siento que estas preocupaciones interfieren con mi bienestar, mis relaciones o mis actividades diarias."
-      ],
-      "opciones": [
-        {"l": "Nunca", "v": 0},
-        {"l": "Algunas veces", "v": 1},
-        {"l": "Frecuentemente", "v": 2},
-        {"l": "Casi todos los días", "v": 3}
-      ],
-      "interpretacion": [
-        { "rango": "0-10", "texto": "Ansiedad dentro de un rango esperado." },
-        { "rango": "11-20", "texto": "Presencia de ansiedad leve a moderada." },
-        { "rango": "21-30", "texto": "Ansiedad elevada; podría ser útil buscar orientación profesional." },
-        { "rango": "31-40", "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental." }
-      ],
-      "guion": "Muchas veces usamos la palabra ansiedad como algo cotidiano, pero no siempre entendemos qué significa realmente. La ansiedad es una emoción natural, todos la sentimos en algún momento. El problema aparece cuando la preocupación es constante, difícil de controlar y empieza a afectar nuestro descanso, nuestro cuerpo o nuestra vida diaria. Hablar de ansiedad es un acto de conciencia y de autocuidado. Y buscar ayuda profesional también lo es."
-    },
-    {
-      "id": "estres",
-      "title": "Estrés",
-      "icon": "activity",
-      "color": "#b695c0",
-      "intro": "El estrés no siempre es señal de debilidad, muchas veces es una respuesta a sostener demasiado durante mucho tiempo. Escucharlo a tiempo también es una forma de cuidarte.",
-      "preguntas": [
-        "Siento que tengo demasiadas responsabilidades y poco tiempo para mí.",
-        "Me cuesta relajarme, incluso cuando no estoy ocupada(o).",
-        "Me siento irritable, impaciente o con cambios de humor.",
-        "Me preocupo constantemente, aun por cosas pequeñas.",
-        "Presento tensión muscular (cuello, hombros, mandíbula o espalda).",
-        "Tengo dolores de cabeza, malestar estomacal o fatiga frecuente.",
-        "Siento el corazón acelerado o dificultad para respirar en momentos de presión.",
-        "Me siento físicamente agotada(o) la mayor parte del tiempo.",
-        "Tengo dificultades para dormir o mi descanso no es reparador.",
-        "He notado cambios en mi apetito.",
-        "Recurro al café, azúcar o alimentos poco saludables para mantenerme activa(o).",
-        "Siento que vivo en modo 'urgente' o 'automático'.",
-        "Me cuesta disfrutar el presente o momentos con mi familia.",
-        "Dejo mi descanso o autocuidado al final de la lista.",
-        "Siento que, si me detengo, todo se descontrola."
-      ],
-      "opciones": [
-        {"l": "Nunca", "v": 0},
-        {"l": "Algunas veces", "v": 1},
-        {"l": "Frecuentemente", "v": 2},
-        {"l": "Casi todo el tiempo", "v": 3}
-      ],
-      "interpretacion": [
-        { "rango": "0-15", "texto": "Estrés bajo. Nivel manejable, mantén hábitos de autocuidado." },
-        { "rango": "16-30", "texto": "Estrés moderado. Escucharte y hacer ajustes puede prevenir que aumente." },
-        { "rango": "31-45", "texto": "Estrés alto. Buscar apoyo y priorizar tu salud emocional es muy recomendable." }
-      ],
-      "guion": "Hay emociones que no siempre se notan, pero pesan. El cuerpo suele hablar antes que las palabras. Lo hace a través del insomnio, la irritabilidad, la falta de energía. No exagera. No falla. Solo intenta protegernos cuando llevamos demasiado tiempo sin escucharnos."
-    },
-    {
-      "id": "depresion",
-      "title": "Depresión",
-      "icon": "activity",
-      "color": "#81638b",
-      "intro": "La depresión no es simplemente estar triste ni tener un mal día. Es una experiencia emocional profunda que puede afectar la forma en que pensamos, sentimos y vivimos nuestro día a día.",
-      "preguntas": [
-        "Me siento triste, apagada(o) o vacía(o) sin una razón clara.",
-        "He perdido interés o ganas por actividades que antes disfrutaba.",
-        "Me siento culpable, insuficiente o muy dura(o) conmigo misma(o).",
-        "Siento que hago las cosas en automático, sin verdadera conexión emocional.",
-        "Me siento cansada(o) constantemente, incluso después de descansar.",
-        "Tengo dificultades para dormir o duermo más de lo habitual.",
-        "He notado cambios importantes en mi apetito o en mi peso.",
-        "Me cuesta concentrarme o tomar decisiones simples.",
-        "Siento que no soy suficiente o que decepciono a los demás.",
-        "He pensado que las personas a mi alrededor estarían mejor sin mí.",
-        "Cumplo con mis responsabilidades, pero emocionalmente me siento desconectada(o).",
-        "Me cuesta disfrutar momentos con mis hijos, mi familia o personas cercanas.",
-        "Siento que pedir ayuda es difícil o que debo poder sola(o) con todo."
-      ],
-      "opciones": [
-        {"l": "Nunca", "v": 0},
-        {"l": "Algunos días", "v": 1},
-        {"l": "La mayoría de los días", "v": 2},
-        {"l": "Casi todos los días", "v": 3}
-      ],
-      "interpretacion": [
-        { "rango": "General", "texto": "Si respondiste 'la mayoría de los días' o 'casi todos los días' en varias preguntas, especialmente tristeza persistente o vacío, es importante no minimizarlo. La depresión no es una falta de fuerza ni de amor por la vida. Buscar apoyo profesional es un acto de responsabilidad emocional y amor propio." }
-      ],
-      "guion": "A veces la depresión no es llorar todo el día. Puede verse como cansancio constante, perder interés, irritabilidad, o seguir cumpliendo con todo pero por dentro sentirte apagada. Pedir ayuda también es un acto de amor por ti y por quienes te aman."
-    },
-    {
-      "id": "burnout",
-      "title": "Burnout Emocional",
-      "icon": "activity",
-      "color": "#9BC496",
-      "intro": "El burnout no es flojera. Es una señal de que has estado dando más de lo que puedes sostener. Aparece cuando el cansancio ya no se quita durmiendo.",
-      "preguntas": [
-        "Me siento cansado/a incluso después de dormir o descansar.",
-        "Siento que mi energía se agota rápidamente durante el día.",
-        "Me cuesta levantarme por las mañanas o iniciar mis actividades.",
-        "Tengo dolores físicos sin una causa clara.",
-        "Me siento desmotivado/a o sin ganas de hacer cosas que antes disfrutaba.",
-        "Me siento irritable, impaciente o con poca tolerancia a la frustración.",
-        "Experimento una sensación de vacío, desconexión o apatía.",
-        "Siento que doy mucho y recibo poco reconocimiento.",
-        "Me cuesta concentrarme o tomar decisiones.",
-        "Siento que ya no rindo como antes, aunque me esfuerce.",
-        "Tengo pensamientos frecuentes como 'no puedo más'.",
-        "Me siento emocionalmente distante frente a mis responsabilidades.",
-        "Realizo mis actividades en 'modo automático', sin disfrute.",
-        "Siento que no tengo control sobre mis tiempos o mis límites.",
-        "Tengo problemas para dormir o mi descanso no es reparador."
-      ],
-      "opciones": [
-        {"l": "Nunca", "v": 0},
-        {"l": "A veces", "v": 1},
-        {"l": "Frecuentemente", "v": 2},
-        {"l": "Casi siempre", "v": 3}
-      ],
-      "interpretacion": [
-        { "rango": "0-15", "texto": "Nivel bajo de señales de burnout." },
-        { "rango": "16-30", "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente piden atención." },
-        { "rango": "31-45", "texto": "Riesgo alto de burnout emocional. Importante buscar apoyo." },
-        { "rango": "46-60", "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional." }
-      ],
-      "guion": "El burnout no tiene que ver con ser débil, flojo o exagerado. Tiene que ver con haber sostenido demasiadas responsabilidades durante demasiado tiempo. Escuchar ese cansancio no es rendirse, es un acto de conciencia y amor propio."
-    },
-    {
-      "id": "autoestima",
-      "title": "Baja Autoestima",
-      "icon": "heart",
-      "color": "#b695c0",
-      "intro": "Cuando la autoestima es baja, la relación contigo puede volverse exigente y poco amable. No porque no seas capaz, sino porque aprendiste a dudar de ti.",
-      "preguntas": [
-        "Suelo hablarme de manera dura o crítica cuando cometo un error.",
-        "Me cuesta reconocer mis logros; siento que 'no son para tanto'.",
-        "Dudo de mis decisiones y busco constantemente la aprobación de otros.",
-        "Siento culpa cuando pongo límites o digo que no.",
-        "Me comparo con otras personas y casi siempre salgo perdiendo.",
-        "Tengo miedo de equivocarme o de no cumplir expectativas ajenas.",
-        "Me resulta difícil confiar en mis capacidades.",
-        "A veces siento que no merezco cosas buenas o relaciones sanas.",
-        "Cuando algo sale mal, tiendo a culparme más de lo necesario.",
-        "Me exijo más de lo que le exigiría a alguien que quiero.",
-        "Me cuesta expresar lo que necesito por miedo a molestar.",
-        "Siento que, haga lo que haga, nunca es suficiente."
-      ],
-      "opciones": [
-        {"l": "Casi nunca", "v": 1},
-        {"l": "A veces", "v": 2},
-        {"l": "Frecuentemente", "v": 3},
-        {"l": "Casi siempre", "v": 4}
-      ],
-      "interpretacion": [
-        { "rango": "12-20", "texto": "Tu diálogo interno suele ser amable." },
-        { "rango": "21-32", "texto": "Señales de autoexigencia y duda. A veces eres muy duro/a contigo." },
-        { "rango": "33-48", "texto": "Indicadores de autoestima baja. Has aprendido a tratarte desde la exigencia." }
-      ],
-      "guion": "Si hoy sientes que eres muy duro contigo, quiero que sepas algo: no naciste hablándote así. Fortalecer tu autoestima no es volverte arrogante, es empezar a tratarte con más honestidad, menos juicio y más compasión."
-    },
-    {
-      "id": "dependencia",
-      "title": "Dependencia Emocional",
-      "icon": "heart-handshake",
-      "color": "#2196f3",
-      "intro": "La dependencia emocional no es amar demasiado. Es sentir que sin la otra persona te desarmas por dentro, adaptándote de más para no perder el vínculo.",
-      "preguntas": [
-        "Siento ansiedad o inquietud cuando la persona que quiero se distancia.",
-        "Me cuesta imaginar mi bienestar emocional sin esa persona en mi vida.",
-        "Tolero situaciones que me lastiman por miedo a perder la relación.",
-        "Suelo priorizar las necesidades del otro por encima de las mías.",
-        "Me cuesta expresar lo que necesito por temor a generar conflicto.",
-        "Cuando hay problemas en la relación, suelo culparme a mí primero.",
-        "Siento miedo intenso a estar sola/o o a que la relación termine.",
-        "Busco constantemente señales de que la otra persona me quiere.",
-        "Cuando la relación no está bien, todo mi estado emocional se ve afectado.",
-        "Me adapto demasiado a la forma de ser del otro para no perder el vínculo.",
-        "Me siento insegura/o de mi valor cuando no recibo atención.",
-        "A veces siento que sin esa relación 'me pierdo' o me quedo vacía/o."
-      ],
-      "opciones": [
-        {"l": "Casi nunca", "v": 1},
-        {"l": "A veces", "v": 2},
-        {"l": "Frecuentemente", "v": 3},
-        {"l": "Casi siempre", "v": 4}
-      ],
-      "interpretacion": [
-        { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relativamente segura." },
-        { "rango": "21-32", "texto": "Señales de dependencia emocional leve. Te vinculas desde el miedo." },
-        { "rango": "33-48", "texto": "Varios indicadores de dependencia. Sanar significa volver a ti." }
-      ],
-      "guion": "Sanar no significa dejar de amar, significa volver a ti. Recuperar tu espacio interno, tu voz, tu derecho a ser sin miedo. Una relación sana no te pide desaparecer para quedarte."
-    }
-  ],
+  "indicadores": {
+    "informacion": [
+      {
+        "id": "ansiedad-info",
+        "title": "Ansiedad y Cuerpo",
+        "icon": "activity",
+        "color": "#2196f3",
+        "contenido": [
+          "¿QUÉ ES? La ansiedad generalizada se caracteriza por una preocupación constante y difícil de controlar sobre distintos aspectos de la vida diaria, incluso cuando no existe una razón clara para alarmarse.",
+          "CUANDO LA PREOCUPACIÓN SE VUELVE AGOTADORA: En el trastorno de ansiedad generalizada, la mente permanece en estado de alerta la mayor parte del tiempo, lo que puede generar cansancio emocional, dificultad para concentrarse y una sensación persistente de tensión.",
+          "ANSIEDAD Y CUERPO: La ansiedad no solo se manifiesta en los pensamientos. También puede reflejarse en el cuerpo a través de tensión muscular, problemas para dormir, molestias estomacales, fatiga o sensación de inquietud constante.",
+          "¿POR QUÉ APARECE? Aunque no existe una causa única, la ansiedad generalizada puede estar relacionada con factores genéticos, experiencias de estrés prolongado y cambios en el funcionamiento del cerebro frente al manejo del estrés.",
+          "BUSCAR AYUDA TAMBIÉN ES AUTOCUIDADO: La ansiedad es tratable. La psicoterapia, especialmente la terapia cognitivo-conductual, junto con hábitos saludables y, en algunos casos, medicación indicada por un profesional, pueden mejorar significativamente la calidad de vida."
+        ]
+      },
+      {
+        "id": "crisis-info",
+        "title": "Autocuidado en Crisis",
+        "icon": "shield",
+        "color": "#9BC496",
+        "contenido": [
+          "No todas las etapas de la vida son estables. Hay momentos en los que el cansancio deja de ser normal. La irritabilidad aumenta. La mente no se detiene. El cuerpo se siente en alerta constante. Y entonces intentas hacer lo mismo de siempre: seguir funcionando.",
+          "Pero hay días en los que sostener ya no es suficiente. Una crisis emocional no siempre se ve dramática. A veces se presenta como: Llanto inesperado o facilidad para desbordarte. Sensación constante de estar sobrepasada. Dificultad para concentrarte. Pensamientos repetitivos que no se apagan. Tensión física que no desaparece.",
+          "No es debilidad. Es tu sistema nervioso pidiendo regulación. ¿Qué ocurre en el cuerpo durante una crisis? Cuando percibimos amenaza real o emocional el sistema de supervivencia se activa. La teoría polivagal desarrollada por Stephen Porges explica que nuestro cuerpo responde antes de que nuestra mente racional pueda organizar lo que está pasando.",
+          "Por eso, en crisis, los consejos lógicos no siempre funcionan. No necesitas que te expliquen todo. Necesitas sentir seguridad. El autocuidado en crisis no es lujo. Es intervención preventiva.",
+          "Señales de que necesitas regular, no exigirte más: Te hablas con dureza constante. Sientes que si te detienes, todo se desmorona. Tu descanso no te repara. Reaccionas con mayor intensidad de la habitual. Te cuesta tomar decisiones simples. Si te reconoces aquí, no necesitas más disciplina. Necesitas contención.",
+          "Protocolo NeuroBloom de Regulación Básica: No sustituye terapia, pero puede ayudarte a estabilizar el momento. 1. Reduce estímulos: Apaga notificaciones. Baja la luz. Disminuye el ruido. 2. Regula la respiración: Inhala en 4 segundos. Exhala en 6 segundos. 3. Anclaje al presente (5-4-3-2-1): 5 cosas que ves, 4 que puedes tocar, 3 que escuchas, 2 que hueles, 1 que saboreas. 4. Nombrar lo que sientes: No 'soy un desastre'. Sí: 'Estoy sintiendo ansiedad'. 5. Pedir ayuda antes del colapso: Autocuidado no siempre es hacerlo sola.",
+          "Lo que no es autocuidado en crisis: No es ignorar lo que sientes. No es anestesiarte con productividad. No es forzarte a estar positiva. Y tampoco es romantizar el dolor. Es interrumpir el daño antes de que escale.",
+          "Una verdad importante: No todas las crisis se resuelven rápido. Algunas requieren acompañamiento profesional, y eso también es fortaleza. Pero incluso en los momentos más intensos, puedes aprender algo fundamental: Tu cuerpo no está en tu contra. Está intentando protegerte. El autocuidado en crisis es una forma de decirte: 'Importo lo suficiente como para detenerme.' Y detenerse, a tiempo, también es madurez emocional."
+        ]
+      },
+      {
+        "id": "autoestima-info",
+        "title": "Baja Autoestima",
+        "icon": "heart",
+        "color": "#b695c0",
+        "contenido": [
+          "Baja autoestima: cuando la relación contigo se vuelve dura. La autoestima es la forma en la que te miras, te hablas y te tratas cada día. No se construye de un momento a otro; se va formando con las experiencias, los vínculos y los mensajes que, consciente o inconscientemente, fuiste recibiendo sobre tu valor.",
+          "Cuando la autoestima es baja, la relación contigo puede volverse exigente y poco amable. No porque no seas capaz, sino porque aprendiste a dudar de ti, a compararte o a sentir que nunca es suficiente, incluso cuando estás haciendo lo mejor que puedes.",
+          "Esto suele sentirse en un diálogo interno crítico, en el miedo a equivocarte, en la necesidad de aprobación, en la dificultad para poner límites o en esa sensación silenciosa de no merecer lo bueno. A veces no se nota por fuera, pero pesa mucho por dentro.",
+          "Desde la psicología, entendemos que la baja autoestima no es una falla personal: es un patrón aprendido. Y lo aprendido puede transformarse. Trabajarla no es exigirte más, sino empezar a tratarte con la misma comprensión y respeto que ofreces a los demás.",
+          "Fortalecer tu autoestima es volver a ti con más honestidad, menos juicio y más cuidado. Escucharte, también aquí, es una forma de responsabilidad emocional."
+        ]
+      },
+      {
+        "id": "burnout-info",
+        "title": "Burnout Emocional",
+        "icon": "activity",
+        "color": "#9BC496",
+        "contenido": [
+          "¿Por qué nos pasa? Durante mucho tiempo se pensó que el burnout era algo que solo vivían quienes tenían trabajos 'muy demandantes'. Hoy sabemos que puede tocarle a cualquiera: personas que trabajan demasiado, que cargan con muchas responsabilidades, que cuidan de otros, o que simplemente se exigen más de lo que su cuerpo y su mente pueden sostener.",
+          "A veces el estrés viene de afuera: trabajo, problemas económicos, conflictos, falta de apoyo. Otras veces nace dentro: querer hacerlo todo perfecto, no saber poner límites, sentir que nunca es suficiente.",
+          "Las señales que no deberíamos ignorar. El burnout suele mandar señales claras, aunque muchas veces las minimizamos. En el cuerpo: Cansancio constante, problemas para dormir, dolores de cabeza, palpitaciones. En lo emocional: Falta de motivación, dificultad para concentrarte, irritabilidad, sensación de vacío.",
+          "Nada de esto es exageración ni debilidad. Es el cuerpo intentando protegerte. Muchas personas con burnout siguen funcionando 'en automático'. Cumplen, trabajan, cuidan, responden… pero por dentro están agotadas.",
+          "Por eso duele tanto cuando nadie lo nota o cuando incluso uno mismo se exige seguir como si nada pasara. El burnout no es flojera. Es una señal de que has estado dando más de lo que puedes sostener.",
+          "¿Y ahora qué? Salir del burnout no es 'echarle ganas'. Implica escucharte de verdad, revisar qué te está drenando, aprender a poner límites y, muchas veces, pedir ayuda. El acompañamiento psicológico puede marcar una diferencia enorme.",
+          "Cuidarte no es un lujo ni un premio por haber aguantado suficiente. Cuidarte es una necesidad."
+        ]
+      },
+      {
+        "id": "dependencia-info",
+        "title": "Dependencia Emocional",
+        "icon": "heart-handshake",
+        "color": "#2196f3",
+        "contenido": [
+          "Dependencia emocional: cuando el vínculo empieza a costarte a ti. La dependencia emocional no tiene que ver con amar demasiado, sino con sentir que sin la otra persona te desarmas por dentro. Es cuando una relación se vuelve el centro de tu estabilidad emocional, incluso aunque, en el fondo, sepas que te está lastimando.",
+          "Desde este lugar, no es raro quedarse en vínculos que ya no hacen bien. No porque no lo notes, sino porque el miedo a perder al otro, a estar sola o a sentir el vacío pesa más que tu propio bienestar. Poco a poco, puedes empezar a adaptarte, a callarte, a ceder partes de ti para no generar conflicto o abandono.",
+          "La dependencia emocional suele mostrarse en el miedo constante a que el otro se vaya, en la necesidad de aprobación, en la dificultad para poner límites y en la sensación de que tu valor depende de cuánto te quieran.",
+          "Este patrón no surge de la nada. Muchas veces se aprende en etapas tempranas, cuando el amor se sintió impredecible, condicionado o inestable. Entonces el cuerpo aprende que, para no perder el vínculo, hay que esforzarse de más, agradar, aguantar o dejarse al final.",
+          "Entender esto es importante: la dependencia emocional no es debilidad, ni falta de carácter. Es una forma aprendida de vincularse desde la carencia y el miedo, no desde la elección libre.",
+          "Sanarla no significa dejar de amar, sino volver a ti. Recuperar tu espacio interno, tu voz, tu autonomía emocional. Aprender que una relación sana no te pide desaparecer para quedarte. Florecer también es aprender a elegir relaciones donde puedas ser tú, completa, sin miedo y sin perderte."
+        ]
+      },
+      {
+        "id": "depresion-info",
+        "title": "Depresión",
+        "icon": "activity",
+        "color": "#81638b",
+        "contenido": [
+          "Depresión: cuando el alma pide ser escuchada. La depresión no es simplemente estar triste ni tener un mal día. Es una experiencia emocional profunda que puede afectar la forma en que pensamos, sentimos y vivimos nuestro día a día.",
+          "Puede manifestarse como cansancio constante, pérdida de interés, dificultad para dormir, cambios en el apetito o una sensación persistente de vacío.",
+          "Como madre, docente y mujer que acompaña procesos emocionales, sé que muchas veces aprendemos a seguir funcionando, incluso cuando por dentro algo duele. La depresión puede aparecer en cualquier etapa de la vida y no distingue edades, roles ni fortalezas aparentes. No es falta de voluntad, ni debilidad: es una condición real que necesita comprensión y acompañamiento.",
+          "La depresión se construye a partir de muchos factores: nuestra historia personal, la biología, el entorno, las exigencias cotidianas y las emociones que hemos tenido que callar durante mucho tiempo.",
+          "La buena noticia es que la depresión tiene tratamiento. Existen distintas formas de acompañamiento, como la terapia psicológica, el apoyo médico y otros enfoques que ayudan a recuperar el equilibrio emocional.",
+          "Hablar de depresión es un acto de amor y de conciencia emocional. Pedir ayuda también lo es. Si tú o alguien cercano está atravesando un momento difícil, recuerda que no estás sola y que siempre es válido buscar apoyo profesional."
+        ]
+      },
+      {
+        "id": "duelo-info",
+        "title": "Duelo No Resuelto",
+        "icon": "heart",
+        "color": "#81638b",
+        "contenido": [
+          "Duelo no resuelto: cuando el dolor se queda sin lugar. Desde una perspectiva clínica, el duelo es una respuesta natural ante una pérdida significativa; sin embargo, cuando los síntomas emocionales persisten de forma intensa y prolongada, interfiriendo con la vida diaria, pueden adquirir relevancia clínica.",
+          "Algunas personas presentan añoranza persistente, dolor emocional profundo, dificultad para aceptar la pérdida, embotamiento afectivo, culpa, ira o una marcada incapacidad para retomar sus actividades cotidianas, más allá de lo esperable en el tiempo.",
+          "No todo duelo es patológico, pero sí existen procesos de duelo que quedan detenidos, congelados o no integrados, generando sufrimiento sostenido. Aquí es donde el concepto de duelo no resuelto cobra sentido.",
+          "Desde la experiencia clínica, el duelo no resuelto no significa que la persona no haya amado suficiente o que no quiera soltar, sino que algo del proceso quedó pendiente de ser vivido, expresado o significado. A veces no hubo espacio para llorar, a veces hubo que ser fuerte, a veces la pérdida fue ambigua, injusta o silenciosa.",
+          "El proceso implica tareas psicológicas que la persona necesita transitar: aceptar la realidad de la pérdida, trabajar el dolor emocional, adaptarse a un mundo sin lo perdido y recolocar emocionalmente ese vínculo para seguir viviendo.",
+          "Cuando alguna de estas tareas no logra completarse —no por falta de voluntad, sino por falta de contención, tiempo o recursos emocionales— el duelo puede quedar inconcluso. Así, el duelo no resuelto no es una falla personal, sino una señal de que el dolor necesita ser escuchado y acompañado, no apresurado ni minimizado.",
+          "Integrar la pérdida no significa olvidar, sino hacerle un lugar interno que no duela todo el tiempo. Hablar de duelo no resuelto permite validar la experiencia emocional sin patologizarla, y al mismo tiempo reconocer cuándo el acompañamiento psicológico puede ser una forma de cuidado."
+        ]
+      },
+      {
+        "id": "estres-info",
+        "title": "Estrés y su Impacto",
+        "icon": "activity",
+        "color": "#9BC496",
+        "contenido": [
+          "¿QUÉ ES EL ESTRÉS? El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o demandantes. Puede surgir por pensamientos o situaciones que nos generan tensión, frustración, enojo o nerviosismo.",
+          "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situaciones inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
+          "¿CÓMO AFECTA EL ESTRÉS AL CUERPO? Ante el estrés, el cuerpo libera hormonas que aumentan la alerta, la tensión muscular y el ritmo cardíaco. Si esta activación se mantiene por mucho tiempo, puede aumentar el riesgo de problemas como presión alta, ansiedad, depresión, diabetes u otros padecimientos.",
+          "SEÑALES DE EXCESO DE ESTRÉS: El estrés puede manifestarse a través de cansancio constante, dolores musculares o de cabeza, problemas digestivos, dificultad para dormir, irritabilidad o falta de concentración. Muchas veces no se reconoce que estos síntomas están relacionados con el estrés.",
+          "¿CUÁNDO BUSCAR AYUDA? Es importante buscar apoyo profesional si el estrés se vuelve abrumador, interfiere con la vida diaria o provoca síntomas físicos o emocionales intensos. Pedir ayuda es una forma de cuidado y prevención."
+        ]
+      }
+    ],
+    "cuestionarios": [
+      {
+        "id": "ansiedad-test",
+        "title": "Cuestionario de Detección Orientativa de Ansiedad",
+        "icon": "activity",
+        "color": "#2196f3",
+        "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos 6 meses.",
+        "preguntas": [
+          "Me preocupo de forma constante por diferentes aspectos de mi vida (familia, trabajo, dinero, salud), incluso cuando no hay una razón clara.",
+          "Siento que me resulta difícil controlar mis pensamientos de preocupación.",
+          "Me siento tenso(a), inquieto(a) o con una sensación interna de nerviosismo la mayor parte del tiempo.",
+          "Tengo dificultad para concentrarme debido a preocupaciones o pensamientos repetitivos.",
+          "Me siento cansado(a) o fatigado(a), incluso sin haber realizado un esfuerzo físico importante.",
+          "Presento tensión muscular, dolores corporales o rigidez sin causa médica clara.",
+          "Tengo problemas para conciliar el sueño, mantenerlo o siento que mi descanso no es reparador.",
+          "Me siento irritable o reacciono con mayor intensidad ante situaciones cotidianas.",
+          "He notado síntomas físicos como molestias estomacales, sudoración, palpitaciones o dificultad para respirar cuando estoy preocupado(a).",
+          "Siento que estas preocupaciones interfieren con mi bienestar, mis relaciones o mis actividades diarias."
+        ],
+        "opciones": [
+          {"l": "Nunca", "v": 0},
+          {"l": "Algunas veces", "v": 1},
+          {"l": "Frecuentemente", "v": 2},
+          {"l": "Casi todos los días", "v": 3}
+        ],
+        "interpretacion": [
+          { "rango": "0-10", "texto": "Ansiedad dentro de un rango esperado." },
+          { "rango": "11-20", "texto": "Presencia de ansiedad leve a moderada." },
+          { "rango": "21-30", "texto": "Ansiedad elevada; podría ser útil buscar orientación profesional." },
+          { "rango": "31-40", "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental. Reconocer cómo nos sentimos es el primer paso para cuidar nuestra salud mental." }
+        ],
+        "guion": ""
+      },
+      {
+        "id": "autoestima-test",
+        "title": "¿Cómo es tu relación contigo?",
+        "icon": "heart",
+        "color": "#b695c0",
+        "intro": "No hay respuestas buenas o malas. Este ejercicio es solo para observarte con honestidad y amabilidad.",
+        "preguntas": [
+          "Suelo hablarme de manera dura o crítica cuando cometo un error.",
+          "Me cuesta reconocer mis logros; siento que 'no son para tanto'.",
+          "Dudo de mis decisiones y busco constantemente la aprobación de otros.",
+          "Siento culpa cuando pongo límites o digo que no.",
+          "Me comparo con otras personas y casi siempre salgo perdiendo.",
+          "Tengo miedo de equivocarme o de no cumplir expectativas ajenas.",
+          "Me resulta difícil confiar en mis capacidades, incluso cuando tengo experiencia.",
+          "A veces siento que no merezco cosas buenas o relaciones sanas.",
+          "Cuando algo sale mal, tiendo a culparme más de lo necesario.",
+          "Me exijo más de lo que le exigiría a alguien que quiero.",
+          "Me cuesta expresar lo que necesito por miedo a molestar o ser rechazado/a.",
+          "Siento que, haga lo que haga, nunca es suficiente."
+        ],
+        "opciones": [
+          {"l": "Casi nunca", "v": 1},
+          {"l": "A veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi siempre", "v": 4}
+        ],
+        "interpretacion": [
+          { "rango": "12-20", "texto": "Tu diálogo interno suele ser relativamente amable. Aun así, puede haber áreas donde fortalecer tu autovaloración." },
+          { "rango": "21-32", "texto": "Hay señales de autoexigencia y duda. Probablemente a veces eres más duro/a contigo de lo que mereces." },
+          { "rango": "33-48", "texto": "Aparecen varios indicadores asociados a una autoestima baja. No significa que haya algo 'mal' en ti, sino que has aprendido a tratarte desde la exigencia y el juicio. La autoestima no se fortalece exigiéndote más, sino aprendiendo a acompañarte mejor." }
+        ],
+        "guion": ""
+      },
+      {
+        "id": "burnout-test",
+        "title": "Cuestionario de Burnout Emocional",
+        "icon": "activity",
+        "color": "#9BC496",
+        "intro": "Escúchate con honestidad. Lee cada afirmación y marca la opción que más se acerque a cómo te has sentido en las últimas semanas o meses.",
+        "preguntas": [
+          "Me siento cansado/a incluso después de dormir o descansar.",
+          "Siento que mi energía se agota rápidamente durante el día.",
+          "Me cuesta levantarme por las mañanas o iniciar mis actividades.",
+          "Tengo dolores físicos (cabeza, cuello, espalda, estómago) sin una causa clara.",
+          "Me siento desmotivado/a o sin ganas de hacer cosas que antes disfrutaba.",
+          "Me siento irritable, impaciente o con poca tolerancia a la frustración.",
+          "Experimento una sensación de vacío, desconexión o apatía.",
+          "Siento que doy mucho y recibo poco reconocimiento.",
+          "Me cuesta concentrarme o tomar decisiones.",
+          "Siento que ya no rindo como antes, aunque me esfuerce.",
+          "Tengo pensamientos frecuentes como 'no puedo más' o 'estoy sobrepasado/a'.",
+          "Dudo de mis capacidades o siento miedo constante a fallar.",
+          "Me siento emocionalmente distante o indiferente frente a mis responsabilidades.",
+          "Realizo mis actividades en 'modo automático', sin disfrute.",
+          "Siento que no tengo control sobre mis tiempos o mis límites."
+        ],
+        "opciones": [
+          {"l": "Nunca", "v": 0},
+          {"l": "A veces", "v": 1},
+          {"l": "Frecuentemente", "v": 2},
+          {"l": "Casi siempre", "v": 3}
+        ],
+        "interpretacion": [
+          { "rango": "0-15", "texto": "Nivel bajo de señales de burnout. Aun así, conviene cuidar tus límites." },
+          { "rango": "16-30", "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente están pidiendo atención." },
+          { "rango": "31-45", "texto": "Riesgo alto de burnout emocional. Es importante detenerte y buscar apoyo." },
+          { "rango": "46-60", "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional. Pedir ayuda también es un acto de autocuidado." }
+        ],
+        "guion": ""
+      },
+      {
+        "id": "dependencia-test",
+        "title": "¿Cómo te vinculas emocionalmente?",
+        "icon": "heart-handshake",
+        "color": "#2196f3",
+        "intro": "Este ejercicio no busca juzgarte, sino ayudarte a comprenderte mejor.",
+        "preguntas": [
+          "Siento ansiedad o inquietud cuando la persona que quiero se distancia o no responde como espero.",
+          "Me cuesta imaginar mi bienestar emocional sin esa persona en mi vida.",
+          "Tolero situaciones que me lastiman por miedo a perder la relación.",
+          "Suelo priorizar las necesidades del otro por encima de las mías.",
+          "Me cuesta expresar lo que necesito por temor a generar conflicto o abandono.",
+          "Cuando hay problemas en la relación, suelo culparme a mí primero.",
+          "Siento miedo intenso a estar sola/o o a que la relación termine.",
+          "Busco constantemente señales de que la otra persona me quiere o me elige.",
+          "Cuando la relación no está bien, todo mi estado emocional se ve afectado.",
+          "Me adapto demasiado a la forma de ser del otro para no perder el vínculo.",
+          "Me siento insegura/o de mi valor cuando no recibo atención o validación.",
+          "A veces siento que sin esa relación 'me pierdo' o me quedo vacía/o."
+        ],
+        "opciones": [
+          {"l": "Casi nunca", "v": 1},
+          {"l": "A veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi siempre", "v": 4}
+        ],
+        "interpretacion": [
+          { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relativamente segura. Aun así, todos podemos fortalecer nuestra autonomía emocional." },
+          { "rango": "21-32", "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección." },
+          { "rango": "33-48", "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte. Sanar no significa dejar de amar, sino volver a ti." }
+        ],
+        "guion": ""
+      },
+      {
+        "id": "depresion-test",
+        "title": "Indicadores de Depresión",
+        "icon": "activity",
+        "color": "#81638b",
+        "intro": "Este cuestionario no sustituye una evaluación profesional. Su objetivo es ayudarte a reflexionar sobre tu estado emocional actual y reconocer si sería importante buscar acompañamiento.",
+        "preguntas": [
+          "Me siento triste, apagada(o) o vacía(o) sin una razón clara.",
+          "He perdido interés o ganas por actividades que antes disfrutaba.",
+          "Me siento culpable, insuficiente o muy dura(o) conmigo misma(o).",
+          "Siento que hago las cosas en automático, sin verdadera conexión emocional.",
+          "Me siento cansada(o) constantemente, incluso después de descansar.",
+          "Tengo dificultades para dormir o duermo más de lo habitual.",
+          "He notado cambios importantes en mi apetito o en mi peso.",
+          "Me cuesta concentrarme o tomar decisiones simples.",
+          "Siento que no soy suficiente o que decepciono a los demás.",
+          "He pensado que las personas a mi alrededor estarían mejor sin mí.",
+          "Cumplo con mis responsabilidades, pero emocionalmente me siento desconectada(o).",
+          "Me cuesta disfrutar momentos con mis hijos, mi familia o personas cercanas.",
+          "Siento que pedir ayuda es difícil o que debo poder sola(o) con todo."
+        ],
+        "opciones": [
+          {"l": "Nunca", "v": 0},
+          {"l": "Algunos días", "v": 1},
+          {"l": "La mayoría de los días", "v": 2},
+          {"l": "Casi todos los días", "v": 3}
+        ],
+        "interpretacion": [
+          { "rango": "General", "texto": "Si respondiste 'la mayoría de los días' o 'casi todos los días' en varias preguntas, especialmente en las relacionadas con tristeza persistente, vacío, culpa o pensamientos de no ser necesaria(o), es importante no minimizar lo que estás sintiendo. Buscar apoyo profesional es un acto de responsabilidad emocional y amor propio." }
+        ],
+        "guion": ""
+      },
+      {
+        "id": "estres-test",
+        "title": "Indicadores de Estrés",
+        "icon": "activity",
+        "color": "#9BC496",
+        "intro": "Este cuestionario te ayudará a identificar qué tan presente está el estrés en tu vida actualmente. No sustituye la valoración profesional.",
+        "preguntas": [
+          "Siento que tengo demasiadas responsabilidades y poco tiempo para mí.",
+          "Me cuesta relajarme, incluso cuando no estoy ocupada(o).",
+          "Me siento irritable, impaciente o con cambios de humor.",
+          "Me preocupo constantemente, aun por cosas pequeñas.",
+          "Presento tensión muscular (cuello, hombros, mandíbula o espalda).",
+          "Tengo dolores de cabeza, malestar estomacal o fatiga frecuente.",
+          "Siento el corazón acelerado o dificultad para respirar en momentos de presión.",
+          "Me siento físicamente agotada(o) la mayor parte del tiempo.",
+          "Tengo dificultades para dormir o mi descanso no es reparador.",
+          "He notado cambios en mi apetito (como más o menos de lo habitual).",
+          "Recurro al café, azúcar o alimentos poco saludables para mantenerme activa(o).",
+          "Siento que vivo en modo 'urgente' o 'automático'.",
+          "Me cuesta disfrutar el presente o momentos con mi familia.",
+          "Dejo mi descanso o autocuidado al final de la lista.",
+          "Siento que, si me detengo, todo se descontrola."
+        ],
+        "opciones": [
+          {"l": "Nunca", "v": 0},
+          {"l": "Algunas veces", "v": 1},
+          {"l": "Frecuentemente", "v": 2},
+          {"l": "Casi todo el tiempo", "v": 3}
+        ],
+        "interpretacion": [
+          { "rango": "0-15", "texto": "Estrés bajo. Tu nivel de estrés es manejable. Aun así, es importante mantener hábitos de autocuidado." },
+          { "rango": "16-30", "texto": "Estrés moderado. El estrés ya está influyendo en tu bienestar emocional o físico. Escucharte y hacer ajustes puede prevenir que aumente." },
+          { "rango": "31-45", "texto": "Estrés alto. El estrés está teniendo un impacto significativo en tu vida. Buscar apoyo y priorizar tu salud emocional es muy recomendable." }
+        ],
+        "guion": "El estrés no siempre es señal de debilidad, muchas veces es una respuesta a sostener demasiado durante mucho tiempo. Escucharlo a tiempo también es una forma de cuidarte."
+      }
+    ]
+  },
   "balance": [
     {
       "id": "equilibrio",
       "title": "Vida en Equilibrio",
       "icon": "sun",
-      "contenido_html": "<p>Vivimos en una cultura que aplaude a quien puede con todo. Pero casi nadie habla de lo que ocurre internamente cuando sostenemos demasiado tiempo un ritmo que no respeta nuestros límites. El equilibrio no es hacer todo perfecto. Es aprender a distribuir energía, no solo tiempo.</p><h3>1. Micro-balance diario</h3><p>No necesitas una vida perfecta para sentir equilibrio. Necesitas pequeñas acciones consistentes: 1 acción para avanzar, 1 para tu cuerpo, 1 para un vínculo, 1 solo para ti.</p><h3>2. Distribuir energía, no horas</h3><p>La fatiga de decisión demuestra que nuestra capacidad disminuye con cada elección. Equilibrar implica proteger energía mental para lo que sí transforma tu vida.</p><h3>3. Espacios de descarga</h3><p>No necesitas evitar el estrés. Necesitas espacios para procesarlo (escritura, silencio, terapia). Lo que no se procesa, se acumula.</p>"
+      "color": "#2196f3",
+      "contenido": [
+        "Estrategias para balancear responsabilidades y bienestar. Vivimos en una cultura que aplaude a quien puede con todo. Trabajo. Hijos. Metas. Relaciones. Salud. Estabilidad emocional. Pero casi nadie habla de lo que ocurre internamente cuando sostenemos demasiado tiempo un ritmo que no respeta nuestros límites.",
+        "El equilibrio no es hacer todo perfecto. Es aprender a distribuir energía, no solo tiempo. ¿Te sientes cansada incluso cuando duermes? ¿Te resulta difícil desconectarte sin sentir culpa? Si respondiste 'sí', no estás fallando. Probablemente estás sosteniendo más de lo que tu sistema puede integrar.",
+        "El mito del 'puedo con todo': El agotamiento no surge por debilidad personal, sino por un desbalance sostenido entre demanda y recuperación. No es que no seas fuerte. Es que nadie puede funcionar bien sin pausas reales.",
+        "Muchas veces confundimos responsabilidad con hiper-responsabilidad: Asumir tareas que no nos corresponden, resolver antes de que nos pidan ayuda, anticipar problemas constantemente, sentir que descansar es fallar. El equilibrio comienza cuando dejamos de medir nuestro valor por cuánto soportamos.",
+        "1. Micro-balance diario: No necesitas una vida perfecta para sentir equilibrio. Necesitas pequeñas acciones consistentes. Cada día incluye: 1 acción que avance tu responsabilidad principal, 1 acción para tu cuerpo, 1 acción para un vínculo significativo, 1 acción solo para ti.",
+        "2. Distribuir energía, no horas: No todas las tareas cuestan lo mismo emocionalmente. La fatiga de decisión demuestra que nuestra capacidad mental disminuye con cada elección que hacemos. Equilibrar implica proteger energía mental para lo que sí transforma tu vida.",
+        "3. Espacios de descarga emocional: No necesitas evitar el estrés. Necesitas espacios para procesarlo. Puede ser escritura reflexiva, terapia o silencio intencional. Lo que no se procesa, se acumula.",
+        "Herramienta práctica: Mapa de Energía Semanal. Divide tu semana en cuatro áreas: Responsabilidades, Cuidado físico, Vínculos, Espacio personal. Si una sola área domina más del 50% de tu energía, probablemente ahí esté el desbalance.",
+        "El equilibrio no es resistencia constante. Es consciencia constante. Es preguntarte: ¿Esto me está construyendo o me está desgastando? ¿Estoy eligiendo o estoy reaccionando? El equilibrio no es un destino al que se llega. Es una práctica diaria de honestidad contigo misma.",
+        "En NeuroBloom entendemos el equilibrio no como una división exacta entre responsabilidades y bienestar, sino como una relación consciente contigo misma. No romantizamos el 'poder con todo'. Elegimos construir de forma sostenible. Porque florecer no es acelerar hasta romperte. Es crecer con raíces fuertes."
+      ]
+    }
+  ],
+  "bloom_library": {
+    "intro_text": [
+      "Las historias, las ideas y las conversaciones correctas pueden abrir procesos profundos. Esta selección está pensada para ampliar perspectiva, fortalecer regulación emocional y fomentar autoconocimiento.",
+      "PELÍCULAS: 'Inside Out' (Regulación emocional y validación de la tristeza). 'The Pursuit of Happyness' (Resiliencia y propósito en la adversidad). 'Little Miss Sunshine' (Dinámicas familiares y autenticidad). 'A Beautiful Mind' (Salud mental y acompañamiento).",
+      "LIBROS: 'Inteligencia emocional' (Comprender cómo funcionan nuestras emociones y decisiones). 'Mindfulness en la vida cotidiana' (Atención plena aplicada a la vida real). 'El hombre en busca de sentido' (Resiliencia desde el significado incluso en el dolor). 'Los dones de la imperfección' (Vulnerabilidad, autoestima y autenticidad).",
+      "PODCASTS: 'Deja Hablar a Tu Herida' (Conversaciones reales sobre heridas emocionales, un espacio creado desde NeuroBloom). 'The Happiness Lab' (Psicología basada en evidencia). 'On Being' (Reflexiones sobre significado, espiritualidad y humanidad).",
+      "CONFERENCIAS TED: Brené Brown ('The Power of Vulnerability'). Amy Cuddy ('Your Body Language May Shape Who You Are'). Guy Winch ('Why We All Need to Practice Emotional First Aid').",
+      "DOCUMENTALES: 'Stutz' (Herramientas prácticas desde la psicoterapia). 'The Social Dilemma' (Impacto psicológico de redes sociales y tecnología)."
+    ]
+  },
+  "cuentos": [
+    {
+      "id": "clara-tiktoker",
+      "categoria": "adolescentes",
+      "title": "Clara TikToker",
+      "contenido": [
+        "Clara es una chica linda: piel blanca, ojos grandes, cabello bonito y una piel que pareciera que la terrible adolescencia no la ha alcanzado, como lo hizo conmigo…",
+        "Clara es esa chica que tú ves pasando por la escuela sin fijar la vista en nadie, pero todos la quieren ver. Ella es popular, hermosa y pareciera que tiene una vida perfecta; ella es novia del chico más guapo de todos.",
+        "Clara tiene un TikTok donde sube constantemente videos de ella bailando. Tiene miles de seguidores y likes, muchos comentarios en sus videos y se la pasa subiendo todo lo que hace en su vida. De verdad parecería que tiene la vida perfecta… eso creí hasta que…",
+        "Era martes. Caminábamos con normalidad en la secundaria: clases aburridas, maestros que anotaban la tarea en el pizarrón y se sentaban el resto de la clase con su celular. Pero eso sí, si respirabas ya te estaban poniendo reporte. Para que me entiendan mejor, era un día completamente normal en la secundaria.",
+        "Recuerdo haber pedido permiso para ir al sanitario. Empujé la puerta, pero estaba atascada y no la podía abrir… claro, otra cosa más que se rompe en esta secundaria. Realmente eso era normal: el director no figuraba y todos hacían como que trabajaban, pero en realidad no pasaba mucho. Sin embargo, esta vez fue diferente. La puerta se regresó con fuerza hacia mí y yo la empujé con el doble de fuerza; ahí me di cuenta de que atrás de la puerta estaba Clara.",
+        "Clara no era clara… es decir, Clara estaba llorando. Tenía los ojos rojos, la cara hinchada y su maquillaje perfecto de diario ahora estaba completamente escurrido por toda su cara. Yo sólo pude decir:",
+        "¿Qué te pasó? ¿Quién te hizo daño?",
+        "Pese a que Clara había estado en primer grado conmigo, después de que revolvieran a los alumnos en diferentes grupos, ahora que estábamos en tercero yo no sabía nada de ella y no habíamos hablado desde hacía mucho tiempo.",
+        "Clara, con un tono molesto y decepcionado a la vez por haberla descubierto, se volteó y mientras se lavaba las manos me dijo:",
+        "Bien… ahora ya tienes algo para reírte de mí y contarle a todos.",
+        "Yo sólo pude decir:",
+        "¿Por qué haría eso? Tú me caes bien, Clara.",
+        "Clara, muy extrañada, volteó y dijo:",
+        "¿Eso es verdad o sólo lo dices para quedar bien?",
+        "Clara no se esperó a que yo contestara y, con un tono más genuino, continuó:",
+        "Sabes, estoy abrumada. Creo que siempre esperan que vista bien, que me maquille bonito, que suba videos bailando… pero he estado recibiendo un montón de mensajes horribles en TikTok: mensajes de señores, mensajes de alumnos que me dicen cosas que jamás imaginé… y no sé qué hacer.",
+        "Yo le dije a Clara que debería decirles a sus papás. Clara, con una risa amarga, dijo:",
+        "No sabes, ¿verdad? Mi mamá se la pasa trabajando o con su nuevo novio. Mi papá nunca estuvo presente; ni siquiera sé quién es.",
+        "Clara… puedes cerrar tu TikTok y ya.",
+        "Eso dije y enseguida un huracán de lágrimas aterrizó en el sanitario, mientras una chica de primer grado tocaba desesperada porque se haría pis encima.",
+        "Clara, conflictuada, dijo que realmente no sabía quién era fuera de TikTok. Diego, su novio, el chico más guapo de la escuela, estaba haciendo que Clara se viera sexy cada vez más, ya que estaba en los planes que Clara abriera una de esas paginitas azules. Sin su rostro, claro, por ser menor de edad.",
+        "Clara estaba realmente conflictuada. Decía que, si no lo hacía, Diego se molestaría y revelaría un secreto muy profundo de ambos.",
+        "En el momento justo en el que Clara me iba a revelar ese secreto, en el momento en que estoy segura de que sería la única chica en esa secundaria que tendría esa información de la niña más popular y su novio, entró Isabela, de primer grado, empujando como una manada de elefantes esa puerta y ya casi haciéndose, literalmente, pis encima. Pasó entre las dos y cerró de golpe la puerta del sanitario.",
+        "Clara reaccionó como si de pronto alguien le pusiera la máscara que siempre lleva y salió apresurada del baño. Justo afuera estaba Diego esperándola; la tomó del brazo fuerte y se fueron a su salón.",
+        "Nunca supe qué pasó con Clara. Realmente me preocupa. Clara faltó muchas semanas a la secundaria después de ese incidente. Lo último que supe de ella fue que se intentó acercar a una de nuestras maestras; le contó algo. No sé si fue un secreto. La maestra se veía preocupada e intentando que la escuela hiciera algo, pero justo cuando terminó de hablar con ella se acercó la coordinadora académica y le dijo:",
+        "¿Usted qué hace aquí? ¿Por qué sigue viniendo si ya está reprobada? Váyase a su casa y luego le avisamos del extraordinario.",
+        "Vi en ese momento cómo nuestra maestra se tragó palabras que sólo ella sabe por qué las sintió así: enojo y decepción.",
+        "Nadie supo qué pasó con Clara hasta el día de hoy. Lo que sí es que Clara, después de ese día en el baño, jamás volvió a ser “Clara TikToker”."
+      ]
     },
     {
-      "id": "crisis",
+      "id": "ahora-quien-soy",
+      "categoria": "adolescentes",
+      "title": "¿Y ahora quién soy?",
+      "contenido": [
+        "Corría un nuevo ciclo escolar y yo crecí de golpe. En realidad, nunca había sido muy agraciada, pero después de las vacaciones mi cuerpo comenzó a cambiar. Ya no tenía esos kilos de más, mi cabello creció y compré una plancha para alisarlo. Empecé a usar lazos que combinaban con mis tenis, aprendí a ponerme lentes de contacto y, de pronto, todo parecía encajar perfecto. Los compañeros de la preparatoria comenzaron a voltearme a ver.",
+        "Realmente siempre me había sentido como el patito feo. Siempre obtenía un “no” por respuesta sin siquiera intentarlo. Pero ese verano todo cambió. Mi cuerpo empezó a verse diferente y, al mismo tiempo, mi interior también: más segura, más inteligente, más bonita. Sentía que por fin estaba descubriendo quién era… o al menos eso creí.",
+        "El segundo año de preparatoria fue genial. Elegimos especialidad y yo me fui por el área humanista; ahí estaban psicología y derecho (esto es importante), porque aunque parecía un detalle pequeñísimo, después de eso los grupos se dividieron en bandos: los ñoños de matemáticas, los humanistas y otros que ni siquiera recuerdo quiénes eran, aunque estoy segura de que eran los más extraños.",
+        "Todo pasó relativamente tranquilo hasta el nuevo ciclo escolar. Ahora estábamos en tercer grado y no sé cómo, pero la preparatoria se había convertido en mi lugar favorito. Tenía muchos amigos, sobre todo hombres. El final de cada clase era el pretexto perfecto para salir a caminar y ver muchachos. En casa siempre me habían reprimido un poco con ese tema, más por ser la menor, así que no era muy experta.",
+        "¿Virgen? Por supuesto que sí… y sentía que así sería hasta la eternidad, porque aunque ahora tenía la mirada de muchos encima, nunca había tenido novio.",
+        "Ese día lo recuerdo perfecto. El día que puso mi mundo de cabeza.",
+        "Era un martes por la mañana y unas viejas amigas que, por el acomodo de especialidades, ahora parecían mis rivales porque una de ellas estaba completamente alucinada con que yo quería “robarle” a sus amigos, comenzaron a verme raro y a decir cosas que no entendí hasta después.",
+        "Resulta que el chico con el que ella había estado “quedando” algunas semanas estaba empezando a coquetear conmigo. Yo ni enterada… y la verdad, tampoco me importaba demasiado. Me gustaba y punto.",
+        "Sin embargo, un buen día él decidió que, pese a cualquier otra cosa, la elegiría a ella. Pero oigan, estábamos en la preparatoria y, por muy dramático que sonara todo, realmente tenía muchas opciones. Aunque he de admitir que sí dolió y me movió muchísimo.",
+        "Gracias a eso comenzó el gran huracán de mi vida.",
+        "Ahí empecé a cuestionarme todo: mi sexualidad, por qué otras ya habían tenido relaciones y yo no, qué tenía yo de malo. Demasiadas preguntas para una cabeza tan pequeña. Literal, tengo la cabeza muy pequeña. El punto es que ahí comenzó mi carrera contra el tiempo. Yo quería un novio ya, como fuera. Quería dejar de ser esa ñoña virgen a la que sus papás tenían guardada en casa y no dejaban salir por las noches. ¿Por qué no podía ser una chica normal? Eso tenía que cambiar.",
+        "Con el verano acercándose y el fin del ciclo escolar —y, por lo tanto, el final de la preparatoria y el inicio de la universidad— comenzaron a organizar una salida de graduación a unas hermosas cabañas fuera de la ciudad.",
+        "Para entonces, un fin de semana antes, en una reunión con compañeros, un chico que me encantaba me besó. Y mi mente encendió todas las alarmas. Decreté: éste será mi novio.",
+        "Así que ya se imaginarán: cuando escuché lo de las cabañas pensé inmediatamente que tenía la oportunidad perfecta para dejar de ser la única virgen del salón.",
+        "Y sí, seguí saliendo con él. Los planes de graduación se acercaban, junto con el estrés de los exámenes, los trabajos finales y también el anhelo de brincar a una etapa más adulta, con un poco más de libertad al entrar a la universidad. Todo eso me emocionaba demasiado.",
+        "Yo siempre había querido estudiar para ser actriz. Pero no cualquier actriz: una grande. Así que nada ni nadie iba a romper mis planes… o eso pensé.",
+        "El día llegó.",
+        "Subíamos maletas a la camioneta para irnos cuatro días a las cabañas más bonitas que había visto, aunque hasta entonces sólo las conociera en fotos. Era muy temprano. El olor a café y a tierra mojada por la llovizna del día anterior hacían que todo se sintiera perfecto.",
+        "Y claro… ahí estaba él. La pieza perfecta para cumplir mi objetivo.",
+        "He de admitir que no estaba enamorada ni encariñada. Era otra cosa. Ya saben: hormonas y algo más. Él siempre cariñoso, abrazándome, todo normal y perfecto para mi plan.",
+        "Llegamos a las cabañas y cada quien eligió habitación. Obviamente nosotros dormiríamos en la misma. Había maestros, pero realmente no pusieron objeción.",
+        "El primer día disfrutamos la fogata: canciones, bombones, risas… todo parecía perfecto. El segundo y tercer día exploramos con los compañeros, contamos historias de terror y sembramos unos arbolitos. Y así llegó el cuarto día. La última noche ahí.",
+        "He de decir que pensé que no pasaría… pero sí pasó.",
+        "Acurrucados bajo la luna, lejos de todos, de pronto… ya no era esa ñoña. Ya no era virgen y podía gritarlo a los cuatro vientos. Aunque, siendo sincera, después de haber logrado mi objetivo, sólo pensé: ¿Todo para esto?",
+        "En fin.",
+        "Regresamos a la normalidad. Pasaron los días, llegaron las vacaciones y poco a poco nos fuimos alejando más y más. Hasta que un día noté algo extraño: mi periodo estaba atrasado.",
+        "Eso me puso nerviosa, pero… ¿embarazada? Nah. Sólo había sido una vez y ni siquiera la disfruté. Quizá estaba nerviosa.",
+        "Pero pasó una semana. Luego dos. Luego tres. Y nada.",
+        "Decidí escribirle a mi “novio”… o lo que fuera en ese momento. Contestó rápido. Le conté y decidió venir a mi casa. Compró una prueba “de pasada”. Mi mamá había salido por el periódico para revisar los resultados de la universidad, porque ahí los publicarían.",
+        "Nerviosos, afuera de mi casa esperamos mientras yo tomaba muchísima agua para poder hacer la prueba.",
+        "Entré al baño.",
+        "Mis manos sudaban. Estaba temblando.",
+        "Mientras esperaba el resultado pensaba: Claro que no estás embarazada. Esto es una tontería. ¿Por qué gastamos en esto? Quizá sólo soy irregular… o infértil. ¿Y si tengo cáncer? ¿Eso puede pasar?",
+        "La alarma sonó. Era momento de girar la prueba.",
+        "La tomé con las manos resbalosas de tanto sudor y, justo en ese instante, escuché el grito de mi mamá desde afuera:",
+        "¡Quedaste en la universidad!",
+        "Y frente a mis ojos apareció un enorme POSITIVO.",
+        "Yo sólo pude pensar:",
+        "¿Y ahora quién soy?"
+      ]
+    },
+    {
+      "id": "grupo-whatsapp",
+      "categoria": "adolescentes",
+      "title": "El grupo de WhatsApp",
+      "contenido": [
+        "Ésta es la historia de cómo un grupo de WhatsApp terminó convirtiéndose en el villano.",
+        "Era otoño en la preparatoria. Todo transcurría con normalidad, pero a veces la normalidad no significa que todo esté perfecto; simplemente significa que la costumbre ha hecho que ciertas inconformidades e injusticias se vuelvan tan comunes que dejamos de notarlas.",
+        "Sofía era una chica inteligente, guapa y muy querida por la mayoría. Sus padres eran médicos y, desde afuera, parecía tener una vida envidiable. Era amable, sociable y empática con quienes la rodeaban. Sin embargo, como ocurre con todos nosotros, también tenía emociones que podían salir a la superficie cuando la presión, el estrés o el cansancio se acumulaban demasiado tiempo.",
+        "Recuerdo perfectamente aquel jueves en que la maestra de Arte nos reunió para formar equipos. El proyecto final del semestre consistía en crear una obra visual que representara un movimiento artístico, y tendríamos poco más de cinco semanas para desarrollarla. En mi equipo estaban Sofía; Enrique, un chico extraordinariamente inteligente pero muy reservado; Cinthia, que era capaz de conversar con cualquier persona aunque rara vez cumplía con su parte del trabajo; y Nora.",
+        "Nora era difícil de describir sin que las personas formaran una imagen equivocada de ella. Siempre vestía de negro, escuchaba metal durante los descansos y llevaba unas botas que parecían más pesadas que sus propios pasos. Hablaba poco, evitaba llamar la atención y daba la impresión de sentirse más cómoda observando que participando.",
+        "Después de discutir varias opciones, elegimos trabajar sobre el surrealismo inspirándonos en Dalí. La idea era construir un mural colectivo utilizando diferentes materiales y símbolos para representar aquello que habitaba en nuestro mundo interior. Antes de comenzar, la maestra nos pidió responder una serie de preguntas profundas relacionadas con nuestros pensamientos, emociones, experiencias de vida y aspectos de nosotros mismos que pocas veces compartíamos con los demás.",
+        "Aquellas preguntas parecían simples, pero no lo eran. Había algo vulnerable en escribir sobre nuestros miedos, nuestras heridas o las cosas que nos hacían sentir diferentes.",
+        "Como era habitual, Sofía tomó rápidamente el liderazgo del equipo. Organizó ideas, propuso la estructura del mural y sugirió que creáramos un grupo de WhatsApp para compartir avances, fotografías y cualquier información relacionada con el proyecto. Todos estuvimos de acuerdo y, durante las primeras semanas, el grupo funcionó exactamente como debía funcionar.",
+        "Compartíamos imágenes de nuestros bocetos, intercambiábamos opiniones sobre materiales y acordábamos horarios para reunirnos. Nada fuera de lo normal. Nadie imaginaba que aquel espacio creado para colaborar terminaría convirtiéndose en algo muy distinto.",
+        "Todo comenzó una tarde cualquiera.",
+        "Nora estaba trabajando en una de las secciones del mural y decidió enviarnos una fotografía de sus avances. Lo hizo sin darse cuenta de que, en una esquina de la imagen, aparecía parte de una de las hojas donde habíamos respondido aquellas preguntas personales que la maestra nos había pedido contestar al inicio del proyecto.",
+        "Probablemente nadie habría prestado demasiada atención al detalle si alguien no hubiera ampliado la fotografía.",
+        "Entonces ocurrió.",
+        "Entre las respuestas podía leerse una frase:",
+        "\"A veces siento que, si desapareciera, nadie lo notaría.\"",
+        "Durante algunos segundos nadie escribió nada.",
+        "Después apareció un emoji riéndose.",
+        "Luego otro.",
+        "Y después llegó el primer comentario.",
+        "Al principio parecían simples bromas. Comentarios que, vistos de manera aislada, podían parecer insignificantes. Sin embargo, las palabras tienen una forma curiosa de acumularse. Lo que comenzó como una observación se convirtió en una burla. Lo que comenzó como una burla terminó transformándose en capturas de pantalla, memes y comentarios que poco a poco fueron saliendo del grupo original.",
+        "Lo más inquietante era que nadie parecía sentirse responsable.",
+        "Algunos escribían.",
+        "Otros compartían.",
+        "Otros reaccionaban con emojis.",
+        "Y muchos simplemente observaban en silencio.",
+        "Mientras tanto, Nora comenzó a cambiar.",
+        "No fue algo evidente de un día para otro. Fue más bien un proceso lento, casi imperceptible. Hablaba menos durante las clases, evitaba participar en las reuniones del equipo y pasaba más tiempo sola. Sus intervenciones se volvieron breves y sus silencios cada vez más largos.",
+        "Lo extraño es que las señales estaban ahí.",
+        "Todos podíamos verlas.",
+        "Pero nadie se detuvo realmente a mirarlas.",
+        "Cuando finalmente llegó el día de presentar el mural, la maestra reunió al grupo frente a la obra terminada. Cada sección reflejaba el mundo interior de quien la había creado.",
+        "La parte de Sofía estaba llena de colores vivos, caminos abiertos y figuras en movimiento.",
+        "La de Enrique parecía un laberinto complejo construido con ideas y símbolos difíciles de descifrar.",
+        "La de Cinthia mostraba una enorme máscara sonriente rodeada de luces y aplausos.",
+        "Y después estaba la sección de Nora.",
+        "En medio de una multitud pintada con gran detalle aparecía una figura sentada sola. Decenas de personas caminaban a su alrededor sin verla. Nadie se detenía. Nadie la observaba. Nadie parecía notar siquiera que estaba allí.",
+        "Por primera vez en mucho tiempo, el salón guardó silencio.",
+        "Porque en aquel instante comprendimos algo que había estado frente a nosotros desde el principio.",
+        "Nora nunca estaba pidiendo atención.",
+        "Nunca buscó lástima.",
+        "Nunca intentó convertirse en el centro de nada.",
+        "Solo quería ser vista.",
+        "Solo quería sentir que importaba.",
+        "Ese día entendimos que el verdadero villano de la historia no había sido una sola persona.",
+        "No había sido Nora.",
+        "No había sido Sofía.",
+        "Ni siquiera quienes escribieron los comentarios más crueles.",
+        "El verdadero villano había sido ese fenómeno tan común en el que cada persona aporta una pequeña parte del daño y termina convencida de que no tuvo responsabilidad alguna.",
+        "Una captura.",
+        "Un emoji.",
+        "Una risa.",
+        "Un silencio.",
+        "Pequeñas acciones que, por sí solas, parecían inofensivas.",
+        "Pero que juntas terminaron convirtiéndose en algo mucho más grande.",
+        "Desde entonces aprendí algo que nunca olvidé.",
+        "Detrás de cada pantalla existe una persona.",
+        "Y detrás de cada mensaje hay emociones que no siempre alcanzamos a ver.",
+        "Porque a veces las heridas más profundas no son las que se hacen cara a cara.",
+        "A veces son las que se escriben desde la comodidad de una pantalla y se envían sin pensar que alguien tendrá que cargar con ellas después."
+      ]
+    },
+    {
+      "id": "habitaciones-cerradas",
+      "categoria": "adultos",
+      "title": "La casa de las habitaciones cerradas",
+      "contenido": [
+        "Elara, una mujer de 34 años, recién había heredado una casa vieja y abandonada en un pueblo cercano. La casa era propiedad de su bisabuela, a quien jamás conoció, y el testamento había estado envuelto en problemas durante años hasta que, por fin, después de mucho tiempo, todo logró aclararse y dar paso a la repartición de bienes.",
+        "Cuando supo que había heredado aquella casa, sintió un revuelo de emociones. No sabía qué hacer con ella. Estaba lejos de su empleo, fuera de la vida que ya conocía y lejos de los últimos recuerdos de sus padres, quienes habían fallecido hacía diez años en un accidente automovilístico.",
+        "Lo primero que pensó fue: Tengo que ir a conocer la casa. ¿Qué tanto pudo haber heredado si su familia nunca había sido de mucho dinero?",
+        "Elara emprendió el viaje aprovechando unas vacaciones en el trabajo. El camino fue largo. El clima parecía cambiar conforme avanzaba, tornándose frío y nublado, como si estuviera entrando en una película de terror.",
+        "Al llegar, se estacionó frente a aquello... Y es que eso no era para nada una casa pequeña. Era toda una mansión. Una mansión enorme y deteriorada. Repararla le costaría mucho tiempo, dinero y esfuerzo. Parecía casi imposible.",
+        "Tomó las llaves y se dispuso a entrar. La cerradura estaba oxidada y fue difícil introducir aquella llave vieja, pero al final lo logró.",
+        "Cuando abrió aquella puerta gigante y polvosa, un estruendo de emociones se apoderó de ella… temor, enojo, tristeza, llanto. Eran emociones que no le pertenecían antes de cruzar aquella puerta, pero curiosamente todas le resultaban familiares.",
+        "Elara comenzó a recorrer la gigantesca casa. Muy pronto se dio cuenta de que tenía más habitaciones de las que parecía haber desde el exterior.",
+        "Al abrir la primera puerta descubrió una habitación repleta de fotografías de sus padres y relojes que, curiosamente, estaban detenidos exactamente a la misma hora, 12:45.",
+        "Todo tenía polvo, la habitación apenas recibía luz, y las emociones que provocaba en ella eran tristeza, enfado y duda.",
+        "Aquella habitación hablaba completamente de sus padres, se detuvo frente a un escritorio antiguo y se percató de que había una carta dirigida a ella, la tomó con cuidado y se dispuso a leerla.",
+        "\"Elara: Has sido una hija ejemplar. Te agradezco tu amor, tu compasión, tu creatividad, tus locuras y hasta tu rebeldía. Eres, sin duda, lo mejor que pudimos tener tu madre y yo. Es hora de crecer. Feliz cumpleaños.\"",
+        "Elara se heló, era una nota de cumpleaños… La nota que jamás llegó.",
+        "Sus padres habían fallecido justo el día de su cumpleaños, y desde entonces Elara nunca volvió a disfrutar celebrarlo.",
+        "\"Es hora de crecer...\" Aquella frase la impactó más de lo que quizá la habría impactado recibirla aquel día. Sentía como si sus padres hubieran guardado esas palabras exactamente para ese momento, como si todo hubiese estado esperando, pero... ¿Qué hacía esa nota en una casa que llevaba años abandonada?",
+        "La siguiente habitación era aún más oscura, helada, un frío intenso golpeó el rostro de Elara en cuanto abrió la puerta.",
+        "Dentro había un montón de juguetes que parecían haberse quedado esperando a que alguien continuara el juego. Las paredes estaban cubiertas por un viejo tapiz de unicornios y arcoíris.",
+        "Pero algo llamó su atención, entre los dibujos y los ositos había pequeños mensajes escritos con una letra diminuta:",
+        "\"No eres suficiente.\"",
+        "\"Si te portas mal, se van.\"",
+        "\"Te abandonaron, lo mereces.\"",
+        "“¿Ves lo que provocas?”",
+        "Apenas terminó de leerlos, quiso decir algo, pero una sombra oscura cruzó la habitación, tan rápida que apenas pudo verla.",
+        "Elara corrió tras ella, pensando que quizá había alguien dentro de la casa, sin embargo, apenas atravesó la puerta, esta se cerró de golpe detrás de ella, y la sombra desapareció.",
+        "¿Qué era eso? ¿Qué era todo lo que estaba ocurriendo? ¿Fantasmas?... Nah. Elara no creía en esas cosas, eso era imposible.",
+        "La tercera puerta era la más grande que había visto hasta el momento, estaba cerrada con gruesas cadenas y tenía una madera tan vieja y áspera que casi dolía tocarla.",
+        "Después de mucho intentarlo, logró abrirla. Dentro encontró algo completamente distinto a lo que imaginaba. Cajas, objetos rotos, espejos dañados, cartas quemadas, nada parecía tener sentido.",
+        "Salió de prisa. Necesitaba alejarse de aquella sensación.",
+        "Intentó abrir la siguiente puerta para quitarse el nudo en la garganta y la ansiedad que le había dejado la habitación anterior. Pero ahí... Ahí encontró una puerta que no lograba abrir, parecía pintada a mano, delicada, blanca, como una de aquellas servilletas que las abuelas tejen con paciencia y amor, pequeños rosales decoraban la superficie con una precisión casi perfecta.",
+        "Elara estuvo a punto de rendirse. Probó una llave tras otra de aquel enorme llavero antiguo, y cuando llegó a la última... La puerta se abrió, Lo que encontró al otro lado era aún más confuso de lo que había imaginado.",
+        "Mecedoras.",
+        "Pero no estaban vacías. Todas tenían mujeres sentadas en ellas. Tejiendo.",
+        "Elara comenzó a cuestionarse… ¿Qué hace aquí toda esta gente?, ¿Quiénes son estas mujeres?",
+        "Ninguna respondió. Las agujas siguieron moviéndose al mismo ritmo, tac, tac, tac.",
+        "Elara avanzó unos pasos y las mujeres parecían ignorarla por completo, hasta que una de ellas levantó la vista.",
+        "Era anciana, muy anciana, sus manos estaban cubiertas de arrugas, pero tejían con una velocidad imposible, en sus ojos se veía una profundidad, un misterio, como si sus ojos reflejaran una guerra vivida en calma, en quietud, esa sabiduría que solamente da el paso de los años.",
+        "Llegaste tarde, dijo.",
+        "¿Perdón?",
+        "Te hemos esperado mucho tiempo.",
+        "No las conozco, contestó Elara.",
+        "La anciana sonrió, eso creen siempre las primeras.",
+        "Un escalofrío recorrió la espalda de Elara. ¿Quiénes son ustedes?",
+        "La mujer dejó las agujas sobre su regazo. Somos las que vinieron antes.",
+        "Antes de que Elara pudiera preguntar algo más, todas las mujeres dejaron de tejer al mismo tiempo, aquella habitación quedó en silencio, y entonces una de ellas señaló una pequeña puerta al fondo… Una puerta que Elara habría jurado que no estaba ahí cuando entró.",
+        "La siguiente habitación te está esperando.",
+        "Elara caminó hacia aquella pequeña puerta sintiendo una mezcla de curiosidad y temor, y la abrió lentamente.",
+        "Una ráfaga tibia le acarició el rostro, aquella habitación era hermosa, iluminada, con un sol que apenas alcanza a dar calor a la piel, su olor a rosas inundaba el lugar.",
+        "Vestidos, decenas de vestidos, todos distintos, algunos colgaban del techo, otros descansaban sobre maniquíes y algunos más permanecían cuidadosamente guardados en cajas antiguas. Vestidos de novia.",
+        "El corazón de Elara dio un vuelco, y es que desde niña había imaginado aquel momento. El vestido, la ceremonia, las flores, la promesa, esa casita a la que le entrara el sol de los domingos, los desayunos en familia, los niños corriendo por los pasillos…. todo, todo aquello que se quedó en eso, en un sueño.",
+        "Se acercó a uno de los vestidos, era precioso, pero algo llamó su atención… Tenía un desgarre a la altura del pecho, observó otro, estaba manchado, otro más permanecía a medio terminar, como si alguien hubiera abandonado la costura antes de concluirla.",
+        "Entonces escuchó una voz detrás de ella: Ninguno quedó completo.",
+        "Elara se volvió. Una mujer joven estaba de pie junto a la ventana, no sabía cómo había aparecido ahí.",
+        "¿Qué significa esto?",
+        "Son los sueños que heredaste.",
+        "No entiendo, dijo Elara.",
+        "La mujer acarició uno de los vestidos.",
+        "Mujeres que esperaron ser elegidas. Mujeres que confundieron amor con sacrificio. Mujeres que se quedaron esperando. Mujeres que renunciaron a sí mismas para no quedarse solas.",
+        "Elara sintió un nudo en la garganta.",
+        "Porque aquella habitación conocía cosas que jamás había contado en voz alta, ella había esperado, había esperado llamadas, mensajes, promesas, decisiones, había esperado aquella pregunta que parecía nunca llegar, aquel anillo, aquella certeza, aquella forma tranquila de sentirse elegida.",
+        "Sus ojos se detuvieron sobre uno de los vestidos. Era hermoso, perfecto… Pero no tenía mangas, ni botones, ni espalda. Como si alguien hubiera cosido únicamente la parte que se ve desde el frente.",
+        "Y entonces lo entendió.",
+        "Aquella habitación no estaba llena de vestidos. Estaba llena de esperas, heredadas, aprendidas, silenciosas, esperas para que alguien estuviera listo, para que alguien cambiara, para que alguien reconociera lo que ya existía.",
+        "Porque ella había amado… Había amado de verdad, había construido un hogar, había compartido años de su vida, había dado a luz a dos hijos… Y aun así, muchas veces se había quedado esperando una confirmación que parecía sencilla para todos los demás… Una fotografía, esa maldita fotografía, una presentación orgullosa, un \"ella es la mujer de mi vida\", un \"quiero construir mi futuro contigo\", un \"te elijo\"… La rabia le atravesó el pecho, porque de pronto comprendió algo terrible.",
+        "Había pasado tanto tiempo esperando ser elegida, que olvidó mirar todo lo que ya había elegido ella.",
+        "Eligió quedarse cuando creyó que valía la pena. Eligió ser madre. Eligió levantarse después de las pérdidas. Eligió reconstruirse cuando la vida se vino abajo. Eligió seguir adelante. Y ninguna de esas decisiones había sido pequeña.",
+        "Entonces vio algo escrito sobre el espejo. Las letras aparecieron lentamente, como si alguien las estuviera trazando desde el otro lado del cristal.",
+        "\"No necesitas que alguien te elija para demostrar tu valor.\"",
+        "Elara sintió que las lágrimas comenzaban a correr por sus mejillas, porque durante años creyó que el amor era ser escogida, pero quizá el amor también era escoger. Escogerse, elegirse incluso cuando nadie más parecía hacerlo, elegirse cuando la historia no salió como había imaginado, elegirse cuando los sueños cambiaron de forma, elegirse una y otra vez.",
+        "Y por primera vez comprendió que aquella habitación no hablaba de bodas, hablaba de merecimiento.",
+        "La siguiente puerta era extraña… No tenía cerradura, no tenía manija, apenas una pequeña figura tallada en la madera… Un columpio.",
+        "Al tocarlo, la puerta se abrió sola… Elara sintió un golpe en el pecho.",
+        "El lugar era completamente distinto al resto de la casa, luz, flores blancas, árboles, pequeños senderos de piedra, parecía un jardín escondido… Un jardín que jamás debió existir dentro de aquella mansión, en eso Elara al fondo de aquel gran jardín escuchó risas, risitas suaves, lejanas ¿Niños jugando?, si, eran pequeños corriendo entre los árboles…",
+        "Pero cuando intentó acercarse, ninguno permanecía el tiempo suficiente para distinguir su rostro, todos parecían hechos de luz… todos menos uno, ese niño, un pequeño que estaba sentado en un columpio esperándola.",
+        "Elara sintió que las piernas le temblaban, no sabía por qué, no conocía a ese niño, y, sin embargo, algo dentro de ella se rompió.",
+        "El pequeño bajó del columpio y caminó hasta quedar frente a ella, él le ofreció una flor blanca.",
+        "¿Quién eres?, susurró Elara.",
+        "El niño sonrió, pero no respondió.",
+        "Las lágrimas comenzaron a correr por las mejillas de Elara sin que pudiera detenerlas. Años… Años cargando preguntas, años escuchando opiniones, juicios, años preguntándose si habría podido hacer algo diferente… Si habría sido más fuerte, más valiente, más capaz.",
+        "Lo siento... dijo finalmente, su voz apenas salió.",
+        "El niño inclinó la cabeza, como si no entendiera.",
+        "Lo siento muchísimo.",
+        "El pequeño la observó durante unos segundos, y después preguntó: ¿Por qué?",
+        "Aquella sola palabra la destruyó, porque no encontraba una respuesta… No una que pudiera explicar todo lo que había vivido, todo lo que había sentido, todo lo que había callado.",
+        "El niño tomó su mano, y entonces dijo algo tan suave que casi pareció el viento.",
+        "Nunca te pedí que cargaras sola con todo esto.",
+        "Elara cerró los ojos. Y lloró … Lloró como no lloraba desde hacía muchos años, lloró por las preguntas. Por las culpas, por las noches en silencio, por las palabras que nunca dijo… Y por todas aquellas que escuchó sin haberlas pedido.",
+        "Cuando por fin logró recuperar el aliento, volvió a mirar al pequeño.",
+        "Entonces ocurrió algo extraño, una sensación familiar, como si ya lo conociera, como si hubiera pronunciado su nombre cientos de veces, como si hubiera existido mucho antes de aquel encuentro, sus ojitos, su cabello castaño, sus ojitos grandes, sus labios pequeñitos…",
+        "Elara observó la pequeña flor blanca que aún sostenía entre las manos, y sin saber por qué, sus labios se movieron solos.",
+        "Damián...",
+        "El niño sonrió… Una sonrisa tranquila, tierna, llena de algo que ella no supo explicar… Pero no hubo sorpresa en su rostro, no corrigió el nombre, no preguntó quién era Damián, no pareció confundido, era como si lo hubiera estado esperando.",
+        "Las lágrimas volvieron a aparecer. Porque comprendió algo que le heló el corazón, ella nunca le había dicho ese nombre a nadie… A nadie, jamás había salido de su boca, y sin embargo, en aquel jardín imposible, rodeada de flores blancas y niños hechos de luz, estaba completamente segura… Se llamaba Damián.",
+        "El niño extendió la mano y acarició suavemente la flor que ella sostenía.",
+        "Es hermosa, dijo.",
+        "La guardaré siempre.",
+        "Él aceptó con su cabeza, y durante un instante pareció que iba a decir algo más… Algo importante.",
+        "Pero una ráfaga de viento atravesó el jardín, las flores se estremecieron, la luz cambió completamente, y cuando Elara volvió a levantar la vista... El niño ya no estaba, el jardín estaba vacío, los columpios se mecían suavemente, las risas habían desaparecido… Sólo quedaba la flor blanca entre sus manos.",
+        "Y una nueva puerta la esperaba al fondo. Más oscura, más antigua. Como si guardara un secreto que llevaba generaciones esperando ser contado… Aquella puerta era distinta, no estaba adornada, ni tenía cadenas, no tenía cerraduras, ni siquiera parecía antigua… Era una puerta común, tan común que resultaba inquietante, como si hubiese pasado desapercibida durante años, como si siempre hubiera estado ahí… Esperándola.",
+        "Elara sujetó la perilla y por primera vez desde que llegó a la mansión, dudó.",
+        "Recordó a sus padres, las habitaciones, los vestidos, las tejedoras… Damián.",
+        "Y una sensación extraña apareció en su pecho. ¿Y si al abrir aquella puerta todo terminaba?",
+        "Respiró profundamente… Y entró.",
+        "No encontró una habitación, encontró una calle, una calle de tierra, mucho polvo, demasiado sol, tanto que le costaba acostumbrar su vista en tan resplandeciente lugar… gente caminando apresurada.",
+        "Elara se quedó inmóvil, aquello era imposible, la casa había desaparecido, la mansión ya no estaba, el jardín tampoco, ni las paredes, ni las puertas, sólo aquella calle, y al fondo... Gritos.",
+        "Corrió… Sin saber por qué, su corazón golpeaba con fuerza, algo estaba ocurriendo, algo importante, al doblar una esquina encontró una multitud reunida, hombres, mujeres, niños… Todos observaban algo, o a alguien.",
+        "Elara se abrió paso entre ellos.",
+        "Y entonces la vio… Una niña, no tendría más de trece años, vestido sencillo de manta, cabello oscuro, manos pequeñas y unos ojos inmensos, demasiado inmensos para alguien tan joven.",
+        "La niña estaba sola, completamente sola. Frente a ella, dos hombres discutían, uno sostenía unas monedas, el otro, unos documentos.",
+        "Elara no lograba escuchar las palabras, pero podía sentirlas, como si aquella escena hablara directamente dentro de ella. Negociaban, calculaban, decidían… Mientras la niña permanecía en silencio.",
+        "Como si aquello no tuviera nada que ver con ella, como si hubiera aprendido demasiado pronto que nadie preguntaría su opinión.",
+        "¡Deténganse!, gritó Elara.",
+        "Corrió hacia ellos, intentó interponerse, intentó tomar a la niña de la mano, pero la atravesó… Como humo, como un recuerdo, como una historia que ya había ocurrido… Entonces comprendió, no estaba allí para cambiar el pasado, estaba allí para verlo.",
+        "Su mirada recorrió la escena buscando alguna explicación.",
+        "Fue entonces cuando notó una pequeña mesa de madera junto a una de las paredes, encima descansaba un calendario viejo, las hojas estaban amarillentas y desgastadas, la mayoría eran imposibles de leer… Excepto una, una fecha estaba marcada varias veces con tinta oscura, como si alguien se hubiera negado a olvidarla… 8 de noviembre.",
+        "Elara sintió una extraña presión en el pecho, algo familiar, algo que no lograba comprender, apartó la mirada… Pero aquella fecha permaneció dando vueltas en su mente.",
+        "La multitud comenzó a desaparecer, uno por uno, las casas, la calle, los hombres, las monedas, todo se desvanecía… Todo menos la niña. Ahora estaban solas, frente a frente, la pequeña levantó la vista… Y sonrió.",
+        "No era una sonrisa feliz, era una sonrisa cansada, como la de alguien que llevaba demasiado tiempo esperando.",
+        "Tardaste mucho.",
+        "Elara sintió que algo se quebraba dentro de ella.",
+        "Lo siento.",
+        "Todas dicen eso, contestó la niña.",
+        "No sabía cómo llegar.",
+        "Nadie sabía.",
+        "La niña dio un paso hacia ella.",
+        "¿Sabes qué pasó después?",
+        "Elara negó con la cabeza.",
+        "La niña señaló hacia la oscuridad.",
+        "Y entonces comenzaron a aparecer figuras. Una, luego otra y otra más… Mujeres. Generaciones enteras caminando detrás de ella, las tejedoras, las novias, las olvidadas, las que amaron, las que perdieron, las que sobrevivieron… Todas.",
+        "Ellas vinieron después de mí, dijo la niña.",
+        "Lo sé.",
+        "Algunas fueron felices, otras no. Algunas amaron, otras tuvieron miedo. Algunas encontraron su voz, otras la perdieron. Pero todas cargaron algo que nunca les perteneció.",
+        "Elara sintió las lágrimas correr por sus mejillas, porque comprendía exactamente de qué hablaba.",
+        "La niña volvió a acercarse, esta vez hasta quedar frente a ella, sus ojos le resultaban extrañamente familiares. Como si hubiese visto aquella mirada antes. Muchas veces.",
+        "¿Quién eres? preguntó Elara.",
+        "La niña sonrió. Y por un instante, Elara sintió que estaba observando una fotografía antigua. Algo en su forma de mirar, algo en la curva de su sonrisa, algo imposible de explicar.",
+        "La niña tomó una pequeña llave dorada que colgaba de su cuello y la colocó en la palma de su mano. Era hermosa, ligera, cálida.",
+        "¿Qué abre?, preguntó Elara.",
+        "La niña negó con la cabeza. No abre.",
+        "¿Entonces?",
+        "Cierra.",
+        "Elara observó la llave confundida. ¿Qué cierra?",
+        "La niña levantó la vista, y por primera vez pareció solamente una niña… No una herida, no una historia, sólo una niña.",
+        "La deuda.",
+        "Elara tragó saliva. ¿Cuál deuda?",
+        "La niña sonrió. Y aquella sonrisa le rompió el alma.",
+        "La que ninguna de nosotras pidió.",
+        "El suelo comenzó a temblar, las figuras detrás de ella empezaron a desaparecer, la oscuridad se rompió, la calle desapareció, todo desapareció.",
+        "Elara despertó de rodillas en el vestíbulo principal de la mansión. La llave seguía en su mano, la flor blanca seguía entre sus dedos… Y por primera vez desde que había cruzado aquella puerta... la casa estaba en silencio, un silencio distinto, ligero, tranquilo, como si algo hubiera encontrado descanso.",
+        "Entonces ocurrió, los relojes comenzaron a moverse. Uno por uno, las agujas avanzaron, las lámparas se encendieron, las ventanas dejaron entrar la luz, y desde el piso superior llegó un sonido suave, como si decenas de puertas se estuvieran abriendo al mismo tiempo.",
+        "Elara observó a su alrededor, la casa ya no parecía abandonada, ya no parecía triste. Por primera vez parecía una casa… Simplemente una casa, entonces abrió la mano, la llave dorada había desaparecido, sólo quedaba la flor blanca, sonrió y comprendió algo que había estado buscando durante toda su vida.",
+        "No había llegado hasta allí para reparar el pasado. Ni para cargar con él. Había llegado para dejarlo descansar… Se levantó lentamente y caminó hacia la puerta principal, antes de salir, volvió la vista hacia la mansión.",
+        "Por un instante creyó ver movimiento en las ventanas del segundo piso, sombras, siluetas, como si alguien la observara, las tejedoras, la mujer de los vestidos, la niña…. Quizá incluso Damián.",
+        "Pero cuando parpadeó ya no había nadie.",
+        "Y, por primera vez, no sintió que la estaban esperando, sintió que la estaban despidiendo. Detrás de ella, la mansión permaneció en silencio, serena, como si hubiera esperado generaciones enteras para exhalar.",
+        "Y por primera vez, tanto la casa como Elara estuvieron listas para comenzar una nueva historia."
+      ]
+    },
+    {
+      "id": "caracolita",
+      "categoria": "ninos",
+      "title": "La caracolita que siempre llegaba tarde",
+      "contenido": [
+        "En el bosque había una escuela donde estudiaban una caracolita, un topo, una conejita, un ratoncito, una ardilla y una liebre.",
+        "Cada mañana, mientras todos avanzaban rápidamente hacia sus clases, la caracolita July siempre se quedaba atrás. Caminaba despacito y se distraía con cualquier cosa que llamara su atención. Se detenía a observar pequeñas ramitas, hojitas de formas curiosas, semillitas escondidas entre la tierra, los colores del arcoíris después de la lluvia, las gotitas que brillaban sobre las hojas y los rayitos de sol que se colaban entre los árboles.",
+        "Su mamá, desesperada por llegar a tiempo a todos lados, constantemente la apresuraba.",
+        "¡July, más rápido!",
+        "¡July, vamos tarde!",
+        "¡July, deja de distraerte!",
+        "Pero July parecía no escuchar. O quizá sí escuchaba, pero el mundo le parecía demasiado hermoso como para atravesarlo corriendo.",
+        "Con el paso de los días, algunos compañeros comenzaron a hacer comentarios.",
+        "Siempre llegas al final …decía la liebre.",
+        "Pareces una roca con patas …bromeaba el ratoncito.",
+        "¿Por qué eres tan lenta? …preguntaba la ardilla.",
+        "July sonreía por fuera, pero por dentro aquellas palabras comenzaban a pesarle.",
+        "Una tarde, mientras caminaba de regreso a casa, dejó de mirar las flores, las nubes y las mariposas. Por primera vez sintió que había algo malo en ella.",
+        "Quizá tenían razón. Quizá debería ser más rápida. Quizá estaba haciendo algo mal.",
+        "Aquella noche cenó en silencio.",
+        "Su mamá notó que estaba triste, pero pensó que seguramente estaba cansada. Fue su papá quien se acercó después de la cena.",
+        "Qué sucede, pequeña? …preguntó con suavidad.",
+        "July bajó la mirada. Todos dicen que soy demasiado lenta. Mamá siempre tiene prisa. Mis amigos llegan primero a todos lados. Creo que hay algo malo en mí.",
+        "Su papá sonrió con ternura. Ven conmigo.",
+        "Tomó a July de la mano y caminaron hasta un pequeño claro del bosque. Allí, bajo la luz de la luna, el papá caracol señaló algo.",
+        "¿Ves esas flores?",
+        "July dijo que si.",
+        "Tu mamá pasó por aquí esta mañana y ni siquiera las notó. Luego señaló una pequeña mariquita escondida entre las hojas.",
+        "¿Y esa catarina?",
+        "July volvió a afirmar. La encontré hace un rato…dijo.",
+        "Yo no la había visto …respondió su papá. Después observó el sendero.",
+        "July, ¿sabes por qué tú ves tantas cosas que los demás no ven?",
+        "La pequeña negó con la cabeza.",
+        "Porque no vas distraída. Vas observando. Hay una diferencia muy grande.",
+        "July levantó lentamente la mirada.",
+        "Cuando yo era pequeño también me decían que era lento. Me comparaba con los demás y quería ser diferente. Pero un día entendí algo muy importante.",
+        "¿Qué cosa? preguntó ella.",
+        "Que no todos estamos hechos para caminar al mismo ritmo. Algunos corren rápido y llegan primero. Otros caminamos despacio y descubrimos cosas maravillosas en el camino.",
+        "July permaneció en silencio escuchándolo.",
+        "Ser rápida no te hace mejor. Ser lenta tampoco te hace peor. Lo importante es seguir avanzando siendo quien eres.",
+        "Los ojitos de July comenzaron a brillar. ¿Entonces no hay nada malo en mí?",
+        "Su papá sonrió. Absolutamente nada.",
+        "En ese momento, la mamá de July, que había escuchado parte de la conversación, se acercó despacito. Sus ojos estaban llenos de ternura.",
+        "Creo que yo también necesitaba escuchar eso —dijo.",
+        "July la miró sorprendida.",
+        "A veces tengo tanta prisa por llegar a todos lados que olvido disfrutar el camino. Y tal vez, sin darme cuenta, intenté que tú fueras igual que yo.",
+        "La mamá se arrodilló y abrió los brazos. Perdóname, pequeña caracolita.",
+        "July corrió o al menos tan rápido como podía correr una caracolita y la abrazó con fuerza.",
+        "Te prometo que intentaré ser más paciente, continuó su mamá. Y también prometo detenerme de vez en cuando para ver esas cosas hermosas que tú siempre descubres.",
+        "Aquella noche los tres regresaron juntos a casa. Por primera vez en mucho tiempo, nadie tenía prisa.",
+        "Mientras caminaban, July les mostró una flor diminuta escondida entre unas piedras, una nube con forma de corazón y una luciérnaga que brillaba entre los arbustos.",
+        "Y entonces su mamá comprendió algo que jamás olvidaría: July no caminaba lento porque estuviera equivocada. July caminaba lento porque estaba ocupada descubriendo la belleza que los demás pasaban de largo.",
+        "Y desde aquel día, aunque seguía llegando después que muchos otros animales, ya no le preocupó.",
+        "Porque había aprendido que cada corazón tiene su propio ritmo. Y que el suyo era perfecto tal como era.",
+        "Todos tenemos un super poder July, solo tenemos que aprender a descubrirlo y saber que no siempre los demás lo entenderán."
+      ]
+    },
+    {
+      "id": "mochila-mateo",
+      "categoria": "ninos",
+      "title": "La mochila de Mateo",
+      "contenido": [
+        "En una escuela donde todo transcurría con normalidad, estaba siempre el pequeño Mateo, con una mochila más grande que todo su cuerpo.",
+        "Mateo no dejaba su mochila para nada. Y cuando digo nada, es realmente NADA. La llevaba al almuerzo, al sanitario, la cargaba mientras hacía sus trabajos, mientras estaba en deportes o pintaba en artes. Incluso mientras dormía, el pequeño Mateo era aplastado por aquella mochila gigante.",
+        "Nadie entendía por qué Mateo siempre la llevaba con él, pero tampoco nadie se había acercado a preguntarle por qué lo hacía.",
+        "Mateo era un pequeño solitario, reservado y sin amigos. Pero, claro, todos habían normalizado aquella situación; por ello, no era tan descabellado ver a un niño llevando semejante mochila a todas partes.",
+        "Un buen día, su maestra de arte enfermó y enviaron a una maestra sustituta: la maestra Luna. Ella era muy observadora y le gustaba platicar con sus alumnos. Al cabo de dos semanas, ya había notado lo pesada que era la mochila de Mateo. Asimismo, se dio cuenta de que Mateo era el único alumno al que no le gustaba relacionarse con nadie.",
+        "Así que la maestra Luna ideó una actividad para que Mateo tuviera un poco más de confianza en ella.",
+        "La actividad consistía en que todos los alumnos desarrollaran un tema en el que fueran muy buenos. Cada uno lo presentaría frente al grupo y les enseñaría a los demás sus habilidades. Compartirían conocimientos y aprenderían unos de otros. Serían expertos por un día.",
+        "Mateo entró en conflicto. Le comentó a su maestra que había un tema en el que era muy bueno, pero que no le gustaba estar al frente de los demás.",
+        "La maestra Luna lo entendió y decidió no presionarlo.",
+        "Mateo, ¿y si en vez de exponer nos haces un video como si fueras un experto famoso en tu tema y solo lo proyectamos? le propuso.",
+        "Mateo rápidamente dijo que sí y se dirigió a su casa. Al cabo de dos días, llegó el turno de Mateo, quien había enviado el video a su maestra la noche anterior.",
+        "El video comenzó a reproducirse y de pronto aparecieron los más grandes e impresionantes datos sobre los osos polares. En Mateo había un brillo especial, el brillo que da sentirse escuchado.",
+        "Al finalizar el video y las actividades, Mateo fue felicitado por sus compañeros y por su maestra.",
+        "Mateo aún tenía aquella mochila gigante, pero la maestra Luna se dio cuenta de que se había abierto un poco. Así que decidió llamarlo, aprovechando que sus compañeros habían salido al recreo.",
+        "Mateo, ¿puedes sentarte conmigo un momento, por favor? preguntó la maestra Luna.",
+        "Mateo se acercó.",
+        "La maestra le hizo notar que su mochila estaba un poco abierta y le dijo que podía cerrarla si así lo deseaba, o intentar abrirla un poco más.",
+        "Mateo dudó unos segundos; sin embargo, decidió abrirla.",
+        "En ese momento empezaron a salir un montón de gotas de lluvia, nubes grises, truenos, algunos peces extraños, rayos y una ballena gigante, muuuy vieja.",
+        "¿Qué es todo esto, Mateo? preguntó la maestra Luna.",
+        "Son cosas que guardé pensando que a alguien le daría miedo verlas. Las guardé también porque no sabía cómo hablar de ellas. Incluso esa ballena ni siquiera es mía, es de mis papás. Pero después de todo esto, creo que fue más fácil dijo Mateo, ahora con una mochila completamente normal y casi vacía.",
+        "La maestra Luna le agradeció por su valentía y por hacer algo que no siempre es fácil. A veces, esconderse detrás del miedo parece la mejor opción, pero rara vez nos ayuda a sentirnos más ligeros.",
+        "Mateo caminó hacia la puerta sintiéndose liberado. Y con un brillo que nadie le conocía, salió del salón..."
+      ]
+    }
+  ],
+  "capsulas": [
+    {
+      "id": "capsula-ansiedad",
+      "title": "Hablemos de la Ansiedad",
+      "guion": [
+        "Muchas veces usamos la palabra ansiedad como algo cotidiano, pero no siempre entendemos qué significa realmente. La ansiedad es una emoción natural, todos la sentimos en algún momento. El problema aparece cuando la preocupación es constante, difícil de controlar y empieza a afectar nuestro descanso, nuestro cuerpo o nuestra vida diaria.",
+        "La ansiedad no solo está en la mente. Puede manifestarse como cansancio, tensión muscular, problemas para dormir o una sensación constante de alerta, incluso cuando todo parece estar 'bien'.",
+        "No aparece porque seamos débiles. Puede estar relacionada con el estrés, la historia personal, factores biológicos y la forma en que aprendimos a enfrentar las preocupaciones.",
+        "Por eso creé este pequeño cuestionario, no para diagnosticarte, sino para ayudarte a observar cómo te sientes y reconocer si tal vez necesitas apoyo.",
+        "Hablar de ansiedad es un acto de conciencia y de autocuidado. Y buscar ayuda profesional también lo es."
+      ]
+    },
+    {
+      "id": "capsula-crisis",
       "title": "Autocuidado en Crisis",
-      "icon": "shield",
-      "contenido_html": "<p>No todas las etapas de la vida son estables. Una crisis emocional no siempre se ve dramática, a veces es llanto inesperado, tensión constante o pensamientos repetitivos. No es debilidad, es tu sistema nervioso pidiendo regulación.</p><h3>Protocolo NeuroBloom de Regulación</h3><ul><li><strong>Reduce estímulos:</strong> Apaga notificaciones, baja la luz.</li><li><strong>Regula la respiración:</strong> Inhala en 4, exhala en 6. Activa la calma fisiológica.</li><li><strong>Anclaje (5-4-3-2-1):</strong> 5 cosas que ves, 4 que tocas, 3 que escuchas, 2 que hueles, 1 que saboreas.</li><li><strong>Nombra lo que sientes:</strong> Di \"Estoy sintiendo ansiedad\". Disminuye la intensidad.</li><li><strong>Pide ayuda:</strong> Autocuidado no siempre es hacerlo sola.</li></ul>"
+      "guion": [
+        "Hay algo que quiero que escuches con calma… Cuando estás en crisis, no necesitas motivación. Necesitas regulación.",
+        "Muchas veces pensamos que estamos 'exagerando' o que deberíamos poder con todo. Pero tu cuerpo no funciona por fuerza de voluntad.",
+        "Cuando percibes amenaza emocional o real tu sistema nervioso se activa antes de que tu mente pueda entender lo que está pasando. La teoría polivagal de Stephen Porges explica justamente eso: primero reacciona el cuerpo, después la lógica.",
+        "Por eso en crisis no sirve que te digan 'tranquila'. Lo que sí ayuda es regular. Te dejo algo simple:",
+        "Si estás ansiosa, exhala más largo de lo que inhalas. Si te sientes desconectada, muévete suavemente durante un par de minutos. Si tu mente está en espiral, nombra la emoción sin juicio: 'estoy sintiendo ansiedad'.",
+        "No eres débil. Tu sistema está intentando protegerte. Autocuidado no es lujo. Es aprender a detener el daño antes de que escale. Y regularte… también es fortaleza."
+      ]
     },
     {
-      "id": "mindfulness",
-      "title": "Mindfulness Básico",
-      "icon": "brain",
-      "contenido_html": "<p>Mindfulness es aprender a estar presente sin reaccionar automáticamente. No elimina emociones. Modifica la relación que tienes con ellas. Puedes estar triste o cansada y practicar mindfulness. La práctica no exige que estés bien, exige que estés consciente.</p><h3>Práctica de 3 minutos</h3><ol class=\"list-decimal pl-6 mb-6\"><li>Detente físicamente y respira normal.</li><li>Pregúntate: ¿Qué estoy sintiendo?</li><li>Nómbralo con una palabra sencilla.</li><li>Observa dónde lo sientes en el cuerpo.</li><li>Permite que esté ahí sin intentar cambiarlo durante 3 respiraciones.</li></ol>"
+      "id": "capsula-autoestima",
+      "title": "Baja Autoestima",
+      "guion": [
+        "Si hoy sientes que eres muy duro contigo… quiero que sepas algo: no naciste hablándote así. Aprendiste a mirarte con exigencia, a dudar de ti, a sentir que nunca es suficiente. Y no porque no valgas, sino porque en algún momento ser duro contigo fue una forma de sobrevivir.",
+        "Tal vez minimizas lo que logras. Tal vez te culpas de más. Tal vez te exiges cosas que jamás le pedirías a alguien que amas. Eso también habla de tu historia, no de tu valor.",
+        "La baja autoestima no siempre grita. A veces se esconde en el miedo a fallar, en la dificultad para poner límites, en esa sensación silenciosa de no merecer lo bueno.",
+        "Y quiero decirte algo con mucha claridad y mucho cuidado: esto no es una falla tuya. Es un patrón aprendido… y lo aprendido puede transformarse.",
+        "Fortalecer tu autoestima no significa volverte arrogante, ni pensar positivo todo el tiempo. Significa empezar a tratarte con más honestidad, menos juicio y un poquito más de compasión.",
+        "Aquí, en NeuroBloom, creemos que sanar también es aprender a florecer desde adentro, a tu ritmo, sin exigirte más… acompañándote mejor. Escucharte también es una forma de responsabilidad emocional."
+      ]
     },
     {
-      "id": "recursos",
-      "title": "Recursos Recomendados",
-      "icon": "book-heart",
-      "contenido_html": "<p>Las historias y conversaciones correctas pueden abrir procesos profundos.</p><h3>Películas</h3><ul><li><strong>Inside Out:</strong> Regulación emocional y validación de la tristeza.</li><li><strong>The Pursuit of Happyness:</strong> Resiliencia y propósito.</li><li><strong>Little Miss Sunshine:</strong> Autenticidad y dinámicas familiares.</li></ul><h3>Libros</h3><ul><li><strong>Inteligencia emocional:</strong> Comprender decisiones.</li><li><strong>El hombre en busca de sentido:</strong> Resiliencia desde el significado.</li><li><strong>Los dones de la imperfección:</strong> Vulnerabilidad y autoestima.</li></ul>"
+      "id": "capsula-burnout",
+      "title": "Burnout Emocional",
+      "guion": [
+        "Hay un cansancio que no se quita durmiendo más. Un cansancio que no desaparece con un fin de semana libre ni con unas vacaciones. Es ese agotamiento que se siente en el cuerpo, en la mente y en el ánimo, aunque por fuera todo parezca 'normal'. A eso se le llama burnout emocional.",
+        "El burnout no tiene que ver con ser débil, flojo o exagerado. Tiene que ver con haber sostenido demasiadas responsabilidades durante demasiado tiempo. Con haber dado más de lo que se podía dar sin escuchar las propias señales.",
+        "Empiezan a aparecer señales: dificultad para concentrarse, irritabilidad, problemas para dormir, cansancio constante, una sensación de desmotivación o de no disfrutar lo que antes sí. Pensamientos como 'ya no puedo más' o 'algo en mí se apagó' se vuelven cada vez más frecuentes.",
+        "Quiero decirte algo importante: tu cuerpo no te está fallando. Tu mente no es el problema. El burnout es una respuesta natural a un estrés sostenido que no ha sido atendido. Es una forma en la que tu sistema te pide parar, revisar, cuidarte.",
+        "Escuchar ese cansancio no es rendirse. No es perder. Es un acto de conciencia y de amor propio. A veces cuidarnos implica hacer cambios, poner límites, pedir ayuda o simplemente permitirnos no poder con todo.",
+        "Si este mensaje resonó contigo, no lo ignores. Escucharte también es una forma de responsabilidad emocional."
+      ]
+    },
+    {
+      "id": "capsula-dependencia",
+      "title": "Dependencia Emocional",
+      "guion": [
+        "Si alguna vez has sentido que una relación te sostiene… pero al mismo tiempo te desgasta, esto puede ser para ti.",
+        "La dependencia emocional no es amar demasiado. Es sentir que sin la otra persona te pierdes un poco. Que tu calma, tu valor o tu seguridad dependen de que el otro esté, responda o no se vaya.",
+        "A veces se nota en el miedo constante al abandono. En callarte para no generar conflicto. En quedarte, incluso cuando algo dentro de ti sabe que ya no está bien.",
+        "Y quiero decirte algo importante: esto no habla de debilidad. Habla de una historia donde amar se aprendió desde el miedo, no desde la elección. Muchas personas aprendieron que, para no perder el vínculo, había que adaptarse, aguantar o ponerse al final.",
+        "La dependencia emocional no aparece de la nada. Es un patrón aprendido… y lo aprendido puede transformarse. Sanar no significa dejar de amar, significa volver a ti. Recuperar tu espacio interno, tu voz, tu derecho a ser sin miedo.",
+        "Una relación sana no te pide desaparecer para quedarte. Te permite ser tú, completa, con límites y con calma."
+      ]
+    },
+    {
+      "id": "capsula-depresion",
+      "title": "Señales de alerta de la depresión",
+      "guion": [
+        "Hoy quiero hablarte de algo importante, especialmente si eres mamá, mujer o docente… La depresión no siempre se nota, y muchas veces se vive en silencio.",
+        "A veces la depresión no es llorar todo el día. Puede verse así: Sentirte cansada constantemente, incluso después de dormir. Perder interés en cosas que antes te hacían bien. Cambios en el sueño o en el apetito. Irritabilidad, culpa o una sensación de vacío. Seguir cumpliendo con todo, pero por dentro sentirte apagada.",
+        "Si te reconoces en alguna de estas señales, no te juzgues. No es falta de fuerza. Es una emoción pidiendo ser escuchada.",
+        "Pedir ayuda también es un acto de amor, por ti… y por quienes te aman. Hablar de depresión salva vínculos, tiempo y vida emocional."
+      ]
+    },
+    {
+      "id": "capsula-estres",
+      "title": "Hablemos del Estrés",
+      "guion": [
+        "Hay emociones que no siempre se notan, pero pesan. No hacen ruido, no detienen el día, no interrumpen las responsabilidades. Aun así, se quedan en el cuerpo, en la forma en que respiramos, en el cansancio que no se quita con dormir.",
+        "Muchas personas aprenden a seguir funcionando. A cumplir, a responder, a sostener. Desde fuera todo parece estar bien, pero por dentro algo se va tensando poco a poco. No siempre es tristeza. A veces es agotamiento emocional. A veces es estrés acumulado. A veces es una sensación silenciosa de desconexión con uno mismo.",
+        "El cuerpo suele hablar antes que las palabras. Lo hace a través del insomnio, la irritabilidad, la falta de energía, el dolor físico o la dificultad para disfrutar lo que antes era sencillo. No exagera. No falla. Solo intenta protegernos cuando llevamos demasiado tiempo sin escucharnos.",
+        "Hablar de emociones no es debilidad. Es conciencia. Reconocer lo que sentimos nos permite prevenir el desgaste, el distanciamiento emocional y el vacío que aparece cuando normalizamos vivir en automático.",
+        "Este espacio existe para acompañar, no para juzgar. Para recordarte que cuidarte no es egoísmo, que pedir apoyo no te resta valor y que detenerte también es una forma de seguir adelante con mayor equilibrio. Escucharte también es una forma de responsabilidad emocional."
+      ]
+    },
+    {
+      "id": "capsula-equilibrio",
+      "title": "Vida en Equilibrio",
+      "guion": [
+        "Hay algo que nadie nos enseñó… Que poder con todo no significa estar en equilibrio.",
+        "Nos enseñaron a ser responsables. A cumplir. A resolver. A sostener. Pero no nos enseñaron a preguntarnos cuánto nos está costando hacerlo.",
+        "Yo también confundí equilibrio con aguante. Pensé que mientras todo estuviera funcionando afuera, entonces yo estaba bien. Y no. El equilibrio no es hacer todo perfecto. Es no perderte a ti en el proceso.",
+        "Desde NeuroBloom entendemos el equilibrio como algo dinámico. No es 50/50. No es tener todo bajo control. No es vivir en calma constante. Es distribuir energía con consciencia. Es saber cuándo avanzar… y cuándo pausar sin culpa.",
+        "Porque el agotamiento no siempre se ve dramático. A veces se ve como eficiencia constante. Como estar siempre ocupada. Como no permitirte descansar porque 'todavía falta algo'. Pero si siempre falta algo… ¿cuándo te eliges tú?",
+        "Equilibrio es preguntarte: ¿Esto me está construyendo o me está desgastando? ¿Estoy eligiendo… o solo estoy reaccionando? No se trata de hacerlo todo. Se trata de que ninguna parte de ti desaparezca.",
+        "En NeuroBloom no buscamos vidas perfectas. Buscamos vidas sostenibles. Porque florecer no es acelerar hasta romperte. Es crecer con raíces fuertes. Y eso… también es equilibrio."
+      ]
     }
   ]
 }
