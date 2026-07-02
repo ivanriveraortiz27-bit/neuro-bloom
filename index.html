@@ -294,7 +294,7 @@
                                     <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl mt-10">
                                         <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-indicadores.jpeg" 
+                                                src="./indicadores-emocionales.jpeg" 
                                                 alt="Indicadores" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<Activity size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110" style={{ color: colors.primary }} />}
@@ -303,7 +303,7 @@
                                         </div>
                                         <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-balance.jpeg" 
+                                                src="./balance-cotidiano.jpeg" 
                                                 alt="Balance" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<Sun size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110" style={{ color: colors.actionBlue }} />}
@@ -312,7 +312,7 @@
                                         </div>
                                         <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-library.jpeg" 
+                                                src="./bloom-library.jpeg" 
                                                 alt="Library" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<Library size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110" style={{ color: colors.secondary }} />}
@@ -321,7 +321,7 @@
                                         </div>
                                         <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-capsulas.jpeg" 
+                                                src="./capsulas-en-video.jpeg" 
                                                 alt="Cápsulas" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<PlayCircle size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110 text-orange-400" />}
@@ -330,7 +330,7 @@
                                         </div>
                                         <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-agenda.jpeg" 
+                                                src="./conoce-y-agenda.jpeg" 
                                                 alt="Agenda" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<Calendar size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110" style={{ color: colors.brainGreen }} />}
@@ -594,12 +594,12 @@
                                     <div className="grid md:grid-cols-2 gap-8">
                                         {appData.especialistas?.map(esp => (
                                             <div key={esp.id} className="bg-white rounded-3xl shadow-sm border border-stone-100 overflow-hidden flex flex-col hover:shadow-lg transition-all group">
-                                                <div className="w-full h-72 bg-stone-100 overflow-hidden relative">
+                                                <div className="w-full h-72 bg-emerald-50/30 p-4 flex items-center justify-center border-b border-stone-50">
                                                     <Thumbnail 
                                                         src={esp.imagen} 
                                                         alt={esp.nombre} 
-                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                                        fallback={<Activity size={80} className="text-stone-300 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />}
+                                                        className="max-h-full max-w-full rounded-2xl shadow-sm object-contain group-hover:scale-105 transition-transform duration-500"
+                                                        fallback={<Activity size={80} className="text-emerald-200" />}
                                                     />
                                                 </div>
                                                 <div className="p-8 flex flex-col flex-grow">
