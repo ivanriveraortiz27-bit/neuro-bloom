@@ -67,7 +67,7 @@
         "contenido": [
           "Dependencia emocional: cuando el vínculo empieza a costarte a ti. La dependencia emocional no tiene que ver con amar demasiado, sino con sentir que sin la otra persona te desarmas por dentro. Es cuando una relación se vuelve el centro de tu estabilidad emocional, incluso aunque, en el fondo, sepas que te está lastimando.",
           "Desde este lugar, no es raro quedarse en vínculos que ya no hacen bien. No porque no lo notes, sino porque el miedo a perder al otro, a estar sola o a sentir el vacío pesa más que tu propio bienestar. Poco a poco, puedes empezar a adaptarte, a callarte, a ceder partes de ti para no generar conflicto o abandono.",
-          "La dependencia emocional suele mostrarse en el miedo constante a que el otro se vaya, en la necesidad de aprobación, en la dificultad para poner límites y en la sensación de que tu valor depende de cuánto te quieran.",
+          "La dependencia emocional suele mostrarse en el miedo constante a que el otro se vaya, en la necesidad de approval, en la dificultad para poner límites y en la sensación de que tu valor depende de cuánto te quieran.",
           "Este patrón no surge de la nada. Muchas veces se aprende en etapas tempranas, cuando el amor se sintió impredecible, condicionado o inestable. Entonces el cuerpo aprende que, para no perder el vínculo, hay que esforzarse de más, agradar, aguantar o dejarse al final.",
           "Entender esto es importante: la dependencia emocional no es debilidad, ni falta de carácter. Es una forma aprendida de vincularse desde la carencia y el miedo, no desde la elección libre.",
           "Sanarla no significa dejar de amar, sino volver a ti. Recuperar tu espacio interno, tu voz, tu autonomía emocional. Aprender que una relación sana no te pide desaparecer para quedarte. Florecer también es aprender a elegir relaciones donde puedas ser tú, completa, sin miedo y sin perderte."
@@ -110,7 +110,7 @@
         "imagen": "./estres.jpeg",
         "contenido": [
           "¿QUÉ ES EL ESTRÉS? El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o demandantes. Puede surgir por pensamientos o situaciones que nos generan tensión, frustración, enojo o nerviosismo.",
-          "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situations inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
+          "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situaciones inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
           "¿CÓMO AFECTA EL ESTRÉS AL CUERPO? Ante el estrés, el cuerpo libera hormonas que aumentan la alerta, la tensión muscular y el ritmo cardíaco. Si esta activación se mantiene por mucho tiempo, puede aumentar el riesgo de problemas como presión alta, ansiedad, depresión, diabetes u otros padecimientos.",
           "SEÑALES DE EXCESO DE ESTRÉS: El estrés puede manifestarse a través de cansancio constante, dolores musculares o de cabeza, problemas digestivos, dificultad para dormir, irritabilidad o falta de concentración. Muchas veces no se reconoce que estos síntomas están relacionados con el estrés.",
           "¿CUÁNDO BUSCAR AYUDA? Es importante buscar apoyo profesional si el estrés se vuelve abrumador, interfiere con la vida diaria o provoca síntomas físicos o emocionales intensos. Pedir ayuda es una forma de cuidado y prevención."
@@ -408,7 +408,7 @@
       "id": "ahora-quien-soy",
       "categoria": "adolescentes",
       "title": "¿Y ahora quién soy?",
-      "imagen": "./y-ahora-quien-soy.jpeg",
+      "imagen": "./ahora-quien-soy.jpeg",
       "contenido": [
         "Corría un nuevo ciclo escolar y yo crecí de golpe. En realidad, nunca había sido muy agraciada, pero después de las vacaciones mi cuerpo comenzó a cambiar. Ya no tenía esos kilos de más, mi cabello creció y compré una plancha para alisarlo. Empecé a usar lazos que combinaban con mis tenis, aprendí a ponerme lentes de contacto y, de pronto, todo parecía encajar perfecto. Los compañeros de la preparatoria comenzaron a voltearme a ver.",
         "Realmente siempre me había sentido como el patito feo. Siempre obtenía un “no” por respuesta sin siquiera intentarlo. Pero ese verano todo cambió. Mi cuerpo empezó a verse diferente y, al mismo tiempo, mi interior también: más segura, más inteligente, más bonita. Sentía que por fin estaba descubriendo quién era… o al menos eso creí.",
@@ -455,7 +455,7 @@
       "id": "grupo-whatsapp",
       "categoria": "adolescentes",
       "title": "El grupo de WhatsApp",
-      "imagen": "./el-grupo-de-whatsapp.jpeg",
+      "imagen": "./grupo-whatsapp.jpeg",
       "contenido": [
         "Ésta es la historia de cómo un grupo de WhatsApp terminó convirtiéndose en el villano.",
         "Era otoño en la preparatoria. Todo transcurría con normalidad, pero a veces la normalidad no significa que todo esté perfecto; simplemente significa que la costumbre ha hecho que ciertas inconformidades e injusticias se vuelvan tan comunes que dejamos de notarlas.",
@@ -522,7 +522,7 @@
       "id": "habitaciones-cerradas",
       "categoria": "adultos",
       "title": "La casa de las habitaciones cerradas",
-      "imagen": "./la-casa-de-las-habitaciones-cerradas.jpeg",
+      "imagen": "./habitaciones-cerradas.jpeg",
       "contenido": [
         "Elara, una mujer de 34 años, recién había heredado una casa vieja y abandonada en un pueblo cercano. La casa era propiedad de su bisabuela, a quien jamás conoció, y el testamento había estado envuelto en problemas durante años hasta que, por fin, después de mucho tiempo, todo logró aclararse y dar paso a la repartición de bienes.",
         "Cuando supo que había heredado aquella casa, sintió un revuelo de emociones. No sabía qué hacer con ella. Estaba lejos de su empleo, fuera de la vida que ya conocía y lejos de los últimos recuerdos de sus padres, quienes habían fallecido hacía diez años en un accidente automovilístico.",
@@ -549,7 +549,7 @@
         "Apenas terminó de leerlos, quiso decir algo, pero una sombra oscura cruzó la habitación, tan rápida que apenas pudo verla.",
         "Elara corrió tras ella, pensando que quizá había alguien dentro de la casa, sin embargo, apenas atravesó la puerta, esta se cerró de golpe detrás de ella, y la sombra desapareció.",
         "¿Qué era eso? ¿Qué era todo lo que estaba ocurriendo? ¿Fantasmas?... Nah. Elara no creía en esas cosas, eso era imposible.",
-        "La tercera puerta era la más grande que había visto hasta el momento, estaba cerrada con gruesas cadenas y tenía una madera tan vieja y áspera que casi dolía tocarla.",
+        "La third puerta era la más grande que había visto hasta el momento, estaba cerrada con gruesas cadenas y tenía una madera tan vieja y áspera que casi dolía tocarla.",
         "Después de mucho intentarlo, logró abrirla. Dentro encontró algo completamente distinto a lo que imaginaba. Cajas, objetos rotos, espejos dañados, cartas quemadas, nada parecía tener sentido.",
         "Salió de prisa. Necesitaba alejarse de aquella sensación.",
         "Intentó abrir la siguiente puerta para quitarse el nudo en la garganta y la ansiedad que le había dejado la habitación anterior. Pero ahí... Ahí encontró una puerta que no lograba abrir, parecía pintada a mano, delicada, blanca, como una de aquellas servilletas que las abuelas tejen con paciencia y amor, pequeños rosales decoraban la superficie con una precisión casi perfecta.",
@@ -685,7 +685,7 @@
       "id": "caracolita",
       "categoria": "ninos",
       "title": "La caracolita que siempre llegaba tarde",
-      "imagen": "./la-caracolita-que-siempre-llegaba-tarde.jpeg",
+      "imagen": "./caracolita.jpeg",
       "contenido": [
         "En el bosque había una escuela donde estudiaban una caracolita, un topo, una conejita, un ratoncito, una ardilla y una liebre.",
         "Cada mañana, mientras todos avanzaban rápidamente hacia sus clases, la caracolita July siempre se quedaba atrás. Caminaba despacito y se distraía con cualquier cosa que llamara su atención. Se detenía a observar pequeñas ramitas, hojitas de formas curiosas, semillitas escondidas entre la tierra, los colores del arcoíris después de la lluvia, las gotitas que brillaban sobre las hojas y los rayitos de sol que se colaban entre los árboles.",
@@ -743,7 +743,7 @@
       "id": "mochila-mateo",
       "categoria": "ninos",
       "title": "La mochila de Mateo",
-      "imagen": "./la-mochila-de-mateo.jpeg",
+      "imagen": "./mochila-mateo.jpeg",
       "contenido": [
         "En una escuela donde todo transcurría con normalidad, estaba siempre el pequeño Mateo, con una mochila más grande que todo su cuerpo.",
         "Mateo no dejaba su mochila para nada. Y cuando digo nada, es realmente NADA. La llevaba al almuerzo, al sanitario, la cargaba mientras hacía sus trabajos, mientras estaba en deportes o pintaba en artes. Incluso mientras dormía, el pequeño Mateo era aplastado por aquella mochila gigante.",
