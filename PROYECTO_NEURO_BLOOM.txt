@@ -117,7 +117,7 @@ ARCHIVO: data.json
         "contenido": [
           "¿QUÉ ES EL ESTRÉS? El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o demandantes. Puede surgir por pensamientos o situaciones que nos generan tensión, frustración, enojo o nerviosismo.",
           "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situaciones inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
-          "¿CÓMO AFECTA EL ESTRÉS AL CUERPO? Ante el estrés, el cuerpo libera hormonas que aumentan la alerta, la tensión muscular y el ritmo cardíaco. Si esta activación se mantiene por mucho tiempo, puede aumentar el riesgo de problemas como presión alta, ansiedad, depresión, diabetes u মধুর padecimientos.",
+          "¿CÓMO AFECTA EL ESTRÉS AL CUERPO? Ante el estrés, el cuerpo libera hormonas que aumentan la alerta, la tensión muscular y el ritmo cardíaco. Si esta activación se mantiene por mucho tiempo, puede aumentar el riesgo de problemas como presión alta, ansiedad, depresión, diabetes u otros padecimientos.",
           "SEÑALES DE EXCESO DE ESTRÉS: El estrés puede manifestarse a través de cansancio constante, dolores musculares o de cabeza, problemas digestivos, dificultad para dormir, irritabilidad o falta de concentración. Muchas veces no se reconoce que estos síntomas están relacionados con el estrés.",
           "¿CUÁNDO BUSCAR AYUDA? Es importante buscar apoyo profesional si el estrés se vuelve abrumador, interfiere con la vida diaria o provoca síntomas físicos o emocionales intensos. Pedir ayuda es una forma de cuidado y prevención."
         ]
@@ -378,10 +378,11 @@ ARCHIVO: data.json
       "id": "clara-tiktoker",
       "categoria": "adolescentes",
       "title": "Clara TikToker",
+      "imagen": "./clara-tiktoker.jpeg",
       "contenido": [
         "Clara es una chica linda: piel blanca, ojos grandes, cabello bonito y una piel que pareciera que la terrible adolescencia no la ha alcanzado, como lo hizo conmigo…",
         "Clara es esa chica que tú ves pasando por la escuela sin fijar la vista en nadie, pero todos la quieren ver. Ella es popular, hermosa y pareciera que tiene una vida perfecta; ella es novia del chico más guapo de todos.",
-        "Clara tiene un TikTok donde sube constantemente videos de ella bailando. Tiene miles de seguidores y likes, muchos comentarios en sus videos y se la pasa subiendo todo lo que hace en su vida. De verdad parecería que tiene la vida perfecta… eso creí hasta que…",
+        "Clara tiene un TikTok donde sube constantemente videos de ella bailando. Tiene miles de seguidores y likes, muchos comentarios en videos y se la pasa subiendo todo lo que hace en su vida. De verdad parecería que tiene la vida perfecta… eso creí hasta que…",
         "Era martes. Caminábamos con normalidad en la secundaria: clases aburridas, maestros que anotaban la tarea en el pizarrón y se sentaban el resto de la clase con su celular. Pero eso sí, si respirabas ya te estaban poniendo reporte. Para que me entiendan mejor, era un día completamente normal en la secundaria.",
         "Recuerdo haber pedido permiso para ir al sanitario. Empujé la puerta, pero estaba atascada y no la podía abrir… claro, otra cosa más que se rompe en esta secundaria. Realmente eso era normal: el director no figuraba y todos hacían como que trabajaban, pero en realidad no pasaba mucho. Sin embargo, esta vez fue diferente. La puerta se regresó con fuerza hacia mí y yo la empujé con el doble de fuerza; ahí me di cuenta de que atrás de la puerta estaba Clara.",
         "Clara no era clara… es decir, Clara estaba llorando. Tenía los ojos rojos, la cara hinchada y su maquillaje perfecto de diario ahora estaba completamente escurrido por toda su cara. Yo sólo pude decir:",
@@ -413,6 +414,7 @@ ARCHIVO: data.json
       "id": "ahora-quien-soy",
       "categoria": "adolescentes",
       "title": "¿Y ahora quién soy?",
+      "imagen": "./ahora-quien-soy.jpeg",
       "contenido": [
         "Corría un nuevo ciclo escolar y yo crecí de golpe. En realidad, nunca había sido muy agraciada, pero después de las vacaciones mi cuerpo comenzó a cambiar. Ya no tenía esos kilos de más, mi cabello creció y compré una plancha para alisarlo. Empecé a usar lazos que combinaban con mis tenis, aprendí a ponerme lentes de contacto y, de pronto, todo parecía encajar perfecto. Los compañeros de la preparatoria comenzaron a voltearme a ver.",
         "Realmente siempre me había sentido como el patito feo. Siempre obtenía un “no” por respuesta sin siquiera intentarlo. Pero ese verano todo cambió. Mi cuerpo empezó a verse diferente y, al mismo tiempo, mi interior también: más segura, más inteligente, más bonita. Sentía que por fin estaba descubriendo quién era… o al menos eso creí.",
@@ -459,6 +461,7 @@ ARCHIVO: data.json
       "id": "grupo-whatsapp",
       "categoria": "adolescentes",
       "title": "El grupo de WhatsApp",
+      "imagen": "./grupo-whatsapp.jpeg",
       "contenido": [
         "Ésta es la historia de cómo un grupo de WhatsApp terminó convirtiéndose en el villano.",
         "Era otoño en la preparatoria. Todo transcurría con normalidad, pero a veces la normalidad no significa que todo esté perfecto; simplemente significa que la costumbre ha hecho que ciertas inconformidades e injusticias se vuelvan tan comunes que dejamos de notarlas.",
@@ -525,6 +528,7 @@ ARCHIVO: data.json
       "id": "habitaciones-cerradas",
       "categoria": "adultos",
       "title": "La casa de las habitaciones cerradas",
+      "imagen": "./habitaciones-cerradas.jpeg",
       "contenido": [
         "Elara, una mujer de 34 años, recién había heredado una casa vieja y abandonada en un pueblo cercano. La casa era propiedad de su bisabuela, a quien jamás conoció, y el testamento había estado envuelto en problemas durante años hasta que, por fin, después de mucho tiempo, todo logró aclararse y dar paso a la repartición de bienes.",
         "Cuando supo que había heredado aquella casa, sintió un revuelo de emociones. No sabía qué hacer con ella. Estaba lejos de su empleo, fuera de la vida que ya conocía y lejos de los últimos recuerdos de sus padres, quienes habían fallecido hacía diez años en un accidente automovilístico.",
@@ -561,7 +565,7 @@ ARCHIVO: data.json
         "Elara comenzó a cuestionarse… ¿Qué hace aquí toda esta gente?, ¿Quiénes son estas mujeres?",
         "Ninguna respondió. Las agujas siguieron moviéndose al mismo ritmo, tac, tac, tac.",
         "Elara avanzó unos pasos y las mujeres parecían ignorarla por completo, hasta que una de ellas levantó la vista.",
-        "Era anciana, muy anciana, sus manos estaban cubiertas de arrugas, pero tejían con una velocidad imposible, en sus ojos se veía una profundidad, un misterio, como si sus ojos reflejaran una guerra vivida en calma, en quietud, esa sabiduría que solamente da el paso de los años.",
+        "Era anciana, muy anciana, sus manos estaba cubiertas de arrugas, pero tejían con una velocidad imposible, en sus ojos se veía una profundidad, un misterio, como si sus ojos reflejaran una guerra vivida en calma, en quietud, esa sabiduría que solamente da el paso de los años.",
         "Llegaste tarde, dijo.",
         "¿Perdón?",
         "Te hemos esperado mucho tiempo.",
@@ -687,6 +691,7 @@ ARCHIVO: data.json
       "id": "caracolita",
       "categoria": "ninos",
       "title": "La caracolita que siempre llegaba tarde",
+      "imagen": "./caracolita.jpeg",
       "contenido": [
         "En el bosque había una escuela donde estudiaban una caracolita, un topo, una conejita, un ratoncito, una ardilla y una liebre.",
         "Cada mañana, mientras todos avanzaban rápidamente hacia sus clases, la caracolita July siempre se quedaba atrás. Caminaba despacito y se distraía con cualquier cosa que llamara su atención. Se detenía a observar pequeñas ramitas, hojitas de formas curiosas, semillitas escondidas entre la tierra, los colores del arcoíris después de la lluvia, las gotitas que brillaban sobre las hojas y los rayitos de sol que se colaban entre los árboles.",
@@ -744,6 +749,7 @@ ARCHIVO: data.json
       "id": "mochila-mateo",
       "categoria": "ninos",
       "title": "La mochila de Mateo",
+      "imagen": "./mochila-mateo.jpeg",
       "contenido": [
         "En una escuela donde todo transcurría con normalidad, estaba siempre el pequeño Mateo, con una mochila más grande que todo su cuerpo.",
         "Mateo no dejaba su mochila para nada. Y cuando digo nada, es realmente NADA. La llevaba al almuerzo, al sanitario, la cargaba mientras hacía sus trabajos, mientras estaba en deportes o pintaba en artes. Incluso mientras dormía, el pequeño Mateo era aplastado por aquella mochila gigante.",
@@ -912,6 +918,7 @@ ARCHIVO: index.html
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuro Bloom - Creciendo con cada emoción</title>
     
+    <link rel="icon" href="https://i.ibb.co/WWs5xcSX/Neuro-Bloom-Logo-nbg.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -990,6 +997,15 @@ ARCHIVO: index.html
                     case 'library': return <Library {...props} />;
                     default: return <Activity {...props} />;
                 }
+            };
+
+            // Componente inteligente para cargar miniaturas con respaldo de ícono
+            const Thumbnail = ({ src, alt, fallback, className }) => {
+                const [error, setError] = useState(false);
+                if (error || !src) {
+                    return fallback;
+                }
+                return <img src={src} alt={alt} onError={() => setError(true)} className={className} />;
             };
 
             // --- DATOS GLOBALES FIJOS ---
@@ -1190,23 +1206,48 @@ ARCHIVO: index.html
                                     
                                     <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl mt-10">
                                         <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
-                                            <Activity size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.primary }} />
+                                            <Thumbnail 
+                                                src="./miniatura-indicadores.jpeg" 
+                                                alt="Indicadores" 
+                                                className="w-24 h-24 mx-auto mb-4 rounded-3xl object-cover shadow-sm transition-transform group-hover:scale-105"
+                                                fallback={<Activity size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.primary }} />}
+                                            />
                                             <h3 className="font-bold text-lg text-stone-800">Indicadores</h3>
                                         </div>
                                         <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
-                                            <Sun size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.actionBlue }} />
+                                            <Thumbnail 
+                                                src="./miniatura-balance.jpeg" 
+                                                alt="Balance" 
+                                                className="w-24 h-24 mx-auto mb-4 rounded-3xl object-cover shadow-sm transition-transform group-hover:scale-105"
+                                                fallback={<Sun size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.actionBlue }} />}
+                                            />
                                             <h3 className="font-bold text-lg text-stone-800">Balance Cotidiano</h3>
                                         </div>
                                         <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
-                                            <Library size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.secondary }} />
+                                            <Thumbnail 
+                                                src="./miniatura-library.jpeg" 
+                                                alt="Library" 
+                                                className="w-24 h-24 mx-auto mb-4 rounded-3xl object-cover shadow-sm transition-transform group-hover:scale-105"
+                                                fallback={<Library size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.secondary }} />}
+                                            />
                                             <h3 className="font-bold text-lg text-stone-800">Bloom Library</h3>
                                         </div>
                                         <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
-                                            <PlayCircle size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110 text-orange-400" />
+                                            <Thumbnail 
+                                                src="./miniatura-capsulas.jpeg" 
+                                                alt="Cápsulas" 
+                                                className="w-24 h-24 mx-auto mb-4 rounded-3xl object-cover shadow-sm transition-transform group-hover:scale-105"
+                                                fallback={<PlayCircle size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110 text-orange-400" />}
+                                            />
                                             <h3 className="font-bold text-lg text-stone-800">Cápsulas en Video</h3>
                                         </div>
                                         <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
-                                            <Calendar size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.brainGreen }} />
+                                            <Thumbnail 
+                                                src="./miniatura-agenda.jpeg" 
+                                                alt="Agenda" 
+                                                className="w-24 h-24 mx-auto mb-4 rounded-3xl object-cover shadow-sm transition-transform group-hover:scale-105"
+                                                fallback={<Calendar size={40} className="mx-auto mb-4 transition-transform group-hover:scale-110" style={{ color: colors.brainGreen }} />}
+                                            />
                                             <h3 className="font-bold text-lg text-stone-800">Conoce y Agenda</h3>
                                         </div>
                                     </div>
@@ -1221,18 +1262,19 @@ ARCHIVO: index.html
                                         <div className="animate-fadeIn bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
                                             <BackButton onClick={() => setSubView(null)} text="Volver a Información" />
                                             
+                                            {/* IMAGEN EN LA PARTE SUPERIOR COMO PORTADA */}
+                                            {infoData.imagen && (
+                                                <div className="mb-10 w-full flex justify-center">
+                                                    <img src={infoData.imagen} alt={infoData.title} className="w-full max-h-[600px] object-contain rounded-2xl shadow-sm bg-stone-50" />
+                                                </div>
+                                            )}
+
                                             <div className="flex items-center gap-4 mb-8 border-b border-stone-100 pb-6">
                                                 <div className="p-3 rounded-full text-white" style={{ backgroundColor: infoData.color }}>
                                                     {getIconComponent(infoData.icon)}
                                                 </div>
                                                 <h2 className="text-4xl font-serif font-bold" style={{ color: colors.primary }}>{infoData.title}</h2>
                                             </div>
-
-                                            {infoData.imagen && (
-                                                <div className="mb-10 flex justify-center">
-                                                    <img src={infoData.imagen} alt={infoData.title} className="max-w-full rounded-2xl shadow-sm object-contain max-h-[600px]" />
-                                                </div>
-                                            )}
 
                                             <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-serif text-justify">
                                                 {infoData.contenido.map((parrafo, idx) => (
@@ -1277,9 +1319,16 @@ ARCHIVO: index.html
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {indicadoresTab === 'info' && appData.indicadores?.informacion?.map(item => (
                                             <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:border-purple-200 hover:shadow-md transition-all group flex flex-col">
-                                                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>
-                                                    {getIconComponent(item.icon)}
-                                                </div>
+                                                <Thumbnail 
+                                                    src={item.imagen} 
+                                                    alt={item.title} 
+                                                    className="w-16 h-16 rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-110 transition-transform"
+                                                    fallback={
+                                                        <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>
+                                                            {getIconComponent(item.icon)}
+                                                        </div>
+                                                    }
+                                                />
                                                 <h3 className="text-xl font-bold mb-3 text-stone-800 group-hover:text-purple-600 transition-colors">{item.title}</h3>
                                                 <p className="text-sm text-stone-500 line-clamp-3 flex-grow">{item.contenido[0]}</p>
                                                 <p className="text-sm font-bold text-purple-500 mt-4">Leer más &rarr;</p>
@@ -1308,18 +1357,20 @@ ARCHIVO: index.html
                                         <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
                                     <div className="bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100">
+                                        
+                                        {/* IMAGEN EN LA PARTE SUPERIOR COMO PORTADA */}
+                                        {balanceData.imagen && (
+                                            <div className="mb-10 w-full flex justify-center">
+                                                <img src={balanceData.imagen} alt="Hábitos Sanos" className="w-full max-h-[600px] object-contain rounded-2xl shadow-sm bg-stone-50" />
+                                            </div>
+                                        )}
+
                                         <div className="flex items-center gap-4 mb-8 border-b border-stone-100 pb-6">
                                             <div className="p-3 rounded-full text-white" style={{ backgroundColor: balanceData.color || colors.actionBlue }}>
                                                 {getIconComponent(balanceData.icon)}
                                             </div>
                                             <h2 className="text-4xl font-serif font-bold" style={{ color: balanceData.color }}>{balanceData.title}</h2>
                                         </div>
-                                        
-                                        {balanceData.imagen && (
-                                            <div className="mb-10 flex justify-center">
-                                                <img src={balanceData.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl shadow-sm object-contain max-h-[800px]" />
-                                            </div>
-                                        )}
 
                                         <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-serif text-justify">
                                             {balanceData.contenido.map((parrafo, idx) => (
@@ -1336,6 +1387,14 @@ ARCHIVO: index.html
                                 return (
                                     <div className="animate-fadeIn bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
                                         <BackButton onClick={() => setSubView(null)} text="Volver a Bloom Library" />
+                                        
+                                        {/* IMAGEN EN LA PARTE SUPERIOR COMO PORTADA */}
+                                        {data.imagen && (
+                                            <div className="mb-10 w-full flex justify-center">
+                                                <img src={data.imagen} alt={data.title} className="w-full max-h-[600px] object-contain rounded-2xl shadow-sm bg-stone-50" />
+                                            </div>
+                                        )}
+
                                         <div className="flex items-center gap-4 mb-8 border-b border-stone-100 pb-6">
                                             <div className="p-3 rounded-full text-white" style={{ backgroundColor: colors.secondary }}>
                                                 <BookHeart size={28} />
@@ -1393,9 +1452,16 @@ ARCHIVO: index.html
                                                         {cuentosCat.map(cuento => (
                                                             <div key={cuento.id} onClick={() => setSubView(cuento.id)} className="cursor-pointer group flex items-center justify-between p-5 rounded-2xl border border-stone-100 hover:border-purple-200 hover:bg-purple-50 transition-all shadow-sm hover:shadow-md">
                                                                 <div className="flex items-center gap-4">
-                                                                    <div className="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                                                        <BookHeart size={20} />
-                                                                    </div>
+                                                                    <Thumbnail 
+                                                                        src={cuento.imagen} 
+                                                                        alt={cuento.title} 
+                                                                        className="w-14 h-14 rounded-xl object-cover shadow-sm group-hover:scale-110 transition-transform shrink-0"
+                                                                        fallback={
+                                                                            <div className="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+                                                                                <BookHeart size={20} />
+                                                                            </div>
+                                                                        }
+                                                                    />
                                                                     <h4 className="font-bold text-lg text-stone-700 group-hover:text-purple-800 transition-colors">{cuento.title}</h4>
                                                                 </div>
                                                                 <span className="text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity font-bold">&rarr;</span>
@@ -1442,7 +1508,12 @@ ARCHIVO: index.html
                                         {appData.especialistas?.map(esp => (
                                             <div key={esp.id} className="bg-white rounded-3xl shadow-sm border border-stone-100 overflow-hidden flex flex-col hover:shadow-lg transition-all group">
                                                 <div className="w-full h-72 bg-emerald-50/30 p-4 flex items-center justify-center border-b border-stone-50">
-                                                    <img src={esp.imagen} alt={esp.nombre} className="max-h-full max-w-full rounded-2xl shadow-sm object-contain group-hover:scale-105 transition-transform duration-500" />
+                                                    <Thumbnail 
+                                                        src={esp.imagen} 
+                                                        alt={esp.nombre} 
+                                                        className="max-h-full max-w-full rounded-2xl shadow-sm object-contain group-hover:scale-105 transition-transform duration-500"
+                                                        fallback={<Activity size={80} className="text-emerald-200" />}
+                                                    />
                                                 </div>
                                                 <div className="p-8 flex flex-col flex-grow">
                                                     <h3 className="text-2xl font-bold text-stone-800 mb-1">{esp.nombre}</h3>
@@ -1555,7 +1626,6 @@ ARCHIVO: index.html
     </script>
 </body>
 </html>
-
 
 =================================================================
 ARCHIVO: styles.css
