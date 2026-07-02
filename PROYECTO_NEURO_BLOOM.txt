@@ -116,7 +116,7 @@ ARCHIVO: data.json
         "imagen": "./estres.jpeg",
         "contenido": [
           "¿QUÉ ES EL ESTRÉS? El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o demandantes. Puede surgir por pensamientos o situaciones que nos generan tensión, frustración, enojo o nerviosismo.",
-          "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situaciones inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
+          "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situations inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
           "¿CÓMO AFECTA EL ESTRÉS AL CUERPO? Ante el estrés, el cuerpo libera hormonas que aumentan la alerta, la tensión muscular y el ritmo cardíaco. Si esta activación se mantiene por mucho tiempo, puede aumentar el riesgo de problemas como presión alta, ansiedad, depresión, diabetes u otros padecimientos.",
           "SEÑALES DE EXCESO DE ESTRÉS: El estrés puede manifestarse a través de cansancio constante, dolores musculares o de cabeza, problemas digestivos, dificultad para dormir, irritabilidad o falta de concentración. Muchas veces no se reconoce que estos síntomas están relacionados con el estrés.",
           "¿CUÁNDO BUSCAR AYUDA? Es importante buscar apoyo profesional si el estrés se vuelve abrumador, interfiere con la vida diaria o provoca síntomas físicos o emocionales intensos. Pedir ayuda es una forma de cuidado y prevención."
@@ -414,7 +414,7 @@ ARCHIVO: data.json
       "id": "ahora-quien-soy",
       "categoria": "adolescentes",
       "title": "¿Y ahora quién soy?",
-      "imagen": "./ahora-quien-soy.jpeg",
+      "imagen": "./y-ahora-quien-soy.jpeg",
       "contenido": [
         "Corría un nuevo ciclo escolar y yo crecí de golpe. En realidad, nunca había sido muy agraciada, pero después de las vacaciones mi cuerpo comenzó a cambiar. Ya no tenía esos kilos de más, mi cabello creció y compré una plancha para alisarlo. Empecé a usar lazos que combinaban con mis tenis, aprendí a ponerme lentes de contacto y, de pronto, todo parecía encajar perfecto. Los compañeros de la preparatoria comenzaron a voltearme a ver.",
         "Realmente siempre me había sentido como el patito feo. Siempre obtenía un “no” por respuesta sin siquiera intentarlo. Pero ese verano todo cambió. Mi cuerpo empezó a verse diferente y, al mismo tiempo, mi interior también: más segura, más inteligente, más bonita. Sentía que por fin estaba descubriendo quién era… o al menos eso creí.",
@@ -461,7 +461,7 @@ ARCHIVO: data.json
       "id": "grupo-whatsapp",
       "categoria": "adolescentes",
       "title": "El grupo de WhatsApp",
-      "imagen": "./grupo-whatsapp.jpeg",
+      "imagen": "./el-grupo-de-whatsapp.jpeg",
       "contenido": [
         "Ésta es la historia de cómo un grupo de WhatsApp terminó convirtiéndose en el villano.",
         "Era otoño en la preparatoria. Todo transcurría con normalidad, pero a veces la normalidad no significa que todo esté perfecto; simplemente significa que la costumbre ha hecho que ciertas inconformidades e injusticias se vuelvan tan comunes que dejamos de notarlas.",
@@ -528,7 +528,7 @@ ARCHIVO: data.json
       "id": "habitaciones-cerradas",
       "categoria": "adultos",
       "title": "La casa de las habitaciones cerradas",
-      "imagen": "./habitaciones-cerradas.jpeg",
+      "imagen": "./la-casa-de-las-habitaciones-cerradas.jpeg",
       "contenido": [
         "Elara, una mujer de 34 años, recién había heredado una casa vieja y abandonada en un pueblo cercano. La casa era propiedad de su bisabuela, a quien jamás conoció, y el testamento había estado envuelto en problemas durante años hasta que, por fin, después de mucho tiempo, todo logró aclararse y dar paso a la repartición de bienes.",
         "Cuando supo que había heredado aquella casa, sintió un revuelo de emociones. No sabía qué hacer con ella. Estaba lejos de su empleo, fuera de la vida que ya conocía y lejos de los últimos recuerdos de sus padres, quienes habían fallecido hacía diez años en un accidente automovilístico.",
@@ -691,7 +691,7 @@ ARCHIVO: data.json
       "id": "caracolita",
       "categoria": "ninos",
       "title": "La caracolita que siempre llegaba tarde",
-      "imagen": "./caracolita.jpeg",
+      "imagen": "./la-caracolita-que-siempre-llegaba-tarde.jpeg",
       "contenido": [
         "En el bosque había una escuela donde estudiaban una caracolita, un topo, una conejita, un ratoncito, una ardilla y una liebre.",
         "Cada mañana, mientras todos avanzaban rápidamente hacia sus clases, la caracolita July siempre se quedaba atrás. Caminaba despacito y se distraía con cualquier cosa que llamara su atención. Se detenía a observar pequeñas ramitas, hojitas de formas curiosas, semillitas escondidas entre la tierra, los colores del arcoíris después de la lluvia, las gotitas que brillaban sobre las hojas y los rayitos de sol que se colaban entre los árboles.",
@@ -749,7 +749,7 @@ ARCHIVO: data.json
       "id": "mochila-mateo",
       "categoria": "ninos",
       "title": "La mochila de Mateo",
-      "imagen": "./mochila-mateo.jpeg",
+      "imagen": "./la-mochila-de-mateo.jpeg",
       "contenido": [
         "En una escuela donde todo transcurría con normalidad, estaba siempre el pequeño Mateo, con una mochila más grande que todo su cuerpo.",
         "Mateo no dejaba su mochila para nada. Y cuando digo nada, es realmente NADA. La llevaba al almuerzo, al sanitario, la cargaba mientras hacía sus trabajos, mientras estaba en deportes o pintaba en artes. Incluso mientras dormía, el pequeño Mateo era aplastado por aquella mochila gigante.",
@@ -1207,7 +1207,7 @@ ARCHIVO: index.html
                                     <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl mt-10">
                                         <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-indicadores.jpeg" 
+                                                src="./indicadores-emocionales.jpeg" 
                                                 alt="Indicadores" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<Activity size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110" style={{ color: colors.primary }} />}
@@ -1216,7 +1216,7 @@ ARCHIVO: index.html
                                         </div>
                                         <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-balance.jpeg" 
+                                                src="./balance-cotidiano.jpeg" 
                                                 alt="Balance" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<Sun size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110" style={{ color: colors.actionBlue }} />}
@@ -1225,7 +1225,7 @@ ARCHIVO: index.html
                                         </div>
                                         <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-library.jpeg" 
+                                                src="./bloom-library.jpeg" 
                                                 alt="Library" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<Library size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110" style={{ color: colors.secondary }} />}
@@ -1234,7 +1234,7 @@ ARCHIVO: index.html
                                         </div>
                                         <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-capsulas.jpeg" 
+                                                src="./capsulas-en-video.jpeg" 
                                                 alt="Cápsulas" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<PlayCircle size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110 text-orange-400" />}
@@ -1243,7 +1243,7 @@ ARCHIVO: index.html
                                         </div>
                                         <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-2xl bg-white border shadow-sm hover:shadow-lg transition-all text-center group">
                                             <Thumbnail 
-                                                src="./miniatura-agenda.jpeg" 
+                                                src="./conoce-y-agenda.jpeg" 
                                                 alt="Agenda" 
                                                 className="w-28 h-28 mx-auto mb-6 rounded-[2rem] object-cover shadow-md transition-transform group-hover:scale-105"
                                                 fallback={<Calendar size={48} className="mx-auto mb-6 transition-transform group-hover:scale-110" style={{ color: colors.brainGreen }} />}
@@ -1262,7 +1262,6 @@ ARCHIVO: index.html
                                         <div className="animate-fadeIn bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
                                             <BackButton onClick={() => setSubView(null)} text="Volver a Información" />
                                             
-                                            {/* IMAGEN ESTILO INFOGRAFÍA (CONTAIN) */}
                                             {infoData.imagen && (
                                                 <div className="mb-10 w-full flex justify-center bg-stone-50 rounded-3xl p-4 sm:p-8 border border-stone-100">
                                                     <img src={infoData.imagen} alt={infoData.title} className="max-w-full rounded-xl shadow-sm object-contain max-h-[70vh]" />
@@ -1358,7 +1357,6 @@ ARCHIVO: index.html
                                     </div>
                                     <div className="bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100">
                                         
-                                        {/* IMAGEN ESTILO INFOGRAFÍA (CONTAIN) */}
                                         {balanceData.imagen && (
                                             <div className="mb-10 w-full flex justify-center bg-stone-50 rounded-3xl p-4 sm:p-8 border border-stone-100">
                                                 <img src={balanceData.imagen} alt="Hábitos Sanos" className="max-w-full rounded-xl shadow-sm object-contain max-h-[70vh]" />
@@ -1388,7 +1386,6 @@ ARCHIVO: index.html
                                     <div className="animate-fadeIn bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
                                         <BackButton onClick={() => setSubView(null)} text="Volver a Bloom Library" />
                                         
-                                        {/* IMAGEN ESTILO BANNER/PORTADA (COVER) */}
                                         {data.imagen && (
                                             <div className="mb-10 w-full rounded-3xl overflow-hidden shadow-sm border border-stone-100 h-64 md:h-96">
                                                 <img src={data.imagen} alt={data.title} className="w-full h-full object-cover" />
