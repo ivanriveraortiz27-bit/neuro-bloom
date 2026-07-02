@@ -473,10 +473,10 @@
                                     <div className="animate-fadeIn bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-stone-100 max-w-4xl mx-auto">
                                         <BackButton onClick={() => setSubView(null)} text="Volver a Bloom Library" />
                                         
-                                        {/* IMAGEN DE CUENTOS: COMPLETAS SIN RECORTAR */}
+                                        {/* IMAGEN DE CUENTOS: COMPLETAS SIN RECORTAR Y TAMAÑO ORIGINAL */}
                                         {data.imagen && (
-                                            <div className="mb-10 w-full flex justify-center bg-stone-50 rounded-3xl p-4 sm:p-8 border border-stone-100">
-                                                <img src={data.imagen} alt={data.title} className="max-w-full rounded-xl shadow-sm object-contain max-h-[70vh]" />
+                                            <div className="mb-10 w-full flex justify-center">
+                                                <img src={data.imagen} alt={data.title} className="max-w-full h-auto rounded-2xl shadow-sm" style={{ maxHeight: '85vh', objectFit: 'contain' }} />
                                             </div>
                                         )}
 
