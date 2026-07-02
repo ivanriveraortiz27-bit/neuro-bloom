@@ -111,7 +111,7 @@
         "contenido": [
           "¿QUÉ ES EL ESTRÉS? El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o demandantes. Puede surgir por pensamientos o situaciones que nos generan tensión, frustración, enojo o nerviosismo.",
           "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situaciones inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
-          "¿CÓMO AFECTA EL ESTRÉS AL CUERPO? Ante el estrés, el cuerpo libera hormonas que aumentan la alerta, la tensión muscular y el ritmo cardíaco. Si esta activación se mantiene por mucho tiempo, puede aumentar el riesgo de problemas como presión alta, ansiedad, depresión, diabetes u otros padecimientos.",
+          "¿CÓMO AFECTA EL ESTRÉS AL CUERPO? Ante el estrés, el cuerpo libera hormonas que aumentan la alerta, la tensión muscular y el ritmo cardíaco. Si esta activación se mantiene por mucho tiempo, puede aumentar el riesgo de problemas como presión alta, ansiedad, depresión, diabetes u মধুর padecimientos.",
           "SEÑALES DE EXCESO DE ESTRÉS: El estrés puede manifestarse a través de cansancio constante, dolores musculares o de cabeza, problemas digestivos, dificultad para dormir, irritabilidad o falta de concentración. Muchas veces no se reconoce que estos síntomas están relacionados con el estrés.",
           "¿CUÁNDO BUSCAR AYUDA? Es importante buscar apoyo profesional si el estrés se vuelve abrumador, interfiere con la vida diaria o provoca síntomas físicos o emocionales intensos. Pedir ayuda es una forma de cuidado y prevención."
         ]
@@ -204,7 +204,7 @@
         "title": "Cuestionario de Burnout Emocional",
         "icon": "activity",
         "color": "#9BC496",
-        "intro": "Escúchate con honestidad. Lee cada afirmación y marca la option que más se acerque a cómo te has sentido en las últimas semanas o meses.",
+        "intro": "Escúchate con honestidad. Lee cada afirmación y marca la opción que más se acerque a cómo te has sentido en las últimas semanas o meses.",
         "preguntas": [
           "Me siento cansado/a incluso después de dormir o descansar.",
           "Siento que mi energía se agota rápidamente durante el día.",
@@ -862,16 +862,19 @@
   ],
   "especialistas": [
     {
-      "id": "alberto-perez",
-      "nombre": "Alberto Pérez",
-      "titulo": "Psicólogo Clínico",
-      "imagen": "./alberto-perez.jpeg",
-      "descripcion": "Avalado por la Federación Mexicana de Psicología.",
+      "id": "feler-munoz",
+      "nombre": "Féler Muñoz",
+      "titulo": "Psicoterapeuta Gestalt",
+      "imagen": "./feler-munoz.jpeg",
+      "descripcion": "Atención a adolescentes y adultos.",
       "enfoques": [
-        "Psicoterapia breve centrada en soluciones",
-        "Terapia cognitivo conductual",
-        "Psicoterapia familiar y de pareja",
-        "Psicosexualidad"
+        "Enfoque Gestalt",
+        "Especialidad en sexualidad",
+        "Trabajo relacional (pareja y familia)",
+        "Toma de responsabilidad para accionar",
+        "Abundancia desde el autoapoyo",
+        "Problemas financieros",
+        "Enfermedades desde el enfoque dinámico y emocional"
       ]
     },
     {
