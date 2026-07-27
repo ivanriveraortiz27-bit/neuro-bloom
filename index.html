@@ -96,7 +96,6 @@
             const PlayCircle = (props) => <IconWrapper name="play-circle" {...props} />;
             const Library = (props) => <IconWrapper name="library" {...props} />;
 
-            // Helper para convertir el nombre de icono del JSON a Componente React
             const getIconComponent = (name, props = {}) => {
                 switch(name) {
                     case 'activity': return <Activity {...props} />;
@@ -157,7 +156,6 @@
                 </button>
             );
 
-            // --- CUESTIONARIO VIEW (LÓGICA ACTUALIZADA) ---
             const CuestionarioView = ({ data, onBack }) => {
                 const [respuestas, setRespuestas] = useState({});
                 const [resultado, setResultado] = useState(null);
@@ -171,7 +169,6 @@
                     let textoResultado = "";
                     let advertenciaExtra = "";
 
-                    // Lógica especial para Depresión (pregunta 13 tiene índice 12)
                     if (data.id === 'depresion-test' && respuestas[12] >= 2) {
                         advertenciaExtra = "Importante: Si en la pregunta 13 respondiste 'Frecuentemente' o 'Casi todo el tiempo', es recomendable buscar apoyo profesional lo antes posible, incluso si tu puntaje total no es elevado.";
                     }
@@ -278,7 +275,11 @@
                 const [activeSection, setActiveSection] = useState('home');
                 const [subView, setSubView] = useState(null);
                 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+                
+                // Estados para pestañas
                 const [indicadoresTab, setIndicadoresTab] = useState('info'); 
+                const [balanceTab, setBalanceTab] = useState('vida');
+                const [retoTab, setRetoTab] = useState('intro');
                 
                 const [appData, setAppData] = useState(null);
                 const [dataError, setDataError] = useState(false);
@@ -296,14 +297,13 @@
                         });
                 }, []);
 
-                // Corrección de Bug de Scroll y Navegación
                 useEffect(() => {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, [activeSection, subView]);
+                }, [activeSection, subView, balanceTab, retoTab]);
 
                 useEffect(() => {
                     setSubView(null);
-                }, [activeSection]); // Solo se reinicia el subView al cambiar de sección principal
+                }, [activeSection]); 
 
                 if (dataError) {
                     return (
@@ -436,7 +436,6 @@
                                         <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Infórmate sobre tu salud emocional y realiza ejercicios de autoexploración para identificar lo que estás sintiendo.</p>
                                     </div>
 
-                                    {/* CORRECCIÓN: Fondo y color blanco para la pestaña Cuestionarios */}
                                     <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto">
                                         <button 
                                             onClick={() => setIndicadoresTab('info')} 
@@ -486,33 +485,96 @@
                             );
 
                         case 'balance':
-                            const balanceData = appData.balance;
+                            const renderContenidoTexto = (parrafos) => {
+                                return parrafos.map((parrafo, idx) => {
+                                    if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
+                                    if (parrafo.includes('🔒')) return <button key={idx} disabled className="w-full py-4 mt-6 rounded-2xl bg-stone-200 text-stone-500 font-bold flex items-center justify-center gap-3 cursor-not-allowed border border-stone-300 shadow-inner">{parrafo}</button>;
+                                    
+                                    // Identificar subtitulos decorados o encabezados
+                                    if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷]/) || parrafo === parrafo.toUpperCase()) {
+                                        return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
+                                    }
+                                    return <p key={idx}>{parrafo}</p>;
+                                });
+                            };
+
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto space-y-8 relative z-10">
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-8 relative z-10">
                                     <div className="w-full">
                                         <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
-                                    <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white">
-                                        
-                                        {balanceData.imagen && (
-                                            <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
-                                                <img src={balanceData.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl object-contain max-h-[70vh]" />
-                                            </div>
-                                        )}
 
-                                        <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
-                                            <div className="p-4 rounded-full text-white shadow-md bg-blue-400">
-                                                {getIconComponent(balanceData.icon, {size: 32})}
-                                            </div>
-                                            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">{balanceData.title}</h2>
-                                        </div>
-
-                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                            {balanceData.contenido.map((parrafo, idx) => (
-                                                <p key={idx}>{parrafo}</p>
-                                            ))}
-                                        </div>
+                                    <div className="text-center mb-10">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Balance Cotidiano</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Estrategias y retos para construir bienestar emocional paso a paso.</p>
                                     </div>
+
+                                    <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto mb-8">
+                                        <button 
+                                            onClick={() => setBalanceTab('vida')} 
+                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balanceTab === 'vida' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
+                                            >
+                                            Vida en Equilibrio
+                                        </button>
+                                        <button 
+                                            onClick={() => setBalanceTab('reto')} 
+                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balanceTab === 'reto' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
+                                            >
+                                            Reto del Mes
+                                        </button>
+                                    </div>
+
+                                    {balanceTab === 'vida' && (
+                                        <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
+                                            {appData.balance.imagen && (
+                                                <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
+                                                    <img src={appData.balance.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl object-contain max-h-[70vh]" />
+                                                </div>
+                                            )}
+
+                                            <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                                <div className="p-4 rounded-full text-white shadow-md bg-blue-400">
+                                                    {getIconComponent(appData.balance.icon, {size: 32})}
+                                                </div>
+                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">{appData.balance.title}</h2>
+                                            </div>
+
+                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {appData.balance.contenido.map((parrafo, idx) => (
+                                                    <p key={idx}>{parrafo}</p>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {balanceTab === 'reto' && appData.reto_del_mes && (
+                                        <div className="animate-fadeIn space-y-8">
+                                            <div className="flex justify-center flex-wrap gap-2 bg-white/50 backdrop-blur-md p-2 rounded-3xl shadow-glass border border-white w-fit mx-auto">
+                                                <button onClick={() => setRetoTab('intro')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'intro' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Introducción</button>
+                                                <button onClick={() => setRetoTab('sem1')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem1' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 1</button>
+                                                <button onClick={() => setRetoTab('sem2')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem2' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 2</button>
+                                                <button onClick={() => setRetoTab('sem3')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem3' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 3</button>
+                                                <button onClick={() => setRetoTab('sem4')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem4' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 4</button>
+                                                <button onClick={() => setRetoTab('cierre')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'cierre' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Cierre</button>
+                                            </div>
+
+                                            <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white">
+                                                <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                    {(()=>{
+                                                        let contenido = [];
+                                                        if(retoTab === 'intro') contenido = appData.reto_del_mes.intro;
+                                                        else if(retoTab === 'cierre') contenido = appData.reto_del_mes.cierre;
+                                                        else {
+                                                            const sem = appData.reto_del_mes.semanas.find(s => s.id === retoTab);
+                                                            if(sem) contenido = sem.contenido;
+                                                        }
+                                                        
+                                                        return renderContenidoTexto(contenido);
+                                                    })()}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             );
 
