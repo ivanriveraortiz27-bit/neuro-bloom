@@ -384,7 +384,6 @@
 
                                             <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
                                                 {infoData.contenido.map((parrafo, idx) => {
-                                                    // Detectar si el párrafo inicia con un subtítulo
                                                     if(parrafo.includes(':') && parrafo.split(':')[0].length < 50) {
                                                         const parts = parrafo.split(':');
                                                         return <p key={idx}><strong className="text-stone-800">{parts[0]}:</strong>{parts.slice(1).join(':')}</p>;
@@ -421,7 +420,7 @@
                                         </button>
                                         <button 
                                             onClick={() => setIndicadoresTab('tests')} 
-                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'tests' ? 'text-white shadow-md' : 'text-stone-500 hover:text-stone-800'}`}
+                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'tests' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
                                             >
                                             Cuestionarios
                                         </button>
@@ -498,7 +497,6 @@
                                     <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
                                         <BackButton onClick={() => setSubView(null)} text="Volver a Bloom Library" />
                                         
-                                        {/* IMÁGENES DE CUENTOS COMPLETAS */}
                                         {data.imagen && (
                                             <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
                                                 <img src={data.imagen} alt={data.title} className="max-w-full h-auto rounded-2xl object-contain max-h-[85vh]" />
@@ -662,38 +660,54 @@
                 return (
                     <div className="min-h-screen font-sans relative overflow-hidden text-stone-700 bg-[#faf8f9]">
                         
-                        {/* 1. Fondo de Base (Gradientes Suaves) */}
-                        <div className="fixed inset-0 z-0 overflow-hidden">
+                        {/* 1. Fondo de Base (Gradientes / Blobs Suaves) */}
+                        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
                             <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-[#f8e4e9] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
                             <div className="absolute top-[10%] right-[-10%] w-[35rem] h-[35rem] bg-[#e6dcf0] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
                             <div className="absolute bottom-[-10%] left-[10%] w-[40rem] h-[40rem] bg-[#eaf4fc] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
                         </div>
 
-                        {/* 2. Capa de Decoración Orgánica Abstracta (Basada en Referencias) */}
-                        {/* Se posicionan entre la base (z-0) y el contenido (z-10) */}
-                        <div className="fixed inset-0 z-1 pointer-events-none overflow-hidden opacity-60">
+                        {/* 2. Capa de Puntos, Círculos y Manchas Orgánicas Distribuidas (Morados, Rosas, Verdes) */}
+                        <div className="fixed inset-0 z-1 pointer-events-none overflow-hidden opacity-75">
                             
-                            {/* Salpicadura Suave Morada - Arriba Izquierda */}
-                            <div className="absolute top-0 left-[-5%] w-96 h-96 bg-brand-purple/20 rounded-full filter blur-xl animate-blob"></div>
-                            
-                            {/* Mancha Orgánica Té (Acuarela) - Arriba Derecha */}
-                            <div className="absolute top-40 right-[10%] w-64 h-64 bg-teal-200/50 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] filter blur-2xl rotate-12 animate-blob animation-delay-2000"></div>
-                            
-                            {/* Puntos y Formas Ámbar/Oro (Basado en Ref 1/2) - Centro Izquierda */}
-                            <div className="absolute top-1/2 left-[5%] -translate-y-1/2 flex flex-col gap-4">
-                                <div className="w-6 h-6 bg-amber-300 rounded-full"></div>
-                                <div className="w-12 h-12 bg-amber-200 rounded-full border-4 border-amber-300"></div>
-                                <div className="w-4 h-4 bg-amber-400 rounded-full"></div>
-                            </div>
-                            
-                            {/* Forma Orgánica Rosa Suave (Ref 2) - Centro Derecha */}
-                            <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-80 h-80 bg-pink-100/70 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] filter blur-3xl animate-blob animation-delay-4000"></div>
-                            
-                            {/* Mancha Verde Abstracta (Acuarela) - Abajo Izquierda */}
-                            <div className="absolute bottom-20 left-[15%] w-72 h-72 bg-brand-green/30 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] filter blur-2xl animate-blob"></div>
+                            {/* --- ZONA SUPERIOR --- */}
+                            <div className="absolute top-10 left-[4%] w-5 h-5 bg-purple-400/70 rounded-full"></div>
+                            <div className="absolute top-24 left-[10%] w-9 h-9 bg-pink-300/80 rounded-full border-2 border-pink-200"></div>
+                            <div className="absolute top-14 left-[22%] w-4 h-4 bg-emerald-400/70 rounded-full"></div>
+                            <div className="absolute top-8 left-[45%] w-7 h-7 bg-purple-300/60 rounded-full filter blur-[1px]"></div>
+                            <div className="absolute top-20 right-[25%] w-4 h-4 bg-pink-400/70 rounded-full"></div>
+                            <div className="absolute top-12 right-[12%] w-10 h-10 bg-emerald-300/80 rounded-full border-2 border-emerald-200"></div>
+                            <div className="absolute top-28 right-[4%] w-6 h-6 bg-purple-400/70 rounded-full"></div>
 
-                            {/* Salpicadura Suave Ámbar - Abajo Derecha */}
-                            <div className="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-amber-100/60 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+                            {/* --- ZONA CENTRAL / LATERALES --- */}
+                            <div className="absolute top-[38%] left-[3%] w-[18px] h-[18px] bg-pink-400/70 rounded-full"></div>
+                            <div className="absolute top-[46%] left-[7%] w-12 h-12 bg-purple-300/50 rounded-full border-2 border-purple-200"></div>
+                            <div className="absolute top-[55%] left-[2%] w-5 h-5 bg-emerald-400/80 rounded-full"></div>
+                            
+                            {/* Dispersos sutiles en el centro de la pantalla */}
+                            <div className="absolute top-[35%] left-[42%] w-4 h-4 bg-purple-300/50 rounded-full"></div>
+                            <div className="absolute top-[48%] left-[58%] w-6 h-6 bg-pink-300/60 rounded-full"></div>
+                            <div className="absolute top-[62%] left-[45%] w-5 h-5 bg-emerald-300/60 rounded-full"></div>
+
+                            <div className="absolute top-[36%] right-[5%] w-8 h-8 bg-purple-300/70 rounded-full border-2 border-purple-200"></div>
+                            <div className="absolute top-[48%] right-[2%] w-5 h-5 bg-emerald-400/70 rounded-full"></div>
+                            <div className="absolute top-[58%] right-[8%] w-10 h-10 bg-pink-300/70 rounded-full border-2 border-pink-200"></div>
+
+                            {/* --- ZONA INFERIOR --- */}
+                            <div className="absolute bottom-32 left-[5%] w-10 h-10 bg-emerald-300/80 rounded-full border-2 border-emerald-200"></div>
+                            <div className="absolute bottom-14 left-[12%] w-5 h-5 bg-purple-400/70 rounded-full"></div>
+                            <div className="absolute bottom-24 left-[28%] w-7 h-7 bg-pink-300/70 rounded-full"></div>
+                            <div className="absolute bottom-10 left-[48%] w-4 h-4 bg-emerald-400/70 rounded-full"></div>
+                            <div className="absolute bottom-28 right-[30%] w-6 h-6 bg-purple-300/70 rounded-full"></div>
+                            <div className="absolute bottom-16 right-[14%] w-8 h-8 bg-pink-400/70 rounded-full border-2 border-pink-200"></div>
+                            <div className="absolute bottom-36 right-[4%] w-5 h-5 bg-emerald-400/70 rounded-full"></div>
+                            <div className="absolute bottom-10 right-[6%] w-12 h-12 bg-purple-400/60 rounded-full border-2 border-purple-300"></div>
+
+                            {/* --- MANCHAS DIFUMINADAS DE ACUARELA --- */}
+                            <div className="absolute top-[18%] left-[12%] w-44 h-44 bg-purple-300/25 rounded-full filter blur-2xl animate-blob"></div>
+                            <div className="absolute top-[40%] right-[15%] w-52 h-52 bg-pink-300/30 rounded-[50%_50%_70%_30%/40%_60%_40%_60%] filter blur-2xl animate-blob animation-delay-2000"></div>
+                            <div className="absolute bottom-[20%] left-[22%] w-48 h-48 bg-emerald-200/35 rounded-[60%_40%_50%_50%/30%_70%_30%_70%] filter blur-2xl animate-blob animation-delay-4000"></div>
+                            <div className="absolute bottom-[8%] right-[20%] w-56 h-56 bg-purple-200/30 rounded-full filter blur-2xl animate-blob"></div>
                         </div>
 
                         {/* 3. Contenido (Header, Main, Footer) - z-10 y superiores */}
