@@ -9,14 +9,16 @@ ARCHIVO: data.json
     "informacion": [
       {
         "id": "ansiedad-info",
-        "title": "Ansiedad y Cuerpo",
+        "title": "Ansiedad",
         "icon": "activity",
         "color": "#2196f3",
         "contenido": [
-          "¿QUÉ ES? La ansiedad generalizada se caracteriza por una preocupación constante y difícil de controlar sobre distintos aspectos de la vida diaria, incluso cuando no existe una razón clara para alarmarse.",
+          "¿QUÉ ES?",
+          "La ansiedad generalizada se caracteriza por una preocupación constante y difícil de controlar sobre distintos aspectos de la vida diaria, incluso cuando no existe una razón clara para alarmarse.",
           "CUANDO LA PREOCUPACIÓN SE VUELVE AGOTADORA: En el trastorno de ansiedad generalizada, la mente permanece en estado de alerta la mayor parte del tiempo, lo que puede generar cansancio emocional, dificultad para concentrarse y una sensación persistente de tensión.",
           "ANSIEDAD Y CUERPO: La ansiedad no solo se manifiesta en los pensamientos. También puede reflejarse en el cuerpo a través de tensión muscular, problemas para dormir, molestias estomacales, fatiga o sensación de inquietud constante.",
-          "¿POR QUÉ APARECE? Aunque no existe una causa única, la ansiedad generalizada puede estar relacionada con factores genéticos, experiencias de estrés prolongado y cambios en el funcionamiento del cerebro frente al manejo del estrés.",
+          "¿POR QUÉ APARECE?",
+          "Aunque no existe una causa única, la ansiedad generalizada puede estar relacionada con factores genéticos, experiencias de estrés prolongado y cambios en el funcionamiento del cerebro frente al manejo del estrés.",
           "BUSCAR AYUDA TAMBIÉN ES AUTOCUIDADO: La ansiedad es tratable. La psicoterapia, especialmente la terapia cognitivo-conductual, junto con hábitos saludables y, en algunos casos, medicación indicada por un profesional, pueden mejorar significativamente la calidad de vida."
         ]
       },
@@ -26,14 +28,113 @@ ARCHIVO: data.json
         "icon": "shield",
         "color": "#9BC496",
         "contenido": [
-          "No todas las etapas de la vida son estables. Hay momentos en los que el cansancio deja de ser normal. La irritabilidad aumenta. La mente no se detiene. El cuerpo se siente en alerta constante. Y entonces intentas hacer lo mismo de siempre: seguir funcionando.",
-          "Pero hay días en los que sostener ya no es suficiente. Una crisis emocional no siempre se ve dramática. A veces se presenta como: Llanto inesperado o facilidad para desbordarte. Sensación constante de estar sobrepasada. Dificultad para concentrarte. Pensamientos repetitivos que no se apagan. Tensión física que no desaparece.",
-          "No es debilidad. Es tu sistema nervioso pidiendo regulación. ¿Qué ocurre en el cuerpo durante una crisis? Cuando percibimos amenaza real o emocional el sistema de supervivencia se activa. La teoría polivagal desarrollada por Stephen Porges explica que nuestro cuerpo responde antes de que nuestra mente racional pueda organizar lo que está pasando.",
-          "Por eso, en crisis, los consejos lógicos no siempre funcionan. No necesitas que te expliquen todo. Necesitas sentir seguridad. El autocuidado en crisis no es lujo. Es intervención preventiva.",
-          "Señales de que necesitas regular, no exigirte más: Te hablas con dureza constante. Sientes que si te detienes, todo se desmorona. Tu descanso no te repara. Reaccionas con mayor intensidad de la habitual. Te cuesta tomar decisiones simples. Si te reconoces aquí, no necesitas más disciplina. Necesitas contención.",
-          "Protocolo NeuroBloom de Regulación Básica: No sustituye terapia, pero puede ayudarte a estabilizar el momento. 1. Reduce estímulos: Apaga notificaciones. Baja la luz. Disminuye el ruido. 2. Regula la respiración: Inhala en 4 segundos. Exhala en 6 segundos. 3. Anclaje al presente (5-4-3-2-1): 5 cosas que ves, 4 que puedes tocar, 3 que escuchas, 2 que hueles, 1 que saboreas. 4. Nombrar lo que sientes: No 'soy un desastre'. Sí: 'Estoy sintiendo ansiedad'. 5. Pedir ayuda antes del colapso: Autocuidado no siempre es hacerlo sola.",
-          "Lo que no es autocuidado en crisis: No es ignorar lo que sientes. No es anestesiarte con productividad. No es forzarte a estar positiva. Y tampoco es romantizar el dolor. Es interrumpir el daño antes de que escale.",
-          "Una verdad importante: No todas las crisis se resuelven rápido. Algunas requieren acompañamiento profesional, y eso también es fortaleza. Pero incluso en los momentos más intensos, puedes aprender algo fundamental: Tu cuerpo no está en tu contra. Está intentando protegerte. El autocuidado en crisis es una forma de decirte: 'Importo lo suficiente como para detenerme.' Y detenerse, a tiempo, también es madurez emocional."
+          "No todas las etapas de la vida son estables.",
+          "Hay momentos en los que el cansancio deja de ser normal. La irritabilidad aumenta. La mente no se detiene. El cuerpo se siente en alerta constante. Y entonces intentas hacer lo mismo de siempre: seguir funcionando.",
+          "Pero hay días en los que sostener ya no es suficiente.",
+          "Una crisis emocional no siempre se ve dramática. A veces aparece de formas mucho más silenciosas:",
+          "• Llanto inesperado o facilidad para desbordarte.",
+          "• Sensación constante de estar sobrepasado.",
+          "• Dificultad para concentrarte.",
+          "• Pensamientos repetitivos que no logras detener.",
+          "• Tensión física que parece no desaparecer.",
+          "No es debilidad.",
+          "Es tu sistema nervioso pidiendo regulación.",
+          "¿Qué ocurre en el cuerpo durante una crisis?",
+          "Cuando percibimos una amenaza, ya sea real o emocional, nuestro sistema de supervivencia se activa de manera automática.",
+          "La Teoría Polivagal, desarrollada por Stephen Porges, explica que el cuerpo responde antes de que nuestra mente racional pueda comprender por completo lo que está ocurriendo.",
+          "Por eso, cuando estamos en crisis, los consejos como \"cálmate\" o \"piensa positivo\" suelen resultar poco útiles.",
+          "Antes de razonar, el cerebro necesita sentirse seguro.",
+          "El autocuidado, en esos momentos, deja de ser un lujo para convertirse en una forma de prevención y regulación.",
+          "Señales de que necesitas regularte, no exigirte más",
+          "• Te hablas con dureza constantemente.",
+          "• Sientes que si te detienes, todo se vendrá abajo.",
+          "• Descansas, pero el cansancio permanece.",
+          "• Reaccionas con más intensidad de la habitual.",
+          "• Te cuesta tomar decisiones sencillas.",
+          "• Todo parece requerir un esfuerzo enorme.",
+          "Si te reconoces en varias de estas señales, quizá no necesites más disciplina.",
+          "Quizá necesites contención.",
+          "Antes de intentar resolver tu vida, revisa tus necesidades básicas.",
+          "Cuando el sistema nervioso está desregulado, el cerebro suele hacernos creer que todo es urgente.",
+          "Queremos encontrar respuestas, tomar decisiones importantes o resolver problemas de inmediato.",
+          "Sin embargo, un cerebro agotado difícilmente puede pensar con claridad.",
+          "Antes de preguntarte \"¿Qué hago con mi vida?\", pregúntate primero:",
+          "✓ ¿He dormido lo suficiente en los últimos días?",
+          "✓ ¿He comido algo nutritivo hoy o llevo horas sin alimentarme?",
+          "✓ ¿He tomado suficiente agua?",
+          "✓ ¿He descansado aunque sea unos minutos sin pantallas?",
+          "✓ ¿He estado aislado o sin contacto con personas de confianza durante demasiado tiempo?",
+          "✓ ¿Mi cuerpo necesita movimiento, respiración o simplemente detenerse?",
+          "Puede parecer algo muy simple, pero cubrir estas necesidades básicas ayuda a disminuir la intensidad de la respuesta de estrés y permite que el cerebro recupere recursos para pensar con mayor claridad.",
+          "A veces no necesitas resolver toda tu vida.",
+          "Necesitas estabilizar tu sistema nervioso primero.",
+          "Protocolo Neuro Bloom de Regulación Básica",
+          "Este protocolo no sustituye el acompañamiento psicológico, pero puede ayudarte a recuperar estabilidad en un momento de crisis.",
+          "1. Reduce los estímulos.",
+          "Apaga notificaciones.",
+          "Baja la intensidad de la luz.",
+          "Aleja el exceso de ruido.",
+          "Dale un respiro a tu cerebro.",
+          "2. Regula tu respiración.",
+          "Inhala durante 4 segundos.",
+          "Exhala lentamente durante 6 segundos.",
+          "Repite este ciclo varias veces sin forzarte.",
+          "Las exhalaciones más largas ayudan a activar la respuesta de calma del sistema nervioso.",
+          "3. Vuelve al presente.",
+          "Utiliza la técnica 5-4-3-2-1.",
+          "• 5 cosas que puedes ver.",
+          "• 4 cosas que puedes tocar.",
+          "• 3 sonidos que puedes escuchar.",
+          "• 2 aromas que puedes percibir.",
+          "• 1 sabor que puedas identificar.",
+          "Este ejercicio ayuda a disminuir la sensación de amenaza y favorece el anclaje al momento presente.",
+          "4. Ponle nombre a lo que estás sintiendo.",
+          "No es lo mismo decir:",
+          "\"Soy un desastre.\"",
+          "Que decir:",
+          "\"Estoy sintiendo ansiedad.\"",
+          "Nombrar la emoción no la elimina, pero ayuda a que el cerebro la procese con mayor claridad y reduce la tendencia a identificarnos completamente con ella.",
+          "5. Pide ayuda antes del colapso.",
+          "No esperes a tocar fondo para hablar con alguien.",
+          "El autocuidado no siempre consiste en resolverlo todo por tu cuenta.",
+          "También implica permitirte recibir apoyo.",
+          "La regla de las 24 horas",
+          "Si no existe un peligro inmediato, evita tomar decisiones importantes mientras estés completamente desbordado.",
+          "No renuncies impulsivamente.",
+          "No termines una relación.",
+          "No envíes ese mensaje desde la desesperación.",
+          "No tomes decisiones trascendentes cuando tu cuerpo está funcionando en modo supervivencia.",
+          "Primero regula.",
+          "Después decide.",
+          "Las emociones intensas pueden reducir temporalmente nuestra capacidad para valorar riesgos y alternativas.",
+          "Esperar a recuperar un poco de calma no significa evitar el problema.",
+          "Significa darte la oportunidad de responder en lugar de reaccionar.",
+          "Lo que el autocuidado no es",
+          "No es ignorar lo que sientes.",
+          "No es anestesiarte con productividad.",
+          "No es obligarte a estar positivo todo el tiempo.",
+          "No es romantizar el dolor.",
+          "El autocuidado consiste en interrumpir el daño antes de que siga creciendo.",
+          "Una verdad importante",
+          "No todas las crisis se resuelven rápido.",
+          "Algunas requieren acompañamiento profesional, y pedir ayuda también es una muestra de fortaleza.",
+          "Pero incluso en los momentos más difíciles puedes recordar algo fundamental:",
+          "Tu cuerpo no está en tu contra.",
+          "Está intentando protegerte con las herramientas que tiene.",
+          "Aprender a escucharlo también forma parte del proceso de sanar.",
+          "Para llevarte hoy",
+          "La próxima vez que sientas que todo es demasiado, haz una pausa y pregúntate:",
+          "¿Qué necesita mi sistema nervioso en este momento, más allá de lo que siento que debería hacer?",
+          "Tal vez necesite dormir.",
+          "Comer.",
+          "Llorar.",
+          "Respirar.",
+          "Caminar unos minutos.",
+          "Pedir un abrazo.",
+          "Cancelar un compromiso.",
+          "O simplemente descansar sin sentir culpa.",
+          "Porque cuidarte no es un premio por haber aguantado suficiente.",
+          "Es una necesidad humana. 🌿"
         ]
       },
       {
@@ -43,11 +144,83 @@ ARCHIVO: data.json
         "color": "#b695c0",
         "imagen": "./baja-autoestima.jpeg",
         "contenido": [
-          "Baja autoestima: cuando la relación contigo se vuelve dura. La autoestima es la forma en la que te miras, te hablas y te tratas cada día. No se construye de un momento a otro; se va formando con las experiencias, los vínculos y los mensajes que, consciente o inconscientemente, fuiste recibiendo sobre tu valor.",
-          "Cuando la autoestima es baja, la relación contigo puede volverse exigente y poco amable. No porque no seas capaz, sino porque aprendiste a dudar de ti, a compararte o a sentir que nunca es suficiente, incluso cuando estás haciendo lo mejor que puedes.",
-          "Esto suele sentirse en un diálogo interno crítico, en el miedo a equivocarte, en la necesidad de aprobación, en la dificultad para poner límites o en esa sensación silenciosa de no merecer lo bueno. A veces no se nota por fuera, pero pesa mucho por dentro.",
-          "Desde la psicología, entendemos que la baja autoestima no es una falla personal: es un patrón aprendido. Y lo aprendido puede transformarse. Trabajarla no es exigirte más, sino empezar a tratarte con la misma comprensión y respeto que ofreces a los demás.",
-          "Fortalecer tu autoestima es volver a ti con más honestidad, menos juicio y más cuidado. Escucharte, también aquí, es una forma de responsabilidad emocional."
+          "Cuando la relación contigo se vuelve dura",
+          "La autoestima no es simplemente \"quererte mucho\". Es la forma en la que te miras, te hablas y te tratas cada día.",
+          "Se construye poco a poco a partir de nuestras experiencias, de los vínculos que hemos tenido y de los mensajes que, consciente o inconscientemente, fuimos recibiendo sobre quiénes somos y cuánto valemos.",
+          "Cuando la autoestima es baja, la relación con uno mismo suele volverse exigente, crítica y poco compasiva.",
+          "No porque realmente seas insuficiente, sino porque aprendiste a mirarte desde la duda, la comparación o la sensación constante de que siempre podrías haber hecho más.",
+          "Con el tiempo, esa voz termina sintiéndose como una verdad, aunque solo sea una historia aprendida.",
+          "¿Cómo suele manifestarse?",
+          "La baja autoestima no siempre es evidente. Muchas personas parecen seguras por fuera mientras viven una lucha constante por dentro.",
+          "Algunas señales frecuentes son:",
+          "• Dificultad para reconocer tus logros.",
+          "• Miedo intenso a equivocarte o decepcionar a los demás.",
+          "• Necesidad constante de aprobación.",
+          "• Compararte con frecuencia.",
+          "• Sentir culpa al poner límites.",
+          "• Restarle importancia a tus capacidades.",
+          "• Pensar que los demás son \"mejores\" o \"más capaces\" que tú.",
+          "• Sentir que debes demostrar constantemente tu valor.",
+          "No todas las personas experimentan estas señales de la misma manera, pero cuando varias están presentes de forma constante, pueden afectar significativamente el bienestar emocional.",
+          "Lo que ocurre en nuestra mente",
+          "Nuestro cerebro tiende a confirmar aquello que ya cree sobre nosotros.",
+          "Si durante años aprendiste que \"no eres suficiente\", es probable que prestes más atención a tus errores que a tus logros.",
+          "Este fenómeno, conocido como sesgo de confirmación, hace que interpretemos la realidad de una manera que refuerza nuestras creencias previas, incluso cuando existen muchas evidencias de lo contrario.",
+          "Por eso fortalecer la autoestima no consiste en repetir frases positivas frente al espejo.",
+          "Implica cuestionar esas creencias y construir una relación más realista y amable contigo mismo.",
+          "Señales de que tu diálogo interno necesita más compasión",
+          "Haz una pausa y pregúntate:",
+          "✓ ¿Me hablo de una forma que nunca usaría con alguien a quien quiero?",
+          "✓ ¿Siento que mis logros \"no cuentan\" porque siempre podrían haber sido mejores?",
+          "✓ ¿Me cuesta aceptar un cumplido sin minimizarlo?",
+          "✓ ¿Me disculpo constantemente, incluso cuando no he hecho nada malo?",
+          "✓ ¿Siento que necesito demostrar mi valor para merecer cariño o reconocimiento?",
+          "Si varias respuestas fueron \"sí\", quizá no necesites exigirte más.",
+          "Quizá necesites empezar a cambiar la forma en la que te relacionas contigo.",
+          "Protocolo Neuro Bloom para fortalecer la autoestima",
+          "No sustituye un proceso terapéutico, pero puede ayudarte a comenzar a construir una relación más saludable contigo mismo.",
+          "1. Observa cómo te hablas.",
+          "Durante un día completo, presta atención a tu diálogo interno.",
+          "No intentes cambiarlo todavía.",
+          "Solo obsérvalo.",
+          "La conciencia es el primer paso para transformar cualquier patrón.",
+          "2. Busca evidencia, no solo emociones.",
+          "Cuando aparezca un pensamiento como:",
+          "\"No soy suficiente.\"",
+          "Pregúntate:",
+          "¿Qué evidencia objetiva tengo de que esto es completamente cierto?",
+          "Muchas veces descubrirás que estás hablando desde una creencia, no desde un hecho.",
+          "3. Habla contigo como hablarías con alguien que amas.",
+          "Imagina que una persona importante para ti estuviera viviendo exactamente lo mismo.",
+          "¿Qué le dirías?",
+          "Ahora intenta ofrecerte esas mismas palabras.",
+          "La autocompasión no significa justificarlo todo.",
+          "Significa dejar de tratarte con una dureza que nunca usarías con los demás.",
+          "4. Reconoce los pequeños logros.",
+          "Nuestro cerebro suele enfocarse en lo que falta.",
+          "Entrenarlo para reconocer lo que sí has conseguido ayuda a construir una percepción más equilibrada de ti mismo.",
+          "Cada noche escribe tres cosas que hiciste bien ese día, aunque parezcan pequeñas.",
+          "5. Rodéate de vínculos que también cuiden tu autoestima.",
+          "Las relaciones influyen profundamente en la forma en que nos percibimos.",
+          "Busca personas con las que puedas sentirte visto, respetado y aceptado sin tener que demostrar constantemente tu valor.",
+          "Lo que la autoestima no es",
+          "No es sentirse mejor que los demás.",
+          "No es tener seguridad absoluta todo el tiempo.",
+          "No es pensar que nunca vas a equivocarte.",
+          "La autoestima sana reconoce fortalezas y también limitaciones, sin convertir ninguna de las dos en una medida de tu valor como persona.",
+          "Una verdad importante",
+          "La baja autoestima no es una característica con la que nacemos.",
+          "Es, muchas veces, el resultado de experiencias repetidas, críticas constantes, comparaciones, rechazo o vínculos que hicieron difícil sentirnos suficientes.",
+          "Y así como fue aprendida, también puede transformarse.",
+          "Ese proceso no ocurre de un día para otro.",
+          "Se construye con pequeñas experiencias de respeto, autocuidado, límites sanos y una forma más compasiva de mirarte.",
+          "Para llevarte hoy",
+          "La próxima vez que aparezca una voz que te diga que no eres suficiente, haz una pausa y pregúntate:",
+          "¿Esta es una verdad… o es una forma en la que aprendí a hablarme?",
+          "No todo lo que piensas sobre ti refleja quién eres.",
+          "A veces refleja las experiencias que viviste.",
+          "Y aprender a diferenciar una cosa de la otra también es una forma de sanar.",
+          "🌿 Tu valor no depende de cuánto produces, de cuántos errores cometes o de cuánto agradan tus decisiones a los demás. Tu valor no necesita demostrarse; necesita ser reconocido, empezando por ti mismo."
         ]
       },
       {
@@ -56,13 +229,27 @@ ARCHIVO: data.json
         "icon": "activity",
         "color": "#9BC496",
         "contenido": [
-          "¿Por qué nos pasa? Durante mucho tiempo se pensó que el burnout era algo que solo vivían quienes tenían trabajos 'muy demandantes'. Hoy sabemos que puede tocarle a cualquiera: personas que trabajan demasiado, que cargan con muchas responsabilidades, que cuidan de otros, o que simplemente se exigen más de lo que su cuerpo y su mente pueden sostener.",
-          "A veces el estrés viene de afuera: trabajo, problemas económicos, conflictos, falta de apoyo. Otras veces nace dentro: querer hacerlo todo perfecto, no saber poner límites, sentir que nunca es suficiente.",
-          "Las señales que no deberíamos ignorar. El burnout suele mandar señales claras, aunque muchas veces las minimizamos. En el cuerpo: Cansancio constante, problemas para dormir, dolores de cabeza, palpitaciones. En lo emocional: Falta de motivación, dificultad para concentrarte, irritabilidad, sensación de vacío.",
-          "Nada de esto es exageración ni debilidad. Es el cuerpo intentando protegerte. Muchas personas con burnout siguen funcionando 'en automático'. Cumplen, trabajan, cuidan, responden… pero por dentro están agotadas.",
-          "Por eso duele tanto cuando nadie lo nota o cuando incluso uno mismo se exige seguir como si nada pasara. El burnout no es flojera. Es una señal de que has estado dando más de lo que puedes sostener.",
-          "¿Y ahora qué? Salir del burnout no es 'echarle ganas'. Implica escucharte de verdad, revisar qué te está drenando, aprender a poner límites y, muchas veces, pedir ayuda. El acompañamiento psicológico puede marcar una diferencia enorme.",
-          "Cuidarte no es un lujo ni un premio por haber aguantado suficiente. Cuidarte es una necesidad."
+          "¿Por qué nos pasa?",
+          "Durante mucho tiempo se creyó que el burnout era un problema exclusivo de quienes tenían trabajos extremadamente demandantes. Hoy sabemos que no es así.",
+          "Puede aparecer en cualquier persona que, durante mucho tiempo, ha sostenido más de lo que realmente puede: quienes trabajan sin descanso, cuidan de otros, enfrentan múltiples responsabilidades o viven con la sensación constante de que siempre deben hacer un poco más.",
+          "A veces el desgaste nace de circunstancias externas: una carga laboral excesiva, dificultades económicas, conflictos personales o la falta de una red de apoyo.",
+          "Pero otras veces comienza de una forma mucho más silenciosa: cuando nos exigimos ser perfectos, nos cuesta poner límites o sentimos que, por más que hagamos, nunca es suficiente.",
+          "Las señales que no deberíamos ignorar",
+          "El burnout rara vez aparece de un día para otro. Generalmente se instala poco a poco y el cuerpo comienza a enviar señales que solemos normalizar.",
+          "En el cuerpo puede manifestarse como cansancio persistente, dificultad para dormir, dolores de cabeza, tensión muscular o palpitaciones.",
+          "En lo emocional, es común experimentar falta de motivación, irritabilidad, dificultad para concentrarse, sensación de vacío o una desconexión creciente con aquello que antes disfrutábamos.",
+          "Muchas personas continúan funcionando \"en automático\". Cumplen con sus responsabilidades, trabajan, responden, cuidan de otros… mientras por dentro sienten que ya no les queda energía.",
+          "Y precisamente ahí está una de las mayores dificultades: desde afuera todo parece estar bien, mientras el desgaste sigue creciendo en silencio.",
+          "No es flojera. No es falta de voluntad.",
+          "El burnout no significa que seas débil ni que no estés haciendo lo suficiente.",
+          "Es, muchas veces, la consecuencia de haber sostenido durante demasiado tiempo un ritmo que tu cuerpo y tu mente ya no pueden mantener.",
+          "Lejos de ser una falla personal, es una señal de que algo necesita cambiar.",
+          "¿Y ahora qué?",
+          "Recuperarse del burnout no consiste en \"echarle más ganas\".",
+          "Implica detenerse, escuchar lo que el cuerpo lleva tiempo intentando decir, identificar qué está consumiendo tu energía, aprender a establecer límites y, cuando es necesario, permitirte recibir apoyo.",
+          "El acompañamiento psicológico puede ser una herramienta valiosa para comprender lo que está ocurriendo y construir formas más saludables de relacionarte contigo mismo y con tus responsabilidades.",
+          "Porque cuidarte no es un lujo ni una recompensa por haber resistido lo suficiente.",
+          "Cuidarte es una necesidad."
         ]
       },
       {
@@ -71,12 +258,29 @@ ARCHIVO: data.json
         "icon": "heart-handshake",
         "color": "#2196f3",
         "contenido": [
-          "Dependencia emocional: cuando el vínculo empieza a costarte a ti. La dependencia emocional no tiene que ver con amar demasiado, sino con sentir que sin la otra persona te desarmas por dentro. Es cuando una relación se vuelve el centro de tu estabilidad emocional, incluso aunque, en el fondo, sepas que te está lastimando.",
-          "Desde este lugar, no es raro quedarse en vínculos que ya no hacen bien. No porque no lo notes, sino porque el miedo a perder al otro, a estar sola o a sentir el vacío pesa más que tu propio bienestar. Poco a poco, puedes empezar a adaptarte, a callarte, a ceder partes de ti para no generar conflicto o abandono.",
-          "La dependencia emocional suele mostrarse en el miedo constante a que el otro se vaya, en la necesidad de aprobación, en la dificultad para poner límites y en la sensación de que tu valor depende de cuánto te quieran.",
-          "Este patrón no surge de la nada. Muchas veces se aprende en etapas tempranas, cuando el amor se sintió impredecible, condicionado o inestable. Entonces el cuerpo aprende que, para no perder el vínculo, hay que esforzarse de más, agradar, aguantar o dejarse al final.",
-          "Entender esto es importante: la dependencia emocional no es debilidad, ni falta de carácter. Es una forma aprendida de vincularse desde la carencia y el miedo, no desde la elección libre.",
-          "Sanarla no significa dejar de amar, sino volver a ti. Recuperar tu espacio interno, tu voz, tu autonomía emocional. Aprender que una relación sana no te pide desaparecer para quedarte. Florecer también es aprender a elegir relaciones donde puedas ser tú, completa, sin miedo y sin perderte."
+          "Cuando el miedo a perder al otro te hace perderte a ti",
+          "La dependencia emocional no significa amar demasiado. Significa sentir que tu bienestar, tu tranquilidad o incluso tu valor dependen de la presencia, aprobación o permanencia de otra persona.",
+          "Con el tiempo, la relación deja de ser un espacio de elección y comienza a sentirse como una necesidad. Entonces aparecen el miedo constante a que el otro se aleje, la ansiedad ante cualquier cambio, la dificultad para poner límites o la sensación de que estar solo sería insoportable.",
+          "Muchas personas permanecen en relaciones que ya no les hacen bien, no porque no reconozcan el daño, sino porque el miedo a perder el vínculo resulta más intenso que el malestar de permanecer en él.",
+          "Poco a poco comienzan a ceder espacios propios, callar lo que sienten, justificar conductas que les lastiman o adaptarse constantemente para evitar el conflicto o el abandono.",
+          "¿Por qué ocurre?",
+          "Desde la psicología sabemos que este patrón no aparece de la nada.",
+          "Con frecuencia se desarrolla a partir de experiencias tempranas en las que el afecto fue inconsistente, impredecible o condicionado. El cerebro aprende que, para conservar el vínculo, es necesario esforzarse más, agradar, complacer o dejar las propias necesidades en segundo plano.",
+          "Con el tiempo, esa forma de relacionarse puede repetirse en la vida adulta, incluso cuando genera sufrimiento.",
+          "Una pregunta importante",
+          "Haz una pausa y pregúntate:",
+          "¿Con qué frecuencia dejo de hacer algo que necesito para evitar que la otra persona se moleste?",
+          "¿Siento ansiedad cuando no responde mis mensajes?",
+          "¿Mi bienestar depende demasiado de cómo está la otra persona conmigo?",
+          "¿Me cuesta imaginar mi vida sin esa relación, aunque me haga daño?",
+          "Responder \"sí\" a alguna de estas preguntas no significa que exista dependencia emocional, pero sí puede ser una oportunidad para observar cómo te estás relacionando.",
+          "Una verdad que vale la pena recordar",
+          "Amar no debería significar desaparecer.",
+          "Una relación sana permite expresar necesidades, mantener la propia identidad y construir un vínculo donde ambas personas puedan crecer sin miedo constante al abandono.",
+          "Sanar la dependencia emocional no significa dejar de amar ni volverse distante.",
+          "Significa aprender a que el amor nazca desde la elección y no desde la necesidad.",
+          "Porque una relación saludable no te pide que renuncies a ti para conservar al otro.",
+          "Y el vínculo más importante que construirás durante toda tu vida seguirá siendo el que tengas contigo mismo. 🌿"
         ]
       },
       {
@@ -85,12 +289,42 @@ ARCHIVO: data.json
         "icon": "activity",
         "color": "#81638b",
         "contenido": [
-          "Depresión: cuando el alma pide ser escuchada. La depresión no es simplemente estar triste ni tener un mal día. Es una experiencia emocional profunda que puede afectar la forma en que pensamos, sentimos y vivimos nuestro día a día.",
-          "Puede manifestarse como cansancio constante, pérdida de interés, dificultad para dormir, cambios en el apetito o una sensación persistente de vacío.",
-          "Como madre, docente y mujer que acompaña procesos emocionales, sé que muchas veces aprendemos a seguir funcionando, incluso cuando por dentro algo duele. La depresión puede aparecer en cualquier etapa de la vida y no distingue edades, roles ni fortalezas aparentes. No es falta de voluntad, ni debilidad: es una condición real que necesita comprensión y acompañamiento.",
-          "La depresión se construye a partir de muchos factores: nuestra historia personal, la biología, el entorno, las exigencias cotidianas y las emociones que hemos tenido que callar durante mucho tiempo.",
-          "La buena noticia es que la depresión tiene tratamiento. Existen distintas formas de acompañamiento, como la terapia psicológica, el apoyo médico y otros enfoques que ayudan a recuperar el equilibrio emocional.",
-          "Hablar de depresión es un acto de amor y de conciencia emocional. Pedir ayuda también lo es. Si tú o alguien cercano está atravesando un momento difícil, recuerda que no estás sola y que siempre es válido buscar apoyo profesional."
+          "Cuando vivir empieza a sentirse demasiado pesado",
+          "La depresión no es simplemente estar triste ni atravesar un mal día. Es una condición de salud mental que puede afectar la forma en que pensamos, sentimos y nos relacionamos con el mundo.",
+          "Puede manifestarse como una pérdida persistente de energía, dificultad para disfrutar actividades que antes resultaban significativas, cambios en el sueño o el apetito, sensación de vacío, problemas para concentrarse o la impresión de que todo requiere un esfuerzo enorme.",
+          "Muchas personas continúan cumpliendo con sus responsabilidades mientras viven una profunda lucha interna. Desde fuera pueden parecer \"bien\", pero por dentro sentirse agotadas, desconectadas o sin esperanza.",
+          "¿Por qué ocurre?",
+          "La depresión no tiene una única causa.",
+          "Suele ser el resultado de la interacción entre factores biológicos, psicológicos, sociales y las experiencias de vida. El estrés prolongado, las pérdidas importantes, los cambios vitales, algunas enfermedades y la vulnerabilidad individual pueden contribuir a su aparición.",
+          "Por eso, experimentar depresión no significa ser débil ni haber hecho algo mal.",
+          "Es una condición que merece ser comprendida y atendida con la misma seriedad que cualquier otro problema de salud.",
+          "Algunas señales que vale la pena observar",
+          "Tristeza o vacío persistentes.",
+          "Pérdida de interés por actividades que antes disfrutabas.",
+          "Cansancio constante o sensación de no tener energía.",
+          "Cambios importantes en el sueño o el apetito.",
+          "Dificultad para concentrarte o tomar decisiones.",
+          "Sentimientos intensos de culpa, inutilidad o desesperanza.",
+          "Presentar una o varias de estas señales no confirma por sí solo la presencia de depresión, pero sí puede indicar que es un buen momento para buscar orientación profesional.",
+          "Lo más importante: no tienes que atravesarlo en soledad",
+          "Cuando la depresión aparece, es común creer que pedir ayuda representa una carga para los demás o que uno debería poder salir adelante por sí mismo.",
+          "La realidad es otra.",
+          "Buscar apoyo es una forma de cuidado, no un signo de debilidad.",
+          "Hablar con un psicólogo, un psiquiatra o un profesional de la salud puede marcar una diferencia importante. En muchos casos, la combinación de acompañamiento psicológico, tratamiento médico cuando está indicado y una red de apoyo favorece una recuperación significativa.",
+          "Si este texto se parece a lo que estás viviendo...",
+          "No ignores lo que estás sintiendo.",
+          "Habla con alguien de confianza.",
+          "Agenda una valoración con un profesional de la salud mental.",
+          "Permite que otras personas sepan cómo te encuentras, incluso si te cuesta encontrar las palabras.",
+          "No necesitas esperar a tocar fondo para pedir ayuda.",
+          "Un mensaje para ti",
+          "Si hoy todo se siente demasiado pesado, recuerda esto:",
+          "Lo que estás sintiendo merece ser escuchado.",
+          "No define quién eres.",
+          "Y, aunque ahora resulte difícil imaginarlo, existen tratamientos eficaces y personas preparadas para acompañarte.",
+          "Pedir ayuda puede ser el primer paso hacia sentirte mejor.",
+          "🌿 No tienes que cargar con todo tú solo.",
+          "Importante: Si en este momento sientes que podrías hacerte daño, que la vida no vale la pena o que estás en una situación de riesgo, busca ayuda de inmediato. Habla con una persona de confianza o acude al servicio de urgencias más cercano. No tienes que enfrentar este momento en soledad; hay profesionales y personas que pueden acompañarte."
         ]
       },
       {
@@ -99,43 +333,75 @@ ARCHIVO: data.json
         "icon": "heart",
         "color": "#81638b",
         "contenido": [
-          "Duelo no resuelto: cuando el dolor se queda sin lugar. Desde una perspectiva clínica, el duelo es una respuesta natural ante una pérdida significativa; sin embargo, cuando los síntomas emocionales persisten de forma intensa y prolongada, interfiriendo con la vida diaria, pueden adquirir relevancia clínica.",
-          "Algunas personas presentan añoranza persistente, dolor emocional profundo, dificultad para aceptar la pérdida, embotamiento afectivo, culpa, ira o una marcada incapacidad para retomar sus actividades cotidianas, más allá de lo esperable en el tiempo.",
-          "No todo duelo es patológico, pero sí existen procesos de duelo que quedan detenidos, congelados o no integrados, generando sufrimiento sostenido. Aquí es donde el concepto de duelo no resuelto cobra sentido.",
-          "Desde la experiencia clínica, el duelo no resuelto no significa que la persona no haya amado suficiente o que no quiera soltar, sino que algo del proceso quedó pendiente de ser vivido, expresado o significado. A veces no hubo espacio para llorar, a veces hubo que ser fuerte, a veces la pérdida fue ambigua, injusta o silenciosa.",
-          "El proceso implica tareas psicológicas que la persona necesita transitar: aceptar la realidad de la pérdida, trabajar el dolor emocional, adaptarse a un mundo sin lo perdido y recolocar emocionalmente ese vínculo para seguir viviendo.",
-          "Cuando alguna de estas tareas no logra completarse —no por falta de voluntad, sino por falta de contención, tiempo o recursos emocionales— el duelo puede quedar inconcluso. Así, el duelo no resuelto no es una falla personal, sino una señal de que el dolor necesita ser escuchado y acompañado, no apresurado ni minimizado.",
-          "Integrar la pérdida no significa olvidar, sino hacerle un lugar interno que no duela todo el tiempo. Hablar de duelo no resuelto permite validar la experiencia emocional sin patologizarla, y al mismo tiempo reconocer cuándo el acompañamiento psicológico puede ser una forma de cuidado."
+          "Cuando el dolor encuentra difícil seguir su camino",
+          "Perder a alguien o algo importante cambia nuestra vida. El duelo es una respuesta natural ante esas pérdidas y cada persona lo vive de una manera diferente. No existe una forma \"correcta\" de atravesarlo ni un tiempo exacto para que termine.",
+          "Sin embargo, en ocasiones el dolor parece quedarse detenido. En lugar de transformarse con el tiempo, continúa ocupando gran parte de la vida cotidiana y dificulta volver a encontrar equilibrio.",
+          "A esto se le conoce como duelo no resuelto o duelo complicado. No significa que la persona haya amado demasiado ni que sea incapaz de seguir adelante. Significa que el proceso de adaptación a la pérdida ha encontrado obstáculos que necesitan ser comprendidos y acompañados.",
+          "¿Cómo puede manifestarse?",
+          "Algunas personas experimentan una añoranza intensa y persistente, dificultad para aceptar la pérdida, culpa, enojo, sensación de vacío o la impresión de que la vida perdió parte de su sentido.",
+          "También puede aparecer una dificultad importante para retomar actividades, establecer nuevos proyectos o conectar nuevamente con otras personas.",
+          "No todas estas experiencias indican necesariamente un duelo no resuelto, pero cuando el sufrimiento permanece de forma intensa durante mucho tiempo e interfiere significativamente con la vida diaria, es recomendable buscar orientación profesional.",
+          "¿Por qué algunas pérdidas cuestan más integrar?",
+          "Cada historia es diferente.",
+          "Hay pérdidas inesperadas, relaciones muy significativas, despedidas que nunca pudieron ocurrir, duelos invisibles que pocas personas reconocen o momentos en los que simplemente no hubo espacio para sentir porque había que seguir cuidando, trabajando o sosteniendo a los demás.",
+          "En esas circunstancias, el dolor puede quedar \"en pausa\", esperando el momento en que finalmente pueda ser escuchado.",
+          "Una verdad importante",
+          "Superar un duelo no significa olvidar.",
+          "Tampoco significa dejar de amar a quien o aquello que se perdió.",
+          "Desde la psicología entendemos que elaborar un duelo implica aprender, poco a poco, a integrar esa pérdida en nuestra historia sin que el dolor dirija cada aspecto de nuestra vida.",
+          "El vínculo puede permanecer, pero el sufrimiento puede transformarse.",
+          "Si este tema resuena contigo...",
+          "Permítete vivir tu proceso sin compararlo con el de otras personas.",
+          "Habla de lo que sientes con alguien de confianza.",
+          "Busca apoyo profesional si notas que el dolor sigue siendo tan intenso que te impide continuar con tu vida o cuidar de ti.",
+          "Pedir ayuda no significa que estés fallando en tu duelo.",
+          "Significa reconocer que algunas pérdidas necesitan ser acompañadas.",
+          "🌿 El amor no desaparece cuando una persona muere o cuando una etapa termina. Lo que puede cambiar, con tiempo y acompañamiento, es la forma en que aprendemos a llevar esa ausencia."
         ]
       },
       {
         "id": "estres-info",
-        "title": "Estrés y su Impacto",
+        "title": "Estrés",
         "icon": "activity",
         "color": "#9BC496",
         "imagen": "./estres.jpeg",
         "contenido": [
-          "¿QUÉ ES EL ESTRÉS? El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o demandantes. Puede surgir por pensamientos o situaciones que nos generan tensión, frustración, enojo o nerviosismo.",
-          "TIPOS DE ESTRÉS: Estrés agudo: es de corta duración y aparece ante situaciones inmediatas. Puede ser útil para reaccionar, tomar decisiones o enfrentar retos. Estrés crónico: se mantiene por semanas o meses. Cuando no se maneja adecuadamente, puede afectar seriamente la salud física y emocional.",
-          "¿CÓMO AFECTA EL ESTRÉS AL CUERPO? Ante el estrés, el cuerpo libera hormonas que aumentan la alerta, la tensión muscular y el ritmo cardíaco. Si esta activación se mantiene por mucho tiempo, puede aumentar el riesgo de problemas como presión alta, ansiedad, depresión, diabetes u otros padecimientos.",
-          "SEÑALES DE EXCESO DE ESTRÉS: El estrés puede manifestarse a través de cansancio constante, dolores musculares o de cabeza, problemas digestivos, dificultad para dormir, irritabilidad o falta de concentración. Muchas veces no se reconoce que estos síntomas están relacionados con el estrés.",
-          "¿CUÁNDO BUSCAR AYUDA? Es importante buscar apoyo profesional si el estrés se vuelve abrumador, interfiere con la vida diaria o provoca síntomas físicos o emocionales intensos. Pedir ayuda es una forma de cuidado y prevención."
-        ]
-      },
-      {
-        "id": "mindfulness-info",
-        "title": "Mindfulness Básico",
-        "icon": "brain",
-        "color": "#81c9fa",
-        "contenido": [
-          "Presencia consciente para vidas reales. Mindfulness no es dejar la mente en blanco. No es desconectarte del mundo. Y no es una práctica exclusiva de personas con tiempo ilimitado. Mindfulness es aprender a estar presente sin reaccionar automáticamente.",
-          "En la vida cotidiana reaccionamos más de lo que decidimos. Contestamos mensajes en automático. Respondemos desde el impulso. Interpretamos situaciones sin detenernos a observar lo que realmente sentimos. La atención plena interrumpe ese piloto automático.",
-          "¿Qué es realmente mindfulness? Es la capacidad de prestar atención al momento presente con una actitud de apertura y sin juicio. La práctica constante reduce estrés, ansiedad y reactividad emocional. No elimina emociones. Modifica la relación que tienes con ellas.",
-          "Qué no es mindfulness: No es evitar conflictos. No es positivismo forzado. No es espiritualidad vacía. No es 'siéntete bien todo el tiempo'. Es presencia con honestidad. Puedes estar triste, ansiosa o cansada y practicar mindfulness. La práctica no exige que estés bien. Exige que estés consciente.",
-          "Por qué funciona a nivel cerebral: Estudios en neurociencia han mostrado que la práctica regular fortalece áreas del cerebro relacionadas con la regulación emocional y la toma de decisiones, mientras reduce la hiperactivación de la amígdala. En términos simples: Menos reacción impulsiva. Más espacio entre emoción y respuesta.",
-          "Práctica NeuroBloom de 3 minutos: Detente físicamente. Respira normal, sin forzar. Pregúntate: ¿Qué estoy sintiendo en este momento? Nómbralo con una palabra sencilla (ej. 'ansiedad', 'cansancio'). Observa dónde lo sientes en el cuerpo. Permite que esté ahí sin intentar cambiarlo durante tres respiraciones.",
-          "Mindfulness en la vida real: Puedes practicar atención plena mientras tomas café sin revisar el celular, caminas y notas tu respiración, escuchas a alguien sin preparar mentalmente tu respuesta, o trabajas enfocada en una sola tarea.",
-          "Una verdad importante: Mindfulness no te convierte en una persona siempre calmada. Te convierte en una persona más consciente. Y la consciencia sostenida transforma patrones. No se trata de vivir en paz constante. Se trata de no vivir en reacción constante."
+          "Cuando tu cuerpo intenta ayudarte... pero permanece en alerta demasiado tiempo.",
+          "El estrés es una respuesta natural de nuestro organismo ante situaciones que percibimos como desafiantes, inciertas o demandantes.",
+          "En pequeñas dosis puede ser útil: nos ayuda a reaccionar, concentrarnos y enfrentar retos. El problema aparece cuando esa respuesta permanece activa durante demasiado tiempo y el cuerpo ya no encuentra momentos suficientes para recuperarse.",
+          "No siempre nos damos cuenta de que vivimos bajo estrés. A veces simplemente nos acostumbramos a sentirnos cansados, tensos o con la sensación de que nunca terminamos todo lo que tenemos que hacer.",
+          "¿Qué ocurre en el cuerpo?",
+          "Cuando percibimos una amenaza, el cerebro activa el sistema de respuesta al estrés y libera hormonas como el cortisol y la adrenalina.",
+          "Estas sustancias preparan al cuerpo para responder rápidamente: aumenta la frecuencia cardiaca, la respiración se acelera, los músculos se tensan y la atención se enfoca en aquello que considera prioritario.",
+          "Este mecanismo es fundamental para nuestra supervivencia.",
+          "Sin embargo, cuando permanece activado durante semanas o meses, puede afectar tanto la salud física como el bienestar emocional.",
+          "¿Cómo puede manifestarse?",
+          "El estrés no se experimenta igual en todas las personas, pero algunas señales frecuentes son:",
+          "Cansancio constante, incluso después de descansar.",
+          "Dolores de cabeza, cuello o espalda.",
+          "Tensión muscular.",
+          "Problemas para dormir o despertarte varias veces durante la noche.",
+          "Irritabilidad o cambios frecuentes de humor.",
+          "Dificultad para concentrarte.",
+          "Sensación de estar siempre con prisa o bajo presión.",
+          "Molestias digestivas o cambios en el apetito.",
+          "Estas señales no siempre indican un problema grave, pero cuando se vuelven persistentes merecen ser escuchadas.",
+          "Una pausa que puede ayudarte",
+          "Cuando sientas que todo parece urgente, detente un momento y pregúntate:",
+          "✓ ¿Hace cuánto no descanso de verdad?",
+          "✓ ¿Mi cuerpo está cansado o solo sigo funcionando por costumbre?",
+          "✓ ¿Estoy intentando resolver demasiadas cosas al mismo tiempo?",
+          "✓ ¿Qué necesidad he estado posponiendo durante días o semanas?",
+          "A veces, antes de buscar hacer más, necesitamos recuperar energía para poder pensar con mayor claridad.",
+          "¿Cuándo buscar apoyo?",
+          "Si el estrés se vuelve constante, comienza a afectar tu salud, tus relaciones, tu desempeño o la forma en que disfrutas la vida, es importante buscar orientación profesional.",
+          "No necesitas esperar a sentirte completamente agotado para pedir ayuda.",
+          "Aprender a manejar el estrés también es una forma de prevenir problemas como ansiedad, burnout o depresión.",
+          "Una verdad importante",
+          "Sentir estrés no significa que estés fallando.",
+          "Significa que tu cuerpo está respondiendo a las demandas que percibe en su entorno.",
+          "Lo importante no es eliminar el estrés por completo —porque eso no es posible—, sino aprender a reconocer cuándo necesitas hacer una pausa, recuperar recursos y cuidar de ti antes de que el desgaste siga aumentando.",
+          "🌿 Escuchar las primeras señales de tu cuerpo puede evitar que el agotamiento se convierta en una crisis."
         ]
       }
     ],
@@ -349,18 +615,49 @@ ARCHIVO: data.json
     "title": "Vida en Equilibrio",
     "icon": "sun",
     "color": "#2196f3",
-    "imagen": "./habitos-sanos.jpeg",
+    "imagen": "./balance-cotidiano.jpeg",
     "contenido": [
-      "Estrategias para balancear responsabilidades y bienestar. Vivimos en una cultura que aplaude a quien puede con todo. Trabajo. Hijos. Metas. Relaciones. Salud. Estabilidad emocional. Pero casi nadie habla de lo que ocurre internamente cuando sostenemos demasiado tiempo un ritmo que no respeta nuestros límites.",
-      "El equilibrio no es hacer todo perfecto. Es aprender a distribuir energía, no solo tiempo. ¿Te sientes cansada incluso cuando duermes? ¿Te resulta difícil desconectarte sin sentir culpa? Si respondiste 'sí', no estás fallando. Probablemente estás sosteniendo más de lo que tu sistema puede integrar.",
-      "El mito del 'puedo con todo': El agotamiento no surge por debilidad personal, sino por un desbalance sostenido entre demanda y recuperación. No es que no seas fuerte. Es que nadie puede funcionar bien sin pausas reales.",
-      "Muchas veces confundimos responsabilidad con hiper-responsabilidad: Asumir tareas que no nos corresponden, resolver antes de que nos pidan ayuda, anticipar problemas constantemente, sentir que descansar es fallar. El equilibrio comienza cuando dejamos de medir nuestro valor por cuánto soportamos.",
-      "1. Micro-balance diario: No necesitas una vida perfecta para sentir equilibrio. Necesitas pequeñas acciones consistentes. Cada día incluye: 1 acción que avance tu responsabilidad principal, 1 acción para tu cuerpo, 1 acción para un vínculo significativo, 1 acción solo para ti.",
-      "2. Distribuir energía, no horas: No todas las tareas cuestan lo mismo emocionalmente. La fatiga de decisión demuestra que nuestra capacidad mental disminuye con cada elección que hacemos. Equilibrar implica proteger energía mental para lo que sí transforma tu vida.",
-      "3. Espacios de descarga emocional: No necesitas evitar el estrés. Necesitas espacios para procesarlo. Puede ser escritura reflexiva, terapia o silencio intencional. Lo que no se procesa, se acumula.",
-      "Herramienta práctica: Mapa de Energía Semanal. Divide tu semana en cuatro áreas: Responsabilidades, Cuidado físico, Vínculos, Espacio personal. Si una sola área domina más del 50% de tu energía, probablemente ahí esté el desbalance.",
-      "El equilibrio no es resistencia constante. Es consciencia constante. Es preguntarte: ¿Esto me está construyendo o me está desgastando? ¿Estoy eligiendo o estoy reaccionando? El equilibrio no es un destino al que se llega. Es una práctica diaria de honestidad contigo misma.",
-      "En NeuroBloom entendemos el equilibrio no como una división exacta entre responsabilidades y bienestar, sino como una relación consciente contigo misma. No romantizamos el 'poder con todo'. Elegimos construir de forma sostenible. Porque florecer no es acelerar hasta romperte. Es crecer con raíces fuertes."
+      "Construye bienestar, un paso a la vez.",
+      "El bienestar no se construye en un solo día. Se cultiva con pequeñas acciones repetidas en el tiempo.",
+      "En este espacio encontrarás herramientas prácticas para fortalecer tu salud emocional, desarrollar hábitos sostenibles y construir una relación más consciente contigo mismo. Además, cada mes podrás recorrer una Ruta del Mes, una experiencia guiada con actividades diseñadas para acompañarte en un objetivo específico de crecimiento personal.",
+      "Estrategias para construir bienestar sin dejarte al final",
+      "Vivimos en una cultura que suele valorar a quienes pueden con todo: trabajar, cuidar, resolver, producir y estar disponibles para los demás. Con el tiempo, es fácil creer que descansar es un lujo o que detenernos significa estar fallando.",
+      "Sin embargo, el bienestar no depende únicamente de cuánto hacemos, sino también de cómo cuidamos la energía con la que sostenemos nuestra vida.",
+      "Vivir en equilibrio no significa tener todos los aspectos de la vida perfectamente organizados. Significa aprender a reconocer cuándo alguna área ha estado pidiendo atención durante demasiado tiempo.",
+      "Porque no solo administramos nuestro tiempo.",
+      "También administramos nuestra energía física, mental y emocional.",
+      "¿Cómo saber si tu vida necesita un poco más de balance?",
+      "Haz una pausa y pregúntate:",
+      "¿Hace cuánto no hago algo únicamente porque me hace bien?",
+      "¿Descanso sin sentir culpa?",
+      "¿Mi cuerpo se siente recuperado o simplemente sigo funcionando por costumbre?",
+      "¿Tengo espacios para conectar con las personas que quiero?",
+      "¿Estoy atendiendo mis necesidades con la misma dedicación con la que atiendo las de los demás?",
+      "No se trata de responder \"sí\" a todo.",
+      "Se trata de observar con honestidad dónde necesitas volver a cuidarte.",
+      "Una herramienta para esta semana",
+      "Revisa cómo estás distribuyendo tu energía.",
+      "Piensa en estas cuatro áreas y califica cada una del 1 al 10, donde 1 significa \"casi no le he dedicado tiempo o energía\" y 10 significa \"me siento satisfecho con el cuidado que le he dado\".",
+      "🌿 Responsabilidades",
+      "¿Estoy cumpliendo con lo importante sin sentirme completamente desbordado?",
+      "❤️ Relaciones",
+      "¿He dedicado tiempo de calidad a las personas que son importantes para mí?",
+      "🧠 Bienestar personal",
+      "¿He cuidado mi salud emocional y he buscado momentos para regularme y escucharme?",
+      "🌸 Descanso y autocuidado",
+      "¿Mi cuerpo ha tenido oportunidades reales para recuperarse?",
+      "No busques obtener una calificación perfecta.",
+      "Observa cuál de estas áreas ha permanecido descuidada durante más tiempo y pregúntate:",
+      "¿Qué pequeña acción podría hacer esta semana para darle un poco más de espacio?",
+      "Los cambios sostenibles suelen comenzar con pasos pequeños.",
+      "Una verdad importante",
+      "El equilibrio no significa que todos los días sean iguales.",
+      "Habrá momentos en los que el trabajo necesite más de ti. Otros en los que tu familia ocupará el primer lugar. Y también habrá etapas en las que lo más importante será descansar y recuperarte.",
+      "Lo importante no es repartir todo exactamente por igual.",
+      "Lo importante es no abandonar durante demasiado tiempo aquello que también sostiene tu bienestar.",
+      "Aprender a vivir en balance no consiste en hacer más.",
+      "Consiste en tomar decisiones más conscientes sobre dónde eliges poner tu tiempo, tu energía y tu cuidado.",
+      "🌿 Florecer no significa resistir hasta agotarte. Significa crecer de una forma que también cuide tus raíces."
     ]
   },
   "bloom_library": {
@@ -468,7 +765,7 @@ ARCHIVO: data.json
         "Sofía era una chica inteligente, guapa y muy querida por la mayoría. Sus padres eran médicos y, desde afuera, parecía tener una vida envidiable. Era amable, sociable y empática con quienes la rodeaban. Sin embargo, como ocurre con todos nosotros, también tenía emociones que podían salir a la superficie cuando la presión, el estrés o el cansancio se acumulaban demasiado tiempo.",
         "Recuerdo perfectamente aquel jueves en que la maestra de Arte nos reunió para formar equipos. El proyecto final del semestre consistía en crear una obra visual que representara un movimiento artístico, y tendríamos poco más de cinco semanas para desarrollarla. En mi equipo estaban Sofía; Enrique, un chico extraordinariamente inteligente pero muy reservado; Cinthia, que era capaz de conversar con cualquier persona aunque rara vez cumplía con su parte del trabajo; y Nora.",
         "Nora era difícil de describir sin que las personas formaran una imagen equivocada de ella. Siempre vestía de negro, escuchaba metal durante los descansos y llevaba unas botas que parecían más pesadas que sus propios pasos. Hablaba poco, evitaba llamar la atención y daba la impresión de sentirse más cómoda observando que participando.",
-        "Después de discutir varias opciones, elegimos trabajar sobre el surrealismo inspirándonos en Dalí. La idea era construir un mural colectivo utilizando diferentes materiales y símbolos para representar aquello que habitaba en nuestro mundo interior. Antes de comenzar, la maestra nos pidió responder una serie de preguntas profundas relacionadas con nuestros pensamientos, emociones, experiencias de vida y aspects de nosotros mismos que pocas veces compartíamos con los demás.",
+        "Después de discutir varias opciones, elegimos trabajar sobre el surrealismo inspirándonos en Dalí. La idea era construir un mural colectivo utilizando diferentes materiales y símbolos para representar aquello que habitaba en nuestro mundo interior. Antes de comenzar, la maestra nos pidió responder una serie de preguntas profundas relacionadas con nuestros pensamientos, emociones, experiencias de vida y aspectos de nosotros mismos que pocas veces compartíamos con los demás.",
         "Aquellas preguntas parecían simples, pero no lo eran. Había algo vulnerable en escribir sobre nuestros miedos, nuestras heridas o las cosas que nos hacían sentir diferentes.",
         "Como era habitual, Sofía tomó rápidamente el liderazgo del equipo. Organizó ideas, propuso la estructura del mural y sugirió que creáramos un grupo de WhatsApp para compartir avances, fotografías y cualquier información relacionada con el proyecto. Todos estuvimos de acuerdo y, durante las primeras semanas, el grupo funcionó exactamente como debía funcionar.",
         "Compartíamos imágenes de nuestros bocetos, intercambiábamos opiniones sobre materiales y acordábamos horarios para reunirnos. Nada fuera de lo normal. Nadie imaginaba que aquel espacio creado para colaborar terminaría convirtiéndose en algo muy distinto.",
@@ -919,15 +1216,14 @@ ARCHIVO: index.html
     <title>Neuro Bloom - Creciendo con cada emoción</title>
     
     <link rel="icon" href="https://i.ibb.co/WWs5xcSX/Neuro-Bloom-Logo-nbg.png" type="image/png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="styles.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -952,11 +1248,6 @@ ARCHIVO: index.html
             }
         }
     </script>
-
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 <body>
     <div id="root">
@@ -1030,7 +1321,7 @@ ARCHIVO: index.html
                 }
             };
 
-            // Componente Inteligente de Miniatura (Manejo de Error)
+            // Componente Inteligente de Miniatura
             const Thumbnail = ({ src, alt, fallback, className }) => {
                 const [error, setError] = useState(false);
                 if (error || !src) {
@@ -1072,7 +1363,6 @@ ARCHIVO: index.html
                 </button>
             );
 
-            // Botón de Regreso Unificado
             const BackButton = ({ onClick, text = "Volver" }) => (
                 <button onClick={onClick} className="flex items-center gap-2 mb-8 text-stone-500 hover:text-brand-purple transition-colors font-bold group w-fit bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white shadow-sm">
                     <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform text-brand-purple" />
@@ -1334,7 +1624,7 @@ ARCHIVO: index.html
                                         </button>
                                         <button 
                                             onClick={() => setIndicadoresTab('tests')} 
-                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'tests' ? 'text-white shadow-md' : 'text-stone-500 hover:text-stone-800'}`}
+                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'tests' ? 'text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
                                             >
                                             Cuestionarios
                                         </button>
@@ -1364,7 +1654,7 @@ ARCHIVO: index.html
                                                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>
                                                     {getIconComponent(item.icon)}
                                                 </div>
-                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-blue-600 transition-colors">{item.title}</h3>
+                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-blue-500 transition-colors">{item.title}</h3>
                                                 <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.intro}</p>
                                                 <p className="text-sm font-bold text-blue-500 mt-6 tracking-wider uppercase">Comenzar Test &rarr;</p>
                                             </div>
@@ -1411,7 +1701,6 @@ ARCHIVO: index.html
                                     <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
                                         <BackButton onClick={() => setSubView(null)} text="Volver a Bloom Library" />
                                         
-                                        {/* IMÁGENES DE CUENTOS COMPLETAS */}
                                         {data.imagen && (
                                             <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
                                                 <img src={data.imagen} alt={data.title} className="max-w-full h-auto rounded-2xl object-contain max-h-[85vh]" />
@@ -1575,38 +1864,37 @@ ARCHIVO: index.html
                 return (
                     <div className="min-h-screen font-sans relative overflow-hidden text-stone-700 bg-[#faf8f9]">
                         
-                        {/* 1. Fondo de Base (Gradientes Suaves) */}
-                        <div className="fixed inset-0 z-0 overflow-hidden">
-                            <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-[#f8e4e9] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
-                            <div className="absolute top-[10%] right-[-10%] w-[35rem] h-[35rem] bg-[#e6dcf0] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
-                            <div className="absolute bottom-[-10%] left-[10%] w-[40rem] h-[40rem] bg-[#eaf4fc] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
+                        {/* 1. Fondo de Base (Blobs Suaves Empujados a las esquinas) */}
+                        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+                            <div className="absolute top-[-15%] left-[-15%] w-[40rem] h-[40rem] bg-[#f2e6e9] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
+                            <div className="absolute top-[10%] right-[-15%] w-[35rem] h-[35rem] bg-[#e3dbe8] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
+                            <div className="absolute bottom-[-15%] left-[20%] w-[40rem] h-[40rem] bg-[#e1edf2] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
                         </div>
 
-                        {/* 2. Capa de Decoración Orgánica Abstracta (Basada en Referencias) */}
-                        {/* Se posicionan entre la base (z-0) y el contenido (z-10) */}
-                        <div className="fixed inset-0 z-1 pointer-events-none overflow-hidden opacity-60">
+                        {/* 2. Capa de Decoración Orgánica: Tonos Mate (Desaturados) en los Laterales */}
+                        {/* Se posicionan estrictamente en los márgenes izquierdo (<8%) y derecho (<8%) */}
+                        <div className="fixed inset-0 z-1 pointer-events-none overflow-hidden opacity-80">
                             
-                            {/* Salpicadura Suave Morada - Arriba Izquierda */}
-                            <div className="absolute top-0 left-[-5%] w-96 h-96 bg-brand-purple/20 rounded-full filter blur-xl animate-blob"></div>
-                            
-                            {/* Mancha Orgánica Té (Acuarela) - Arriba Derecha */}
-                            <div className="absolute top-40 right-[10%] w-64 h-64 bg-teal-200/50 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] filter blur-2xl rotate-12 animate-blob animation-delay-2000"></div>
-                            
-                            {/* Puntos y Formas Ámbar/Oro (Basado en Ref 1/2) - Centro Izquierda */}
-                            <div className="absolute top-1/2 left-[5%] -translate-y-1/2 flex flex-col gap-4">
-                                <div className="w-6 h-6 bg-amber-300 rounded-full"></div>
-                                <div className="w-12 h-12 bg-amber-200 rounded-full border-4 border-amber-300"></div>
-                                <div className="w-4 h-4 bg-amber-400 rounded-full"></div>
-                            </div>
-                            
-                            {/* Forma Orgánica Rosa Suave (Ref 2) - Centro Derecha */}
-                            <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-80 h-80 bg-pink-100/70 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] filter blur-3xl animate-blob animation-delay-4000"></div>
-                            
-                            {/* Mancha Verde Abstracta (Acuarela) - Abajo Izquierda */}
-                            <div className="absolute bottom-20 left-[15%] w-72 h-72 bg-brand-green/30 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] filter blur-2xl animate-blob"></div>
+                            {/* --- LATERAL IZQUIERDO --- */}
+                            <div className="absolute top-[8%] left-[2%] w-4 h-4 bg-[#C8B6D6]/70 rounded-full"></div>
+                            <div className="absolute top-[22%] left-[5%] w-10 h-10 bg-[#AEC5B6]/40 rounded-full border-2 border-[#AEC5B6]/70"></div>
+                            <div className="absolute top-[40%] left-[3%] w-5 h-5 bg-[#D9B4B8]/70 rounded-full"></div>
+                            <div className="absolute top-[60%] left-[6%] w-14 h-14 bg-[#B2C2D1]/30 rounded-full border border-[#B2C2D1]/60"></div>
+                            <div className="absolute bottom-[20%] left-[2%] w-7 h-7 bg-[#C8B6D6]/50 rounded-full"></div>
+                            <div className="absolute bottom-[5%] left-[5%] w-3 h-3 bg-[#AEC5B6]/80 rounded-full"></div>
 
-                            {/* Salpicadura Suave Ámbar - Abajo Derecha */}
-                            <div className="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-amber-100/60 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+                            {/* --- LATERAL DERECHO --- */}
+                            <div className="absolute top-[12%] right-[4%] w-8 h-8 bg-[#D9B4B8]/40 rounded-full border-2 border-[#D9B4B8]/70"></div>
+                            <div className="absolute top-[30%] right-[2%] w-4 h-4 bg-[#B2C2D1]/70 rounded-full"></div>
+                            <div className="absolute top-[48%] right-[5%] w-12 h-12 bg-[#C8B6D6]/40 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] border border-[#C8B6D6]/70 rotate-12"></div>
+                            <div className="absolute top-[68%] right-[3%] w-5 h-5 bg-[#AEC5B6]/60 rounded-full"></div>
+                            <div className="absolute bottom-[25%] right-[6%] w-6 h-6 bg-[#D9B4B8]/50 rounded-full"></div>
+                            <div className="absolute bottom-[8%] right-[2%] w-4 h-4 bg-[#C8B6D6]/80 rounded-full"></div>
+
+                            {/* --- MANCHAS DIFUMINADAS (Solo en los bordes) --- */}
+                            <div className="absolute top-[15%] left-[-5%] w-56 h-56 bg-[#C8B6D6]/20 rounded-full filter blur-2xl animate-blob"></div>
+                            <div className="absolute top-[50%] right-[-6%] w-64 h-64 bg-[#D9B4B8]/20 rounded-[50%_50%_70%_30%/40%_60%_40%_60%] filter blur-2xl animate-blob animation-delay-2000"></div>
+                            <div className="absolute bottom-[10%] left-[-4%] w-48 h-48 bg-[#AEC5B6]/20 rounded-[60%_40%_50%_50%/30%_70%_30%_70%] filter blur-2xl animate-blob animation-delay-4000"></div>
                         </div>
 
                         {/* 3. Contenido (Header, Main, Footer) - z-10 y superiores */}

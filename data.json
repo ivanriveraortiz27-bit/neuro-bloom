@@ -402,7 +402,7 @@
     "cuestionarios": [
       {
         "id": "ansiedad-test",
-        "title": "Cuestionario de Detección Orientativa de Ansiedad",
+        "title": "Cuestionario de detección orientativa de ansiedad",
         "icon": "activity",
         "color": "#2196f3",
         "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos 6 meses.",
@@ -428,86 +428,15 @@
           { "rango": "0-10", "texto": "Ansiedad dentro de un rango esperado." },
           { "rango": "11-20", "texto": "Presencia de ansiedad leve a moderada." },
           { "rango": "21-30", "texto": "Ansiedad elevada; podría ser útil buscar orientación profesional." },
-          { "rango": "31-40", "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental. Reconocer cómo nos sentimos es el primer paso para cuidar nuestra salud mental." }
-        ],
-        "guion": ""
-      },
-      {
-        "id": "autoestima-test",
-        "title": "¿Cómo es tu relación contigo?",
-        "icon": "heart",
-        "color": "#b695c0",
-        "intro": "No hay respuestas buenas o malas. Este ejercicio es solo para observarte con honestidad y amabilidad.",
-        "preguntas": [
-          "Suelo hablarme de manera dura o crítica cuando cometo un error.",
-          "Me cuesta reconocer mis logros; siento que 'no son para tanto'.",
-          "Dudo de mis decisiones y busco constantemente la aprobación de otros.",
-          "Siento culpa cuando pongo límites o digo que no.",
-          "Me comparo con otras personas y casi siempre salgo perdiendo.",
-          "Tengo miedo de equivocarme o de no cumplir expectativas ajenas.",
-          "Me resulta difícil confiar en mis capacidades, incluso cuando tengo experiencia.",
-          "A veces siento que no merezco cosas buenas o relaciones sanas.",
-          "Cuando algo sale mal, tiendo a culparme más de lo necesario.",
-          "Me exijo más de lo que le exigiría a alguien que quiero.",
-          "Me cuesta expresar lo que necesito por miedo a molestar o ser rechazado/a.",
-          "Siento que, haga lo que haga, nunca es suficiente."
-        ],
-        "opciones": [
-          {"l": "Casi nunca", "v": 1},
-          {"l": "A veces", "v": 2},
-          {"l": "Frecuentemente", "v": 3},
-          {"l": "Casi siempre", "v": 4}
-        ],
-        "interpretacion": [
-          { "rango": "12-20", "texto": "Tu diálogo interno suele ser relativamente amable. Aun así, puede haber áreas donde fortalecer tu autovaloración." },
-          { "rango": "21-32", "texto": "Hay señales de autoexigencia y duda. Probablemente a veces eres más duro/a contigo de lo que mereces." },
-          { "rango": "33-48", "texto": "Aparecen varios indicadores asociados a una autoestima baja. No significa que haya algo 'mal' en ti, sino que has aprendido a tratarte desde la exigencia y el juicio. La autoestima no se fortalece exigiéndote más, sino aprendiendo a acompañarte mejor." }
-        ],
-        "guion": ""
-      },
-      {
-        "id": "burnout-test",
-        "title": "Cuestionario de Burnout Emocional",
-        "icon": "activity",
-        "color": "#9BC496",
-        "intro": "Escúchate con honestidad. Lee cada afirmación y marca la opción que más se acerque a cómo te has sentido en las últimas semanas o meses.",
-        "preguntas": [
-          "Me siento cansado/a incluso después de dormir o descansar.",
-          "Siento que mi energía se agota rápidamente durante el día.",
-          "Me cuesta levantarme por las mañanas o iniciar mis actividades.",
-          "Tengo dolores físicos (cabeza, cuello, espalda, estómago) sin una causa clara.",
-          "Me siento desmotivado/a o sin ganas de hacer cosas que antes disfrutaba.",
-          "Me siento irritable, impaciente o con poca tolerancia a la frustración.",
-          "Experimento una sensación de vacío, desconexión o apatía.",
-          "Siento que doy mucho y recibo poco reconocimiento.",
-          "Me cuesta concentrarme o tomar decisiones.",
-          "Siento que ya no rindo como antes, aunque me esfuerce.",
-          "Tengo pensamientos frecuentes como 'no puedo más' o 'estoy sobrepasado/a'.",
-          "Dudo de mis capacidades o siento miedo constante a fallar.",
-          "Me siento emocionalmente distante o indiferente frente a mis responsabilidades.",
-          "Realizo mis actividades en 'modo automático', sin disfrute.",
-          "Siento que no tengo control sobre mis tiempos o mis límites."
-        ],
-        "opciones": [
-          {"l": "Nunca", "v": 0},
-          {"l": "A veces", "v": 1},
-          {"l": "Frecuentemente", "v": 2},
-          {"l": "Casi siempre", "v": 3}
-        ],
-        "interpretacion": [
-          { "rango": "0-15", "texto": "Nivel bajo de señales de burnout. Aun así, conviene cuidar tus límites." },
-          { "rango": "16-30", "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente están pidiendo atención." },
-          { "rango": "31-45", "texto": "Riesgo alto de burnout emocional. Es importante detenerte y buscar apoyo." },
-          { "rango": "46-60", "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional. Pedir ayuda también es un acto de autocuidado." }
-        ],
-        "guion": ""
+          { "rango": "31-40", "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental." }
+        ]
       },
       {
         "id": "dependencia-test",
-        "title": "¿Cómo te vinculas emocionalmente?",
+        "title": "Cuestionario de Dependencia emocional",
         "icon": "heart-handshake",
         "color": "#2196f3",
-        "intro": "Este ejercicio no busca juzgarte, sino ayudarte a comprenderte mejor.",
+        "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos 6 meses.",
         "preguntas": [
           "Siento ansiedad o inquietud cuando la persona que quiero se distancia o no responde como espero.",
           "Me cuesta imaginar mi bienestar emocional sin esa persona en mi vida.",
@@ -520,59 +449,131 @@
           "Cuando la relación no está bien, todo mi estado emocional se ve afectado.",
           "Me adapto demasiado a la forma de ser del otro para no perder el vínculo.",
           "Me siento insegura/o de mi valor cuando no recibo atención o validación.",
-          "A veces siento que sin esa relación 'me pierdo' o me quedo vacía/o."
+          "A veces siento que sin esa relación “me pierdo” o me quedo vacía/o."
         ],
         "opciones": [
-          {"l": "Casi nunca", "v": 1},
+          {"l": "Nunca", "v": 1},
+          {"l": "Algunas veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi todos los días", "v": 4}
+        ],
+        "interpretacion": [
+          { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relativamente segura. Aun así, todos podemos fortalecer nuestra autonomía emocional." },
+          { "rango": "21-32", "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección." },
+          { "rango": "33-48", "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte." }
+        ]
+      },
+      {
+        "id": "autoestima-test",
+        "title": "Cuestionario de Baja autoestima",
+        "icon": "heart",
+        "color": "#b695c0",
+        "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos 6 meses.",
+        "preguntas": [
+          "Suelo hablarme de manera dura o crítica cuando cometo un error.",
+          "Me cuesta reconocer mis logros; siento que “no son para tanto”.",
+          "Dudo de mis decisiones y busco constantemente la aprobación de otros.",
+          "Siento culpa cuando pongo límites o digo que no.",
+          "Me comparo con otras personas y casi siempre salgo perdiendo.",
+          "Tengo miedo de equivocarme o de no cumplir expectativas ajenas.",
+          "Me resulta difícil confiar en mis capacidades, incluso cuando tengo experiencia.",
+          "A veces siento que no merezco cosas buenas o relaciones sanas.",
+          "Cuando algo sale mal, tiendo a culparme más de lo necesario.",
+          "Me exijo más de lo que le exigiría a alguien que quiero.",
+          "Me cuesta expresar lo que necesito por miedo a molestar o ser rechazado/a.",
+          "Siento que, haga lo que haga, nunca es suficiente."
+        ],
+        "opciones": [
+          {"l": "Nunca", "v": 1},
+          {"l": "Algunas veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi todos los días", "v": 4}
+        ],
+        "interpretacion": [
+          { "rango": "12-20", "texto": "Tu diálogo interno suele ser relativamente amable. Aun así, puede haber áreas donde fortalecer tu autovaloración." },
+          { "rango": "21-32", "texto": "Hay señales de autoexigencia y duda. Probablemente a veces eres más duro/a contigo de lo que mereces." },
+          { "rango": "33-48", "texto": "Aparecen varios indicadores asociados a una autoestima baja. No significa que haya algo “mal” en ti, sino que has aprendido a tratarte desde la exigencia y el juicio." }
+        ]
+      },
+      {
+        "id": "duelo-test",
+        "title": "Cuestionario de Duelo no resuelto",
+        "icon": "heart",
+        "color": "#81638b",
+        "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos meses.",
+        "preguntas": [
+          "Siento una añoranza profunda por alguien o algo que perdí, incluso después de mucho tiempo.",
+          "Hay momentos en los que la pérdida se siente tan presente como al inicio.",
+          "Evito pensar o hablar de esa pérdida porque me resulta demasiado doloroso.",
+          "Me cuesta aceptar que esa persona, etapa o situación ya no forma parte de mi vida.",
+          "Siento culpa, enojo o asuntos pendientes relacionados con la pérdida.",
+          "Desde esa pérdida, me cuesta disfrutar cosas que antes me hacían bien.",
+          "Siento que una parte de mí se quedó detenida en ese momento.",
+          "Me resulta difícil proyectarme al futuro sin que la pérdida interfiera.",
+          "A veces siento un vacío difícil de explicar, aunque “todo esté bien”.",
+          "He sentido que debo ser fuerte y no mostrar lo que realmente duele."
+        ],
+        "opciones": [
+          {"l": "Nunca", "v": 0},
+          {"l": "Rara vez", "v": 1},
           {"l": "A veces", "v": 2},
           {"l": "Frecuentemente", "v": 3},
           {"l": "Casi siempre", "v": 4}
         ],
         "interpretacion": [
-          { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relativamente segura. Aun así, todos podemos fortalecer nuestra autonomía emocional." },
-          { "rango": "21-32", "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección." },
-          { "rango": "33-48", "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte. Sanar no significa dejar de amar, sino volver a ti." }
-        ],
-        "guion": ""
+          { "rango": "0-10", "texto": "El duelo parece estar integrado, aunque puede haber emociones que aún acompañen." },
+          { "rango": "11-25", "texto": "Existen señales de duelo activo que merecen escucha y cuidado emocional." },
+          { "rango": "26-40", "texto": "Es posible que el duelo esté interfiriendo en tu bienestar emocional; acompañamiento psicológico puede ser una forma de cuidado, no de debilidad." }
+        ]
       },
       {
-        "id": "depresion-test",
-        "title": "Indicadores de Depresión",
+        "id": "burnout-test",
+        "title": "Cuestionario de BURNOUT",
         "icon": "activity",
-        "color": "#81638b",
-        "intro": "Este cuestionario no sustituye una evaluación profesional. Su objetivo es ayudarte a reflexionar sobre tu estado emocional actual y reconocer si sería importante buscar acompañamiento.",
+        "color": "#9BC496",
+        "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos meses.",
         "preguntas": [
-          "Me siento triste, apagada(o) o vacía(o) sin una razón clara.",
-          "He perdido interés o ganas por actividades que antes disfrutaba.",
-          "Me siento culpable, insuficiente o muy dura(o) conmigo misma(o).",
-          "Siento que hago las cosas en automático, sin verdadera conexión emocional.",
-          "Me siento cansada(o) constantemente, incluso después de descansar.",
-          "Tengo dificultades para dormir o duermo más de lo habitual.",
-          "He notado cambios importantes en mi apetito o en mi peso.",
-          "Me cuesta concentrarme o tomar decisiones simples.",
-          "Siento que no soy suficiente o que decepciono a los demás.",
-          "He pensado que las personas a mi alrededor estarían mejor sin mí.",
-          "Cumplo con mis responsabilidades, pero emocionalmente me siento desconectada(o).",
-          "Me cuesta disfrutar momentos con mis hijos, mi familia o personas cercanas.",
-          "Siento que pedir ayuda es difícil o que debo poder sola(o) con todo."
+          "Me siento cansado/a incluso después de dormir o descansar.",
+          "Siento que mi energía se agota rápidamente durante el día.",
+          "Me cuesta levantarme por las mañanas o iniciar mis actividades.",
+          "Tengo dolores físicos (cabeza, cuello, espalda, estómago) sin una causa clara.",
+          "Me siento desmotivado/a o sin ganas de hacer cosas que antes disfrutaba.",
+          "Me siento irritable, impaciente o con poca tolerancia a la frustración.",
+          "Experimento una sensación de vacío, desconexión o apatía.",
+          "Siento que doy mucho y recibo poco reconocimiento.",
+          "Me cuesta concentrarme o tomar decisiones.",
+          "Siento que ya no rindo como antes, aunque me esfuerce.",
+          "Tengo pensamientos frecuentes como “no puedo más” o “estoy sobrepasado/a”.",
+          "Dudo de mis capacidades o siento miedo constante a fallar.",
+          "Me siento emocionalmente distante o indiferente frente a mis responsabilidades.",
+          "Realizo mis actividades en “modo automático”, sin disfrute.",
+          "Siento que no tengo control sobre mis tiempos o mis límites.",
+          "Me cuesta desconectarme mentalmente incluso cuando no estoy trabajando.",
+          "Tengo problemas para dormir o mi descanso no es reparador.",
+          "He dejado de cuidarme (alimentación, ejercicio, ocio, pausas).",
+          "Siento que siempre estoy en deuda conmigo mismo/a.",
+          "Aunque paro un poco, siento que no logro recuperarme del todo."
         ],
         "opciones": [
           {"l": "Nunca", "v": 0},
-          {"l": "Algunos días", "v": 1},
-          {"l": "La mayoría de los días", "v": 2},
-          {"l": "Casi todos los días", "v": 3}
+          {"l": "Rara vez", "v": 1},
+          {"l": "A veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi siempre", "v": 4}
         ],
         "interpretacion": [
-          { "rango": "General", "texto": "Si respondiste 'la mayoría de los días' o 'casi todos los días' en varias preguntas, especialmente en las relacionadas con tristeza persistente, vacío, culpa o pensamientos de no ser necesaria(o), es importante no minimizar lo que estás sintiendo. Buscar apoyo profesional es un acto de responsabilidad emocional y amor propio." }
-        ],
-        "guion": ""
+          { "rango": "0-15", "texto": "Nivel bajo de señales de burnout. Aun así, conviene cuidar tus límites." },
+          { "rango": "16-30", "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente están pidiendo atención." },
+          { "rango": "31-45", "texto": "Riesgo alto de burnout emocional. Es importante detenerte y buscar apoyo." },
+          { "rango": "46-80", "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional." }
+        ]
       },
       {
         "id": "estres-test",
-        "title": "Indicadores de Estrés",
+        "title": "Cuestionario de ESTRÉS",
         "icon": "activity",
         "color": "#9BC496",
-        "intro": "Este cuestionario te ayudará a identificar qué tan presente está el estrés en tu vida actualmente. No sustituye la valoración profesional.",
+        "intro": "Responde según cómo te has sentido en las últimas dos semanas.",
         "preguntas": [
           "Siento que tengo demasiadas responsabilidades y poco tiempo para mí.",
           "Me cuesta relajarme, incluso cuando no estoy ocupada(o).",
@@ -585,7 +586,7 @@
           "Tengo dificultades para dormir o mi descanso no es reparador.",
           "He notado cambios en mi apetito (como más o menos de lo habitual).",
           "Recurro al café, azúcar o alimentos poco saludables para mantenerme activa(o).",
-          "Siento que vivo en modo 'urgente' o 'automático'.",
+          "Siento que vivo en modo “urgente” o “automático”.",
           "Me cuesta disfrutar el presente o momentos con mi familia.",
           "Dejo mi descanso o autocuidado al final de la lista.",
           "Siento que, si me detengo, todo se descontrola."
@@ -597,11 +598,43 @@
           {"l": "Casi todo el tiempo", "v": 3}
         ],
         "interpretacion": [
-          { "rango": "0-15", "texto": "Estrés bajo. Tu nivel de estrés es manejable. Aun así, es importante mantener hábitos de autocuidado." },
-          { "rango": "16-30", "texto": "Estrés moderado. El estrés ya está influyendo en tu bienestar emocional o físico. Escucharte y hacer ajustes puede prevenir que aumente." },
-          { "rango": "31-45", "texto": "Estrés alto. El estrés está teniendo un impacto significativo en tu vida. Buscar apoyo y priorizar tu salud emocional es muy recomendable." }
+          { "rango": "0-15", "texto": "Estrés bajo: Tu nivel de estrés es manejable. Aun así, es importante mantener hábitos de autocuidado." },
+          { "rango": "16-30", "texto": "Estrés moderado: El estrés ya está influyendo en tu bienestar emocional o físico. Escucharte y hacer ajustes puede prevenir que aumente." },
+          { "rango": "31-45", "texto": "Estrés alto: El estrés está teniendo un impacto significativo en tu vida. Buscar apoyo y priorizar tu salud emocional es muy recomendable." }
+        ]
+      },
+      {
+        "id": "depresion-test",
+        "title": "Cuestionario de DEPRESIÓN",
+        "icon": "activity",
+        "color": "#81638b",
+        "intro": "Responde según cómo te has sentido durante las últimas dos semanas.",
+        "preguntas": [
+          "Me he sentido triste, desanimada(o) o vacía(o) la mayor parte del tiempo.",
+          "He perdido el interés o el disfrute por actividades que antes me gustaban.",
+          "Me siento culpable, insuficiente o demasiado crítica(o) conmigo misma(o).",
+          "Siento que hago las cosas en automático, sin verdadera conexión emocional.",
+          "Me siento cansada(o) o sin energía, incluso después de descansar.",
+          "Tengo dificultades para dormir o duermo más de lo habitual.",
+          "He notado cambios importantes en mi apetito o en mi peso.",
+          "Me cuesta concentrarme o tomar decisiones sencillas.",
+          "Siento que no soy suficiente o que decepciono a las personas que quiero.",
+          "Me cuesta disfrutar los momentos con mi familia, amistades o personas cercanas.",
+          "Me resulta difícil encontrar motivación para realizar mis actividades diarias.",
+          "Siento que pedir ayuda es difícil o que debo poder con todo sola(o).",
+          "He sentido que mi vida tiene poco sentido o que sería mejor no estar aquí."
         ],
-        "guion": "El estrés no siempre es señal de debilidad, muchas veces es una respuesta a sostener demasiado durante mucho tiempo. Escucharlo a tiempo también es una forma de cuidarte."
+        "opciones": [
+          {"l": "Nunca", "v": 0},
+          {"l": "Algunas veces", "v": 1},
+          {"l": "Frecuentemente", "v": 2},
+          {"l": "Casi todo el tiempo", "v": 3}
+        ],
+        "interpretacion": [
+          { "rango": "0-13", "texto": "Malestar emocional bajo: Tus respuestas no muestran señales importantes de síntomas depresivos. Mantener hábitos de autocuidado y espacios de conexión emocional sigue siendo importante para proteger tu bienestar." },
+          { "rango": "14-26", "texto": "Malestar emocional moderado: Es posible que estés atravesando un periodo de desgaste emocional que merece atención. Escucharte, hablar con alguien de confianza o buscar orientación profesional puede ayudarte a prevenir que el malestar aumente." },
+          { "rango": "27-39", "texto": "Malestar emocional elevado: Tus respuestas indican un nivel importante de síntomas depresivos que podría estar afectando distintas áreas de tu vida. Buscar apoyo profesional puede ayudarte a comprender lo que estás viviendo y encontrar estrategias para sentirte mejor." }
+        ]
       }
     ]
   },
@@ -829,7 +862,7 @@
         "Tomó las llaves y se dispuso a entrar. La cerradura estaba oxidada y fue difícil introducir aquella llave vieja, pero al final lo logró.",
         "Cuando abrió aquella puerta gigante y polvosa, un estruendo de emociones se apoderó de ella… temor, enojo, tristeza, llanto. Eran emociones que no le pertenecían antes de cruzar aquella puerta, pero curiosamente todas le resultaban familiares.",
         "Elara comenzó a recorrer la gigantesca casa. Muy pronto se dio cuenta de que tenía más habitaciones de las que parecía haber desde el exterior.",
-        "Al abrir la primera puerta descubrió una habitación repleta de fotografías de sus padres y relojes que, curiosamente, estaban detenidos exactamente a la misma hora, 12:45.",
+        "Al abrir la primera puerta descubrió una habitación repleta de fotografías de sus padres y relojes que, curiosamente, estaba detenido exactamente a la misma hora, 12:45.",
         "Todo tenía polvo, la habitación apenas recibía luz, y las emociones que provocaba en ella eran tristeza, enfado y duda.",
         "Aquella habitación hablaba completamente de sus padres, se detuvo frente a un escritorio antiguo y se percató de que había una carta dirigida a ella, la tomó con cuidado y se dispuso a leerla.",
         "\"Elara: Has sido una hija ejemplar. Te agradezco tu amor, tu compasión, tu creatividad, tus locuras y hasta tu rebeldía. Eres, sin duda, lo mejor que pudimos tener tu madre y yo. Es hora de crecer. Feliz cumpleaños.\"",
