@@ -177,7 +177,7 @@
                 };
 
                 return (
-                    <div className="animate-fadeIn bg-white/70 backdrop-blur-xl p-8 lg:p-12 rounded-[2rem] shadow-glass border border-white/60 max-w-4xl mx-auto">
+                    <div className="animate-fadeIn bg-white/70 backdrop-blur-xl p-8 lg:p-12 rounded-[2rem] shadow-glass border border-white/60 max-w-4xl mx-auto relative z-10">
                         <BackButton onClick={onBack} text="Volver a Cuestionarios" />
                         
                         <div className="flex items-center gap-4 mb-6">
@@ -301,7 +301,7 @@
                     switch (activeSection) {
                         case 'home':
                             return (
-                                <div className="animate-fadeIn flex flex-col items-center justify-center text-center py-8 lg:py-16">
+                                <div className="animate-fadeIn flex flex-col items-center justify-center text-center py-8 lg:py-16 relative z-10">
                                     <img src={logoUrl} alt="Neuro Bloom" className="w-full max-w-lg h-auto mx-auto drop-shadow-md mb-8" />
                                     
                                     <h1 className="text-2xl md:text-4xl font-serif font-bold tracking-wide mb-6 text-brand-dark" style={{ color: colors.primary }}>
@@ -366,7 +366,7 @@
                                 const infoData = appData.indicadores?.informacion?.find(d => d.id === subView);
                                 if (infoData) {
                                     return (
-                                        <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto">
+                                        <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
                                             <BackButton onClick={() => setSubView(null)} text="Volver a Información" />
                                             
                                             {infoData.imagen && (
@@ -403,7 +403,7 @@
                             }
 
                             return (
-                                <div className="animate-fadeIn max-w-6xl mx-auto space-y-12">
+                                <div className="animate-fadeIn max-w-6xl mx-auto space-y-12 relative z-10">
                                     <div className="w-full">
                                         <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
@@ -421,7 +421,7 @@
                                         </button>
                                         <button 
                                             onClick={() => setIndicadoresTab('tests')} 
-                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'tests' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
+                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'tests' ? 'text-white shadow-md' : 'text-stone-500 hover:text-stone-800'}`}
                                             >
                                             Cuestionarios
                                         </button>
@@ -451,7 +451,7 @@
                                                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>
                                                     {getIconComponent(item.icon)}
                                                 </div>
-                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-blue-500 transition-colors">{item.title}</h3>
+                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-blue-600 transition-colors">{item.title}</h3>
                                                 <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.intro}</p>
                                                 <p className="text-sm font-bold text-blue-500 mt-6 tracking-wider uppercase">Comenzar Test &rarr;</p>
                                             </div>
@@ -463,7 +463,7 @@
                         case 'balance':
                             const balanceData = appData.balance;
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto space-y-8">
+                                <div className="animate-fadeIn max-w-4xl mx-auto space-y-8 relative z-10">
                                     <div className="w-full">
                                         <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
@@ -495,7 +495,7 @@
                             if (subView) {
                                 const data = appData.cuentos.find(d => d.id === subView);
                                 return (
-                                    <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto">
+                                    <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
                                         <BackButton onClick={() => setSubView(null)} text="Volver a Bloom Library" />
                                         
                                         {/* IMÁGENES DE CUENTOS COMPLETAS */}
@@ -527,7 +527,7 @@
                             ];
 
                             return (
-                                <div className="animate-fadeIn max-w-5xl mx-auto">
+                                <div className="animate-fadeIn max-w-5xl mx-auto relative z-10">
                                     <div className="w-full mb-6">
                                         <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
@@ -536,7 +536,7 @@
                                         <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Un espacio para nutrir tu mente y alma a través de recursos, recomendaciones y cuentos terapéuticos.</p>
                                     </div>
 
-                                    <div className="bg-white/60 backdrop-blur-md p-8 lg:p-12 rounded-[2.5rem] border border-white mb-16 shadow-glass">
+                                    <div className="bg-white/60 backdrop-blur-md p-8 lg:p-12 rounded-[2.5rem] border border-white mb-16 shadow-glass relative z-10">
                                         <h3 className="text-3xl font-serif font-bold mb-8 text-brand-purple flex items-center gap-4">
                                             <Library className="text-brand-purple" size={32} />
                                             Recursos y Recomendaciones
@@ -555,12 +555,12 @@
                                             if (cuentosCat.length === 0) return null;
                                             
                                             return (
-                                                <div key={cat.id} className="bg-transparent">
+                                                <div key={cat.id} className="bg-transparent relative z-10">
                                                     <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 border-b border-stone-200 pb-4">{cat.title}</h3>
                                                     <p className="text-stone-500 mb-8 mt-4 font-light text-lg">{cat.desc}</p>
                                                     <div className="grid md:grid-cols-2 gap-6">
                                                         {cuentosCat.map(cuento => (
-                                                            <div key={cuento.id} onClick={() => setSubView(cuento.id)} className="cursor-pointer group flex items-center justify-between p-6 rounded-[2rem] bg-white/70 backdrop-blur-sm border border-white hover:border-brand-lilac hover:bg-white/90 transition-all shadow-glass hover:shadow-lg hover:-translate-y-1">
+                                                            <div key={cuento.id} onClick={() => setSubView(cuento.id)} className="cursor-pointer group flex items-center justify-between p-6 rounded-[2rem] bg-white/70 backdrop-blur-sm border border-white hover:border-brand-lilac hover:bg-white/90 transition-all shadow-glass hover:shadow-lg hover:-translate-y-1 relative z-10">
                                                                 <div className="flex items-center gap-5">
                                                                     <Thumbnail 
                                                                         src={cuento.imagen} 
@@ -587,14 +587,14 @@
 
                         case 'capsulas':
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-12">
+                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
                                     <div className="w-full mb-6">
                                         <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
                                     <div className="text-center">
                                         <h2 className="text-5xl font-serif font-bold mb-6 text-orange-400">Cápsulas en Video</h2>
                                         <p className="text-stone-600 mb-12 text-xl font-light">Espacio reservado para próximas reflexiones y guías audiovisuales de Neuro Bloom.</p>
-                                        <div className="p-20 bg-white/70 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass flex flex-col items-center justify-center">
+                                        <div className="p-20 bg-white/70 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass flex flex-col items-center justify-center relative z-10">
                                             <PlayCircle size={100} className="text-orange-200 mb-8 animate-pulse" />
                                             <h3 className="text-3xl font-serif font-bold text-stone-500 mb-4">Próximamente</h3>
                                             <p className="text-stone-500 max-w-md mx-auto text-lg font-light">Estamos preparando el contenido en video para acompañar tu proceso de bienestar emocional.</p>
@@ -605,7 +605,7 @@
 
                         case 'citas':
                             return (
-                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-12">
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-12 relative z-10">
                                     <div className="w-full">
                                         <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
@@ -614,7 +614,7 @@
                                         <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Inicia tu proceso de bienestar emocional. Conoce a nuestros especialistas y reserva tu espacio seguro con nosotros.</p>
                                     </div>
 
-                                    <div className="grid md:grid-cols-2 gap-10">
+                                    <div className="grid md:grid-cols-2 gap-10 relative z-10">
                                         {appData.especialistas?.map(esp => (
                                             <div key={esp.id} className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-glass border border-white overflow-hidden flex flex-col hover:shadow-xl transition-all group">
                                                 <div className="w-full h-80 bg-stone-50 overflow-hidden relative border-b border-white">
@@ -660,21 +660,50 @@
                 };
 
                 return (
-                    <div className="min-h-screen font-sans relative overflow-hidden text-stone-700">
-                        {/* Background Blobs (Efecto Acuarela) */}
-                        <div className="fixed inset-0 z-[-1] overflow-hidden bg-[#faf8f9]">
-                            <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-[#f8e4e9] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-                            <div className="absolute top-[10%] right-[-10%] w-[35rem] h-[35rem] bg-[#e6dcf0] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-                            <div className="absolute bottom-[-10%] left-[10%] w-[40rem] h-[40rem] bg-[#eaf4fc] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+                    <div className="min-h-screen font-sans relative overflow-hidden text-stone-700 bg-[#faf8f9]">
+                        
+                        {/* 1. Fondo de Base (Gradientes Suaves) */}
+                        <div className="fixed inset-0 z-0 overflow-hidden">
+                            <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-[#f8e4e9] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
+                            <div className="absolute top-[10%] right-[-10%] w-[35rem] h-[35rem] bg-[#e6dcf0] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
+                            <div className="absolute bottom-[-10%] left-[10%] w-[40rem] h-[40rem] bg-[#eaf4fc] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
                         </div>
 
+                        {/* 2. Capa de Decoración Orgánica Abstracta (Basada en Referencias) */}
+                        {/* Se posicionan entre la base (z-0) y el contenido (z-10) */}
+                        <div className="fixed inset-0 z-1 pointer-events-none overflow-hidden opacity-60">
+                            
+                            {/* Salpicadura Suave Morada - Arriba Izquierda */}
+                            <div className="absolute top-0 left-[-5%] w-96 h-96 bg-brand-purple/20 rounded-full filter blur-xl animate-blob"></div>
+                            
+                            {/* Mancha Orgánica Té (Acuarela) - Arriba Derecha */}
+                            <div className="absolute top-40 right-[10%] w-64 h-64 bg-teal-200/50 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] filter blur-2xl rotate-12 animate-blob animation-delay-2000"></div>
+                            
+                            {/* Puntos y Formas Ámbar/Oro (Basado en Ref 1/2) - Centro Izquierda */}
+                            <div className="absolute top-1/2 left-[5%] -translate-y-1/2 flex flex-col gap-4">
+                                <div className="w-6 h-6 bg-amber-300 rounded-full"></div>
+                                <div className="w-12 h-12 bg-amber-200 rounded-full border-4 border-amber-300"></div>
+                                <div className="w-4 h-4 bg-amber-400 rounded-full"></div>
+                            </div>
+                            
+                            {/* Forma Orgánica Rosa Suave (Ref 2) - Centro Derecha */}
+                            <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-80 h-80 bg-pink-100/70 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] filter blur-3xl animate-blob animation-delay-4000"></div>
+                            
+                            {/* Mancha Verde Abstracta (Acuarela) - Abajo Izquierda */}
+                            <div className="absolute bottom-20 left-[15%] w-72 h-72 bg-brand-green/30 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] filter blur-2xl animate-blob"></div>
+
+                            {/* Salpicadura Suave Ámbar - Abajo Derecha */}
+                            <div className="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-amber-100/60 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+                        </div>
+
+                        {/* 3. Contenido (Header, Main, Footer) - z-10 y superiores */}
                         <header className="sticky top-0 z-50 border-b border-white/40 bg-white/60 backdrop-blur-xl shadow-sm">
                             <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
                                 <div className="cursor-pointer hover:opacity-80 transition-opacity h-full py-3" onClick={() => setActiveSection('home')}>
                                     <Logo className="h-full" />
                                 </div>
 
-                                <nav className="hidden lg:flex gap-2">
+                                <nav className="hidden lg:flex gap-2 relative z-50">
                                     <NavButton active={activeSection === 'home'} onClick={() => setActiveSection('home')} icon={<Heart />}>Inicio</NavButton>
                                     <NavButton active={activeSection === 'indicadores'} onClick={() => setActiveSection('indicadores')} icon={<Activity />}>Indicadores</NavButton>
                                     <NavButton active={activeSection === 'balance'} onClick={() => setActiveSection('balance')} icon={<Sun />}>Balance</NavButton>
@@ -683,7 +712,7 @@
                                     <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Agenda</NavButton>
                                 </nav>
 
-                                <button className="lg:hidden p-2 text-brand-purple" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                <button className="lg:hidden p-2 text-brand-purple relative z-50" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                                     {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
                                 </button>
                             </div>
@@ -709,17 +738,17 @@
                             </div>
                         )}
 
-                        <main className="max-w-7xl mx-auto px-6 py-12 min-h-[80vh]">
+                        <main className="max-w-7xl mx-auto px-6 py-12 min-h-[80vh] relative z-10">
                             {renderContent()}
                         </main>
 
-                        <footer className="py-16 mt-12 bg-stone-900/95 backdrop-blur-md text-stone-400 flex flex-col items-center justify-center text-center">
+                        <footer className="py-16 mt-12 bg-stone-900/95 backdrop-blur-md text-stone-400 flex flex-col items-center justify-center text-center relative z-10">
                             <img 
                                 src={logoUrl} 
                                 alt="Neuro Bloom Logo Blanco" 
                                 className="h-16 w-auto mb-6 opacity-50 brightness-0 invert" 
                             />
-                            <p className="font-light tracking-wide">© {new Date().getFullYear()} Neuro Bloom. Creciendo con cada emoción.</p>
+                            <p className="font-light tracking-wide relative z-20">© {new Date().getFullYear()} Neuro Bloom. Creciendo con cada emoción.</p>
                         </footer>
                     </div>
                 );
