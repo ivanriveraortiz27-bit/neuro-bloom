@@ -763,6 +763,7 @@
                                     <NavButton active={activeSection === 'library'} onClick={() => setActiveSection('library')} icon={<Library />}>Library</NavButton>
                                     <NavButton active={activeSection === 'infancias'} onClick={() => setActiveSection('infancias')} icon={<Sprout />}>Infancias</NavButton>
                                     <NavButton active={activeSection === 'capsulas'} onClick={() => setActiveSection('capsulas')} icon={<PlayCircle />}>Cápsulas</NavButton>
+                                    <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Agenda</NavButton>
                                 </nav>
 
                                 <button className="lg:hidden p-2 text-brand-purple relative z-50" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -784,7 +785,7 @@
                                                 backgroundColor: activeSection === sec ? colors.primary : 'rgba(255,255,255,0.8)'
                                             }}
                                         >
-                                            {sec === 'library' ? 'Bloom Library' : sec === 'infancias' ? 'Infancias que Florecen' : sec.charAt(0).toUpperCase() + sec.slice(1)}
+                                            {sec === 'library' ? 'Bloom Library' : sec === 'infancias' ? 'Infancias que Florecen' : sec === 'citas' ? 'Agenda' : sec.charAt(0).toUpperCase() + sec.slice(1)}
                                         </button>
                                     ))}
                                 </div>
