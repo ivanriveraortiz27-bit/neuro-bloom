@@ -339,59 +339,53 @@
                                     </p>
                                     
                                     <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl">
-                                        <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-[2rem] bg-white/60 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-lg hover:bg-white/80 transition-all text-center group">
+                                        <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./indicadores-emocionales.jpeg" 
                                                 alt="Indicadores" 
-                                                className="w-32 h-32 mx-auto mb-6 rounded-full object-cover shadow-sm transition-transform duration-500 group-hover:scale-105 border-4 border-white"
-                                                fallback={<div className="w-32 h-32 mx-auto mb-6 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm"><Activity size={48} className="text-brand-purple" /></div>}
+                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Activity size={64} className="text-brand-purple" /></div>}
                                             />
-                                            <h3 className="font-serif font-bold text-xl text-stone-800">Indicadores</h3>
                                         </div>
-                                        <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-[2rem] bg-white/60 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-lg hover:bg-white/80 transition-all text-center group">
+                                        <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./balance-cotidiano.jpeg" 
                                                 alt="Balance" 
-                                                className="w-32 h-32 mx-auto mb-6 rounded-full object-cover shadow-sm transition-transform duration-500 group-hover:scale-105 border-4 border-white"
-                                                fallback={<div className="w-32 h-32 mx-auto mb-6 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm"><Sun size={48} className="text-blue-400" /></div>}
+                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sun size={64} className="text-blue-400" /></div>}
                                             />
-                                            <h3 className="font-serif font-bold text-xl text-stone-800">Balance Cotidiano</h3>
                                         </div>
-                                        <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-[2rem] bg-white/60 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-lg hover:bg-white/80 transition-all text-center group">
+                                        <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./bloom-library.jpeg" 
                                                 alt="Library" 
-                                                className="w-32 h-32 mx-auto mb-6 rounded-full object-cover shadow-sm transition-transform duration-500 group-hover:scale-105 border-4 border-white"
-                                                fallback={<div className="w-32 h-32 mx-auto mb-6 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm"><Library size={48} className="text-brand-lilac" /></div>}
+                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Library size={64} className="text-brand-lilac" /></div>}
                                             />
-                                            <h3 className="font-serif font-bold text-xl text-stone-800">Bloom Library</h3>
                                         </div>
-                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-[2rem] bg-white/60 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-lg hover:bg-white/80 transition-all text-center group">
+                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
                                             <Thumbnail 
-                                                src="./infancias-florecen.jpeg" 
-                                                alt="Infancias que florecen" 
-                                                className="w-32 h-32 mx-auto mb-6 rounded-full object-cover shadow-sm transition-transform duration-500 group-hover:scale-105 border-4 border-white"
-                                                fallback={<div className="w-32 h-32 mx-auto mb-6 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm"><Sprout size={48} className="text-pink-400" /></div>}
+                                                src="./infancias.jpeg" 
+                                                alt="Infancias" 
+                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sprout size={64} className="text-pink-400" /></div>}
                                             />
-                                            <h3 className="font-serif font-bold text-xl text-stone-800">Infancias</h3>
                                         </div>
-                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-[2rem] bg-white/60 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-lg hover:bg-white/80 transition-all text-center group">
+                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./capsulas-en-video.jpeg" 
                                                 alt="Cápsulas" 
-                                                className="w-32 h-32 mx-auto mb-6 rounded-full object-cover shadow-sm transition-transform duration-500 group-hover:scale-105 border-4 border-white"
-                                                fallback={<div className="w-32 h-32 mx-auto mb-6 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm"><PlayCircle size={48} className="text-orange-400" /></div>}
+                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><PlayCircle size={64} className="text-orange-400" /></div>}
                                             />
-                                            <h3 className="font-serif font-bold text-xl text-stone-800">Cápsulas en Video</h3>
                                         </div>
-                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer p-8 rounded-[2rem] bg-white/60 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-lg hover:bg-white/80 transition-all text-center group">
+                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./conoce-y-agenda.jpeg" 
                                                 alt="Agenda" 
-                                                className="w-32 h-32 mx-auto mb-6 rounded-full object-cover shadow-sm transition-transform duration-500 group-hover:scale-105 border-4 border-white"
-                                                fallback={<div className="w-32 h-32 mx-auto mb-6 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm"><Calendar size={48} className="text-brand-green" /></div>}
+                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Calendar size={64} className="text-brand-green" /></div>}
                                             />
-                                            <h3 className="font-serif font-bold text-xl text-stone-800">Conoce y Agenda</h3>
                                         </div>
                                     </div>
                                 </div>
