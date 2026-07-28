@@ -97,7 +97,7 @@
           "No renuncies impulsivamente.",
           "No termines una relación.",
           "No envíes ese mensaje desde la desesperación.",
-          "No tomes decisiones trascendentes cuando tu cuerpo কার্যকলাপ en modo supervivencia.",
+          "No tomes decisiones trascendentes cuando tu cuerpo está funcionando en modo supervivencia.",
           "Primero regula.",
           "Después decide.",
           "Las emociones intensas pueden reducir temporalmente nuestra capacidad para valorar riesgos y alternativas.",
@@ -1281,8 +1281,8 @@
       "No porque alguien se los explicara.",
       "Sino porque ellos mismos lograron verlo.",
       "Se llama...",
-      "🔒 La Última Página",
-      "Esta experiencia está disponible en Bloom Premium."
+      "⭐ Bloom Premium",
+      "Esta experiencia está disponible solo para usuarios premium."
     ]
   },
   "detras_conducta": {
@@ -1825,6 +1825,7 @@
       "id": "feler-munoz",
       "nombre": "Féler Muñoz",
       "titulo": "Psicoterapeuta Gestalt",
+      "cedula": "12509953",
       "imagen": "./feler-munoz.jpeg",
       "descripcion": "Atención a adolescentes y adultos.",
       "enfoques": [
