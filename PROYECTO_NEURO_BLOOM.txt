@@ -408,7 +408,7 @@ ARCHIVO: data.json
     "cuestionarios": [
       {
         "id": "ansiedad-test",
-        "title": "Cuestionario de Detección Orientativa de Ansiedad",
+        "title": "Cuestionario de detección orientativa de ansiedad",
         "icon": "activity",
         "color": "#2196f3",
         "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos 6 meses.",
@@ -434,86 +434,15 @@ ARCHIVO: data.json
           { "rango": "0-10", "texto": "Ansiedad dentro de un rango esperado." },
           { "rango": "11-20", "texto": "Presencia de ansiedad leve a moderada." },
           { "rango": "21-30", "texto": "Ansiedad elevada; podría ser útil buscar orientación profesional." },
-          { "rango": "31-40", "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental. Reconocer cómo nos sentimos es el primer paso para cuidar nuestra salud mental." }
-        ],
-        "guion": ""
-      },
-      {
-        "id": "autoestima-test",
-        "title": "¿Cómo es tu relación contigo?",
-        "icon": "heart",
-        "color": "#b695c0",
-        "intro": "No hay respuestas buenas o malas. Este ejercicio es solo para observarte con honestidad y amabilidad.",
-        "preguntas": [
-          "Suelo hablarme de manera dura o crítica cuando cometo un error.",
-          "Me cuesta reconocer mis logros; siento que 'no son para tanto'.",
-          "Dudo de mis decisiones y busco constantemente la aprobación de otros.",
-          "Siento culpa cuando pongo límites o digo que no.",
-          "Me comparo con otras personas y casi siempre salgo perdiendo.",
-          "Tengo miedo de equivocarme o de no cumplir expectativas ajenas.",
-          "Me resulta difícil confiar en mis capacidades, incluso cuando tengo experiencia.",
-          "A veces siento que no merezco cosas buenas o relaciones sanas.",
-          "Cuando algo sale mal, tiendo a culparme más de lo necesario.",
-          "Me exijo más de lo que le exigiría a alguien que quiero.",
-          "Me cuesta expresar lo que necesito por miedo a molestar o ser rechazado/a.",
-          "Siento que, haga lo que haga, nunca es suficiente."
-        ],
-        "opciones": [
-          {"l": "Casi nunca", "v": 1},
-          {"l": "A veces", "v": 2},
-          {"l": "Frecuentemente", "v": 3},
-          {"l": "Casi siempre", "v": 4}
-        ],
-        "interpretacion": [
-          { "rango": "12-20", "texto": "Tu diálogo interno suele ser relativamente amable. Aun así, puede haber áreas donde fortalecer tu autovaloración." },
-          { "rango": "21-32", "texto": "Hay señales de autoexigencia y duda. Probablemente a veces eres más duro/a contigo de lo que mereces." },
-          { "rango": "33-48", "texto": "Aparecen varios indicadores asociados a una autoestima baja. No significa que haya algo 'mal' en ti, sino que has aprendido a tratarte desde la exigencia y el juicio. La autoestima no se fortalece exigiéndote más, sino aprendiendo a acompañarte mejor." }
-        ],
-        "guion": ""
-      },
-      {
-        "id": "burnout-test",
-        "title": "Cuestionario de Burnout Emocional",
-        "icon": "activity",
-        "color": "#9BC496",
-        "intro": "Escúchate con honestidad. Lee cada afirmación y marca la opción que más se acerque a cómo te has sentido en las últimas semanas o meses.",
-        "preguntas": [
-          "Me siento cansado/a incluso después de dormir o descansar.",
-          "Siento que mi energía se agota rápidamente durante el día.",
-          "Me cuesta levantarme por las mañanas o iniciar mis actividades.",
-          "Tengo dolores físicos (cabeza, cuello, espalda, estómago) sin una causa clara.",
-          "Me siento desmotivado/a o sin ganas de hacer cosas que antes disfrutaba.",
-          "Me siento irritable, impaciente o con poca tolerancia a la frustración.",
-          "Experimento una sensación de vacío, desconexión o apatía.",
-          "Siento que doy mucho y recibo poco reconocimiento.",
-          "Me cuesta concentrarme o tomar decisiones.",
-          "Siento que ya no rindo como antes, aunque me esfuerce.",
-          "Tengo pensamientos frecuentes como 'no puedo más' o 'estoy sobrepasado/a'.",
-          "Dudo de mis capacidades o siento miedo constante a fallar.",
-          "Me siento emocionalmente distante o indiferente frente a mis responsabilidades.",
-          "Realizo mis actividades en 'modo automático', sin disfrute.",
-          "Siento que no tengo control sobre mis tiempos o mis límites."
-        ],
-        "opciones": [
-          {"l": "Nunca", "v": 0},
-          {"l": "A veces", "v": 1},
-          {"l": "Frecuentemente", "v": 2},
-          {"l": "Casi siempre", "v": 3}
-        ],
-        "interpretacion": [
-          { "rango": "0-15", "texto": "Nivel bajo de señales de burnout. Aun así, conviene cuidar tus límites." },
-          { "rango": "16-30", "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente están pidiendo atención." },
-          { "rango": "31-45", "texto": "Riesgo alto de burnout emocional. Es importante detenerte y buscar apoyo." },
-          { "rango": "46-60", "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional. Pedir ayuda también es un acto de autocuidado." }
-        ],
-        "guion": ""
+          { "rango": "31-40", "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental." }
+        ]
       },
       {
         "id": "dependencia-test",
-        "title": "¿Cómo te vinculas emocionalmente?",
+        "title": "Cuestionario de Dependencia emocional",
         "icon": "heart-handshake",
         "color": "#2196f3",
-        "intro": "Este ejercicio no busca juzgarte, sino ayudarte a comprenderte mejor.",
+        "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos 6 meses.",
         "preguntas": [
           "Siento ansiedad o inquietud cuando la persona que quiero se distancia o no responde como espero.",
           "Me cuesta imaginar mi bienestar emocional sin esa persona en mi vida.",
@@ -526,59 +455,131 @@ ARCHIVO: data.json
           "Cuando la relación no está bien, todo mi estado emocional se ve afectado.",
           "Me adapto demasiado a la forma de ser del otro para no perder el vínculo.",
           "Me siento insegura/o de mi valor cuando no recibo atención o validación.",
-          "A veces siento que sin esa relación 'me pierdo' o me quedo vacía/o."
+          "A veces siento que sin esa relación “me pierdo” o me quedo vacía/o."
         ],
         "opciones": [
-          {"l": "Casi nunca", "v": 1},
+          {"l": "Nunca", "v": 1},
+          {"l": "Algunas veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi todos los días", "v": 4}
+        ],
+        "interpretacion": [
+          { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relativamente segura. Aun así, todos podemos fortalecer nuestra autonomía emocional." },
+          { "rango": "21-32", "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección." },
+          { "rango": "33-48", "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte." }
+        ]
+      },
+      {
+        "id": "autoestima-test",
+        "title": "Cuestionario de Baja autoestima",
+        "icon": "heart",
+        "color": "#b695c0",
+        "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos 6 meses.",
+        "preguntas": [
+          "Suelo hablarme de manera dura o crítica cuando cometo un error.",
+          "Me cuesta reconocer mis logros; siento que “no son para tanto”.",
+          "Dudo de mis decisiones y busco constantemente la aprobación de otros.",
+          "Siento culpa cuando pongo límites o digo que no.",
+          "Me comparo con otras personas y casi siempre salgo perdiendo.",
+          "Tengo miedo de equivocarme o de no cumplir expectativas ajenas.",
+          "Me resulta difícil confiar en mis capacidades, incluso cuando tengo experiencia.",
+          "A veces siento que no merezco cosas buenas o relaciones sanas.",
+          "Cuando algo sale mal, tiendo a culparme más de lo necesario.",
+          "Me exijo más de lo que le exigiría a alguien que quiero.",
+          "Me cuesta expresar lo que necesito por miedo a molestar o ser rechazado/a.",
+          "Siento que, haga lo que haga, nunca es suficiente."
+        ],
+        "opciones": [
+          {"l": "Nunca", "v": 1},
+          {"l": "Algunas veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi todos los días", "v": 4}
+        ],
+        "interpretacion": [
+          { "rango": "12-20", "texto": "Tu diálogo interno suele ser relativamente amable. Aun así, puede haber áreas donde fortalecer tu autovaloración." },
+          { "rango": "21-32", "texto": "Hay señales de autoexigencia y duda. Probablemente a veces eres más duro/a contigo de lo que mereces." },
+          { "rango": "33-48", "texto": "Aparecen varios indicadores asociados a una autoestima baja. No significa que haya algo “mal” en ti, sino que has aprendido a tratarte desde la exigencia y el juicio." }
+        ]
+      },
+      {
+        "id": "duelo-test",
+        "title": "Cuestionario de Duelo no resuelto",
+        "icon": "heart",
+        "color": "#81638b",
+        "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos meses.",
+        "preguntas": [
+          "Siento una añoranza profunda por alguien o algo que perdí, incluso después de mucho tiempo.",
+          "Hay momentos en los que la pérdida se siente tan presente como al inicio.",
+          "Evito pensar o hablar de esa pérdida porque me resulta demasiado doloroso.",
+          "Me cuesta aceptar que esa persona, etapa o situación ya no forma parte de mi vida.",
+          "Siento culpa, enojo o asuntos pendientes relacionados con la pérdida.",
+          "Desde esa pérdida, me cuesta disfrutar cosas que antes me hacían bien.",
+          "Siento que una parte de mí se quedó detenida en ese momento.",
+          "Me resulta difícil proyectarme al futuro sin que la pérdida interfiera.",
+          "A veces siento un vacío difícil de explicar, aunque “todo esté bien”.",
+          "He sentido que debo ser fuerte y no mostrar lo que realmente duele."
+        ],
+        "opciones": [
+          {"l": "Nunca", "v": 0},
+          {"l": "Rara vez", "v": 1},
           {"l": "A veces", "v": 2},
           {"l": "Frecuentemente", "v": 3},
           {"l": "Casi siempre", "v": 4}
         ],
         "interpretacion": [
-          { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relativamente segura. Aun así, todos podemos fortalecer nuestra autonomía emocional." },
-          { "rango": "21-32", "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección." },
-          { "rango": "33-48", "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte. Sanar no significa dejar de amar, sino volver a ti." }
-        ],
-        "guion": ""
+          { "rango": "0-10", "texto": "El duelo parece estar integrado, aunque puede haber emociones que aún acompañen." },
+          { "rango": "11-25", "texto": "Existen señales de duelo activo que merecen escucha y cuidado emocional." },
+          { "rango": "26-40", "texto": "Es posible que el duelo esté interfiriendo en tu bienestar emocional; acompañamiento psicológico puede ser una forma de cuidado, no de debilidad." }
+        ]
       },
       {
-        "id": "depresion-test",
-        "title": "Indicadores de Depresión",
+        "id": "burnout-test",
+        "title": "Cuestionario de BURNOUT",
         "icon": "activity",
-        "color": "#81638b",
-        "intro": "Este cuestionario no sustituye una evaluación profesional. Su objetivo es ayudarte a reflexionar sobre tu estado emocional actual y reconocer si sería importante buscar acompañamiento.",
+        "color": "#9BC496",
+        "intro": "Lee cada afirmación y marca la opción que mejor describa cómo te has sentido durante los últimos meses.",
         "preguntas": [
-          "Me siento triste, apagada(o) o vacía(o) sin una razón clara.",
-          "He perdido interés o ganas por actividades que antes disfrutaba.",
-          "Me siento culpable, insuficiente o muy dura(o) conmigo misma(o).",
-          "Siento que hago las cosas en automático, sin verdadera conexión emocional.",
-          "Me siento cansada(o) constantemente, incluso después de descansar.",
-          "Tengo dificultades para dormir o duermo más de lo habitual.",
-          "He notado cambios importantes en mi apetito o en mi peso.",
-          "Me cuesta concentrarme o tomar decisiones simples.",
-          "Siento que no soy suficiente o que decepciono a los demás.",
-          "He pensado que las personas a mi alrededor estarían mejor sin mí.",
-          "Cumplo con mis responsabilidades, pero emocionalmente me siento desconectada(o).",
-          "Me cuesta disfrutar momentos con mis hijos, mi familia o personas cercanas.",
-          "Siento que pedir ayuda es difícil o que debo poder sola(o) con todo."
+          "Me siento cansado/a incluso después de dormir o descansar.",
+          "Siento que mi energía se agota rápidamente durante el día.",
+          "Me cuesta levantarme por las mañanas o iniciar mis actividades.",
+          "Tengo dolores físicos (cabeza, cuello, espalda, estómago) sin una causa clara.",
+          "Me siento desmotivado/a o sin ganas de hacer cosas que antes disfrutaba.",
+          "Me siento irritable, impaciente o con poca tolerancia a la frustración.",
+          "Experimento una sensación de vacío, desconexión o apatía.",
+          "Siento que doy mucho y recibo poco reconocimiento.",
+          "Me cuesta concentrarme o tomar decisiones.",
+          "Siento que ya no rindo como antes, aunque me esfuerce.",
+          "Tengo pensamientos frecuentes como “no puedo más” o “estoy sobrepasado/a”.",
+          "Dudo de mis capacidades o siento miedo constante a fallar.",
+          "Me siento emocionalmente distante o indiferente frente a mis responsabilidades.",
+          "Realizo mis actividades en “modo automático”, sin disfrute.",
+          "Siento que no tengo control sobre mis tiempos o mis límites.",
+          "Me cuesta desconectarme mentalmente incluso cuando no estoy trabajando.",
+          "Tengo problemas para dormir o mi descanso no es reparador.",
+          "He dejado de cuidarme (alimentación, ejercicio, ocio, pausas).",
+          "Siento que siempre estoy en deuda conmigo mismo/a.",
+          "Aunque paro un poco, siento que no logro recuperarme del todo."
         ],
         "opciones": [
           {"l": "Nunca", "v": 0},
-          {"l": "Algunos días", "v": 1},
-          {"l": "La mayoría de los días", "v": 2},
-          {"l": "Casi todos los días", "v": 3}
+          {"l": "Rara vez", "v": 1},
+          {"l": "A veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi siempre", "v": 4}
         ],
         "interpretacion": [
-          { "rango": "General", "texto": "Si respondiste 'la mayoría de los días' o 'casi todos los días' en varias preguntas, especialmente en las relacionadas con tristeza persistente, vacío, culpa o pensamientos de no ser necesaria(o), es importante no minimizar lo que estás sintiendo. Buscar apoyo profesional es un acto de responsabilidad emocional y amor propio." }
-        ],
-        "guion": ""
+          { "rango": "0-15", "texto": "Nivel bajo de señales de burnout. Aun así, conviene cuidar tus límites." },
+          { "rango": "16-30", "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente están pidiendo atención." },
+          { "rango": "31-45", "texto": "Riesgo alto de burnout emocional. Es importante detenerte y buscar apoyo." },
+          { "rango": "46-80", "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional." }
+        ]
       },
       {
         "id": "estres-test",
-        "title": "Indicadores de Estrés",
+        "title": "Cuestionario de ESTRÉS",
         "icon": "activity",
         "color": "#9BC496",
-        "intro": "Este cuestionario te ayudará a identificar qué tan presente está el estrés en tu vida actualmente. No sustituye la valoración profesional.",
+        "intro": "Responde según cómo te has sentido en las últimas dos semanas.",
         "preguntas": [
           "Siento que tengo demasiadas responsabilidades y poco tiempo para mí.",
           "Me cuesta relajarme, incluso cuando no estoy ocupada(o).",
@@ -591,7 +592,7 @@ ARCHIVO: data.json
           "Tengo dificultades para dormir o mi descanso no es reparador.",
           "He notado cambios en mi apetito (como más o menos de lo habitual).",
           "Recurro al café, azúcar o alimentos poco saludables para mantenerme activa(o).",
-          "Siento que vivo en modo 'urgente' o 'automático'.",
+          "Siento que vivo en modo “urgente” o “automático”.",
           "Me cuesta disfrutar el presente o momentos con mi familia.",
           "Dejo mi descanso o autocuidado al final de la lista.",
           "Siento que, si me detengo, todo se descontrola."
@@ -603,11 +604,43 @@ ARCHIVO: data.json
           {"l": "Casi todo el tiempo", "v": 3}
         ],
         "interpretacion": [
-          { "rango": "0-15", "texto": "Estrés bajo. Tu nivel de estrés es manejable. Aun así, es importante mantener hábitos de autocuidado." },
-          { "rango": "16-30", "texto": "Estrés moderado. El estrés ya está influyendo en tu bienestar emocional o físico. Escucharte y hacer ajustes puede prevenir que aumente." },
-          { "rango": "31-45", "texto": "Estrés alto. El estrés está teniendo un impacto significativo en tu vida. Buscar apoyo y priorizar tu salud emocional es muy recomendable." }
+          { "rango": "0-15", "texto": "Estrés bajo: Tu nivel de estrés es manejable. Aun así, es importante mantener hábitos de autocuidado." },
+          { "rango": "16-30", "texto": "Estrés moderado: El estrés ya está influyendo en tu bienestar emocional o físico. Escucharte y hacer ajustes puede prevenir que aumente." },
+          { "rango": "31-45", "texto": "Estrés alto: El estrés está teniendo un impacto significativo en tu vida. Buscar apoyo y priorizar tu salud emocional es muy recomendable." }
+        ]
+      },
+      {
+        "id": "depresion-test",
+        "title": "Cuestionario de DEPRESIÓN",
+        "icon": "activity",
+        "color": "#81638b",
+        "intro": "Responde según cómo te has sentido durante las últimas dos semanas.",
+        "preguntas": [
+          "Me he sentido triste, desanimada(o) o vacía(o) la mayor parte del tiempo.",
+          "He perdido el interés o el disfrute por actividades que antes me gustaban.",
+          "Me siento culpable, insuficiente o demasiado crítica(o) conmigo misma(o).",
+          "Siento que hago las cosas en automático, sin verdadera conexión emocional.",
+          "Me siento cansada(o) o sin energía, incluso después de descansar.",
+          "Tengo dificultades para dormir o duermo más de lo habitual.",
+          "He notado cambios importantes en mi apetito o en mi peso.",
+          "Me cuesta concentrarme o tomar decisiones sencillas.",
+          "Siento que no soy suficiente o que decepciono a las personas que quiero.",
+          "Me cuesta disfrutar los momentos con mi familia, amistades o personas cercanas.",
+          "Me resulta difícil encontrar motivación para realizar mis actividades diarias.",
+          "Siento que pedir ayuda es difícil o que debo poder con todo sola(o).",
+          "He sentido que mi vida tiene poco sentido o que sería mejor no estar aquí."
         ],
-        "guion": "El estrés no siempre es señal de debilidad, muchas veces es una respuesta a sostener demasiado durante mucho tiempo. Escucharlo a tiempo también es una forma de cuidarte."
+        "opciones": [
+          {"l": "Nunca", "v": 0},
+          {"l": "Algunas veces", "v": 1},
+          {"l": "Frecuentemente", "v": 2},
+          {"l": "Casi todo el tiempo", "v": 3}
+        ],
+        "interpretacion": [
+          { "rango": "0-13", "texto": "Malestar emocional bajo: Tus respuestas no muestran señales importantes de síntomas depresivos. Mantener hábitos de autocuidado y espacios de conexión emocional sigue siendo importante para proteger tu bienestar." },
+          { "rango": "14-26", "texto": "Malestar emocional moderado: Es posible que estés atravesando un periodo de desgaste emocional que merece atención. Escucharte, hablar con alguien de confianza o buscar orientación profesional puede ayudarte a prevenir que el malestar aumente." },
+          { "rango": "27-39", "texto": "Malestar emocional elevado: Tus respuestas indican un nivel importante de síntomas depresivos que podría estar afectando distintas áreas de tu vida. Buscar apoyo profesional puede ayudarte a comprender lo que estás viviendo y encontrar estrategias para sentirte mejor." }
+        ]
       }
     ]
   },
@@ -658,6 +691,1027 @@ ARCHIVO: data.json
       "Aprender a vivir en balance no consiste en hacer más.",
       "Consiste en tomar decisiones más conscientes sobre dónde eliges poner tu tiempo, tu energía y tu cuidado.",
       "🌿 Florecer no significa resistir hasta agotarte. Significa crecer de una forma que también cuide tus raíces."
+    ]
+  },
+  "reto_del_mes": {
+    "intro": [
+      "✨ ENFOQUE DEL MES | AGOSTO",
+      "🌸 Volver a mí",
+      "Hablarme con más compasión",
+      "---",
+      "💌 Bienvenido a \"Volver a mí\"",
+      "Agosto suele invitarnos a empezar de nuevo.",
+      "Retomamos rutinas, hacemos planes, nos proponemos nuevos objetivos... pero pocas veces nos detenemos a preguntarnos algo mucho más importante:",
+      "¿Cómo me estoy tratando a mí mismo?",
+      "Este mes quiero invitarte a hacer una pausa.",
+      "No para exigirte más.",
+      "Sino para volver a escucharte.",
+      "Para recordar que puedes crecer sin convertirte en tu peor juez.",
+      "Durante las próximas semanas iremos explorando distintas formas de volver a nosotros mismos. Cada semana encontrarás una nueva conversación, pequeños ejercicios, recursos y un espacio para compartir cómo estás viviendo este proceso.",
+      "Respira.",
+      "Este espacio es para ti.",
+      "---",
+      "☕ Conversemos un momento",
+      "Hola.",
+      "Qué alegría volver a encontrarnos.",
+      "Quiero darte la bienvenida al primer Enfoque del Mes.",
+      "A partir de ahora, cada mes tendremos un espacio para detenernos unos minutos y trabajar un tema relacionado con el momento del año que estamos viviendo.",
+      "Y quiero comenzar con algo que considero fundamental.",
+      "La forma en que nos hablamos.",
+      "Muchas veces creemos que crecer significa exigirnos más.",
+      "Pero la realidad es que pocas personas pueden florecer cuando viven escuchando una voz que constantemente les recuerda que no son suficientes.",
+      "Durante este mes quiero invitarte a hacer algo diferente.",
+      "Hablarte con un poco más de paciencia.",
+      "Con más respeto.",
+      "Con más humanidad.",
+      "Y, además, cada semana abriremos una nueva conversación para seguir profundizando juntos en este camino de volver a nosotros mismos.",
+      "Espero que disfrutes este espacio y que alguna de las ideas que compartiremos pueda acompañarte mucho después de terminar este mes.",
+      "Bienvenido.",
+      "---",
+      "🌿 La idea que quiero regalarte este mes",
+      "La relación más larga que tendrás en toda tu vida es la que tienes contigo.",
+      "Sin embargo, pocas veces nos enseñan a cuidarla.",
+      "Con frecuencia aprendemos a motivarnos desde la exigencia, creyendo que solo seremos mejores si nos hablamos con dureza.",
+      "Pero la evidencia en psicología nos muestra algo diferente.",
+      "Las personas que desarrollan una actitud más compasiva hacia sí mismas suelen afrontar mejor los errores, recuperarse con mayor facilidad de los momentos difíciles y mantener una relación más saludable con su bienestar.",
+      "Este mes no quiero invitarte a pensar positivo.",
+      "Quiero invitarte a hablarte como hablarías con alguien que amas profundamente.",
+      "Porque volver a ti también significa aprender a convertirte en un lugar seguro para ti mismo.",
+      "A veces, una sola frase puede cambiar por completo la manera en que vivimos un día.",
+      "---",
+      "🗓️ Lo que exploraremos este mes",
+      "Volver a mí no sucede de un día para otro.",
+      "A veces comienza con una pregunta, otras con un límite, un descanso o una conversación pendiente con nosotros mismos.",
+      "Durante agosto iremos dando pequeños pasos. Cada semana abriremos una conversación distinta, pero todas nos llevarán al mismo lugar: volver a nosotros.",
+      "✍️ Un momento para escribirte",
+      "Una carta para mí",
+      "Hay palabras que llevamos mucho tiempo necesitando escuchar.",
+      "Y, quizá, la única persona que puede empezar a decirlas eres tú.",
+      "Busca un lugar tranquilo.",
+      "Respira profundo.",
+      "Y escribe una carta dirigida a ti.",
+      "No a la persona que esperas llegar a ser.",
+      "A la persona que eres hoy.",
+      "Puedes comenzar con alguna de estas frases:",
+      "\"Hoy quiero decirte que...\"",
+      "\"Perdón por todas las veces que...\"",
+      "\"Gracias por...\"",
+      "\"Prometo...\"",
+      "No importa cuánto escribas.",
+      "Lo importante es que, por unos minutos, cambies la crítica por la comprensión.",
+      "Guarda esa carta.",
+      "Tal vez un día necesites volver a leerla.",
+      "---",
+      "🌱 El reto de agosto",
+      "Durante los próximos siete días quiero proponerte algo muy sencillo.",
+      "Cada vez que descubras que estás siendo muy duro contigo, haz una pausa y pregúntate:",
+      "¿Le hablaría así a alguien que amo?",
+      "Si la respuesta es no...",
+      "Cambia una sola frase.",
+      "No necesitas cambiar todo tu diálogo interno.",
+      "Solo una frase.",
+      "Al final de la semana, observa cómo te sentiste.",
+      "Los grandes cambios casi siempre comienzan con pequeños gestos repetidos.",
+      "---",
+      "🎧 Cuando necesites volver a ti - AUDIO",
+      "Volver a mí",
+      "Hola.",
+      "Me alegra que hayas decidido regalarte estos minutos.",
+      "Antes de comenzar, busca una postura cómoda.",
+      "No necesitas hacer nada más.",
+      "Solo estar aquí.",
+      "Respira profundamente por la nariz...",
+      "Y exhala lentamente por la boca.",
+      "Una vez más.",
+      "Inhala...",
+      "Y exhala.",
+      "Permite que, poco a poco, tu cuerpo empiece a relajarse.",
+      "No necesitas resolver nada en este momento.",
+      "No necesitas responder mensajes.",
+      "No necesitas cumplir expectativas.",
+      "Durante los próximos minutos solo quiero invitarte a volver a un lugar que muchas veces olvidamos visitar.",
+      "A ti.",
+      "Mientras continúas respirando, imagina que estás caminando por un sendero tranquilo.",
+      "No hay prisa.",
+      "No hay ruido.",
+      "Solo tú.",
+      "Con cada paso, observa cómo comienzan a quedarse atrás las preocupaciones del día.",
+      "Las pendientes.",
+      "Las exigencias.",
+      "Las comparaciones.",
+      "Todo aquello que, por un momento, puedes permitirte soltar.",
+      "Sigue caminando.",
+      "A lo lejos ves a una persona sentada esperándote.",
+      "Cuando te acercas, descubres que esa persona eres tú.",
+      "No la versión que intenta demostrar que puede con todo.",
+      "No la que sonríe para que nadie note su cansancio.",
+      "No la que se exige ser perfecta.",
+      "Es simplemente tú.",
+      "Tal como eres hoy.",
+      "Acércate con calma.",
+      "Obsérvate.",
+      "Y pregúntate en silencio:",
+      "¿Cómo estás realmente?",
+      "No busques una respuesta correcta.",
+      "Solo escucha.",
+      "Tal vez aparezca cansancio.",
+      "Tal vez tristeza.",
+      "Tal vez esperanza.",
+      "O quizá simplemente silencio.",
+      "Todo lo que aparezca está bien.",
+      "Ahora imagina que te sientas junto a esa versión de ti.",
+      "No necesitas decir muchas palabras.",
+      "A veces la compañía también sana.",
+      "Respira profundamente.",
+      "Y, mientras inhalas, repite mentalmente:",
+      "\"Estoy aprendiendo a tratarme con más amabilidad.\"",
+      "Exhala lentamente.",
+      "\"No necesito ser perfecto para ser valioso.\"",
+      "Inhala una vez más.",
+      "\"Estoy haciendo lo mejor que puedo con lo que tengo hoy.\"",
+      "Permite que esas palabras descansen dentro de ti.",
+      "Quizá no las creas por completo todavía.",
+      "No importa.",
+      "A veces el cambio comienza simplemente escuchando una posibilidad diferente.",
+      "Antes de despedirte de esa versión de ti, mírala con cariño.",
+      "Y dile en silencio:",
+      "\"Voy a intentar hablarte con más respeto.\"",
+      "\"Voy a dejar de exigirte tanto.\"",
+      "\"Voy a acompañarte mejor.\"",
+      "Observa cómo esa versión de ti sonríe.",
+      "No porque todos los problemas hayan desaparecido.",
+      "Sino porque, por primera vez en mucho tiempo, siente que ya no está sola.",
+      "Respira profundamente una última vez.",
+      "Lleva una mano a tu pecho si así lo deseas.",
+      "Y recuerda esto:",
+      "La relación más importante de tu vida es la que construyes contigo cada día.",
+      "Cuídala.",
+      "Háblate con respeto.",
+      "Ten paciencia contigo.",
+      "Y vuelve a este momento siempre que lo necesites.",
+      "Cuando estés listo, comienza a mover lentamente tus manos.",
+      "Tus pies.",
+      "Respira una vez más.",
+      "Y abre los ojos con calma.",
+      "Gracias por regalarte este momento.",
+      "Nos encontraremos muy pronto.",
+      "💬 La conversación de la semana",
+      "Cada lunes encontrarás una nueva conversación relacionada con el tema del mes.",
+      "Aquí podrás profundizar en el contenido que compartimos en Instagram y TikTok, realizar un ejercicio diferente, descubrir nuevas recomendaciones y responder una pregunta para seguir construyendo esta comunidad juntos.",
+      "Cada semana será una nueva oportunidad para volver a ti.",
+      "---",
+      "🤍 Antes de irte...",
+      "Quiero dejarte una idea para acompañarte durante todo este mes.",
+      "Volver a ti no significa convertirte en alguien diferente.",
+      "Significa recordar quién eres cuando dejas de exigirte tanto y empiezas a tratarte con la misma compasión que ofreces a quienes amas.",
+      "Este es solo el comienzo.",
+      "Durante las próximas semanas seguiremos descubriendo distintas maneras de volver a nosotros mismos.",
+      "Gracias por caminar este mes conmigo.",
+      "Nos vemos en nuestra primera conversación de la semana."
+    ],
+    "semanas": [
+      {
+        "id": "sem1",
+        "contenido": [
+          "🌱 SEMANA 1 | Volver a escucharme",
+          "¿Hace cuánto no te preguntas qué necesitas tú?",
+          "---",
+          "💌 Una idea para comenzar",
+          "Existe una pregunta que parece sencilla, pero que muchas personas encuentran difícil de responder:",
+          "¿Qué necesito en este momento?",
+          "No porque no tengan necesidades.",
+          "Sino porque llevan tanto tiempo atendiendo las de los demás que dejaron de mirar hacia adentro.",
+          "A veces ocurre al convertirnos en madres o padres.",
+          "Otras veces por un trabajo que nunca termina, por una relación que ocupa demasiado espacio o por haber aprendido que ser \"una buena persona\" significa estar siempre disponible.",
+          "Con el tiempo dejamos de preguntarnos cómo estamos.",
+          "Y empezamos a preguntarnos únicamente qué sigue.",
+          "Ese cambio suele ser tan gradual que apenas lo notamos.",
+          "Hasta que un día alguien nos pregunta cómo nos sentimos... y la respuesta tarda en aparecer.",
+          "---",
+          "🧠 Lo que dice la psicología",
+          "En psicología existe un concepto llamado interocepción.",
+          "Es la capacidad que tiene nuestro cerebro para percibir las señales que provienen del interior del cuerpo: hambre, cansancio, tensión muscular, respiración, emociones e incluso pequeños cambios fisiológicos que muchas veces pasan desapercibidos.",
+          "Investigadores como Antonio Damasio y A. D. Craig han mostrado que esta capacidad no solo nos ayuda a identificar cómo nos sentimos; también participa en la toma de decisiones, la regulación emocional y la construcción del sentido de identidad.",
+          "En otras palabras:",
+          "Antes de saber qué decisión tomar, necesitamos ser capaces de reconocer qué nos está pasando.",
+          "Sin embargo, cuando vivimos durante mucho tiempo respondiendo constantemente a las demandas externas, podemos empezar a desconectarnos de esas señales.",
+          "No dejamos de sentir.",
+          "Dejamos de escucharlas.",
+          "Por eso algunas personas dicen:",
+          "\"No sé qué quiero.\"",
+          "\"No sé qué me pasa.\"",
+          "\"Solo sé que estoy cansada.\"",
+          "No es falta de interés.",
+          "Muchas veces es el resultado de haber aprendido a ignorar durante demasiado tiempo aquello que ocurre dentro de nosotros.",
+          "Escucharte nuevamente no significa hacer todo lo que sientes.",
+          "Significa volver a reconocer que tus emociones, tu cuerpo y tus necesidades también contienen información importante.",
+          "---",
+          "🎥 Conversemos un momento",
+          "Hola.",
+          "Quiero comenzar haciéndote una pregunta.",
+          "¿Hace cuánto no te preguntas cómo estás realmente?",
+          "No me refiero a la respuesta automática que damos cuando alguien nos pregunta cómo estamos en el trabajo o en la escuela.",
+          "Me refiero a detenerte unos segundos y preguntarte, con verdadera curiosidad:",
+          "¿Qué necesito hoy?",
+          "Parece una pregunta sencilla.",
+          "Sin embargo, muchas personas descubren que no saben responderla.",
+          "Y no porque no tengan necesidades.",
+          "Sino porque llevan tanto tiempo ocupándose de todo y de todos, que dejaron de mirar hacia adentro.",
+          "Vivimos en una cultura que constantemente dirige nuestra atención hacia afuera.",
+          "Hay pendientes.",
+          "Mensajes.",
+          "Responsabilidades.",
+          "Expectativas.",
+          "Personas que necesitan algo de nosotros.",
+          "Y, poco a poco, sin darnos cuenta, empezamos a vivir respondiendo más a lo que ocurre fuera que a lo que sucede dentro.",
+          "En psicología existe un concepto llamado interocepción.",
+          "Es la capacidad que tiene nuestro cerebro para percibir las señales que vienen del interior del cuerpo.",
+          "El hambre.",
+          "El cansancio.",
+          "La respiración.",
+          "La tensión.",
+          "Las emociones.",
+          "Es decir, la capacidad de notar lo que está ocurriendo dentro de nosotros.",
+          "Cuando esa conexión se mantiene, solemos identificar antes cuándo necesitamos descansar, cuándo algo nos preocupa o cuándo estamos llegando a un límite.",
+          "Pero cuando vivimos durante mucho tiempo en piloto automático, esa conexión puede empezar a debilitarse.",
+          "No dejamos de sentir.",
+          "Lo que ocurre es que dejamos de escucharnos.",
+          "Y entonces aparecen frases que probablemente has dicho alguna vez.",
+          "\"No sé qué me pasa.\"",
+          "\"Solo sé que estoy cansado.\"",
+          "\"No sé qué quiero.\"",
+          "Muchas veces no es que no exista una respuesta.",
+          "Es que llevamos demasiado tiempo sin hacernos la pregunta.",
+          "Por eso quiero proponerte algo muy sencillo esta semana.",
+          "No intentes cambiar tu vida.",
+          "No busques una versión completamente nueva de ti.",
+          "Solo practica detenerte varias veces al día y preguntarte:",
+          "¿Qué necesito en este momento?",
+          "Tal vez necesite agua.",
+          "Tal vez silencio.",
+          "Tal vez cinco minutos para respirar.",
+          "Tal vez poner un límite.",
+          "Tal vez pedir ayuda.",
+          "O quizá simplemente reconocer que hoy no tienes la misma energía que ayer.",
+          "Puede parecer un gesto pequeño.",
+          "Pero la mayoría de los cambios importantes comienzan exactamente ahí.",
+          "No cuando cambiamos nuestra vida de un día para otro.",
+          "Sino cuando volvemos a escucharnos.",
+          "Porque es muy difícil cuidar de una persona a la que hace mucho tiempo dejamos de mirar.",
+          "Y recuerda algo antes de terminar.",
+          "Volver a ti no empieza cuando tienes todas las respuestas.",
+          "Empieza el día en que decides volver a hacerte las preguntas correctas.",
+          "Nos vemos en la siguiente conversación. 🤍",
+          "---",
+          "✍️ Ejercicio",
+          "El mapa de mis necesidades",
+          "Durante los próximos días intenta responder estas preguntas sin juzgar tus respuestas.",
+          "Mi cuerpo",
+          "¿Qué ha intentado decirme mi cuerpo esta semana?",
+          "¿Estoy descansando lo suficiente?",
+          "¿He ignorado alguna señal física importante?",
+          "Mis emociones",
+          "¿Qué emoción aparece con más frecuencia estos días?",
+          "¿La estoy escuchando o intentando evitar?",
+          "Mi mente",
+          "¿Qué pensamiento se repite constantemente?",
+          "¿Me ayuda o me desgasta?",
+          "Mis relaciones",
+          "¿Hay alguna conversación que llevo tiempo posponiendo?",
+          "¿Estoy dedicando tiempo a personas que también me hacen sentir en calma?",
+          "No busques respuestas perfectas.",
+          "Solo respuestas honestas.",
+          "---",
+          "🎬 Para seguir explorando",
+          "Película recomendada",
+          "Soul (2020)",
+          "Aunque suele presentarse como una película sobre encontrar un propósito, también es una historia sobre la importancia de volver a experimentar la vida desde la presencia y no únicamente desde la productividad.",
+          "Mientras la veas, pregúntate:",
+          "¿Cuántas veces he estado tan ocupado intentando llegar a un lugar que dejé de notar lo que estaba viviendo?",
+          "---",
+          "🌱 El reto de la semana",
+          "Durante siete días no intentes cambiar tu vida.",
+          "Solo practica hacer una pausa.",
+          "Tres veces al día pregúntate:",
+          "¿Qué necesito en este momento?",
+          "Tal vez necesites agua.",
+          "Tal vez silencio.",
+          "Tal vez descansar cinco minutos.",
+          "Tal vez pedir ayuda.",
+          "Tal vez simplemente reconocer que hoy estás cansado.",
+          "No subestimes esas pequeñas respuestas.",
+          "La conciencia suele aparecer antes que el cambio.",
+          "---",
+          "💬 La conversación de la semana",
+          "Esta semana quiero dejarte una sola pregunta.",
+          "No para encontrar la respuesta correcta.",
+          "Sino para empezar una conversación contigo.",
+          "¿Qué parte de ti has dejado de escuchar durante demasiado tiempo?",
+          "Escríbela aquí.",
+          "Quizá esa respuesta sea el primer paso para volver a encontrarte.",
+          "---",
+          "📚 Para saber más",
+          "Esta semana está inspirada en el trabajo de autores que han investigado la conciencia emocional, la interocepción, la regulación emocional y la construcción del bienestar psicológico, entre ellos:",
+          "• Antonio Damasio",
+          "• A. D. Craig",
+          "• Daniel Siegel",
+          "• Susan David",
+          "---",
+          "🤍 Antes de irte...",
+          "Muchas personas creen que el bienestar comienza cuando finalmente logran organizar su vida.",
+          "La evidencia sugiere algo distinto.",
+          "Con frecuencia, el cambio empieza mucho antes.",
+          "Empieza el día en que dejamos de preguntarnos únicamente qué tenemos que hacer y comenzamos a preguntarnos, con verdadera curiosidad:",
+          "¿Qué necesito para estar bien?",
+          "Tal vez esa sea una de las preguntas más importantes que puedas hacerte este mes."
+        ]
+      },
+      {
+        "id": "sem2",
+        "contenido": [
+          "🤍 SEMANA 2 | Elegirme sin culpa",
+          "Lo difícil que es elegirte sin sentir culpa",
+          "---",
+          "💌 Una idea para comenzar",
+          "Hay una pregunta que escucho con frecuencia en consulta:",
+          "\"¿Está mal querer un poco de tiempo para mí?\"",
+          "Y casi siempre viene acompañada de una sensación de culpa.",
+          "Culpa por descansar.",
+          "Culpa por poner límites.",
+          "Culpa por decir \"no\".",
+          "Culpa por pedir ayuda.",
+          "Culpa por cancelar un compromiso.",
+          "Culpa por necesitar silencio.",
+          "Parece que, en algún momento, muchas personas aprendimos que cuidar de nosotros mismos significaba dejar de cuidar a los demás.",
+          "Pero esa idea no solo es injusta.",
+          "También es psicológicamente insostenible.",
+          "Nadie puede sostener durante mucho tiempo una vida en la que siempre ocupa el último lugar.",
+          "Elegirte no significa dejar de amar.",
+          "No significa volverte egoísta.",
+          "Significa reconocer que tú también formas parte de las personas que necesitan ser cuidadas.",
+          "Y eso cambia por completo la conversación.",
+          "---",
+          "🧠 Lo que dice la psicología",
+          "La culpa es una emoción social.",
+          "Su función es ayudarnos a mantener relaciones importantes y reparar el daño cuando realmente hemos hecho algo que va en contra de nuestros valores.",
+          "En ese sentido, la culpa cumple un papel valioso.",
+          "El problema aparece cuando comenzamos a sentir culpa, no por haber hecho daño, sino simplemente por atender nuestras propias necesidades.",
+          "La investigadora Brené Brown diferencia la culpa de la vergüenza de una manera muy clara.",
+          "La culpa dice:",
+          "\"Hice algo que no estuvo bien.\"",
+          "La vergüenza dice:",
+          "\"Hay algo malo en mí.\"",
+          "Sin embargo, muchas personas experimentan una tercera forma de culpa que no siempre recibe suficiente atención:",
+          "La culpa por cuidarse.",
+          "No nace de haber hecho algo incorrecto.",
+          "Nace de expectativas aprendidas.",
+          "De la idea de que siempre debemos poder con todo.",
+          "De creer que descansar es perder el tiempo.",
+          "De pensar que pedir ayuda significa ser débiles.",
+          "De asumir que una buena madre, un buen hijo, una buena pareja o un buen profesional siempre deben estar disponibles.",
+          "Con el tiempo, estas creencias pueden generar un conflicto constante entre lo que necesitamos y lo que creemos que deberíamos hacer.",
+          "La consecuencia suele ser el agotamiento.",
+          "No porque seamos incapaces de cuidar a otros.",
+          "Sino porque olvidamos incluirnos dentro de ese cuidado.",
+          "---",
+          "🌸 Cuando la culpa también llega con la maternidad",
+          "Muchas madres describen una sensación muy parecida.",
+          "Cuando salen con amigas, sienten culpa.",
+          "Cuando trabajan, sienten culpa.",
+          "Cuando descansan, sienten culpa.",
+          "Cuando se toman un momento para ellas, sienten culpa.",
+          "Y cuando no lo hacen, terminan exhaustas.",
+          "No ocurre porque amen menos a sus hijos.",
+          "Ocurre porque nuestra cultura suele transmitir la idea de que una buena madre siempre debe estar disponible.",
+          "Pero cuidar de un hijo y cuidar de ti no son objetivos opuestos.",
+          "Son necesidades que necesitan convivir.",
+          "Los niños no aprenden únicamente de lo que les decimos.",
+          "También aprenden observando cómo nos tratamos a nosotros mismos.",
+          "---",
+          "🎥 Conversemos un momento",
+          "Hola.",
+          "Hoy quiero comenzar con una pregunta que puede resultar un poco incómoda.",
+          "¿Alguna vez te has sentido culpable por descansar?",
+          "Por tomarte una tarde para ti.",
+          "Por decir que no.",
+          "Por cancelar un plan porque estabas agotado.",
+          "O incluso por pedir ayuda.",
+          "Si respondiste que sí, quiero que sepas algo.",
+          "No estás solo.",
+          "Y, sobre todo, no significa que seas egoísta.",
+          "Durante mucho tiempo pensé que la culpa aparecía únicamente cuando hacíamos algo incorrecto.",
+          "Pero conforme fui estudiando psicología entendí que muchas veces sentimos culpa por algo completamente distinto.",
+          "Sentimos culpa cuando empezamos a romper reglas que llevamos años creyendo que eran verdaderas.",
+          "Por ejemplo:",
+          "\"Una buena madre siempre puede con todo.\"",
+          "\"Una buena pareja nunca pone sus necesidades primero.\"",
+          "\"Si descanso, soy flojo.\"",
+          "\"Si digo que no, voy a decepcionar a alguien.\"",
+          "El problema es que muchas de esas reglas nunca las elegimos conscientemente.",
+          "Las fuimos aprendiendo.",
+          "Las escuchamos en casa.",
+          "En la escuela.",
+          "En el trabajo.",
+          "En la cultura.",
+          "Y un día comenzaron a sentirse como si fueran verdades absolutas.",
+          "En psicología sabemos que la culpa tiene una función importante.",
+          "Nos ayuda a reparar cuando hemos lastimado a alguien o cuando actuamos en contra de nuestros propios valores.",
+          "Pero existe otro tipo de culpa.",
+          "Una culpa que aparece simplemente porque empezamos a cuidarnos.",
+          "Y esa culpa merece ser cuestionada.",
+          "Porque no siempre indica que hicimos algo malo.",
+          "A veces solo indica que estamos haciendo algo diferente.",
+          "Imagina esto.",
+          "Llevas años acostumbrándote a responder primero por todos los demás.",
+          "Y un día decides decir:",
+          "\"Hoy necesito descansar.\"",
+          "Es normal que algo dentro de ti diga:",
+          "\"¿Y si estás siendo egoísta?\"",
+          "No porque realmente lo seas.",
+          "Sino porque tu cerebro está reaccionando a una forma nueva de actuar.",
+          "Nuestro cerebro busca lo conocido.",
+          "Incluso cuando lo conocido nos está agotando.",
+          "Por eso muchas personas abandonan sus límites muy rápido.",
+          "No porque no funcionen.",
+          "Sino porque la incomodidad inicial les hace pensar que están haciendo algo incorrecto.",
+          "Pero sentir incomodidad no siempre significa que vas por mal camino.",
+          "Muchas veces significa que estás aprendiendo una manera diferente de relacionarte contigo.",
+          "Quiero proponerte un pequeño ejercicio.",
+          "La próxima vez que aparezca la culpa después de cuidarte, haz una pausa y pregúntate:",
+          "¿Estoy sintiendo culpa porque realmente dañé a alguien... o porque por primera vez estoy incluyendo mis necesidades en la ecuación?",
+          "Son preguntas muy distintas.",
+          "Y sus respuestas también lo son.",
+          "Quiero terminar con una idea que me parece importante.",
+          "Ser una persona generosa no significa desaparecer.",
+          "Cuidar a otros no debería implicar abandonarte.",
+          "Porque cuando constantemente te colocas al final de la lista, tarde o temprano el cansancio termina hablando por ti.",
+          "Y normalmente lo hace a través del estrés, la irritabilidad, el agotamiento o la sensación de que ya no puedes más.",
+          "Elegirte de vez en cuando no disminuye el amor que tienes por los demás.",
+          "Lo hace más sostenible.",
+          "Así que esta semana no quiero invitarte a dejar de sentir culpa.",
+          "Quiero invitarte a hacer algo más realista.",
+          "A empezar a cuestionarla.",
+          "Porque quizá algunas de las culpas que cargas no son una brújula moral.",
+          "Tal vez son solo reglas antiguas que ya no necesitas seguir.",
+          "Nos vemos en nuestra próxima conversación. 🤍",
+          "---",
+          "✍️ Ejercicio",
+          "¿Culpa o responsabilidad?",
+          "Piensa en tres situaciones recientes en las que sentiste culpa.",
+          "Observa tus respuestas y pregúntate:",
+          "¿La culpa apareció porque actuaste en contra de tus valores?",
+          "¿O porque rompiste una expectativa que llevabas mucho tiempo intentando cumplir?",
+          "No siempre que sentimos culpa significa que hicimos algo incorrecto.",
+          "A veces significa que estamos aprendiendo una manera diferente de relacionarnos con nosotros mismos.",
+          "---",
+          " Una pausa para reflexionar",
+          "Cierra los ojos durante un minuto.",
+          "Piensa en una persona que amas profundamente.",
+          "Ahora imagina que esa persona te dice:",
+          "\"Me siento culpable por descansar.\"",
+          "\"Me siento culpable por pedir ayuda.\"",
+          "\"Me siento culpable por dedicarme una tarde.\"",
+          "¿Qué le responderías?",
+          "Ahora pregúntate:",
+          "¿Por qué me cuesta ofrecerme a mí la misma comprensión que doy tan fácilmente a quienes amo?",
+          "---",
+          "📚 Para seguir explorando",
+          "Libro recomendado",
+          "Los dones de la imperfección — Brené Brown.",
+          "Una lectura que invita a cuestionar la necesidad de ser siempre suficiente para los demás y propone una forma más amable de relacionarnos con nuestras propias limitaciones.",
+          "---",
+          "🌱 El reto de la semana",
+          "Esta semana quiero proponerte un experimento.",
+          "Haz una sola cosa pensando en ti.",
+          "Puede ser pequeña.",
+          "Salir a caminar.",
+          "Leer veinte minutos.",
+          "Dormir una siesta.",
+          "Aceptar ayuda.",
+          "Decir \"no\" cuando realmente no puedes.",
+          "Después observa qué ocurrió.",
+          "No solo afuera.",
+          "También dentro de ti.",
+          "¿Apareció culpa?",
+          "¿Incomodidad?",
+          "¿Alivio?",
+          "No intentes cambiar esas emociones.",
+          "Solo conócelas.",
+          "---",
+          "💬 La conversación de la semana",
+          "Esta semana quiero hacerte una pregunta.",
+          "¿En qué momento de tu vida aprendiste que cuidar de ti podía ser algo egoísta?",
+          "No necesitas responder de inmediato.",
+          "Date unos minutos para pensarlo.",
+          "A veces descubrir el origen de una creencia es el primer paso para comenzar a transformarla.",
+          "---",
+          "📚 Para saber más",
+          "Esta semana está inspirada en el trabajo de investigadores y autores que han estudiado la culpa, la vergüenza, la autocompasión y la aceptación psicológica, entre ellos:",
+          "• Brené Brown",
+          "• Kristin Neff",
+          "• Paul Gilbert",
+          "• Steven C. Hayes",
+          "---",
+          "🤍 Antes de irte...",
+          "Elegirte no siempre se siente bien al principio.",
+          "Cuando llevamos muchos años acostumbrándonos a responder primero por los demás, cualquier intento de cuidarnos puede sentirse extraño.",
+          "No porque esté mal.",
+          "Sino porque es diferente.",
+          "Quizá la meta de esta semana no sea dejar de sentir culpa.",
+          "Quizá la meta sea aprender a preguntarte:",
+          "¿Esta culpa me está ayudando a vivir de acuerdo con mis valores... o solo me está alejando de mis propias necesidades?",
+          "Porque cuidarte no es un premio que debas ganarte.",
+          "Es una condición necesaria para sostener una vida con mayor equilibrio, presencia y bienestar."
+        ]
+      },
+      {
+        "id": "sem3",
+        "contenido": [
+          "🌸 SEMANA 3 | Recordar quién soy",
+          "¿Quién eres además de todo lo que haces?",
+          "---",
+          "💌 Una idea para comenzar",
+          "Si alguien te pidiera que te describieras, ¿qué responderías?",
+          "Es probable que comenzaras diciendo:",
+          "\"Soy mamá.\"",
+          "\"Soy psicóloga.\"",
+          "\"Soy estudiante.\"",
+          "\"Soy hija.\"",
+          "\"Soy esposa.\"",
+          "\"Trabajo en...\"",
+          "Es curioso.",
+          "Cuando intentamos explicar quiénes somos, solemos empezar hablando de los papeles que desempeñamos.",
+          "Y aunque esos roles son importantes, ninguno de ellos explica por completo quién eres.",
+          "Porque un rol puede cambiar.",
+          "Los hijos crecen.",
+          "Las relaciones terminan.",
+          "Los trabajos cambian.",
+          "Los proyectos concluyen.",
+          "Pero tú permaneces.",
+          "El problema aparece cuando pasamos tantos años respondiendo a las necesidades de nuestros distintos roles que dejamos de cultivar aquello que existe debajo de ellos.",
+          "No dejamos de ser nosotros.",
+          "Solo dejamos de visitarnos.",
+          "---",
+          "🧠 Lo que dice la psicología",
+          "En psicología hablamos con frecuencia del autoconcepto, es decir, la manera en que construimos la idea de quiénes somos.",
+          "Ese autoconcepto se forma a partir de nuestras experiencias, relaciones, valores, capacidades y también de los diferentes roles que ocupamos.",
+          "Los roles son necesarios.",
+          "Nos ayudan a organizarnos en la vida.",
+          "Sin embargo, cuando toda nuestra identidad depende exclusivamente de ellos, cualquier cambio puede sentirse como una pérdida de nosotros mismos.",
+          "Investigadores como Hazel Markus han explicado que las personas construimos diferentes versiones de nosotros mismos dependiendo del contexto. Y desde la Terapia de Aceptación y Compromiso (ACT), Steven C. Hayes propone una idea interesante: somos mucho más que los pensamientos o las etiquetas con las que solemos describirnos.",
+          "No eres únicamente aquello que haces.",
+          "También eres quien observa, quien siente, quien elige y quien da significado a esas experiencias.",
+          "Por eso muchas personas experimentan una sensación de vacío cuando un rol cambia.",
+          "No porque hayan perdido su valor.",
+          "Sino porque habían olvidado que existía una parte de ellas que iba mucho más allá de ese papel.",
+          "Reconectar con tu identidad implica volver a preguntarte:",
+          "¿Qué cosas siguen siendo importantes para mí, incluso cuando nadie me está mirando?",
+          "---",
+          "🌿 Más allá de los roles",
+          "Quizá durante años has sido quien resuelve todo.",
+          "La persona fuerte.",
+          "La responsable.",
+          "La que organiza.",
+          "La que cuida.",
+          "La que escucha.",
+          "Y probablemente lo haces muy bien.",
+          "Pero hay una pregunta que pocas veces nos hacemos:",
+          "¿Quién cuida de la persona que siempre cuida?",
+          "Muchas personas descubren que han dedicado tanto tiempo a sostener a otros que ya no recuerdan qué disfrutan, qué les emociona o qué les despierta curiosidad.",
+          "No porque esas partes hayan desaparecido.",
+          "Sino porque quedaron en pausa.",
+          "Y aquello que permanece en pausa durante mucho tiempo puede sentirse extraño cuando intentamos recuperarlo.",
+          "---",
+          "🎥 Conversemos un momento",
+          "Hola.",
+          "Quiero comenzar haciéndote una pregunta.",
+          "Si alguien te pidiera que te describieras en este momento, ¿qué dirías?",
+          "Probablemente responderías algo como:",
+          "\"Soy mamá.\"",
+          "\"Soy psicóloga.\"",
+          "\"Soy estudiante.\"",
+          "\"Soy hijo.\"",
+          "\"Trabajo en...\"",
+          "Y tiene sentido.",
+          "Los seres humanos organizamos gran parte de nuestra identidad alrededor de los roles que desempeñamos.",
+          "El problema aparece cuando, poco a poco, dejamos de distinguir entre lo que hacemos y quiénes somos.",
+          "Y aunque parezca un detalle pequeño, esa diferencia puede cambiar profundamente la forma en que vivimos.",
+          "En psicología hablamos del autoconcepto, que es la imagen que construimos sobre nosotros mismos.",
+          "Esa imagen se forma a partir de nuestras experiencias, nuestras relaciones, nuestros valores y también de los distintos papeles que ocupamos a lo largo de la vida.",
+          "Los roles son importantes.",
+          "Nos ayudan a dar estructura a nuestra vida.",
+          "Nos permiten relacionarnos con otras personas y asumir responsabilidades.",
+          "Ser madre.",
+          "Ser padre.",
+          "Ser pareja.",
+          "Ser profesionista.",
+          "Ser estudiante.",
+          "Todo eso forma parte de nosotros.",
+          "Pero ninguna de esas cosas nos define por completo.",
+          "¿Por qué es importante entender esto?",
+          "Porque los roles cambian.",
+          "Los hijos crecen.",
+          "Los trabajos terminan.",
+          "Las relaciones se transforman.",
+          "Los proyectos concluyen.",
+          "Y cuando toda nuestra identidad depende exclusivamente de esos papeles, cualquier cambio puede sentirse como si perdiéramos una parte de nosotros.",
+          "Tal vez has escuchado a alguien decir:",
+          "\"Ya no sé quién soy desde que me divorcié.\"",
+          "\"Desde que mis hijos crecieron siento un vacío enorme.\"",
+          "\"Perdí mi trabajo y siento que perdí mi valor.\"",
+          "En realidad, no perdieron su identidad.",
+          "Lo que ocurrió es que durante mucho tiempo confundieron su identidad con uno de sus roles.",
+          "Y eso nos puede pasar a cualquiera.",
+          "Hay algo más que suele ocurrir.",
+          "Conforme aumentan nuestras responsabilidades, dejamos en pausa muchas partes de nosotros.",
+          "Los hobbies.",
+          "La curiosidad.",
+          "Las amistades.",
+          "La creatividad.",
+          "Las cosas que disfrutábamos simplemente porque nos hacían sentir bien.",
+          "No porque fueran útiles.",
+          "No porque produjeran dinero.",
+          "No porque alguien las esperara de nosotros.",
+          "Simplemente porque nos hacían sentir vivos.",
+          "Y llega un momento en el que alguien nos pregunta:",
+          "\"¿Qué disfrutas hacer?\"",
+          "Y nos cuesta responder.",
+          "No porque ya no exista una respuesta.",
+          "Sino porque hace mucho tiempo dejamos de hacernos esa pregunta.",
+          "Quiero aclarar algo.",
+          "Este video no es una invitación a abandonar tus responsabilidades.",
+          "No se trata de dejar de ser mamá, papá o profesionista.",
+          "Se trata de recordar que también existe una persona detrás de todos esos papeles.",
+          "Una persona con intereses.",
+          "Con valores.",
+          "Con necesidades.",
+          "Con sueños.",
+          "Con partes que también necesitan espacio para seguir creciendo.",
+          "Esta semana quiero proponerte un ejercicio muy sencillo.",
+          "Haz una lista de todos los roles que desempeñas.",
+          "Después escribe otra lista.",
+          "Pero esta vez responde únicamente a esta pregunta:",
+          "¿Quién soy cuando dejo de pensar en todo lo que hago?",
+          "¿Qué cosas disfrutas?",
+          "¿Qué te emociona?",
+          "¿Qué despierta tu curiosidad?",
+          "¿Qué valores son importantes para ti?",
+          "¿Qué parte de ti hace mucho tiempo no visitas?",
+          "Tal vez al principio no encuentres muchas respuestas.",
+          "Y está bien.",
+          "Volver a conocerte no ocurre en una tarde.",
+          "Es un proceso.",
+          "Y como cualquier proceso importante, comienza con una pregunta.",
+          "Quiero terminar con una idea que me parece muy importante.",
+          "Tu valor no depende únicamente de lo que produces.",
+          "Ni de cuántas personas cuidas.",
+          "Ni del éxito que tengas.",
+          "Ni del papel que desempeñas.",
+          "Los roles enriquecen tu vida.",
+          "Pero nunca deberían convertirse en el único lugar donde encuentras tu identidad.",
+          "Porque eres mucho más que la suma de tus responsabilidades.",
+          "Y quizá volver a ti también signifique recordar a esa persona que existía antes de que el mundo empezara a pedirte tantas cosas.",
+          "Nos vemos en nuestra próxima conversación. 🤍",
+          "---",
+          "✍️ Ejercicio",
+          "Más allá de las etiquetas",
+          "Toma una hoja y divídela en dos columnas.",
+          "Columna 1: Los roles que desempeño",
+          "Ejemplo: Mamá, Psicólogo, Hija, Estudiante, Amiga, Pareja",
+          "Columna 2: Quién soy cuando dejo de pensar en mis roles",
+          "Completa frases como:",
+          "• Me emociona...",
+          "• Me hace sentir en paz...",
+          "• Soy una persona que valora...",
+          "• Disfruto...",
+          "• Me gustaría aprender...",
+          "• Siempre he sentido curiosidad por...",
+          "No existe una respuesta correcta.",
+          "El objetivo no es definirte para siempre.",
+          "Es volver a conocerte.",
+          "---",
+          "🎧 Una pausa para reflexionar",
+          "Cierra los ojos durante unos minutos.",
+          "Imagina que hoy no tienes ninguna obligación.",
+          "Nadie espera nada de ti.",
+          "No tienes pendientes.",
+          "No tienes que demostrar nada.",
+          "Respira profundamente.",
+          "Ahora pregúntate:",
+          "¿Qué elegiría hacer si no sintiera la necesidad de cumplir con ningún papel por unas horas?",
+          "No juzgues la respuesta.",
+          "Solo escúchala.",
+          "---",
+          "🎬 Para seguir explorando",
+          "Película recomendada",
+          "La vida secreta de Walter Mitty (2013)",
+          "Una historia sobre cómo muchas personas pasan años viviendo desde la rutina, las expectativas o el miedo, hasta que un día comienzan a preguntarse quiénes son realmente y qué tipo de vida desean construir.",
+          "Mientras la ves, observa esta pregunta:",
+          "¿Cuántas decisiones de mi vida nacen realmente de mí y cuántas responden a lo que otros esperan?",
+          "---",
+          "🌱 El reto de la semana",
+          "Haz algo que disfrutabas antes y que hace tiempo dejaste de hacer.",
+          "No porque sea útil.",
+          "No porque sea productivo.",
+          "Simplemente porque alguna vez te hacía sentir bien.",
+          "Puede ser leer. Pintar. Escuchar música. Escribir. Bailar. Caminar. Tomar fotografías.",
+          "La intención no es recuperar el pasado.",
+          "Es recordar que todavía existen partes de ti que merecen espacio.",
+          "---",
+          "💬 La conversación de la semana",
+          "Esta semana quiero dejarte una pregunta.",
+          "Si durante un día nadie esperara nada de ti... ¿cómo te gustaría vivirlo?",
+          "No pienses en lo que deberías responder.",
+          "Piensa en aquello que hace mucho tiempo no te permites imaginar.",
+          "---",
+          "📚 Para saber más",
+          "Esta semana está inspirada en investigaciones sobre identidad, autoconcepto, flexibilidad psicológica y desarrollo humano, entre ellas el trabajo de:",
+          "• Hazel Markus",
+          "• Carl Rogers",
+          "• Steven C. Hayes",
+          "• Dan P. McAdams",
+          "---",
+          "🤍 Antes de irte...",
+          "Encontrarte no significa descubrir una versión perfecta de ti.",
+          "Significa darte permiso para conocer aspectos de tu identidad que quizá llevaban mucho tiempo esperando ser escuchados.",
+          "No eres únicamente el conjunto de responsabilidades que sostienes.",
+          "No eres solo aquello que produces.",
+          "No eres solo los roles que desempeñas.",
+          "También eres tus valores.",
+          "Tus curiosidades.",
+          "Tus sueños.",
+          "Tus silencios.",
+          "Tus formas de mirar el mundo.",
+          "Y quizá volver a ti también signifique recordar que siempre has sido mucho más de lo que haces cada día."
+        ]
+      },
+      {
+        "id": "sem4",
+        "contenido": [
+          "🪷 SEMANA 4 | Empezar desde mí",
+          "¿Qué versión de ti quieres empezar a construir?",
+          "---",
+          "💌 Una idea para comenzar",
+          "Cuando pensamos en cambiar, solemos imaginar una versión \"mejor\" de nosotros mismos.",
+          "Más disciplinada.",
+          "Más fuerte.",
+          "Más organizada.",
+          "Más segura.",
+          "Más exitosa.",
+          "Sin darnos cuenta, convertimos el crecimiento personal en una carrera interminable por convertirnos en alguien diferente.",
+          "Pero hay una pregunta que rara vez nos hacemos:",
+          "¿Y si crecer no significara convertirte en otra persona, sino relacionarte de una manera diferente contigo?",
+          "La mayoría de las personas no necesitan una nueva personalidad.",
+          "Necesitan una nueva relación consigo mismas.",
+          "Porque puedes cumplir todas tus metas y seguir sintiéndote insuficiente.",
+          "Puedes aprender más, trabajar más o producir más... y aun así mantener una voz interna que nunca está satisfecha.",
+          "Por eso, antes de pensar en la persona que quieres llegar a ser, vale la pena preguntarte:",
+          "¿Cómo quiero acompañarme mientras llego ahí?",
+          "---",
+          "🧠 Lo que dice la psicología",
+          "Durante muchos años, la psicología entendió el bienestar como la ausencia de malestar.",
+          "Hoy sabemos que no es suficiente.",
+          "Investigadores como Carol Ryff proponen que el bienestar psicológico también implica desarrollar propósito, autonomía, crecimiento personal, relaciones significativas y, especialmente, aceptación de uno mismo.",
+          "Esto significa que una vida plena no depende únicamente de alcanzar objetivos.",
+          "También depende de la forma en que transitamos el camino hacia ellos.",
+          "Desde la Terapia de Aceptación y Compromiso (ACT), Steven C. Hayes plantea que el cambio sostenible no ocurre cuando luchamos constantemente contra lo que sentimos, sino cuando aprendemos a actuar de acuerdo con nuestros valores, incluso en presencia del miedo, la incertidumbre o la incomodidad.",
+          "No esperamos sentirnos completamente preparados para empezar.",
+          "Empezamos, aun sabiendo que habrá dudas.",
+          "Eso cambia por completo la idea del crecimiento personal.",
+          "No se trata de esperar la versión perfecta de ti.",
+          "Se trata de construir, día a día, una relación más flexible, más consciente y más amable contigo mismo.",
+          "---",
+          "🌱 Crecer también significa soltar",
+          "Muchas veces pensamos que avanzar consiste en hacer más.",
+          "Más cursos.",
+          "Más hábitos.",
+          "Más metas.",
+          "Más productividad.",
+          "Pero algunas etapas de la vida requieren exactamente lo contrario.",
+          "Soltar.",
+          "Soltar expectativas imposibles.",
+          "Soltar comparaciones.",
+          "Soltar la necesidad de hacerlo todo perfecto.",
+          "Soltar la idea de que tu valor depende de cuánto produces.",
+          "Hay personas que no necesitan agregar más cosas a su vida.",
+          "Necesitan dejar de cargar algunas.",
+          "Y eso también es crecer.",
+          "---",
+          "🎥 Conversemos un momento",
+          "Hola.",
+          "Llegamos a la última conversación de este mes.",
+          "Y antes de empezar, quiero preguntarte algo.",
+          "Después de todo lo que hemos hablado estas semanas… ¿qué te gustaría que permaneciera contigo cuando termine agosto?",
+          "Muchas veces pensamos que el crecimiento personal ocurre en momentos extraordinarios.",
+          "Creemos que un día despertaremos completamente motivados.",
+          "Que encontraremos el libro perfecto.",
+          "La terapia perfecta.",
+          "El curso perfecto.",
+          "O el hábito que cambiará nuestra vida de un momento a otro.",
+          "Pero la realidad suele ser mucho más sencilla.",
+          "Y, al mismo tiempo, mucho más esperanzadora.",
+          "Los cambios profundos casi nunca empiezan con grandes transformaciones.",
+          "Empiezan con pequeñas decisiones que repetimos una y otra vez.",
+          "A lo largo de este mes hablamos de escucharte.",
+          "De dejar de sentir culpa por cuidarte.",
+          "De recordar que eres mucho más que los roles que desempeñas.",
+          "Y quizá ahora aparezca una pregunta muy natural.",
+          "¿Cómo hago para que todo esto no se quede solo en un mes de reflexión?",
+          "Creo que esa es una de las preguntas más importantes.",
+          "Porque comprender algo no siempre significa incorporarlo a nuestra vida.",
+          "Podemos leer muchos libros sobre bienestar.",
+          "Escuchar muchos podcasts.",
+          "Guardar cientos de publicaciones.",
+          "Y aun así seguir tratándonos exactamente igual.",
+          "El conocimiento, por sí solo, rara vez transforma.",
+          "Lo que transforma es la práctica.",
+          "Y eso también lo sabemos desde la psicología.",
+          "No necesitamos esperar a sentirnos completamente preparados para empezar a actuar de acuerdo con nuestros valores.",
+          "De hecho, muchas veces ocurre al revés.",
+          "Empezamos a actuar.",
+          "Y poco a poco nuestra mente también comienza a cambiar.",
+          "Existe una idea que me gusta mucho.",
+          "La mayoría de las personas no necesita convertirse en alguien diferente.",
+          "Necesita aprender a relacionarse de una manera diferente consigo misma.",
+          "Porque puedes cumplir todas tus metas...",
+          "Y seguir sintiéndote insuficiente.",
+          "Puedes alcanzar el éxito...",
+          "Y seguir hablándote con dureza.",
+          "Puedes lograr aquello que soñabas...",
+          "Y aun así sentir que nunca es suficiente.",
+          "Por eso el verdadero cambio no consiste solamente en modificar lo que haces.",
+          "También implica transformar la forma en que te acompañas mientras construyes esa vida.",
+          "Quiero invitarte a dejar de perseguir una versión perfecta de ti.",
+          "Esa versión probablemente nunca llegará.",
+          "Siempre habrá algo más que mejorar.",
+          "Algo más que aprender.",
+          "Algo más que alcanzar.",
+          "En cambio, imagina otra posibilidad.",
+          "No preguntarte:",
+          "\"¿Cómo puedo ser una mejor persona?\"",
+          "Sino preguntarte:",
+          "\"¿Cómo puedo tratarme mejor mientras sigo creciendo?\"",
+          "La diferencia parece pequeña.",
+          "Pero cambia completamente la conversación.",
+          "Porque entonces el crecimiento deja de ser una lucha constante contra quien eres.",
+          "Y se convierte en una relación de colaboración contigo mismo.",
+          "Quiero proponerte un último ejercicio.",
+          "Piensa en la persona que eras hace un mes.",
+          "No busques cambios enormes.",
+          "Observa los pequeños.",
+          "Tal vez ahora haces más pausas.",
+          "Tal vez reconoces antes cuando estás cansado.",
+          "Tal vez aprendiste a decir un \"no\".",
+          "Tal vez comenzaste a escuchar una emoción que antes ignorabas.",
+          "Tal vez simplemente te juzgas un poco menos.",
+          "No subestimes esos cambios.",
+          "La mayoría de las transformaciones importantes son silenciosas.",
+          "No hacen ruido.",
+          "No aparecen de un día para otro.",
+          "Se construyen poco a poco.",
+          "Y justamente por eso suelen permanecer.",
+          "Quiero despedirme con una idea que espero te acompañe mucho tiempo.",
+          "No necesitas convertirte en otra persona para construir una vida más plena.",
+          "Necesitas aprender a caminar junto a ti con más respeto.",
+          "Con más paciencia.",
+          "Con más curiosidad.",
+          "Y con más compasión.",
+          "Porque al final, la relación que determina cómo vivimos cada uno de nuestros días no es la que tenemos con nuestro trabajo.",
+          "Ni con nuestras metas.",
+          "Ni siquiera con las personas que amamos.",
+          "Es la relación que construimos con nosotros mismos.",
+          "Gracias por regalarte este mes.",
+          "Gracias por detenerte.",
+          "Por hacerte preguntas.",
+          "Por permitirte mirar hacia adentro.",
+          "Espero que este haya sido solo el comienzo.",
+          "Porque volver a ti no ocurre una sola vez.",
+          "Es una práctica.",
+          "Una decisión que puedes volver a tomar cada vez que la vida te haga olvidar quién eres.",
+          "Nos vemos el próximo mes.",
+          "Y mientras tanto...",
+          "sé un lugar un poco más amable para ti. 🤍",
+          "---",
+          "✍️ Ejercicio",
+          "Una conversación con mi yo del futuro",
+          "Imagina que ha pasado exactamente un año.",
+          "No imagines una vida perfecta.",
+          "Imagina una vida más consciente.",
+          "Más tranquila.",
+          "Más coherente contigo.",
+          "Ahora escribe una carta desde esa versión futura hacia la persona que eres hoy.",
+          "Puedes comenzar así:",
+          "\"Hola. Quería agradecerte por aquella pequeña decisión que tomaste cuando decidiste empezar a escucharte más.\"",
+          "Continúa escribiendo.",
+          "No hables de grandes logros.",
+          "Habla de pequeños cambios.",
+          "¿Qué hábitos conservaste?",
+          "¿Qué aprendiste a dejar ir?",
+          "¿Qué relación construiste contigo?",
+          "¿Qué agradecería tu yo del futuro que empezaras hoy?",
+          "---",
+          "🌿 Una pausa para reflexionar",
+          "Antes de terminar este mes, responde estas preguntas con calma.",
+          "• ¿Qué fue lo más valioso que descubrí sobre mí durante estas semanas?",
+          "• ¿Qué creencia quiero dejar atrás?",
+          "• ¿Qué quiero seguir practicando el próximo mes?",
+          "• ¿Qué gesto de amabilidad hacia mí no quiero volver a abandonar?",
+          "No busques respuestas perfectas.",
+          "Busca respuestas sinceras.",
+          "---",
+          "🎬 Para seguir explorando",
+          "Documental recomendado",
+          "Stutz (Netflix)",
+          "El psiquiatra Phil Stutz comparte herramientas psicológicas para afrontar el dolor, la incertidumbre y el cambio, recordándonos que el crecimiento no consiste en eliminar las dificultades, sino en aprender nuevas maneras de relacionarnos con ellas.",
+          "Mientras lo ves, pregúntate:",
+          "¿Estoy esperando sentirme completamente listo para empezar a vivir de otra manera?",
+          "---",
+          "🌱 El reto de la semana",
+          "No elijas diez cambios. Elige uno.",
+          "Pregúntate: ¿Cuál es el gesto más pequeño que puedo repetir durante el próximo mes para seguir cuidando de mí?",
+          "Puede ser dormir media hora antes. Caminar tres veces por semana. Pedir ayuda cuando la necesites. Escribir unos minutos. Respirar antes de responder. Poner un límite.",
+          "Lo importante no es que sea perfecto. Lo importante es que sea posible.",
+          "Porque los cambios profundos rara vez ocurren por decisiones extraordinarias.",
+          "Suelen construirse a partir de acciones pequeñas que repetimos con constancia.",
+          "---",
+          "💬 La conversación de la semana",
+          "Quiero cerrar este mes con una última pregunta.",
+          "Cuando termine este año, ¿qué te gustaría agradecerte por haber empezado hoy?",
+          "No pienses en metas impresionantes.",
+          "Piensa en aquello que podría hacer que tu vida cotidiana se sintiera un poco más amable.",
+          "---",
+          "📚 Para saber más",
+          "Esta semana está inspirada en investigaciones sobre bienestar psicológico, flexibilidad psicológica, formación de hábitos y crecimiento personal, entre ellas el trabajo de:",
+          "• Carol Ryff",
+          "• Steven C. Hayes",
+          "• James Clear",
+          "• Kristin Neff",
+          "---",
+          "🤍 Antes de irte...",
+          "Tal vez llegaste aquí buscando respuestas.",
+          "Espero que te lleves algo más valioso:",
+          "Nuevas preguntas.",
+          "Porque las preguntas correctas tienen la capacidad de acompañarnos mucho después de haber terminado una lectura.",
+          "Quizá ese sea el verdadero propósito de este espacio.",
+          "No decirte cómo vivir.",
+          "Sino ofrecerte herramientas para que puedas construir una relación más consciente contigo mismo.",
+          "Gracias por caminar este primer mes conmigo.",
+          "Ojalá agosto no haya sido solo un mes para aprender algo nuevo.",
+          "Ojalá haya sido el comienzo de una conversación diferente contigo.",
+          "Y recuerda algo antes de cerrar esta página.",
+          "Volver a ti no es un destino.",
+          "Es una práctica.",
+          "Una decisión que puedes volver a tomar, una y otra vez, cada vez que la vida te haga olvidar quién eres."
+        ]
+      }
+    ],
+    "cierre": [
+      "Antes de irte...",
+      "Si llegaste hasta aquí, queremos agradecerte.",
+      "No solo por terminar este recorrido.",
+      "Sino por haberte permitido detenerte y mirar hacia adentro.",
+      "Pero hay algo que todavía no queremos decirte.",
+      "Porque creemos que algunas preguntas solo pueden hacerse cuando una persona ya recorrió el camino que tú acabas de recorrer.",
+      "Y creemos que este es ese momento.",
+      "...",
+      "En Bloom existe una experiencia que no forma parte del recorrido gratuito.",
+      "No es una clase.",
+      "No es un video.",
+      "No es un ejercicio.",
+      "Y tampoco busca enseñarte algo nuevo.",
+      "Su único propósito es ayudarte a descubrir algo de ti que probablemente ha estado frente a tus ojos durante mucho tiempo.",
+      "Muchos usuarios dicen que, al terminarla, entendieron por qué habían repetido ciertos patrones durante años.",
+      "No porque alguien se los explicara.",
+      "Sino porque ellos mismos lograron verlo.",
+      "Se llama...",
+      "🔒 La Última Página",
+      "Esta experiencia está disponible en Bloom Premium."
+    ]
+  },
+  "detras_conducta": {
+    "title": "🪷 Detrás de su conducta",
+    "contenido": [
+      "Detrás de cada emoción y comportamiento hay una necesidad, una etapa del desarrollo o un proceso que merece ser comprendido antes que juzgado. En esta serie encontrarás una introducción a algunos de los temas más importantes del desarrollo emocional infantil.",
+      "---",
+      "🌧️ La tristeza en los niños: cómo acompañarla sin intentar borrarla",
+      "La tristeza no es una emoción que debamos evitar. De hecho, cumple funciones esenciales en el desarrollo emocional. ¿Sabías que intentar distraer inmediatamente a un niño cuando está triste puede impedirle aprender a comprender lo que siente? Descubre por qué acompañar una emoción es muy diferente a intentar hacerla desaparecer.",
+      "---",
+      "🔥 Cuando el enojo habla: comprendiendo las rabietas infantiles",
+      "Las rabietas rara vez son un intento de manipular. En muchos casos, son la consecuencia de un cerebro que aún no cuenta con las herramientas necesarias para gestionar emociones intensas. ¿Qué ocurre realmente en el cerebro de un niño durante una rabieta? ¿Y por qué algunas respuestas de los adultos pueden intensificarla sin darse cuenta?",
+      "---",
+      "🌸 La calma compartida: cuando un adulto presta su tranquilidad",
+      "Los niños no nacen sabiendo cómo tranquilizarse. Primero necesitan experimentar una y otra vez la calma junto a un adulto que les transmita seguridad. Pero ¿qué es la corregulación y por qué es una de las habilidades más importantes que podemos ofrecerles durante la infancia?",
+      "---",
+      "💛 El idioma del cariño: cómo los niños aprenden que son amados",
+      "No todos los niños experimentan el cariño de la misma manera. A veces creemos que estamos expresando amor, pero nuestro hijo puede estar necesitando algo distinto para sentirse realmente acompañado. ¿Cómo descubrir qué fortalece más el vínculo con él?",
+      "---",
+      "🚧 Límites que educan: cuando decir \"no\" también es una forma de cuidar",
+      "Los límites no solo organizan la conducta; también construyen seguridad. La diferencia entre un límite que educa y uno que genera miedo no está únicamente en el \"no\", sino en la manera en que se sostiene. ¿Es posible mantener la firmeza sin perder la conexión?",
+      "---",
+      "🌸 ¿Te gustaría profundizar en estos temas?",
+      "Esta es una versión introductoria de nuestra biblioteca gratuita.",
+      "En Bloom Premium encontrarás cada uno de estos temas desarrollado en profundidad, con explicaciones basadas en evidencia, ejemplos de la vida cotidiana, estrategias prácticas, errores frecuentes, recomendaciones según la edad y recursos diseñados para ayudarte a comprender y acompañar a tu hijo con mayor seguridad.",
+      "🪷 Continúa aprendiendo en Bloom Premium y descubre todo lo que hay detrás de su conducta."
     ]
   },
   "bloom_library": {
@@ -1224,6 +2278,7 @@ ARCHIVO: index.html
     <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
+    <!-- Configuración personalizada de Tailwind -->
     <script>
         tailwind.config = {
             theme: {
@@ -1305,7 +2360,6 @@ ARCHIVO: index.html
             const PlayCircle = (props) => <IconWrapper name="play-circle" {...props} />;
             const Library = (props) => <IconWrapper name="library" {...props} />;
 
-            // Helper para convertir el nombre de icono del JSON a Componente React
             const getIconComponent = (name, props = {}) => {
                 switch(name) {
                     case 'activity': return <Activity {...props} />;
@@ -1321,7 +2375,6 @@ ARCHIVO: index.html
                 }
             };
 
-            // Componente Inteligente de Miniatura
             const Thumbnail = ({ src, alt, fallback, className }) => {
                 const [error, setError] = useState(false);
                 if (error || !src) {
@@ -1330,7 +2383,6 @@ ARCHIVO: index.html
                 return <img src={src} alt={alt} onError={() => setError(true)} className={className} />;
             };
 
-            // --- DATOS GLOBALES FIJOS ---
             const colors = {
                 primary: '#81638b',
                 secondary: '#b695c0',
@@ -1340,9 +2392,7 @@ ARCHIVO: index.html
             };
 
             const logoUrl = "https://i.ibb.co/WWs5xcSX/Neuro-Bloom-Logo-nbg.png";
-            const advertenciaCuestionario = "Este cuestionario es una herramienta de orientación y reflexión personal. No sustituye una evaluación, diagnóstico ni tratamiento psicológico o médico profesional. Si te identificas con varios de los síntomas o sientes que el agotamiento está afectando tu vida diaria, buscar acompañamiento profesional puede ser un paso importante para tu bienestar.";
 
-            // --- COMPONENTES UI ---
             const Logo = ({ className }) => (
                 <div className={`flex items-center gap-3 ${className}`}>
                     <img src={logoUrl} alt="Neuro Bloom Logo" className="h-full w-auto object-contain drop-shadow-sm" />
@@ -1379,6 +2429,41 @@ ARCHIVO: index.html
                     setResultado(total);
                 };
 
+                const obtenerInterpretacion = (puntaje) => {
+                    let textoResultado = "";
+                    let advertenciaExtra = "";
+
+                    if (data.id === 'depresion-test' && respuestas[12] >= 2) {
+                        advertenciaExtra = "Importante: Si en la pregunta 13 respondiste 'Frecuentemente' o 'Casi todo el tiempo', es recomendable buscar apoyo profesional lo antes posible, incluso si tu puntaje total no es elevado.";
+                    }
+
+                    for (let int of data.interpretacion) {
+                        const partes = int.rango.match(/(\d+)\s*[-–]\s*(\d+)/);
+                        if (partes) {
+                            const min = parseInt(partes[1], 10);
+                            const max = parseInt(partes[2], 10);
+                            if (puntaje >= min && puntaje <= max) {
+                                textoResultado = int.texto;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!textoResultado) textoResultado = "Te sugerimos buscar orientación profesional para analizar tus resultados a detalle.";
+
+                    return (
+                        <div className="space-y-4">
+                            <p className="text-xl text-stone-700 font-medium leading-relaxed">{textoResultado}</p>
+                            {advertenciaExtra && (
+                                <div className="mt-4 p-4 bg-orange-100 border-l-4 border-orange-500 text-orange-800 rounded-lg text-left">
+                                    <strong className="block mb-1 text-orange-900">Atención:</strong>
+                                    {advertenciaExtra}
+                                </div>
+                            )}
+                        </div>
+                    );
+                };
+
                 return (
                     <div className="animate-fadeIn bg-white/70 backdrop-blur-xl p-8 lg:p-12 rounded-[2rem] shadow-glass border border-white/60 max-w-4xl mx-auto relative z-10">
                         <BackButton onClick={onBack} text="Volver a Cuestionarios" />
@@ -1387,14 +2472,10 @@ ARCHIVO: index.html
                             <div className="p-3 rounded-full text-white shadow-md" style={{ backgroundColor: data.color || colors.primary }}>
                                 {getIconComponent(data.icon)}
                             </div>
-                            <h2 className="text-4xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>{data.title}</h2>
+                            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>{data.title}</h2>
                         </div>
                         
-                        {data.intro && <p className="text-lg text-stone-600 mb-8 leading-relaxed">{data.intro}</p>}
-                        
-                        <div className="bg-orange-50/80 backdrop-blur-sm border-l-4 border-orange-300 p-5 mb-10 rounded-r-2xl">
-                            <p className="text-sm text-orange-800 font-medium leading-relaxed">{advertenciaCuestionario}</p>
-                        </div>
+                        {data.intro && <p className="text-lg text-stone-600 mb-8 leading-relaxed whitespace-pre-line">{data.intro}</p>}
 
                         <div className="space-y-6">
                             {data.preguntas.map((pregunta, idx) => (
@@ -1430,26 +2511,24 @@ ARCHIVO: index.html
                                 className="px-10 py-4 rounded-full text-white font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:-translate-y-1"
                                 style={{ backgroundColor: colors.primary }}
                             >
-                                Ver Resultado Orientativo
+                                Ver Resultado
                             </button>
+                            {Object.keys(respuestas).length < data.preguntas.length && (
+                                <p className="text-stone-400 text-sm mt-3">Responde todas las preguntas para ver tu resultado.</p>
+                            )}
                         </div>
 
                         {resultado !== null && (
                             <div className="mt-12 p-8 lg:p-10 rounded-3xl bg-indigo-50/80 backdrop-blur-sm border border-indigo-100 animate-slideIn text-center shadow-inner">
-                                <h3 className="text-3xl font-serif font-bold mb-6" style={{ color: colors.primary }}>Tu puntuación: {resultado}</h3>
-                                <div className="space-y-4 mb-8 text-left max-w-2xl mx-auto">
-                                    {data.interpretacion.map((int, i) => (
-                                        <div key={i} className="p-5 bg-white/90 rounded-2xl border border-white shadow-sm text-stone-700 text-lg">
-                                            <strong className="text-brand-purple">{int.rango}:</strong> {int.texto}
-                                        </div>
-                                    ))}
+                                <h3 className="text-3xl font-serif font-bold mb-6" style={{ color: colors.primary }}>Tu puntuación total: {resultado}</h3>
+                                <div className="mb-8 text-left max-w-2xl mx-auto p-6 bg-white/90 rounded-2xl border border-white shadow-sm">
+                                    {obtenerInterpretacion(resultado)}
                                 </div>
-                                {data.guion && (
-                                    <div className="p-8 bg-white/90 rounded-3xl text-stone-600 shadow-sm border border-white">
-                                        <h4 className="font-serif font-bold mb-3 text-xl" style={{ color: colors.primary }}>Reflexión</h4>
-                                        <p className="italic text-lg leading-relaxed">"{data.guion}"</p>
-                                    </div>
-                                )}
+                                <div className="p-6 bg-white/60 rounded-3xl text-stone-600 text-sm shadow-sm border border-white text-left">
+                                    <p className="font-bold mb-2">Recuerda:</p>
+                                    <p>Reconocer cómo nos sentimos es el primer paso para cuidar nuestra salud mental. Pedir ayuda profesional también es una forma de autocuidado.</p>
+                                    <p className="mt-2 italic">Este cuestionario no sustituye una evaluación clínica ni constituye un diagnóstico.</p>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -1460,7 +2539,11 @@ ARCHIVO: index.html
                 const [activeSection, setActiveSection] = useState('home');
                 const [subView, setSubView] = useState(null);
                 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+                
+                // Estados para pestañas
                 const [indicadoresTab, setIndicadoresTab] = useState('info'); 
+                const [balanceTab, setBalanceTab] = useState('vida');
+                const [retoTab, setRetoTab] = useState('intro');
                 
                 const [appData, setAppData] = useState(null);
                 const [dataError, setDataError] = useState(false);
@@ -1479,9 +2562,12 @@ ARCHIVO: index.html
                 }, []);
 
                 useEffect(() => {
-                    setSubView(null);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, [activeSection, subView]);
+                }, [activeSection, subView, balanceTab, retoTab]);
+
+                useEffect(() => {
+                    setSubView(null);
+                }, [activeSection]); 
 
                 if (dataError) {
                     return (
@@ -1587,7 +2673,6 @@ ARCHIVO: index.html
 
                                             <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
                                                 {infoData.contenido.map((parrafo, idx) => {
-                                                    // Detectar si el párrafo inicia con un subtítulo
                                                     if(parrafo.includes(':') && parrafo.split(':')[0].length < 50) {
                                                         const parts = parrafo.split(':');
                                                         return <p key={idx}><strong className="text-stone-800">{parts[0]}:</strong>{parts.slice(1).join(':')}</p>;
@@ -1624,7 +2709,7 @@ ARCHIVO: index.html
                                         </button>
                                         <button 
                                             onClick={() => setIndicadoresTab('tests')} 
-                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'tests' ? 'text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
+                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'tests' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
                                             >
                                             Cuestionarios
                                         </button>
@@ -1664,33 +2749,96 @@ ARCHIVO: index.html
                             );
 
                         case 'balance':
-                            const balanceData = appData.balance;
+                            const renderContenidoTexto = (parrafos) => {
+                                return parrafos.map((parrafo, idx) => {
+                                    if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
+                                    if (parrafo.includes('🔒')) return <button key={idx} disabled className="w-full py-4 mt-6 rounded-2xl bg-stone-200 text-stone-500 font-bold flex items-center justify-center gap-3 cursor-not-allowed border border-stone-300 shadow-inner">{parrafo}</button>;
+                                    
+                                    // Identificar subtitulos decorados o encabezados
+                                    if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷]/) || parrafo === parrafo.toUpperCase()) {
+                                        return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
+                                    }
+                                    return <p key={idx}>{parrafo}</p>;
+                                });
+                            };
+
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto space-y-8 relative z-10">
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-8 relative z-10">
                                     <div className="w-full">
                                         <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
-                                    <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white">
-                                        
-                                        {balanceData.imagen && (
-                                            <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
-                                                <img src={balanceData.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl object-contain max-h-[70vh]" />
-                                            </div>
-                                        )}
 
-                                        <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
-                                            <div className="p-4 rounded-full text-white shadow-md bg-blue-400">
-                                                {getIconComponent(balanceData.icon, {size: 32})}
-                                            </div>
-                                            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">{balanceData.title}</h2>
-                                        </div>
-
-                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                            {balanceData.contenido.map((parrafo, idx) => (
-                                                <p key={idx}>{parrafo}</p>
-                                            ))}
-                                        </div>
+                                    <div className="text-center mb-10">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Balance Cotidiano</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Estrategias y retos para construir bienestar emocional paso a paso.</p>
                                     </div>
+
+                                    <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto mb-8">
+                                        <button 
+                                            onClick={() => setBalanceTab('vida')} 
+                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balanceTab === 'vida' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
+                                            >
+                                            Vida en Equilibrio
+                                        </button>
+                                        <button 
+                                            onClick={() => setBalanceTab('reto')} 
+                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balanceTab === 'reto' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
+                                            >
+                                            Reto del Mes
+                                        </button>
+                                    </div>
+
+                                    {balanceTab === 'vida' && (
+                                        <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
+                                            {appData.balance.imagen && (
+                                                <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
+                                                    <img src={appData.balance.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl object-contain max-h-[70vh]" />
+                                                </div>
+                                            )}
+
+                                            <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                                <div className="p-4 rounded-full text-white shadow-md bg-blue-400">
+                                                    {getIconComponent(appData.balance.icon, {size: 32})}
+                                                </div>
+                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">{appData.balance.title}</h2>
+                                            </div>
+
+                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {appData.balance.contenido.map((parrafo, idx) => (
+                                                    <p key={idx}>{parrafo}</p>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {balanceTab === 'reto' && appData.reto_del_mes && (
+                                        <div className="animate-fadeIn space-y-8">
+                                            <div className="flex justify-center flex-wrap gap-2 bg-white/50 backdrop-blur-md p-2 rounded-3xl shadow-glass border border-white w-fit mx-auto">
+                                                <button onClick={() => setRetoTab('intro')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'intro' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Introducción</button>
+                                                <button onClick={() => setRetoTab('sem1')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem1' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 1</button>
+                                                <button onClick={() => setRetoTab('sem2')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem2' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 2</button>
+                                                <button onClick={() => setRetoTab('sem3')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem3' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 3</button>
+                                                <button onClick={() => setRetoTab('sem4')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem4' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 4</button>
+                                                <button onClick={() => setRetoTab('cierre')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'cierre' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Cierre</button>
+                                            </div>
+
+                                            <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white">
+                                                <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                    {(()=>{
+                                                        let contenido = [];
+                                                        if(retoTab === 'intro') contenido = appData.reto_del_mes.intro;
+                                                        else if(retoTab === 'cierre') contenido = appData.reto_del_mes.cierre;
+                                                        else {
+                                                            const sem = appData.reto_del_mes.semanas.find(s => s.id === retoTab);
+                                                            if(sem) contenido = sem.contenido;
+                                                        }
+                                                        
+                                                        return renderContenidoTexto(contenido);
+                                                    })()}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             );
 
@@ -1864,18 +3012,15 @@ ARCHIVO: index.html
                 return (
                     <div className="min-h-screen font-sans relative overflow-hidden text-stone-700 bg-[#faf8f9]">
                         
-                        {/* 1. Fondo de Base (Blobs Suaves Empujados a las esquinas) */}
+                        {/* 1. Fondo de Base */}
                         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
                             <div className="absolute top-[-15%] left-[-15%] w-[40rem] h-[40rem] bg-[#f2e6e9] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
                             <div className="absolute top-[10%] right-[-15%] w-[35rem] h-[35rem] bg-[#e3dbe8] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
                             <div className="absolute bottom-[-15%] left-[20%] w-[40rem] h-[40rem] bg-[#e1edf2] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
                         </div>
 
-                        {/* 2. Capa de Decoración Orgánica: Tonos Mate (Desaturados) en los Laterales */}
-                        {/* Se posicionan estrictamente en los márgenes izquierdo (<8%) y derecho (<8%) */}
+                        {/* 2. Capa de Decoración Orgánica: Tonos Mate */}
                         <div className="fixed inset-0 z-1 pointer-events-none overflow-hidden opacity-80">
-                            
-                            {/* --- LATERAL IZQUIERDO --- */}
                             <div className="absolute top-[8%] left-[2%] w-4 h-4 bg-[#C8B6D6]/70 rounded-full"></div>
                             <div className="absolute top-[22%] left-[5%] w-10 h-10 bg-[#AEC5B6]/40 rounded-full border-2 border-[#AEC5B6]/70"></div>
                             <div className="absolute top-[40%] left-[3%] w-5 h-5 bg-[#D9B4B8]/70 rounded-full"></div>
@@ -1883,7 +3028,6 @@ ARCHIVO: index.html
                             <div className="absolute bottom-[20%] left-[2%] w-7 h-7 bg-[#C8B6D6]/50 rounded-full"></div>
                             <div className="absolute bottom-[5%] left-[5%] w-3 h-3 bg-[#AEC5B6]/80 rounded-full"></div>
 
-                            {/* --- LATERAL DERECHO --- */}
                             <div className="absolute top-[12%] right-[4%] w-8 h-8 bg-[#D9B4B8]/40 rounded-full border-2 border-[#D9B4B8]/70"></div>
                             <div className="absolute top-[30%] right-[2%] w-4 h-4 bg-[#B2C2D1]/70 rounded-full"></div>
                             <div className="absolute top-[48%] right-[5%] w-12 h-12 bg-[#C8B6D6]/40 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] border border-[#C8B6D6]/70 rotate-12"></div>
@@ -1891,13 +3035,12 @@ ARCHIVO: index.html
                             <div className="absolute bottom-[25%] right-[6%] w-6 h-6 bg-[#D9B4B8]/50 rounded-full"></div>
                             <div className="absolute bottom-[8%] right-[2%] w-4 h-4 bg-[#C8B6D6]/80 rounded-full"></div>
 
-                            {/* --- MANCHAS DIFUMINADAS (Solo en los bordes) --- */}
                             <div className="absolute top-[15%] left-[-5%] w-56 h-56 bg-[#C8B6D6]/20 rounded-full filter blur-2xl animate-blob"></div>
                             <div className="absolute top-[50%] right-[-6%] w-64 h-64 bg-[#D9B4B8]/20 rounded-[50%_50%_70%_30%/40%_60%_40%_60%] filter blur-2xl animate-blob animation-delay-2000"></div>
                             <div className="absolute bottom-[10%] left-[-4%] w-48 h-48 bg-[#AEC5B6]/20 rounded-[60%_40%_50%_50%/30%_70%_30%_70%] filter blur-2xl animate-blob animation-delay-4000"></div>
                         </div>
 
-                        {/* 3. Contenido (Header, Main, Footer) - z-10 y superiores */}
+                        {/* 3. Contenido Principal */}
                         <header className="sticky top-0 z-50 border-b border-white/40 bg-white/60 backdrop-blur-xl shadow-sm">
                             <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
                                 <div className="cursor-pointer hover:opacity-80 transition-opacity h-full py-3" onClick={() => setActiveSection('home')}>
