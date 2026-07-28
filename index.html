@@ -339,7 +339,7 @@
                                     </p>
                                     
                                     <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl">
-                                        <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./indicadores-emocionales.jpeg" 
                                                 alt="Indicadores" 
@@ -347,7 +347,7 @@
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Activity size={64} className="text-brand-purple" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./balance-cotidiano.jpeg" 
                                                 alt="Balance" 
@@ -355,7 +355,7 @@
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sun size={64} className="text-blue-400" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./bloom-library.jpeg" 
                                                 alt="Library" 
@@ -363,7 +363,7 @@
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Library size={64} className="text-brand-lilac" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./infancias.jpeg" 
                                                 alt="Infancias" 
@@ -371,7 +371,7 @@
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sprout size={64} className="text-pink-400" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./capsulas-en-video.jpeg" 
                                                 alt="Cápsulas" 
@@ -379,7 +379,7 @@
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><PlayCircle size={64} className="text-orange-400" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./conoce-y-agenda.jpeg" 
                                                 alt="Agenda" 
@@ -495,7 +495,6 @@
                                     if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
                                     if (parrafo.includes('🔒')) return <button key={idx} disabled className="w-full py-4 mt-6 rounded-2xl bg-stone-200 text-stone-500 font-bold flex items-center justify-center gap-3 cursor-not-allowed border border-stone-300 shadow-inner">{parrafo}</button>;
                                     
-                                    // Identificar subtitulos decorados o encabezados
                                     if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
                                         return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
                                     }
@@ -627,7 +626,6 @@
                                             {appData.detras_conducta?.contenido.map((parrafo, idx) => {
                                                 if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
                                                 
-                                                // Identificar subtitulos decorados o encabezados
                                                 if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
                                                     return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
                                                 }
