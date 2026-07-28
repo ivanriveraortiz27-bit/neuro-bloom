@@ -438,20 +438,30 @@
                 const [appData, setAppData] = useState(null);
                 const [dataError, setDataError] = useState(false);
 
-                // Escuchar estado de autenticación y detectar pagos exitosos
+                // Escuchar estado de autenticación y detectar eliminación/pagos
                 useEffect(() => {
                     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
-                        setUser(currentUser);
                         if (currentUser) {
                             try {
+                                // 1. Forzar verificación del usuario en el servidor (elimina caché local si fue borrado)
+                                await currentUser.getIdToken(true);
+
+                                // 2. Verificar si su documento existe en Firestore
                                 const doc = await db.collection('users').doc(currentUser.uid).get();
-                                let isUserPremium = false;
                                 
-                                if (doc.exists) {
-                                    isUserPremium = doc.data().isPremium === true;
+                                // Si el documento ya no existe, cerrar sesión y denegar acceso
+                                if (!doc.exists) {
+                                    await auth.signOut();
+                                    setUser(null);
+                                    setIsPremium(false);
+                                    setAuthLoading(false);
+                                    alert("El usuario no existe o ha sido eliminado. Por favor, regístrate de nuevo.");
+                                    return;
                                 }
 
-                                // --- NUEVA LÓGICA: DETECCIÓN DE REDIRECCIÓN DE STRIPE ---
+                                let isUserPremium = doc.data().isPremium === true;
+
+                                // --- LÓGICA: DETECCIÓN DE REDIRECCIÓN DE STRIPE ---
                                 const urlParams = new URLSearchParams(window.location.search);
                                 if (urlParams.get('payment') === 'success' && !isUserPremium) {
                                     // Actualizar automáticamente la base de datos
@@ -467,12 +477,17 @@
                                 }
                                 // --------------------------------------------------------
 
+                                setUser(currentUser);
                                 setIsPremium(isUserPremium);
                             } catch (error) {
-                                console.error("Error al leer datos de usuario:", error);
+                                console.error("Error al verificar usuario:", error);
+                                // Si hay un error (ej. fue borrado desde Firebase Auth), forzamos cierre de sesión
+                                await auth.signOut();
+                                setUser(null);
                                 setIsPremium(false);
                             }
                         } else {
+                            setUser(null);
                             setIsPremium(false);
                         }
                         setAuthLoading(false);
@@ -509,7 +524,7 @@
                     } else if (!isPremium) {
                         // 2. Si tiene sesión pero NO es premium, mandarlo a pagar en Stripe
                         const stripePaymentLink = 'https://buy.stripe.com/5kQeVc2NH6wJ9EVfM377O00';
-                        window.open(stripePaymentLink, '_self'); // Cambiado a _self para que la redirección funcione en la misma pestaña
+                        window.open(stripePaymentLink, '_self');
                     } else {
                         // 3. Si tiene sesión y ES premium, darle la bienvenida y darle acceso
                         alert('¡Qué alegría tenerte aquí! Ya cuentas con acceso Premium. Entrando al contenido especial... 🌟');
