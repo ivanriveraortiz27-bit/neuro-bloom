@@ -490,11 +490,12 @@
                         // 1. Si no hay sesión, obligar a iniciar sesión/registro
                         setShowAuthModal(true);
                     } else if (!isPremium) {
-                        // 2. Si tiene sesión pero NO es premium, mandarlo a pagar
-                        alert('Redirigiendo a pasarela de pago (Stripe)...');
-                        // window.open('STRIPE_LINK', '_blank');
+                        // 2. Si tiene sesión pero NO es premium, mandarlo a pagar en Stripe
+                        const stripePaymentLink = 'https://buy.stripe.com/5kQeVc2NH6wJ9EVfM377O00';
+                        window.open(stripePaymentLink, '_blank');
                     } else {
-                        // 3. Si tiene sesión y ES premium, acceder
+                        // 3. Si tiene sesión y ES premium, darle la bienvenida y darle acceso
+                        alert('¡Qué alegría tenerte aquí! Ya cuentas con acceso Premium. Entrando al contenido especial... 🌟');
                         setActiveSection('premium_view');
                     }
                 };
