@@ -103,7 +103,7 @@ ARCHIVO: data.json
           "No renuncies impulsivamente.",
           "No termines una relación.",
           "No envíes ese mensaje desde la desesperación.",
-          "No tomes decisiones trascendentes cuando tu cuerpo কার্যকলাপ en modo supervivencia.",
+          "No tomes decisiones trascendentes cuando tu cuerpo está funcionando en modo supervivencia.",
           "Primero regula.",
           "Después decide.",
           "Las emociones intensas pueden reducir temporalmente nuestra capacidad para valorar riesgos y alternativas.",
@@ -1287,8 +1287,8 @@ ARCHIVO: data.json
       "No porque alguien se los explicara.",
       "Sino porque ellos mismos lograron verlo.",
       "Se llama...",
-      "🔒 La Última Página",
-      "Esta experiencia está disponible en Bloom Premium."
+      "⭐ La Última Página",
+      "Esta experiencia está disponible solo para usuarios premium."
     ]
   },
   "detras_conducta": {
@@ -1831,6 +1831,7 @@ ARCHIVO: data.json
       "id": "feler-munoz",
       "nombre": "Féler Muñoz",
       "titulo": "Psicoterapeuta Gestalt",
+      "cedula": "12509953",
       "imagen": "./feler-munoz.jpeg",
       "descripcion": "Atención a adolescentes y adultos.",
       "enfoques": [
@@ -1880,6 +1881,11 @@ ARCHIVO: index.html
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <!-- Configuración personalizada de Tailwind -->
     <script>
@@ -1932,6 +1938,22 @@ ARCHIVO: index.html
 
     <script type="text/babel">
         try {
+            // Inicialización de Firebase
+            const firebaseConfig = {
+                apiKey: "AIzaSyDDrImW6-xUfu5TdamXe0HH0eawlME-yZI",
+                authDomain: "neuro-bloom-5313d.firebaseapp.com",
+                projectId: "neuro-bloom-5313d",
+                storageBucket: "neuro-bloom-5313d.firebasestorage.app",
+                messagingSenderId: "727914123954",
+                appId: "1:727914123954:web:2b4e961315b999647f6fab"
+            };
+            
+            if (!firebase.apps.length) {
+                firebase.initializeApp(firebaseConfig);
+            }
+            const auth = firebase.auth();
+            const db = firebase.firestore();
+
             const { useState, useEffect, useRef } = React;
 
             // --- Iconos Globales ---
@@ -1963,6 +1985,9 @@ ARCHIVO: index.html
             const PlayCircle = (props) => <IconWrapper name="play-circle" {...props} />;
             const Library = (props) => <IconWrapper name="library" {...props} />;
             const Sprout = (props) => <IconWrapper name="sprout" {...props} />;
+            const Star = (props) => <IconWrapper name="star" {...props} />;
+            const UserCircle = (props) => <IconWrapper name="user-circle" {...props} />;
+            const Loader = (props) => <IconWrapper name="loader" {...props} className="animate-spin" />;
 
             const getIconComponent = (name, props = {}) => {
                 switch(name) {
@@ -1976,6 +2001,7 @@ ARCHIVO: index.html
                     case 'play-circle': return <PlayCircle {...props} />;
                     case 'library': return <Library {...props} />;
                     case 'sprout': return <Sprout {...props} />;
+                    case 'star': return <Star {...props} />;
                     default: return <Activity {...props} />;
                 }
             };
@@ -2025,6 +2051,7 @@ ARCHIVO: index.html
                 </button>
             );
 
+            // --- Componente de Cuestionario ---
             const CuestionarioView = ({ data, onBack }) => {
                 const [respuestas, setRespuestas] = useState({});
                 const [resultado, setResultado] = useState(null);
@@ -2140,11 +2167,137 @@ ARCHIVO: index.html
                 );
             };
 
+            // --- Componente Modal de Autenticación Mejorado ---
+            const AuthModal = ({ onClose }) => {
+                const [isLogin, setIsLogin] = useState(true);
+                const [email, setEmail] = useState('');
+                const [password, setPassword] = useState('');
+                const [error, setError] = useState('');
+                const [loading, setLoading] = useState(false);
+
+                const handleSubmit = async (e) => {
+                    e.preventDefault();
+                    setLoading(true);
+                    setError('');
+                    
+                    try {
+                        if (isLogin) {
+                            await auth.signInWithEmailAndPassword(email, password);
+                        } else {
+                            const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                            // Crear documento en Firestore por defecto sin premium
+                            await db.collection('users').doc(userCredential.user.uid).set({
+                                email: userCredential.user.email,
+                                isPremium: false,
+                                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                            });
+                        }
+                        onClose(); // Cerrar modal al tener éxito
+                    } catch (err) {
+                        // Traducir algunos errores comunes
+                        let msg = err.message;
+                        if (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
+                            msg = 'Correo o contraseña incorrectos.';
+                        } else if (err.code === 'auth/email-already-in-use') {
+                            msg = 'Este correo ya está registrado.';
+                        } else if (err.code === 'auth/weak-password') {
+                            msg = 'La contraseña debe tener al menos 6 caracteres.';
+                        }
+                        setError(msg);
+                    }
+                    setLoading(false);
+                };
+
+                return (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-stone-900/40 backdrop-blur-sm animate-fadeIn">
+                        <div className="bg-white/95 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-white max-w-md w-full relative">
+                            {/* Botón superior (X) más visible */}
+                            <button 
+                                onClick={onClose} 
+                                className="absolute top-4 right-4 p-2 bg-stone-100/80 rounded-full text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"
+                                title="Cerrar ventana"
+                            >
+                                <X size={20} />
+                            </button>
+                            
+                            <div className="text-center mb-8 mt-2">
+                                <h3 className="text-3xl font-serif font-bold text-brand-purple mb-2">
+                                    {isLogin ? 'Iniciar Sesión' : 'Crear Cuenta'}
+                                </h3>
+                                <p className="text-stone-500 font-light text-sm">
+                                    {isLogin ? 'Ingresa a tu espacio en Neuro Bloom' : 'Comienza tu proceso con nosotros'}
+                                </p>
+                            </div>
+
+                            <form onSubmit={handleSubmit} className="space-y-5">
+                                <div>
+                                    <label className="block text-sm font-bold text-stone-700 mb-1">Correo Electrónico</label>
+                                    <input 
+                                        type="email" 
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50"
+                                        required 
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-bold text-stone-700 mb-1">Contraseña</label>
+                                    <input 
+                                        type="password" 
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50"
+                                        required 
+                                    />
+                                </div>
+
+                                {error && <p className="text-red-500 text-sm font-bold text-center bg-red-50 p-2 rounded-lg">{error}</p>}
+
+                                <button 
+                                    type="submit" 
+                                    disabled={loading}
+                                    className="w-full py-4 mt-2 bg-brand-purple text-white rounded-xl font-bold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                                >
+                                    {loading ? <Loader size={20} /> : (isLogin ? 'Ingresar' : 'Registrarme')}
+                                </button>
+                            </form>
+
+                            {/* Área inferior con enlace de cambio y botón explícito de Cerrar */}
+                            <div className="mt-6 text-center border-t border-stone-100 pt-6 flex flex-col gap-4">
+                                <p className="text-stone-500 text-sm">
+                                    {isLogin ? '¿Aún no tienes cuenta?' : '¿Ya tienes cuenta?'}
+                                    <button 
+                                        onClick={() => {setIsLogin(!isLogin); setError('');}} 
+                                        className="ml-2 text-brand-purple font-bold hover:underline"
+                                    >
+                                        {isLogin ? 'Regístrate aquí' : 'Inicia Sesión'}
+                                    </button>
+                                </p>
+                                
+                                <button 
+                                    onClick={onClose} 
+                                    className="text-stone-400 hover:text-stone-600 text-sm font-bold transition-colors w-fit mx-auto"
+                                >
+                                    Cerrar ventana
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            // --- Componente Principal ---
             function NeuroBloom() {
                 const [activeSection, setActiveSection] = useState('home');
                 const [subView, setSubView] = useState(null);
                 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
                 
+                // Estados para Auth
+                const [user, setUser] = useState(null);
+                const [isPremium, setIsPremium] = useState(false);
+                const [authLoading, setAuthLoading] = useState(true);
+                const [showAuthModal, setShowAuthModal] = useState(false);
+
                 // Estados para pestañas
                 const [indicadoresTab, setIndicadoresTab] = useState('info'); 
                 const [balanceTab, setBalanceTab] = useState('vida');
@@ -2152,6 +2305,31 @@ ARCHIVO: index.html
                 
                 const [appData, setAppData] = useState(null);
                 const [dataError, setDataError] = useState(false);
+
+                // Escuchar estado de autenticación
+                useEffect(() => {
+                    const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+                        setUser(currentUser);
+                        if (currentUser) {
+                            // Buscar en base de datos si es Premium
+                            try {
+                                const doc = await db.collection('users').doc(currentUser.uid).get();
+                                if (doc.exists) {
+                                    setIsPremium(doc.data().isPremium === true);
+                                } else {
+                                    setIsPremium(false);
+                                }
+                            } catch (error) {
+                                console.error("Error al leer datos de usuario:", error);
+                                setIsPremium(false);
+                            }
+                        } else {
+                            setIsPremium(false);
+                        }
+                        setAuthLoading(false);
+                    });
+                    return () => unsubscribe();
+                }, []);
 
                 useEffect(() => {
                     fetch('./data.json')
@@ -2174,6 +2352,27 @@ ARCHIVO: index.html
                     setSubView(null);
                 }, [activeSection]); 
 
+                // Lógica de Acceso Premium
+                const handlePremiumClick = () => {
+                    if (!user) {
+                        // 1. Si no hay sesión, obligar a iniciar sesión/registro
+                        setShowAuthModal(true);
+                    } else if (!isPremium) {
+                        // 2. Si tiene sesión pero NO es premium, mandarlo a pagar en Stripe
+                        const stripePaymentLink = 'https://buy.stripe.com/5kQeVc2NH6wJ9EVfM377O00';
+                        window.open(stripePaymentLink, '_blank');
+                    } else {
+                        // 3. Si tiene sesión y ES premium, darle la bienvenida y darle acceso
+                        alert('¡Qué alegría tenerte aquí! Ya cuentas con acceso Premium. Entrando al contenido especial... 🌟');
+                        setActiveSection('premium_view');
+                    }
+                };
+
+                const handleLogout = async () => {
+                    await auth.signOut();
+                    setActiveSection('home');
+                };
+
                 if (dataError) {
                     return (
                         <div className="loading-screen bg-red-50 text-stone-800 p-8">
@@ -2183,7 +2382,7 @@ ARCHIVO: index.html
                     );
                 }
 
-                if (!appData) {
+                if (!appData || authLoading) {
                     return (
                         <div className="loading-screen">
                             <h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2>
@@ -2201,12 +2400,23 @@ ARCHIVO: index.html
                                     <h1 className="text-2xl md:text-4xl font-serif font-bold tracking-wide mb-6 text-brand-dark" style={{ color: colors.primary }}>
                                         “Habitarte también es una forma de florecer”
                                     </h1>
-                                    <p className="max-w-2xl mb-16 text-lg md:text-xl text-brand-dark/80 leading-relaxed font-light">
+                                    <p className="max-w-2xl mb-12 text-lg md:text-xl text-brand-dark/80 leading-relaxed font-light">
                                         Un espacio dedicado al bienestar emocional, la creatividad y la conexión humana, floreciendo desde el interior.
                                     </p>
+
+                                    {/* Botón Bloom Premium Principal */}
+                                    <div className="flex justify-center mb-16 w-full animate-bounce" style={{animationDuration: '3s'}}>
+                                        <button 
+                                            onClick={handlePremiumClick} 
+                                            className="px-8 py-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-white rounded-full font-bold text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center gap-3 border-2 border-yellow-300"
+                                        >
+                                            <Star size={28} fill="currentColor" />
+                                            Bloom Premium
+                                        </button>
+                                    </div>
                                     
                                     <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl">
-                                        <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./indicadores-emocionales.jpeg" 
                                                 alt="Indicadores" 
@@ -2214,7 +2424,7 @@ ARCHIVO: index.html
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Activity size={64} className="text-brand-purple" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./balance-cotidiano.jpeg" 
                                                 alt="Balance" 
@@ -2222,7 +2432,7 @@ ARCHIVO: index.html
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sun size={64} className="text-blue-400" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./bloom-library.jpeg" 
                                                 alt="Library" 
@@ -2230,7 +2440,7 @@ ARCHIVO: index.html
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Library size={64} className="text-brand-lilac" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./infancias.jpeg" 
                                                 alt="Infancias" 
@@ -2238,7 +2448,7 @@ ARCHIVO: index.html
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sprout size={64} className="text-pink-400" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./capsulas-en-video.jpeg" 
                                                 alt="Cápsulas" 
@@ -2246,7 +2456,7 @@ ARCHIVO: index.html
                                                 fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><PlayCircle size={64} className="text-orange-400" /></div>}
                                             />
                                         </div>
-                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] bg-white/40 backdrop-blur-lg border border-white/50 shadow-glass hover:shadow-xl hover:bg-white/60 transition-all overflow-hidden group">
+                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail 
                                                 src="./conoce-y-agenda.jpeg" 
                                                 alt="Agenda" 
@@ -2360,9 +2570,22 @@ ARCHIVO: index.html
                             const renderContenidoTexto = (parrafos) => {
                                 return parrafos.map((parrafo, idx) => {
                                     if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
-                                    if (parrafo.includes('🔒')) return <button key={idx} disabled className="w-full py-4 mt-6 rounded-2xl bg-stone-200 text-stone-500 font-bold flex items-center justify-center gap-3 cursor-not-allowed border border-stone-300 shadow-inner">{parrafo}</button>;
                                     
-                                    // Identificar subtitulos decorados o encabezados
+                                    // Manejador Dinámico de Botones Premium (Detecta ⭐ o 🔒)
+                                    if (parrafo.includes('⭐') || parrafo.includes('🔒')) {
+                                        const textoLimpio = parrafo.replace('⭐', '').replace('🔒', '').trim();
+                                        return (
+                                            <button 
+                                                key={idx} 
+                                                onClick={handlePremiumClick}
+                                                className="w-full py-5 mt-6 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 text-white font-bold text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex justify-center items-center gap-3 border-2 border-yellow-300"
+                                            >
+                                                <Star size={28} fill="currentColor" />
+                                                {textoLimpio}
+                                            </button>
+                                        );
+                                    }
+                                    
                                     if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
                                         return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
                                     }
@@ -2450,6 +2673,27 @@ ARCHIVO: index.html
                                 </div>
                             );
 
+                        case 'premium_view':
+                            // Pantalla Placeholder para usuarios que YA pagaron
+                            return (
+                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10 text-center">
+                                    <div className="w-full mb-6 text-left">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    </div>
+                                    <div className="p-16 lg:p-24 bg-gradient-to-br from-amber-100 to-yellow-200 backdrop-blur-xl rounded-[3rem] border-2 border-yellow-300 shadow-2xl relative overflow-hidden">
+                                        {/* Decoración de fondo */}
+                                        <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-white/30 rounded-full blur-3xl"></div>
+                                        <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-yellow-400/20 rounded-full blur-3xl"></div>
+                                        
+                                        <Star size={80} className="mx-auto text-yellow-500 mb-8 animate-bounce" fill="currentColor" style={{animationDuration: '3s'}}/>
+                                        <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-6">Bienvenido a Bloom Premium</h2>
+                                        <p className="text-xl text-stone-700 max-w-2xl mx-auto font-light leading-relaxed">
+                                            Gracias por dar este paso hacia tu bienestar. Este es el espacio reservado donde muy pronto podrás encontrar herramientas profundas de autoexploración.
+                                        </p>
+                                    </div>
+                                </div>
+                            );
+
                         case 'library':
                             return (
                                 <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
@@ -2494,7 +2738,6 @@ ARCHIVO: index.html
                                             {appData.detras_conducta?.contenido.map((parrafo, idx) => {
                                                 if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
                                                 
-                                                // Identificar subtitulos decorados o encabezados
                                                 if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
                                                     return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
                                                 }
@@ -2582,6 +2825,9 @@ ARCHIVO: index.html
                 return (
                     <div className="min-h-screen font-sans relative overflow-hidden text-stone-700 bg-[#faf8f9]">
                         
+                        {/* Renderizar Modal de Autenticación */}
+                        {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
+
                         {/* 1. Fondo de Base */}
                         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
                             <div className="absolute top-[-15%] left-[-15%] w-[40rem] h-[40rem] bg-[#f2e6e9] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
@@ -2627,15 +2873,47 @@ ARCHIVO: index.html
                                     <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Agenda</NavButton>
                                 </nav>
 
-                                <button className="lg:hidden p-2 text-brand-purple relative z-50" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                                    {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
-                                </button>
+                                {/* Controles de Usuario (Cerrar / Iniciar Sesión) */}
+                                <div className="flex items-center gap-4 relative z-50">
+                                    {user ? (
+                                        <button 
+                                            onClick={handleLogout} 
+                                            className="hidden sm:flex text-sm font-bold text-stone-500 hover:text-brand-purple transition-colors items-center gap-2"
+                                        >
+                                            <UserCircle size={20} />
+                                            Cerrar Sesión
+                                        </button>
+                                    ) : (
+                                        <button 
+                                            onClick={() => setShowAuthModal(true)} 
+                                            className="hidden sm:flex px-4 py-2 bg-white/50 border border-brand-purple/30 rounded-full text-sm font-bold text-brand-purple hover:bg-brand-purple hover:text-white transition-all items-center gap-2"
+                                        >
+                                            <UserCircle size={18} />
+                                            Ingresar
+                                        </button>
+                                    )}
+
+                                    <button className="lg:hidden p-2 text-brand-purple" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                        {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+                                    </button>
+                                </div>
                             </div>
                         </header>
 
                         {mobileMenuOpen && (
                             <div className="fixed inset-0 z-40 pt-28 px-6 lg:hidden animate-slideIn bg-white/95 backdrop-blur-3xl">
                                 <div className="flex flex-col gap-4">
+                                    <div className="mb-4 pb-4 border-b border-stone-200">
+                                        {user ? (
+                                            <button onClick={() => {handleLogout(); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-stone-500 bg-stone-100 flex items-center gap-3">
+                                                <UserCircle size={24} /> Cerrar Sesión
+                                            </button>
+                                        ) : (
+                                            <button onClick={() => {setShowAuthModal(true); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-white bg-brand-purple shadow-md flex items-center gap-3">
+                                                <UserCircle size={24} /> Iniciar Sesión / Registro
+                                            </button>
+                                        )}
+                                    </div>
                                     {['home', 'indicadores', 'balance', 'library', 'infancias', 'capsulas', 'citas'].map(sec => (
                                         <button 
                                             key={sec}
