@@ -299,7 +299,7 @@
                 );
             };
 
-            // --- Componente Modal de Autenticación ---
+            // --- Componente Modal de Autenticación Mejorado ---
             const AuthModal = ({ onClose }) => {
                 const [isLogin, setIsLogin] = useState(true);
                 const [email, setEmail] = useState('');
@@ -342,12 +342,17 @@
 
                 return (
                     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-stone-900/40 backdrop-blur-sm animate-fadeIn">
-                        <div className="bg-white/90 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-white max-w-md w-full relative">
-                            <button onClick={onClose} className="absolute top-4 right-4 p-2 text-stone-400 hover:text-stone-700 transition-colors">
-                                <X size={24} />
+                        <div className="bg-white/95 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-white max-w-md w-full relative">
+                            {/* Botón superior (X) más visible */}
+                            <button 
+                                onClick={onClose} 
+                                className="absolute top-4 right-4 p-2 bg-stone-100/80 rounded-full text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"
+                                title="Cerrar ventana"
+                            >
+                                <X size={20} />
                             </button>
                             
-                            <div className="text-center mb-8">
+                            <div className="text-center mb-8 mt-2">
                                 <h3 className="text-3xl font-serif font-bold text-brand-purple mb-2">
                                     {isLogin ? 'Iniciar Sesión' : 'Crear Cuenta'}
                                 </h3>
@@ -389,7 +394,8 @@
                                 </button>
                             </form>
 
-                            <div className="mt-6 text-center border-t border-stone-100 pt-6">
+                            {/* Área inferior con enlace de cambio y botón explícito de Cerrar */}
+                            <div className="mt-6 text-center border-t border-stone-100 pt-6 flex flex-col gap-4">
                                 <p className="text-stone-500 text-sm">
                                     {isLogin ? '¿Aún no tienes cuenta?' : '¿Ya tienes cuenta?'}
                                     <button 
@@ -399,6 +405,13 @@
                                         {isLogin ? 'Regístrate aquí' : 'Inicia Sesión'}
                                     </button>
                                 </p>
+                                
+                                <button 
+                                    onClick={onClose} 
+                                    className="text-stone-400 hover:text-stone-600 text-sm font-bold transition-colors w-fit mx-auto"
+                                >
+                                    Cerrar ventana
+                                </button>
                             </div>
                         </div>
                     </div>
