@@ -14,6 +14,11 @@
     <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
     <!-- Configuración personalizada de Tailwind -->
     <script>
         tailwind.config = {
@@ -65,6 +70,22 @@
 
     <script type="text/babel">
         try {
+            // Inicialización de Firebase
+            const firebaseConfig = {
+                apiKey: "AIzaSyDDrImW6-xUfu5TdamXe0HH0eawlME-yZI",
+                authDomain: "neuro-bloom-5313d.firebaseapp.com",
+                projectId: "neuro-bloom-5313d",
+                storageBucket: "neuro-bloom-5313d.firebasestorage.app",
+                messagingSenderId: "727914123954",
+                appId: "1:727914123954:web:2b4e961315b999647f6fab"
+            };
+            
+            if (!firebase.apps.length) {
+                firebase.initializeApp(firebaseConfig);
+            }
+            const auth = firebase.auth();
+            const db = firebase.firestore();
+
             const { useState, useEffect, useRef } = React;
 
             // --- Iconos Globales ---
@@ -97,6 +118,8 @@
             const Library = (props) => <IconWrapper name="library" {...props} />;
             const Sprout = (props) => <IconWrapper name="sprout" {...props} />;
             const Star = (props) => <IconWrapper name="star" {...props} />;
+            const UserCircle = (props) => <IconWrapper name="user-circle" {...props} />;
+            const Loader = (props) => <IconWrapper name="loader" {...props} className="animate-spin" />;
 
             const getIconComponent = (name, props = {}) => {
                 switch(name) {
@@ -160,6 +183,7 @@
                 </button>
             );
 
+            // --- Componente de Cuestionario ---
             const CuestionarioView = ({ data, onBack }) => {
                 const [respuestas, setRespuestas] = useState({});
                 const [resultado, setResultado] = useState(null);
@@ -275,11 +299,124 @@
                 );
             };
 
+            // --- Componente Modal de Autenticación ---
+            const AuthModal = ({ onClose }) => {
+                const [isLogin, setIsLogin] = useState(true);
+                const [email, setEmail] = useState('');
+                const [password, setPassword] = useState('');
+                const [error, setError] = useState('');
+                const [loading, setLoading] = useState(false);
+
+                const handleSubmit = async (e) => {
+                    e.preventDefault();
+                    setLoading(true);
+                    setError('');
+                    
+                    try {
+                        if (isLogin) {
+                            await auth.signInWithEmailAndPassword(email, password);
+                        } else {
+                            const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                            // Crear documento en Firestore por defecto sin premium
+                            await db.collection('users').doc(userCredential.user.uid).set({
+                                email: userCredential.user.email,
+                                isPremium: false,
+                                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                            });
+                        }
+                        onClose(); // Cerrar modal al tener éxito
+                    } catch (err) {
+                        // Traducir algunos errores comunes
+                        let msg = err.message;
+                        if (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
+                            msg = 'Correo o contraseña incorrectos.';
+                        } else if (err.code === 'auth/email-already-in-use') {
+                            msg = 'Este correo ya está registrado.';
+                        } else if (err.code === 'auth/weak-password') {
+                            msg = 'La contraseña debe tener al menos 6 caracteres.';
+                        }
+                        setError(msg);
+                    }
+                    setLoading(false);
+                };
+
+                return (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-stone-900/40 backdrop-blur-sm animate-fadeIn">
+                        <div className="bg-white/90 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-white max-w-md w-full relative">
+                            <button onClick={onClose} className="absolute top-4 right-4 p-2 text-stone-400 hover:text-stone-700 transition-colors">
+                                <X size={24} />
+                            </button>
+                            
+                            <div className="text-center mb-8">
+                                <h3 className="text-3xl font-serif font-bold text-brand-purple mb-2">
+                                    {isLogin ? 'Iniciar Sesión' : 'Crear Cuenta'}
+                                </h3>
+                                <p className="text-stone-500 font-light text-sm">
+                                    {isLogin ? 'Ingresa a tu espacio en Neuro Bloom' : 'Comienza tu proceso con nosotros'}
+                                </p>
+                            </div>
+
+                            <form onSubmit={handleSubmit} className="space-y-5">
+                                <div>
+                                    <label className="block text-sm font-bold text-stone-700 mb-1">Correo Electrónico</label>
+                                    <input 
+                                        type="email" 
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50"
+                                        required 
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-bold text-stone-700 mb-1">Contraseña</label>
+                                    <input 
+                                        type="password" 
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50"
+                                        required 
+                                    />
+                                </div>
+
+                                {error && <p className="text-red-500 text-sm font-bold text-center bg-red-50 p-2 rounded-lg">{error}</p>}
+
+                                <button 
+                                    type="submit" 
+                                    disabled={loading}
+                                    className="w-full py-4 mt-2 bg-brand-purple text-white rounded-xl font-bold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                                >
+                                    {loading ? <Loader size={20} /> : (isLogin ? 'Ingresar' : 'Registrarme')}
+                                </button>
+                            </form>
+
+                            <div className="mt-6 text-center border-t border-stone-100 pt-6">
+                                <p className="text-stone-500 text-sm">
+                                    {isLogin ? '¿Aún no tienes cuenta?' : '¿Ya tienes cuenta?'}
+                                    <button 
+                                        onClick={() => {setIsLogin(!isLogin); setError('');}} 
+                                        className="ml-2 text-brand-purple font-bold hover:underline"
+                                    >
+                                        {isLogin ? 'Regístrate aquí' : 'Inicia Sesión'}
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            // --- Componente Principal ---
             function NeuroBloom() {
                 const [activeSection, setActiveSection] = useState('home');
                 const [subView, setSubView] = useState(null);
                 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
                 
+                // Estados para Auth
+                const [user, setUser] = useState(null);
+                const [isPremium, setIsPremium] = useState(false);
+                const [authLoading, setAuthLoading] = useState(true);
+                const [showAuthModal, setShowAuthModal] = useState(false);
+
                 // Estados para pestañas
                 const [indicadoresTab, setIndicadoresTab] = useState('info'); 
                 const [balanceTab, setBalanceTab] = useState('vida');
@@ -288,11 +425,30 @@
                 const [appData, setAppData] = useState(null);
                 const [dataError, setDataError] = useState(false);
 
-                // URL temporal para el checkout de Stripe
-                const handlePremiumClick = () => {
-                    alert('Próximamente: Redirección al checkout de Stripe para desbloquear contenido Premium.');
-                    // Aquí irá: window.open('TU_LINK_DE_STRIPE', '_blank');
-                };
+                // Escuchar estado de autenticación
+                useEffect(() => {
+                    const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+                        setUser(currentUser);
+                        if (currentUser) {
+                            // Buscar en base de datos si es Premium
+                            try {
+                                const doc = await db.collection('users').doc(currentUser.uid).get();
+                                if (doc.exists) {
+                                    setIsPremium(doc.data().isPremium === true);
+                                } else {
+                                    setIsPremium(false);
+                                }
+                            } catch (error) {
+                                console.error("Error al leer datos de usuario:", error);
+                                setIsPremium(false);
+                            }
+                        } else {
+                            setIsPremium(false);
+                        }
+                        setAuthLoading(false);
+                    });
+                    return () => unsubscribe();
+                }, []);
 
                 useEffect(() => {
                     fetch('./data.json')
@@ -315,6 +471,26 @@
                     setSubView(null);
                 }, [activeSection]); 
 
+                // Lógica de Acceso Premium
+                const handlePremiumClick = () => {
+                    if (!user) {
+                        // 1. Si no hay sesión, obligar a iniciar sesión/registro
+                        setShowAuthModal(true);
+                    } else if (!isPremium) {
+                        // 2. Si tiene sesión pero NO es premium, mandarlo a pagar
+                        alert('Redirigiendo a pasarela de pago (Stripe)...');
+                        // window.open('STRIPE_LINK', '_blank');
+                    } else {
+                        // 3. Si tiene sesión y ES premium, acceder
+                        setActiveSection('premium_view');
+                    }
+                };
+
+                const handleLogout = async () => {
+                    await auth.signOut();
+                    setActiveSection('home');
+                };
+
                 if (dataError) {
                     return (
                         <div className="loading-screen bg-red-50 text-stone-800 p-8">
@@ -324,7 +500,7 @@
                     );
                 }
 
-                if (!appData) {
+                if (!appData || authLoading) {
                     return (
                         <div className="loading-screen">
                             <h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2>
@@ -513,7 +689,7 @@
                                 return parrafos.map((parrafo, idx) => {
                                     if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
                                     
-                                    // Nuevo manejador de Botón Premium: detecta ⭐ o 🔒 en el texto
+                                    // Manejador Dinámico de Botones Premium (Detecta ⭐ o 🔒)
                                     if (parrafo.includes('⭐') || parrafo.includes('🔒')) {
                                         const textoLimpio = parrafo.replace('⭐', '').replace('🔒', '').trim();
                                         return (
@@ -612,6 +788,27 @@
                                             </div>
                                         </div>
                                     )}
+                                </div>
+                            );
+
+                        case 'premium_view':
+                            // Pantalla Placeholder para usuarios que YA pagaron
+                            return (
+                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10 text-center">
+                                    <div className="w-full mb-6 text-left">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    </div>
+                                    <div className="p-16 lg:p-24 bg-gradient-to-br from-amber-100 to-yellow-200 backdrop-blur-xl rounded-[3rem] border-2 border-yellow-300 shadow-2xl relative overflow-hidden">
+                                        {/* Decoración de fondo */}
+                                        <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-white/30 rounded-full blur-3xl"></div>
+                                        <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-yellow-400/20 rounded-full blur-3xl"></div>
+                                        
+                                        <Star size={80} className="mx-auto text-yellow-500 mb-8 animate-bounce" fill="currentColor" style={{animationDuration: '3s'}}/>
+                                        <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-6">Bienvenido a Bloom Premium</h2>
+                                        <p className="text-xl text-stone-700 max-w-2xl mx-auto font-light leading-relaxed">
+                                            Gracias por dar este paso hacia tu bienestar. Este es el espacio reservado donde muy pronto podrás encontrar herramientas profundas de autoexploración.
+                                        </p>
+                                    </div>
                                 </div>
                             );
 
@@ -746,6 +943,9 @@
                 return (
                     <div className="min-h-screen font-sans relative overflow-hidden text-stone-700 bg-[#faf8f9]">
                         
+                        {/* Renderizar Modal de Autenticación */}
+                        {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
+
                         {/* 1. Fondo de Base */}
                         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
                             <div className="absolute top-[-15%] left-[-15%] w-[40rem] h-[40rem] bg-[#f2e6e9] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
@@ -791,15 +991,47 @@
                                     <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Agenda</NavButton>
                                 </nav>
 
-                                <button className="lg:hidden p-2 text-brand-purple relative z-50" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                                    {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
-                                </button>
+                                {/* Controles de Usuario (Cerrar / Iniciar Sesión) */}
+                                <div className="flex items-center gap-4 relative z-50">
+                                    {user ? (
+                                        <button 
+                                            onClick={handleLogout} 
+                                            className="hidden sm:flex text-sm font-bold text-stone-500 hover:text-brand-purple transition-colors items-center gap-2"
+                                        >
+                                            <UserCircle size={20} />
+                                            Cerrar Sesión
+                                        </button>
+                                    ) : (
+                                        <button 
+                                            onClick={() => setShowAuthModal(true)} 
+                                            className="hidden sm:flex px-4 py-2 bg-white/50 border border-brand-purple/30 rounded-full text-sm font-bold text-brand-purple hover:bg-brand-purple hover:text-white transition-all items-center gap-2"
+                                        >
+                                            <UserCircle size={18} />
+                                            Ingresar
+                                        </button>
+                                    )}
+
+                                    <button className="lg:hidden p-2 text-brand-purple" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                        {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+                                    </button>
+                                </div>
                             </div>
                         </header>
 
                         {mobileMenuOpen && (
                             <div className="fixed inset-0 z-40 pt-28 px-6 lg:hidden animate-slideIn bg-white/95 backdrop-blur-3xl">
                                 <div className="flex flex-col gap-4">
+                                    <div className="mb-4 pb-4 border-b border-stone-200">
+                                        {user ? (
+                                            <button onClick={() => {handleLogout(); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-stone-500 bg-stone-100 flex items-center gap-3">
+                                                <UserCircle size={24} /> Cerrar Sesión
+                                            </button>
+                                        ) : (
+                                            <button onClick={() => {setShowAuthModal(true); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-white bg-brand-purple shadow-md flex items-center gap-3">
+                                                <UserCircle size={24} /> Iniciar Sesión / Registro
+                                            </button>
+                                        )}
+                                    </div>
                                     {['home', 'indicadores', 'balance', 'library', 'infancias', 'capsulas', 'citas'].map(sec => (
                                         <button 
                                             key={sec}
