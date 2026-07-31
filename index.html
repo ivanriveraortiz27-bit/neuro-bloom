@@ -109,7 +109,6 @@
             const Lock = (props) => <IconWrapper name="lock" {...props} />;
             const CheckCircle = (props) => <IconWrapper name="check-circle" {...props} />;
             
-            // Iconos de Rutas
             const MessageCircle = (props) => <IconWrapper name="message-circle" {...props} />;
             const PenTool = (props) => <IconWrapper name="pen-tool" {...props} />;
             const Headphones = (props) => <IconWrapper name="headphones" {...props} />;
@@ -160,14 +159,23 @@
                 </button>
             );
 
-            const BackButton = ({ onClick, text = "Volver" }) => (
-                <button onClick={onClick} className="flex items-center gap-2 mb-8 text-stone-500 hover:text-brand-purple transition-colors font-bold group w-fit bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white shadow-sm">
-                    <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform text-brand-purple" />
-                    <span className="text-stone-600">{text}</span>
-                </button>
+            // Botón dual mejorado para volver al inicio general o al menú premium
+            const BackButton = ({ onClick, text = "Volver", onHome, homeText = "Ir al Inicio" }) => (
+                <div className="flex flex-wrap gap-4 mb-8">
+                    <button onClick={onClick} className="flex items-center gap-2 text-stone-500 hover:text-brand-purple transition-colors font-bold group w-fit bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white shadow-sm">
+                        <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform text-brand-purple" />
+                        <span className="text-stone-600">{text}</span>
+                    </button>
+                    {onHome && (
+                        <button onClick={onHome} className="flex items-center gap-2 text-stone-500 hover:text-brand-purple transition-colors font-bold group w-fit bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white shadow-sm">
+                            <Heart size={18} className="group-hover:scale-110 transition-transform text-brand-purple" />
+                            <span className="text-stone-600">{homeText}</span>
+                        </button>
+                    )}
+                </div>
             );
 
-            // --- Componentes Reutilizables ---
+            // --- Cuestionarios Generales (Info) ---
             const CuestionarioView = ({ data, onBack }) => {
                 const [respuestas, setRespuestas] = useState({});
                 const [resultado, setResultado] = useState(null);
@@ -260,7 +268,7 @@
                 );
             };
 
-            const PerfilEmocional = ({ premiumData, onBack }) => {
+            const PerfilEmocional = ({ premiumData, onBack, onHome }) => {
                 const perfil = premiumData.perfil_emocional;
                 const [dimActual, setDimActual] = useState(-1);
                 const [respuestas, setRespuestas] = useState({});
@@ -292,7 +300,7 @@
                 if (dimActual === -1) {
                     return (
                         <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
-                            <BackButton onClick={onBack} text="Volver a Premium" />
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
                             <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-16 rounded-[3rem] border border-white shadow-glass text-center">
                                 <Brain size={80} className="mx-auto text-brand-purple mb-8 animate-pulse" />
                                 <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-8">Conoce tu Perfil Emocional</h2>
@@ -403,14 +411,14 @@
                 return null;
             };
 
-            const RutasBienestar = ({ premiumData, onBack }) => {
+            const RutasBienestar = ({ premiumData, onBack, onHome }) => {
                 const [activeRuta, setActiveRuta] = useState(null);
                 const [activeModulo, setActiveModulo] = useState(0);
 
                 if (!activeRuta) {
                     return (
                         <div className="animate-fadeIn max-w-6xl mx-auto py-12 relative z-10">
-                            <BackButton onClick={onBack} text="Volver a Premium" />
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
                             <div className="text-center mb-16">
                                 <Compass size={64} className="mx-auto text-brand-green mb-6" />
                                 <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-4">Mis Rutas de Bienestar</h2>
@@ -438,7 +446,7 @@
 
                 return (
                     <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
-                        <BackButton onClick={() => setActiveRuta(null)} text="Volver a Rutas" />
+                        <BackButton onClick={() => setActiveRuta(null)} text="Volver a Rutas" onHome={onHome} />
                         <div className="bg-white/90 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass overflow-hidden">
                             <div className="p-8 lg:p-10 border-b border-stone-100 bg-gradient-to-r from-stone-50 to-white">
                                 <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800 mb-2">{activeRuta.titulo}</h2>
@@ -553,6 +561,81 @@
                     </div>
                 );
             };
+
+            // --- Componente: Reto Premium (La Última Página) ---
+            const RetoPremium = ({ premiumData, onBack, onHome }) => {
+                const reto = premiumData.reto_premium;
+                const [step, setStep] = useState(0); 
+
+                if (!reto) return null;
+
+                return (
+                    <div className="animate-fadeIn max-w-3xl mx-auto py-12 relative z-10 text-center">
+                        <div className="text-left">
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
+                        </div>
+
+                        <div className="bg-white/90 backdrop-blur-xl p-10 lg:p-16 rounded-[3rem] border border-white shadow-glass">
+                            <Star size={48} className="mx-auto text-yellow-500 mb-6" fill="currentColor" />
+                            
+                            {step === 0 && (
+                                <div className="animate-fadeIn space-y-6">
+                                    <h2 className="text-4xl font-serif font-bold text-stone-800 mb-8">{reto.titulo}</h2>
+                                    {reto.intro.map((p, i) => <p key={i} className="text-xl text-stone-600 font-light leading-relaxed">{p}</p>)}
+                                    <button onClick={() => setStep(1)} className="mt-8 px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Continuar</button>
+                                </div>
+                            )}
+
+                            {step === 1 && (
+                                <div className="animate-fadeIn space-y-6 text-left">
+                                    {reto.desarrollo.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
+                                    <div className="bg-brand-purple/5 p-8 rounded-2xl border border-brand-purple/20 my-8">
+                                        <h3 className="text-2xl font-serif font-bold text-brand-purple mb-4">{reto.pregunta_1}</h3>
+                                        <textarea className="w-full bg-white border border-stone-200 rounded-xl p-4 min-h-[120px] focus:outline-none focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 resize-none" placeholder="Escribe aquí con total honestidad..."></textarea>
+                                    </div>
+                                    <div className="text-center">
+                                        <button onClick={() => setStep(2)} className="px-8 py-4 bg-brand-purple text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Siguiente</button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {step === 2 && (
+                                <div className="animate-fadeIn space-y-6 text-left">
+                                    {reto.reflexion_1.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
+                                    <div className="my-8 border-t border-b border-stone-100 py-8 space-y-6">
+                                        {reto.transicion.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
+                                    </div>
+                                    <div className="bg-brand-green/10 p-8 rounded-2xl border border-brand-green/20 my-8">
+                                        <h3 className="text-2xl font-serif font-bold text-brand-green mb-4">{reto.pregunta_2}</h3>
+                                        <textarea className="w-full bg-white border border-stone-200 rounded-xl p-4 min-h-[120px] focus:outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 resize-none" placeholder="Tómate tu tiempo para recordar..."></textarea>
+                                    </div>
+                                    <div className="text-center">
+                                        <button onClick={() => setStep(3)} className="px-8 py-4 bg-brand-green text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Finalizar Reflexión</button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {step === 3 && (
+                                <div className="animate-fadeIn space-y-6 text-left">
+                                    <div className="space-y-6 mb-12">
+                                        {reto.cierre.map((p, i) => <p key={i} className="text-lg text-stone-700 font-bold leading-relaxed">{p}</p>)}
+                                    </div>
+                                    <hr className="border-stone-200 mb-12" />
+                                    <div className="space-y-6">
+                                        {reto.despedida.map((p, i) => <p key={i} className="text-lg text-stone-600 font-light leading-relaxed">{p}</p>)}
+                                    </div>
+                                    <div className="bg-stone-50 p-8 rounded-2xl border border-stone-200 mt-12">
+                                        <p className="text-stone-500 font-light whitespace-pre-line italic">{reto.teaser_proximo}</p>
+                                    </div>
+                                    <div className="text-center mt-12">
+                                        <button onClick={onBack} className="px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Volver a Premium</button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                );
+            }
 
             const AuthModal = ({ onClose }) => {
                 const [isLogin, setIsLogin] = useState(true);
@@ -955,13 +1038,16 @@
                                 return <div className="text-center py-20 text-brand-purple"><Loader size={48} className="animate-spin mx-auto mb-4" /> Cargando entorno Premium...</div>;
                             }
 
-                            if (premiumSubSection === 'perfil') return <PerfilEmocional premiumData={premiumData} onBack={() => setPremiumSubSection(null)} />;
-                            if (premiumSubSection === 'rutas') return <RutasBienestar premiumData={premiumData} onBack={() => setPremiumSubSection(null)} />;
+                            if (premiumSubSection === 'perfil') return <PerfilEmocional premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
+                            if (premiumSubSection === 'rutas') return <RutasBienestar premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
+                            
+                            // NUEVO: Instancia del Reto Premium (La Última Página)
+                            if (premiumSubSection === 'reto') return <RetoPremium premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
 
                             if (premiumSubSection === 'maternidad') {
                                 return (
                                     <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
-                                        <BackButton onClick={() => setPremiumSubSection(null)} text="Volver a Premium" />
+                                        <BackButton onClick={() => setPremiumSubSection(null)} text="Volver a Premium" onHome={() => setActiveSection('home')} />
                                         <div className="p-12 bg-white/80 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass text-center">
                                             <Sprout size={64} className="mx-auto text-pink-400 mb-6" />
                                             <h2 className="text-4xl font-serif font-bold text-stone-800 mb-4">Maternidad con Ciencia</h2>
@@ -987,7 +1073,8 @@
                                         </p>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 px-4 max-w-4xl mx-auto">
+                                        
                                         <button onClick={() => setPremiumSubSection('perfil')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
                                             <div className="w-16 h-16 rounded-2xl bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Brain size={32} /></div>
                                             <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Conoce tu Perfil Emocional</h3>
@@ -1009,19 +1096,11 @@
                                             <div className="mt-8 flex items-center text-pink-500 font-bold text-sm tracking-widest uppercase">Leer Módulos &rarr;</div>
                                         </button>
 
-                                        <button className="group bg-gradient-to-br from-amber-50 to-yellow-100/50 backdrop-blur-xl p-10 rounded-[2.5rem] border border-yellow-200 shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
+                                        <button onClick={() => setPremiumSubSection('reto')} className="group bg-gradient-to-br from-amber-50 to-yellow-100/50 backdrop-blur-xl p-10 rounded-[2.5rem] border border-yellow-200 shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
                                             <div className="w-16 h-16 rounded-2xl bg-yellow-200 text-yellow-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Star size={32} fill="currentColor" /></div>
-                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Reto del Mes (Premium)</h3>
-                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">Ejercicios semanales avanzados y audios guiados para acompañar tu proceso de transformación este mes.</p>
+                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Reto del Mes</h3>
+                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">Una experiencia final para responderte a ti mismo algunas de las preguntas más profundas.</p>
                                             <div className="mt-8 flex items-center text-yellow-600 font-bold text-sm tracking-widest uppercase">Ingresar al Reto &rarr;</div>
-                                        </button>
-
-                                        <button className="group bg-stone-100/60 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full relative overflow-hidden">
-                                            <div className="absolute top-6 right-6 text-stone-300"><Lock size={24} /></div>
-                                            <div className="w-16 h-16 rounded-2xl bg-stone-200/50 text-stone-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><BookHeart size={32} /></div>
-                                            <h3 className="text-2xl font-serif font-bold text-stone-600 mb-3">La Última Página</h3>
-                                            <p className="text-stone-500 font-light flex-grow leading-relaxed italic">"Hay una razón por la que esta experiencia está al final. Necesitabas vivir este mes para entenderla."</p>
-                                            <div className="mt-8 flex items-center text-stone-400 font-bold text-sm tracking-widest uppercase">Desbloquear al Final &rarr;</div>
                                         </button>
 
                                     </div>
@@ -1109,6 +1188,15 @@
                         <main className="max-w-7xl mx-auto px-6 py-12 min-h-[80vh] relative z-10">
                             {renderContent()}
                         </main>
+
+                        <footer className="py-16 mt-12 bg-stone-900/95 backdrop-blur-md text-stone-400 flex flex-col items-center justify-center text-center relative z-10">
+                            <img 
+                                src={logoUrl} 
+                                alt="Neuro Bloom Logo Blanco" 
+                                className="h-16 w-auto mb-6 opacity-50 brightness-0 invert" 
+                            />
+                            <p className="font-light tracking-wide relative z-20">© {new Date().getFullYear()} Neuro Bloom. Creciendo con cada emoción.</p>
+                        </footer>
                     </div>
                 );
             }

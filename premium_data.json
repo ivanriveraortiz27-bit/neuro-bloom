@@ -498,7 +498,7 @@
           "hoja_trabajo": {
             "titulo": "Transformando mi diálogo interior",
             "contenido": [
-              "Durante los próximos tres días, observa cómo aparece tu diálogo interno en distintas situaciones.",
+              "Durante los próximos tres días, observa cómo aparece tu diálogo interno en distintas situations.",
               "• Hoy me hablé con dureza cuando... ¿Qué palabras me dije?",
               "• Si hubiera respondido con mayor amabilidad... ¿Qué podría haberme dicho? ¿Cómo creo que me habría sentido?",
               "No se trata de dejar de reconocer tus errores. Se trata de aprender que puedes crecer sin convertirte en tu propio enemigo."
@@ -685,5 +685,63 @@
         { "titulo": "Módulo 4. Dejar huellas positivas", "psicoeducacion": { "titulo": "Toda vida deja huella", "parrafos": ["El contenido de este módulo se cargará próximamente."] } }
       ]
     }
-  ]
+  ],
+  "reto_premium": {
+    "titulo": "La Última Página",
+    "intro": [
+      "Hay una razón por la que esta experiencia está al final.",
+      "No habría tenido sentido el primer día.",
+      "Necesitabas vivir este mes.",
+      "Responderte algunas preguntas.",
+      "Escuchar cosas que quizá habías olvidado.",
+      "Solo entonces podíamos hacerte la pregunta correcta.",
+      "Porque una buena pregunta, en el momento equivocado, solo genera confusión.",
+      "Pero en el momento adecuado...",
+      "Puede cambiar la forma en la que entiendes toda tu historia.",
+      "Respira profundo.",
+      "Apaga el ruido.",
+      "Y continúa."
+    ],
+    "desarrollo": [
+      "Lo primero que queremos decirte...",
+      "Si llegaste hasta aquí, probablemente eres una persona que lleva mucho tiempo intentando entenderse.",
+      "Has leído. Has reflexionado. Has buscado respuestas.",
+      "Y, aun así, es posible que haya algo que siga repitiéndose.",
+      "No porque te falte fuerza de voluntad. No porque no quieras cambiar. Sino porque hay preguntas que nunca nos enseñaron a hacernos.",
+      "Hoy no vamos a darte una respuesta. Vamos a regalarte una pregunta.",
+      "Pero antes... Queremos pedirte algo.",
+      "No respondas pensando en quién te gustaría ser. Responde pensando en quién eres cuando nadie te está mirando.",
+      "¿Listo?"
+    ],
+    "pregunta_1": "¿Qué parte de tu vida seguiría exactamente igual si dentro de un año no cambiaras nada?",
+    "reflexion_1": [
+      "Léelo otra vez. No para corregirlo. Solo para observarlo.",
+      "Ahora queremos pedirte algo un poco diferente.",
+      "Subraya mentalmente la palabra que más peso tenga para ti. No la más bonita. La que más incomode.",
+      "¿Ya la tienes?"
+    ],
+    "transicion": [
+      "Esa palabra probablemente no apareció por casualidad.",
+      "Muchas veces creemos que nuestro problema es el estrés. O la ansiedad. O el miedo.",
+      "Pero debajo de todo eso suele haber una historia. Y esa historia casi siempre empieza mucho antes de que nos diéramos cuenta.",
+      "Por eso queremos hacerte una segunda pregunta. No para responderla rápido. Sino para escucharla de verdad."
+    ],
+    "pregunta_2": "¿Recuerdas cuándo fue la primera vez que empezaste a sentir eso?",
+    "cierre": [
+      "No vamos a hacerte más preguntas. Porque ya tienes suficiente para empezar.",
+      "La mayoría de las personas creen que el cambio ocurre cuando encuentran respuestas. Nosotros creemos que comienza cuando, por primera vez, se atreven a formular la pregunta correcta.",
+      "Guarda esta página. Vuelve a leerla dentro de seis meses.",
+      "Quizá descubras que las respuestas cambiaron.",
+      "O quizá descubras algo todavía más importante. Que quien cambió fuiste tú."
+    ],
+    "despedida": [
+      "🌸 Antes de irte...",
+      "Este mes aprendiste a detenerte. A escucharte. A hacerte preguntas que quizá llevabas mucho tiempo evitando.",
+      "Hay algo curioso sobre los seres humanos. Aunque cambiemos de trabajo... De pareja... De ciudad... Muchas veces terminamos sintiendo lo mismo.",
+      "A eso, en psicología, solemos llamarlo patrones. Patrones en la manera en que nos hablamos, en lo que esperamos, en los límites que ponemos.",
+      "La mayoría de las personas pasa años intentando cambiar sus resultados. Muy pocas se detienen a comprender los patrones que los producen.",
+      "Porque aquello que no comprendemos, suele repetirse. Y aquello que comprendemos... empieza a transformarse."
+    ],
+    "teaser_proximo": "🔒 La siguiente conversación...\n\nCuando sentir que nunca es suficiente se convierte en un patrón.\n\nLa autoexigencia y el perfeccionismo no siempre nacen del deseo de hacer las cosas bien. A veces nacen del miedo a equivocarnos. En el próximo recorrido exploraremos cómo reconocer este patrón..."
+  }
 }
