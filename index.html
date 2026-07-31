@@ -38,7 +38,8 @@
                         }
                     },
                     boxShadow: {
-                        'glass': '0 8px 32px 0 rgba(129, 99, 139, 0.05)',
+                        'glass': '0 8px 32px 0 rgba(129, 99, 139, 0.06)',
+                        'premium': '0 15px 40px -10px rgba(251, 191, 36, 0.15)',
                     }
                 }
             }
@@ -161,12 +162,12 @@
 
             const BackButton = ({ onClick, text = "Volver", onHome, homeText = "Ir al Inicio" }) => (
                 <div className="flex flex-wrap gap-4 mb-8">
-                    <button onClick={onClick} className="flex items-center gap-2 text-stone-500 hover:text-brand-purple transition-colors font-bold group w-fit bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white shadow-sm">
+                    <button onClick={onClick} className="flex items-center gap-2 text-stone-500 hover:text-brand-purple transition-colors font-bold group w-fit bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white shadow-sm hover:shadow-md">
                         <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform text-brand-purple" />
                         <span className="text-stone-600">{text}</span>
                     </button>
                     {onHome && (
-                        <button onClick={onHome} className="flex items-center gap-2 text-stone-500 hover:text-brand-purple transition-colors font-bold group w-fit bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white shadow-sm">
+                        <button onClick={onHome} className="flex items-center gap-2 text-stone-500 hover:text-brand-purple transition-colors font-bold group w-fit bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white shadow-sm hover:shadow-md">
                             <Heart size={18} className="group-hover:scale-110 transition-transform text-brand-purple" />
                             <span className="text-stone-600">{homeText}</span>
                         </button>
@@ -224,7 +225,9 @@
                             <div className="p-3 rounded-full text-white shadow-md" style={{ backgroundColor: data.color || colors.primary }}>
                                 {getIconComponent(data.icon)}
                             </div>
-                            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>{data.title}</h2>
+                            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>
+                                <span className="brush-highlight">{data.title}</span>
+                            </h2>
                         </div>
                         {data.intro && <p className="text-lg text-stone-600 mb-8 leading-relaxed whitespace-pre-line">{data.intro}</p>}
                         <div className="space-y-6">
@@ -301,7 +304,7 @@
                             <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
                             <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-16 rounded-[3rem] border border-white shadow-glass text-center">
                                 <Brain size={80} className="mx-auto text-brand-purple mb-8 animate-pulse" />
-                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-8">Conoce tu Perfil Emocional</h2>
+                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-8"><span className="brush-highlight">Conoce tu Perfil Emocional</span></h2>
                                 <p className="text-xl text-stone-600 mb-10 leading-relaxed max-w-2xl mx-auto whitespace-pre-line font-light">{perfil.intro}</p>
                                 <button onClick={iniciarTest} className="px-10 py-5 bg-brand-purple text-white rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all">
                                     🌸 Comenzar evaluación
@@ -363,7 +366,7 @@
                             <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
                             <div className="text-center mb-16">
                                 <CheckCircle size={64} className="mx-auto text-brand-green mb-6 animate-bounce" style={{animationDuration: '2s'}}/>
-                                <h2 className="text-5xl font-serif font-bold text-stone-800 mb-4">Tu Perfil Emocional</h2>
+                                <h2 className="text-5xl font-serif font-bold text-stone-800 mb-4"><span className="brush-highlight">Tu Perfil Emocional</span></h2>
                                 <p className="text-xl text-stone-600 font-light">Este es el análisis de tus 7 dimensiones y nuestras rutas sugeridas para ti.</p>
                             </div>
                             <div className="space-y-10">
@@ -421,7 +424,7 @@
                             <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
                             <div className="text-center mb-16">
                                 <Compass size={64} className="mx-auto text-brand-green mb-6" />
-                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-4">Mis Rutas de Bienestar</h2>
+                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-4"><span className="brush-highlight-green">Mis Rutas de Bienestar</span></h2>
                                 <p className="text-xl text-stone-600 font-light">Explora los programas guiados para acompañar tu proceso emocional.</p>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
@@ -429,7 +432,7 @@
                                     <button 
                                         key={idx} 
                                         onClick={() => {setActiveRuta(ruta); setActiveModulo(0);}} 
-                                        className="text-left bg-white/80 backdrop-blur-xl p-8 rounded-[2rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col group"
+                                        className="text-left bg-white/80 backdrop-blur-xl p-8 rounded-[2rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col group premium-card-border"
                                     >
                                         <div className="mb-4 text-brand-green group-hover:scale-110 transition-transform"><Leaf size={32} /></div>
                                         <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">{ruta.titulo}</h3>
@@ -633,7 +636,7 @@
                             
                             {step === 0 && (
                                 <div className="animate-fadeIn space-y-6">
-                                    <h2 className="text-4xl font-serif font-bold text-stone-800 mb-8">{reto.titulo}</h2>
+                                    <h2 className="text-4xl font-serif font-bold text-stone-800 mb-8"><span className="brush-highlight-yellow">{reto.titulo}</span></h2>
                                     {reto.intro.map((p, i) => <p key={i} className="text-xl text-stone-600 font-light leading-relaxed">{p}</p>)}
                                     <button onClick={() => setStep(1)} className="mt-8 px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Continuar</button>
                                 </div>
@@ -988,7 +991,7 @@
                                     if (parrafo.includes('⭐') || parrafo.includes('🔒')) {
                                         const textoLimpio = parrafo.replace('⭐', '').replace('🔒', '').trim();
                                         return (
-                                            <button key={idx} onClick={() => handlePremiumClick('reto')} className="w-full py-6 mt-12 rounded-2xl bg-gradient-to-r from-stone-800 to-stone-700 text-white font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all flex justify-center items-center gap-3 border border-stone-600 group">
+                                            <button key={idx} onClick={() => handlePremiumClick('reto')} className="w-full py-6 mt-12 rounded-2xl bg-gradient-to-r from-stone-800 to-stone-700 text-white font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all flex justify-center items-center gap-3 border border-stone-600 group premium-card-border">
                                                 <Lock size={24} className="text-stone-300 group-hover:text-white transition-colors" /> {textoLimpio}
                                             </button>
                                         );
@@ -1197,7 +1200,7 @@
                                         <div className="inline-flex items-center justify-center p-4 bg-gradient-to-r from-amber-200 to-yellow-300 rounded-full shadow-lg mb-6">
                                             <Star size={40} className="text-yellow-600" fill="currentColor" />
                                         </div>
-                                        <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-4">Tu Espacio Premium</h2>
+                                        <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-4"><span className="brush-highlight">Tu Espacio Premium</span></h2>
                                         <p className="text-xl text-stone-600 max-w-2xl mx-auto font-light leading-relaxed">
                                             Bienvenido a la zona reservada. Aquí encontrarás herramientas profundas de autoexploración y crecimiento guiado.
                                         </p>
@@ -1205,21 +1208,21 @@
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-5xl mx-auto">
                                         
-                                        <button onClick={() => setPremiumSubSection('perfil')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
+                                        <button onClick={() => setPremiumSubSection('perfil')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full premium-card-border">
                                             <div className="w-16 h-16 rounded-2xl bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Brain size={32} /></div>
                                             <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Conoce tu Perfil Emocional</h3>
                                             <p className="text-stone-500 font-light flex-grow leading-relaxed">Evalúa 7 dimensiones clave de tu bienestar y obtén una ruta personalizada.</p>
                                             <div className="mt-8 flex items-center text-brand-purple font-bold text-sm tracking-widest uppercase">Comenzar Test &rarr;</div>
                                         </button>
 
-                                        <button onClick={() => setPremiumSubSection('rutas')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
+                                        <button onClick={() => setPremiumSubSection('rutas')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full premium-card-border">
                                             <div className="w-16 h-16 rounded-2xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Compass size={32} /></div>
                                             <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Rutas de Bienestar</h3>
                                             <p className="text-stone-500 font-light flex-grow leading-relaxed">7 programas guiados por módulos. Desde regular tu sistema nervioso hasta fortalecer tu autoestima y propósito.</p>
                                             <div className="mt-8 flex items-center text-brand-green font-bold text-sm tracking-widest uppercase">Explorar Rutas &rarr;</div>
                                         </button>
 
-                                        <button onClick={() => setPremiumSubSection('maternidad')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
+                                        <button onClick={() => setPremiumSubSection('maternidad')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full premium-card-border">
                                             <div className="w-16 h-16 rounded-2xl bg-pink-100 text-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Sprout size={32} /></div>
                                             <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Maternidad con Ciencia</h3>
                                             <p className="text-stone-500 font-light flex-grow leading-relaxed">Entiende el cerebro de mamá, el cerebro infantil y descubre herramientas de crianza basadas en la evidencia.</p>
@@ -1239,9 +1242,9 @@
                         {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
                         
                         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-                            <div className="absolute top-[-15%] left-[-15%] w-[40rem] h-[40rem] bg-[#f2e6e9] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
-                            <div className="absolute top-[10%] right-[-15%] w-[35rem] h-[35rem] bg-[#e3dbe8] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
-                            <div className="absolute bottom-[-15%] left-[20%] w-[40rem] h-[40rem] bg-[#e1edf2] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
+                            <div className="absolute top-[-10%] left-[-10%] w-[45rem] h-[45rem] bg-[#fdf2f8] animate-organic-blob mix-blend-multiply filter blur-2xl opacity-70"></div>
+                            <div className="absolute top-[20%] right-[-10%] w-[35rem] h-[35rem] bg-[#f3e8ff] animate-organic-blob animation-delay-2000 mix-blend-multiply filter blur-2xl opacity-70"></div>
+                            <div className="absolute bottom-[-10%] left-[15%] w-[40rem] h-[40rem] bg-[#fff7ed] animate-organic-blob animation-delay-4000 mix-blend-multiply filter blur-2xl opacity-70"></div>
                         </div>
 
                         <header className="sticky top-0 z-50 border-b border-white/40 bg-white/60 backdrop-blur-xl shadow-sm">

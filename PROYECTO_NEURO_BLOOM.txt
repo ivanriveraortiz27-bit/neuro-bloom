@@ -2187,6 +2187,7 @@ ARCHIVO: index.html
 
                     return (
                         <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
                             <div className="w-full bg-white/50 rounded-full h-3 mb-8 shadow-inner overflow-hidden border border-white">
                                 <div className="bg-brand-purple h-3 rounded-full transition-all duration-500" style={{ width: `${progreso}%` }}></div>
                             </div>
@@ -2227,6 +2228,7 @@ ARCHIVO: index.html
                     const resultados = calcularResultadosFinales();
                     return (
                         <div className="animate-fadeIn max-w-5xl mx-auto py-12 relative z-10">
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
                             <div className="text-center mb-16">
                                 <CheckCircle size={64} className="mx-auto text-brand-green mb-6 animate-bounce" style={{animationDuration: '2s'}}/>
                                 <h2 className="text-5xl font-serif font-bold text-stone-800 mb-4">Tu Perfil Emocional</h2>
