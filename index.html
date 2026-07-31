@@ -767,6 +767,7 @@
                 
                 const [indTab, setIndTab] = useState('info'); 
                 const [balTab, setBalTab] = useState('info'); 
+                const [retoTab, setRetoTab] = useState('intro');
                 
                 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
                 const [user, setUser] = useState(null);
@@ -834,13 +835,14 @@
                     }
                 }, [activeSection, premiumSubSection, premiumData]);
 
-                useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection, subView, premiumSubSection]);
+                useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection, subView, premiumSubSection, retoTab]);
                 
                 useEffect(() => { 
                     setSubView(null); 
                     setPremiumSubSection(null);
                     setIndTab('info');
                     setBalTab('info');
+                    setRetoTab('intro');
                 }, [activeSection]); 
 
                 const handlePremiumClick = (target = null) => {
@@ -1029,27 +1031,47 @@
                                     )}
 
                                     {balTab === 'reto' && (
-                                        <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
-                                            <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                        <div className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-glass border border-white animate-fadeIn overflow-hidden">
+                                            <div className="p-8 lg:p-10 border-b border-stone-200/50 flex items-center gap-5">
                                                 <div className="p-4 rounded-full text-white shadow-md bg-yellow-400">
                                                     <Star size={32} fill="currentColor" />
                                                 </div>
                                                 <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">Reto del Mes</h2>
                                             </div>
-                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                                {renderContenidoTexto(appData.reto_del_mes.intro)}
-                                                
-                                                {appData.reto_del_mes.semanas.map((sem, idx) => (
-                                                    <div key={idx} className="my-8 p-8 bg-stone-50/80 rounded-3xl border border-stone-200 shadow-sm">
-                                                        <div className="space-y-6">
-                                                            {renderContenidoTexto(sem.contenido)}
-                                                        </div>
-                                                    </div>
-                                                ))}
 
-                                                <div className="mt-12 pt-12 border-t border-stone-200">
-                                                    {renderContenidoTexto(appData.reto_del_mes.cierre)}
-                                                </div>
+                                            <div className="flex overflow-x-auto border-b border-stone-100 bg-stone-50/50 no-scrollbar">
+                                                {[
+                                                    { id: 'intro', label: 'Introducción' },
+                                                    { id: 'sem1', label: 'Semana 1' },
+                                                    { id: 'sem2', label: 'Semana 2' },
+                                                    { id: 'sem3', label: 'Semana 3' },
+                                                    { id: 'sem4', label: 'Semana 4' },
+                                                    { id: 'cierre', label: 'Cierre' }
+                                                ].map(tab => (
+                                                    <button 
+                                                        key={tab.id}
+                                                        onClick={() => setRetoTab(tab.id)}
+                                                        className={`px-6 py-4 font-bold whitespace-nowrap transition-colors ${retoTab === tab.id ? 'text-brand-purple border-b-4 border-brand-purple bg-white' : 'text-stone-400 hover:text-stone-600'}`}
+                                                    >
+                                                        {tab.label}
+                                                    </button>
+                                                ))}
+                                            </div>
+
+                                            <div className="p-8 lg:p-14 space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {retoTab === 'intro' && renderContenidoTexto(appData.reto_del_mes.intro)}
+                                                
+                                                {['sem1', 'sem2', 'sem3', 'sem4'].includes(retoTab) && (
+                                                    <div className="animate-fadeIn space-y-6">
+                                                        {renderContenidoTexto(appData.reto_del_mes.semanas[parseInt(retoTab.replace('sem', '')) - 1].contenido)}
+                                                    </div>
+                                                )}
+
+                                                {retoTab === 'cierre' && (
+                                                    <div className="animate-fadeIn space-y-6">
+                                                        {renderContenidoTexto(appData.reto_del_mes.cierre)}
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     )}
