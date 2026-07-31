@@ -743,5 +743,85 @@
       "Porque aquello que no comprendemos, suele repetirse. Y aquello que comprendemos... empieza a transformarse."
     ],
     "teaser_proximo": "🔒 La siguiente conversación...\n\nCuando sentir que nunca es suficiente se convierte en un patrón.\n\nLa autoexigencia y el perfeccionismo no siempre nacen del deseo de hacer las cosas bien. A veces nacen del miedo a equivocarnos. En el próximo recorrido exploraremos cómo reconocer este patrón..."
+  },
+  "maternidad": {
+    "titulo": "Maternidad con Ciencia",
+    "descripcion": "Entiende el cerebro de mamá, el cerebro infantil y descubre herramientas de crianza basadas en la evidencia.",
+    "modulos": [
+      {
+        "titulo": "Módulo 1. [Pega aquí el Título del Módulo 1 desde tu archivo Word]",
+        "psicoeducacion": {
+          "titulo": "[Pega aquí el título de Psicoeducación]",
+          "parrafos": [
+            "Pega aquí el primer párrafo de tu Word 'Premium edición Roy'.",
+            "Pega aquí el segundo párrafo...",
+            "Pega aquí el tercer párrafo..."
+          ]
+        },
+        "te_ha_pasado": [
+          "Pega aquí la pregunta 1 de ¿Te ha pasado que...? de tu Word",
+          "Pega aquí la pregunta 2...",
+          "Pega aquí la pregunta 3..."
+        ],
+        "ejercicio": {
+          "titulo": "[Pega aquí el Título del Ejercicio]",
+          "instrucciones": "[Pega aquí las instrucciones generales del ejercicio]",
+          "pasos": [
+            "Paso 1 desde tu Word...",
+            "Paso 2 desde tu Word...",
+            "Paso 3 desde tu Word..."
+          ]
+        },
+        "audio": {
+          "titulo": "[Pega aquí el título del audio si lo hay]",
+          "duracion": "Audio Guiado"
+        },
+        "hoja_trabajo": {
+          "titulo": "[Pega aquí el Título de la Hoja de Trabajo]",
+          "contenido": [
+            "Punto 1 de la hoja de trabajo...",
+            "Punto 2 de la hoja de trabajo..."
+          ]
+        },
+        "reto": {
+          "titulo": "[Pega aquí el Título del Reto o Práctica]",
+          "contenido": [
+            "Párrafo 1 del reto...",
+            "Párrafo 2 del reto..."
+          ]
+        },
+        "cierre": [
+          "Párrafo de cierre 1 de tu Word...",
+          "Párrafo de cierre 2 de tu Word..."
+        ]
+      },
+      {
+        "titulo": "Módulo 2. [Título del Módulo 2]",
+        "psicoeducacion": {
+          "titulo": "[Título de Psicoeducación]",
+          "parrafos": [
+            "El contenido de este módulo se cargará al pegar los datos de tu Word."
+          ]
+        }
+      },
+      {
+        "titulo": "Módulo 3. [Título del Módulo 3]",
+        "psicoeducacion": {
+          "titulo": "[Título de Psicoeducación]",
+          "parrafos": [
+            "El contenido de este módulo se cargará al pegar los datos de tu Word."
+          ]
+        }
+      },
+      {
+        "titulo": "Módulo 4. [Título del Módulo 4]",
+        "psicoeducacion": {
+          "titulo": "[Título de Psicoeducación]",
+          "parrafos": [
+            "El contenido de este módulo se cargará al pegar los datos de tu Word."
+          ]
+        }
+      }
+    ]
   }
 }
