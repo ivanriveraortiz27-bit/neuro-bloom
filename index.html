@@ -53,21 +53,6 @@
         </div>
     </div>
 
-    <script>
-        window.onerror = function(message, source, lineno, colno, error) {
-            const root = document.getElementById('root');
-            root.innerHTML = `
-                <div class="error-container">
-                    <h3 class="error-title">⚠️ Ocurrió un error al cargar</h3>
-                    <p><strong>Mensaje:</strong> ${message}</p>
-                    <p><strong>Línea:</strong> ${lineno}</p>
-                    <p>Por favor, verifica que tienes conexión a internet.</p>
-                </div>
-            `;
-            console.error(error);
-        };
-    </script>
-
     <script type="text/babel">
         try {
             // Inicialización de Firebase
@@ -120,38 +105,40 @@
             const Star = (props) => <IconWrapper name="star" {...props} />;
             const UserCircle = (props) => <IconWrapper name="user-circle" {...props} />;
             const Loader = (props) => <IconWrapper name="loader" {...props} className="animate-spin" />;
+            const Compass = (props) => <IconWrapper name="compass" {...props} />;
+            const Lock = (props) => <IconWrapper name="lock" {...props} />;
+            const CheckCircle = (props) => <IconWrapper name="check-circle" {...props} />;
+            
+            // Nuevos iconos para las rutas
+            const MessageCircle = (props) => <IconWrapper name="message-circle" {...props} />;
+            const PenTool = (props) => <IconWrapper name="pen-tool" {...props} />;
+            const Headphones = (props) => <IconWrapper name="headphones" {...props} />;
+            const FileText = (props) => <IconWrapper name="file-text" {...props} />;
+            const Leaf = (props) => <IconWrapper name="leaf" {...props} />;
 
             const getIconComponent = (name, props = {}) => {
                 switch(name) {
                     case 'activity': return <Activity {...props} />;
                     case 'heart': return <Heart {...props} />;
-                    case 'heart-handshake': return <HeartHandshake {...props} />;
                     case 'sun': return <Sun {...props} />;
-                    case 'shield': return <Shield {...props} />;
                     case 'brain': return <Brain {...props} />;
                     case 'book-heart': return <BookHeart {...props} />;
-                    case 'play-circle': return <PlayCircle {...props} />;
-                    case 'library': return <Library {...props} />;
                     case 'sprout': return <Sprout {...props} />;
                     case 'star': return <Star {...props} />;
+                    case 'compass': return <Compass {...props} />;
                     default: return <Activity {...props} />;
                 }
             };
 
             const Thumbnail = ({ src, alt, fallback, className }) => {
                 const [error, setError] = useState(false);
-                if (error || !src) {
-                    return fallback;
-                }
+                if (error || !src) return fallback;
                 return <img src={src} alt={alt} onError={() => setError(true)} className={className} />;
             };
 
             const colors = {
-                primary: '#81638b',
-                secondary: '#b695c0',
-                actionBlue: '#2196f3',
-                brainGreen: '#9BC496',
-                white: '#FFFFFF',
+                primary: '#81638b', secondary: '#b695c0', actionBlue: '#2196f3',
+                brainGreen: '#9BC496', white: '#FFFFFF',
             };
 
             const logoUrl = "https://i.ibb.co/WWs5xcSX/Neuro-Bloom-Logo-nbg.png";
@@ -163,14 +150,7 @@
             );
 
             const NavButton = ({ active, onClick, children, icon }) => (
-                <button
-                    onClick={onClick}
-                    className={`flex items-center gap-2 px-5 py-2 rounded-full transition-all duration-300 text-[15px] font-bold tracking-wide border ${
-                        active 
-                        ? 'bg-brand-purple/90 text-white border-brand-purple shadow-md transform scale-105' 
-                        : 'bg-white/40 text-brand-purple border-white/60 hover:bg-white/70 hover:shadow-sm'
-                    }`}
-                >
+                <button onClick={onClick} className={`flex items-center gap-2 px-5 py-2 rounded-full transition-all duration-300 text-[15px] font-bold tracking-wide border ${active ? 'bg-brand-purple/90 text-white border-brand-purple shadow-md transform scale-105' : 'bg-white/40 text-brand-purple border-white/60 hover:bg-white/70 hover:shadow-sm'}`}>
                     {React.cloneElement(icon, { size: 18, color: active ? colors.white : colors.primary })}
                     <span className="hidden lg:inline">{children}</span>
                 </button>
@@ -183,7 +163,7 @@
                 </button>
             );
 
-            // --- Componente de Cuestionario ---
+            // --- Cuestionarios Generales (Info) ---
             const CuestionarioView = ({ data, onBack }) => {
                 const [respuestas, setRespuestas] = useState({});
                 const [resultado, setResultado] = useState(null);
@@ -212,7 +192,6 @@
                             }
                         }
                     }
-
                     if (!textoResultado) textoResultado = "Te sugerimos buscar orientación profesional para analizar tus resultados a detalle.";
 
                     return (
@@ -231,35 +210,20 @@
                 return (
                     <div className="animate-fadeIn bg-white/70 backdrop-blur-xl p-8 lg:p-12 rounded-[2rem] shadow-glass border border-white/60 max-w-4xl mx-auto relative z-10">
                         <BackButton onClick={onBack} text="Volver a Cuestionarios" />
-                        
                         <div className="flex items-center gap-4 mb-6">
                             <div className="p-3 rounded-full text-white shadow-md" style={{ backgroundColor: data.color || colors.primary }}>
                                 {getIconComponent(data.icon)}
                             </div>
                             <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>{data.title}</h2>
                         </div>
-                        
                         {data.intro && <p className="text-lg text-stone-600 mb-8 leading-relaxed whitespace-pre-line">{data.intro}</p>}
-
                         <div className="space-y-6">
                             {data.preguntas.map((pregunta, idx) => (
                                 <div key={idx} className="bg-white/80 p-6 rounded-2xl border border-white shadow-sm hover:shadow-md transition-shadow">
                                     <p className="font-semibold text-stone-800 mb-4 text-lg">{idx + 1}. {pregunta}</p>
                                     <div className="flex flex-wrap gap-3">
                                         {data.opciones.map((opc, oIdx) => (
-                                            <button 
-                                                key={oIdx}
-                                                onClick={() => setRespuestas({...respuestas, [idx]: opc.v})}
-                                                className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all border ${
-                                                    respuestas[idx] === opc.v 
-                                                    ? 'bg-white shadow-md scale-105' 
-                                                    : 'bg-stone-50/50 border-stone-200 hover:border-stone-300 text-stone-500 hover:bg-white'
-                                                }`}
-                                                style={{ 
-                                                    borderColor: respuestas[idx] === opc.v ? (data.color || colors.primary) : '',
-                                                    color: respuestas[idx] === opc.v ? (data.color || colors.primary) : '' 
-                                                }}
-                                            >
+                                            <button key={oIdx} onClick={() => setRespuestas({...respuestas, [idx]: opc.v})} className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all border ${respuestas[idx] === opc.v ? 'bg-white shadow-md scale-105' : 'bg-stone-50/50 border-stone-200 hover:border-stone-300 text-stone-500 hover:bg-white'}`} style={{ borderColor: respuestas[idx] === opc.v ? (data.color || colors.primary) : '', color: respuestas[idx] === opc.v ? (data.color || colors.primary) : '' }}>
                                                 {opc.l}
                                             </button>
                                         ))}
@@ -267,21 +231,14 @@
                                 </div>
                             ))}
                         </div>
-
                         <div className="mt-12 text-center">
-                            <button 
-                                onClick={calcularPuntaje}
-                                disabled={Object.keys(respuestas).length < data.preguntas.length}
-                                className="px-10 py-4 rounded-full text-white font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:-translate-y-1"
-                                style={{ backgroundColor: colors.primary }}
-                            >
+                            <button onClick={calcularPuntaje} disabled={Object.keys(respuestas).length < data.preguntas.length} className="px-10 py-4 rounded-full text-white font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:-translate-y-1" style={{ backgroundColor: colors.primary }}>
                                 Ver Resultado
                             </button>
                             {Object.keys(respuestas).length < data.preguntas.length && (
                                 <p className="text-stone-400 text-sm mt-3">Responde todas las preguntas para ver tu resultado.</p>
                             )}
                         </div>
-
                         {resultado !== null && (
                             <div className="mt-12 p-8 lg:p-10 rounded-3xl bg-indigo-50/80 backdrop-blur-sm border border-indigo-100 animate-slideIn text-center shadow-inner">
                                 <h3 className="text-3xl font-serif font-bold mb-6" style={{ color: colors.primary }}>Tu puntuación total: {resultado}</h3>
@@ -299,7 +256,313 @@
                 );
             };
 
-            // --- Componente Modal de Autenticación Mejorado ---
+            // --- Componente: Perfil Emocional Premium ---
+            const PerfilEmocional = ({ premiumData, onBack }) => {
+                const perfil = premiumData.perfil_emocional;
+                const [dimActual, setDimActual] = useState(-1);
+                const [respuestas, setRespuestas] = useState({});
+
+                const iniciarTest = () => { setDimActual(0); setRespuestas({}); };
+                const handleRespuesta = (dimId, qIdx, valor) => {
+                    setRespuestas(prev => ({ ...prev, [dimId]: { ...prev[dimId], [qIdx]: valor } }));
+                };
+                const avanzarDimension = () => {
+                    setDimActual(prev => prev + 1);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+
+                const calcularResultadosFinales = () => {
+                    let resultados = [];
+                    perfil.dimensiones.forEach(dim => {
+                        let puntaje = 0;
+                        dim.preguntas.forEach((q, idx) => {
+                            let valor = respuestas[dim.id]?.[idx] || 0;
+                            if (q.invertida) valor = 4 - valor;
+                            puntaje += valor;
+                        });
+                        const nivelObj = dim.resultados.find(r => puntaje >= r.rango[0] && puntaje <= r.rango[1]);
+                        resultados.push({ titulo: dim.titulo, descripcion: dim.descripcion, puntaje, ...nivelObj });
+                    });
+                    return resultados;
+                };
+
+                if (dimActual === -1) {
+                    return (
+                        <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
+                            <BackButton onClick={onBack} text="Volver a Premium" />
+                            <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-16 rounded-[3rem] border border-white shadow-glass text-center">
+                                <Brain size={80} className="mx-auto text-brand-purple mb-8 animate-pulse" />
+                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-8">Conoce tu Perfil Emocional</h2>
+                                <p className="text-xl text-stone-600 mb-10 leading-relaxed max-w-2xl mx-auto whitespace-pre-line font-light">{perfil.intro}</p>
+                                <button onClick={iniciarTest} className="px-10 py-5 bg-brand-purple text-white rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all">
+                                    🌸 Comenzar evaluación
+                                </button>
+                            </div>
+                        </div>
+                    );
+                }
+
+                if (dimActual >= 0 && dimActual < perfil.dimensiones.length) {
+                    const dim = perfil.dimensiones[dimActual];
+                    const numPreguntas = dim.preguntas.length;
+                    const respondidas = Object.keys(respuestas[dim.id] || {}).length;
+                    const progreso = ((dimActual) / perfil.dimensiones.length) * 100;
+
+                    return (
+                        <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                            <div className="w-full bg-white/50 rounded-full h-3 mb-8 shadow-inner overflow-hidden border border-white">
+                                <div className="bg-brand-purple h-3 rounded-full transition-all duration-500" style={{ width: `${progreso}%` }}></div>
+                            </div>
+                            <div className="bg-white/90 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] border border-white shadow-glass">
+                                <div className="mb-10 text-center border-b border-stone-100 pb-8">
+                                    <h2 className="text-3xl lg:text-4xl font-serif font-bold text-brand-purple mb-4">{dim.titulo}</h2>
+                                    <p className="text-lg text-stone-500 font-light max-w-2xl mx-auto">{dim.descripcion}</p>
+                                </div>
+                                <div className="space-y-8">
+                                    {dim.preguntas.map((q, idx) => (
+                                        <div key={idx} className="bg-stone-50/50 p-6 lg:p-8 rounded-3xl border border-white hover:shadow-md transition-shadow">
+                                            <p className="font-bold text-stone-800 mb-6 text-lg lg:text-xl">{q.texto}</p>
+                                            <div className="flex flex-wrap gap-3 lg:gap-4">
+                                                {perfil.escala.map((opc, oIdx) => {
+                                                    const isSelected = respuestas[dim.id]?.[idx] === opc.v;
+                                                    return (
+                                                        <button key={oIdx} onClick={() => handleRespuesta(dim.id, idx, opc.v)} className={`flex-grow sm:flex-grow-0 px-6 py-3 rounded-2xl text-sm font-bold transition-all border ${isSelected ? 'bg-brand-purple text-white shadow-lg border-brand-purple scale-105' : 'bg-white border-stone-200 text-stone-500 hover:border-brand-purple hover:text-brand-purple'}`}>
+                                                            {opc.l}
+                                                        </button>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="mt-12 pt-8 border-t border-stone-100 flex items-center justify-between">
+                                    <p className="text-stone-400 font-bold">{respondidas} de {numPreguntas} respondidas</p>
+                                    <button onClick={avanzarDimension} disabled={respondidas < numPreguntas} className="px-8 py-4 bg-brand-purple text-white rounded-full font-bold text-lg shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-1 transition-transform flex items-center gap-2">
+                                        {dimActual === perfil.dimensiones.length - 1 ? 'Ver Resultados' : 'Siguiente Dimensión'} &rarr;
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }
+
+                if (dimActual === perfil.dimensiones.length) {
+                    const resultados = calcularResultadosFinales();
+                    return (
+                        <div className="animate-fadeIn max-w-5xl mx-auto py-12 relative z-10">
+                            <div className="text-center mb-16">
+                                <CheckCircle size={64} className="mx-auto text-brand-green mb-6 animate-bounce" style={{animationDuration: '2s'}}/>
+                                <h2 className="text-5xl font-serif font-bold text-stone-800 mb-4">Tu Perfil Emocional</h2>
+                                <p className="text-xl text-stone-600 font-light">Este es el análisis de tus 7 dimensiones y nuestras rutas sugeridas para ti.</p>
+                            </div>
+                            <div className="space-y-10">
+                                {resultados.map((res, idx) => (
+                                    <div key={idx} className="bg-white/90 backdrop-blur-xl rounded-[2.5rem] border border-white shadow-glass overflow-hidden">
+                                        <div className={`p-8 border-b border-white flex flex-col sm:flex-row sm:items-center justify-between gap-6 ${res.bg}`}>
+                                            <div>
+                                                <h3 className="text-2xl font-serif font-bold text-stone-800">{res.titulo}</h3>
+                                                <p className="text-stone-600 font-light mt-1">{res.descripcion}</p>
+                                            </div>
+                                            <div className="bg-white px-6 py-3 rounded-2xl shadow-sm border border-white text-center min-w-[120px]">
+                                                <p className={`text-xl font-black ${res.color}`}>{res.nivel}</p>
+                                            </div>
+                                        </div>
+                                        <div className="p-8 lg:p-10">
+                                            <div className="mb-8">
+                                                <h4 className="font-bold text-brand-purple uppercase tracking-wider mb-3 text-sm">¿Qué significa tu resultado?</h4>
+                                                <p className="text-stone-700 leading-relaxed">{res.desc}</p>
+                                            </div>
+                                            <div className="mb-8">
+                                                <h4 className="font-bold text-stone-800 uppercase tracking-wider mb-3 text-sm">Esto podría reflejarse en tu día a día:</h4>
+                                                <p className="text-stone-600 italic border-l-4 border-stone-200 pl-4 py-1">{res.reflejo}</p>
+                                            </div>
+                                            <div className="bg-stone-50/80 p-6 rounded-2xl border border-stone-100">
+                                                <h4 className="font-bold text-brand-green uppercase tracking-wider mb-4 text-sm flex items-center gap-2">
+                                                    <Sprout size={16} /> Rutas Sugeridas
+                                                </h4>
+                                                <ul className="space-y-3">
+                                                    <li className="flex items-start gap-3"><span className="text-brand-purple font-black">•</span><span><strong className="text-stone-700">Ruta principal:</strong> <span className="text-stone-600">{res.ruta_prin}</span></span></li>
+                                                    <li className="flex items-start gap-3"><span className="text-brand-lilac font-black">•</span><span><strong className="text-stone-700">Ruta complementaria:</strong> <span className="text-stone-600">{res.ruta_comp}</span></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="mt-16 text-center">
+                                <button onClick={onBack} className="px-10 py-5 bg-stone-800 text-white rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all">
+                                    Ir a Mis Rutas
+                                </button>
+                            </div>
+                        </div>
+                    );
+                }
+                return null;
+            };
+
+            // --- Componente Exclusivo: Rutas de Bienestar Premium ---
+            const RutasBienestar = ({ premiumData, onBack }) => {
+                const [activeRuta, setActiveRuta] = useState(null);
+                const [activeModulo, setActiveModulo] = useState(0);
+
+                if (!activeRuta) {
+                    return (
+                        <div className="animate-fadeIn max-w-6xl mx-auto py-12 relative z-10">
+                            <BackButton onClick={onBack} text="Volver a Premium" />
+                            <div className="text-center mb-16">
+                                <Compass size={64} className="mx-auto text-brand-green mb-6" />
+                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-4">Mis Rutas de Bienestar</h2>
+                                <p className="text-xl text-stone-600 font-light">Explora los programas guiados para acompañar tu proceso emocional.</p>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+                                {premiumData.rutas.map((ruta, idx) => (
+                                    <button 
+                                        key={idx} 
+                                        onClick={() => {setActiveRuta(ruta); setActiveModulo(0);}} 
+                                        className="text-left bg-white/80 backdrop-blur-xl p-8 rounded-[2rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col group"
+                                    >
+                                        <div className="mb-4 text-brand-green group-hover:scale-110 transition-transform"><Leaf size={32} /></div>
+                                        <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">{ruta.titulo}</h3>
+                                        <p className="text-stone-500 font-light line-clamp-3 leading-relaxed">{ruta.descripcion}</p>
+                                        <div className="mt-6 text-brand-green font-bold text-sm uppercase tracking-widest">Ingresar &rarr;</div>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    );
+                }
+
+                const modulo = activeRuta.modulos[activeModulo];
+
+                return (
+                    <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                        <BackButton onClick={() => setActiveRuta(null)} text="Volver a Rutas" />
+                        <div className="bg-white/90 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass overflow-hidden">
+                            {/* Cabecera Ruta */}
+                            <div className="p-8 lg:p-10 border-b border-stone-100 bg-gradient-to-r from-stone-50 to-white">
+                                <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800 mb-2">{activeRuta.titulo}</h2>
+                            </div>
+                            
+                            {/* Menú de Módulos (Tabs) */}
+                            <div className="flex overflow-x-auto border-b border-stone-100 bg-white/50 no-scrollbar">
+                                {activeRuta.modulos.map((m, idx) => (
+                                    <button 
+                                        key={idx} 
+                                        onClick={() => setActiveModulo(idx)} 
+                                        className={`px-8 py-5 font-bold whitespace-nowrap transition-colors ${activeModulo === idx ? 'text-brand-purple border-b-4 border-brand-purple bg-stone-50/50' : 'text-stone-400 hover:text-stone-600'}`}
+                                    >
+                                        Módulo {idx + 1}
+                                    </button>
+                                ))}
+                            </div>
+                            
+                            {/* Contenido del Módulo */}
+                            <div className="p-8 lg:p-14 space-y-12">
+                                <h3 className="text-3xl font-serif font-bold text-stone-800 mb-8">{modulo.titulo}</h3>
+                                
+                                {/* 1. Psicoeducacion */}
+                                {modulo.psicoeducacion && (
+                                    <div className="space-y-6">
+                                        <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">
+                                            <Brain size={20} /> Psicoeducación
+                                        </div>
+                                        <h4 className="text-2xl font-serif font-bold text-stone-800">{modulo.psicoeducacion.titulo}</h4>
+                                        <div className="space-y-4 text-stone-600 font-light leading-relaxed text-lg text-justify">
+                                            {modulo.psicoeducacion.parrafos.map((p, i) => <p key={i}>{p}</p>)}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* 2. Te ha pasado que... */}
+                                {modulo.te_ha_pasado && modulo.te_ha_pasado.length > 0 && (
+                                    <div className="bg-brand-purple/5 p-8 rounded-3xl border border-brand-purple/10">
+                                        <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm mb-6">
+                                            <MessageCircle size={20} /> ¿Te ha pasado que...?
+                                        </div>
+                                        <ul className="space-y-4">
+                                            {modulo.te_ha_pasado.map((item, i) => (
+                                                <li key={i} className="flex gap-3 text-stone-700 font-light text-lg">
+                                                    <span className="text-brand-purple mt-1">•</span> {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                {/* 3. Ejercicio */}
+                                {modulo.ejercicio && (
+                                    <div className="bg-stone-50 p-8 rounded-3xl border border-stone-100">
+                                        <div className="flex items-center gap-3 text-stone-500 font-bold uppercase tracking-widest text-sm mb-6">
+                                            <PenTool size={20} /> Ejercicio NeuroBloom
+                                        </div>
+                                        <h4 className="text-2xl font-serif font-bold text-stone-800 mb-4">{modulo.ejercicio.titulo}</h4>
+                                        <p className="text-stone-600 font-light mb-6 text-lg">{modulo.ejercicio.instrucciones}</p>
+                                        <div className="space-y-4">
+                                            {modulo.ejercicio.pasos.map((paso, i) => (
+                                                <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 text-stone-700 font-light">{paso}</div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* 4. Audio */}
+                                {modulo.audio && (
+                                    <div className="bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-8 rounded-3xl border border-brand-purple/20 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+                                        <div className="w-full text-center sm:text-left">
+                                            <div className="flex items-center justify-center sm:justify-start gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm mb-2">
+                                                <Headphones size={20} /> {modulo.audio.duracion}
+                                            </div>
+                                            <h4 className="text-xl font-serif font-bold text-stone-800">{modulo.audio.titulo}</h4>
+                                        </div>
+                                        <button className="w-16 h-16 rounded-full bg-brand-purple text-white flex items-center justify-center shadow-lg hover:scale-105 transition-transform flex-shrink-0">
+                                            <PlayCircle size={32} />
+                                        </button>
+                                    </div>
+                                )}
+
+                                {/* 5. Hoja de Trabajo */}
+                                {modulo.hoja_trabajo && (
+                                    <div className="space-y-6">
+                                        <div className="flex items-center gap-3 text-actionBlue font-bold uppercase tracking-widest text-sm">
+                                            <FileText size={20} /> Hoja de Trabajo
+                                        </div>
+                                        <h4 className="text-2xl font-serif font-bold text-stone-800">{modulo.hoja_trabajo.titulo}</h4>
+                                        <div className="bg-white border-2 border-dashed border-stone-200 p-8 rounded-3xl space-y-4 text-stone-600 font-light text-lg">
+                                            {modulo.hoja_trabajo.contenido.map((c, i) => <p key={i}>{c}</p>)}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* 6. Reto de la semana */}
+                                {modulo.reto && (
+                                    <div className="bg-brand-green/10 p-8 rounded-3xl border border-brand-green/20">
+                                        <div className="flex items-center gap-3 text-brand-green font-bold uppercase tracking-widest text-sm mb-6">
+                                            <Leaf size={20} /> Práctica de la Semana
+                                        </div>
+                                        <h4 className="text-2xl font-serif font-bold text-stone-800 mb-4">{modulo.reto.titulo}</h4>
+                                        <div className="space-y-4 text-stone-700 font-light text-lg">
+                                            {modulo.reto.contenido.map((c, i) => <p key={i}>{c}</p>)}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* 7. Cierre */}
+                                {modulo.cierre && modulo.cierre.length > 0 && (
+                                    <div className="border-t border-stone-100 pt-12 space-y-6 text-center">
+                                        <HeartHandshake size={48} className="mx-auto text-brand-lilac mb-6" />
+                                        <div className="space-y-4 text-stone-600 font-light text-lg max-w-2xl mx-auto">
+                                            {modulo.cierre.map((c, i) => <p key={i}>{c}</p>)}
+                                        </div>
+                                    </div>
+                                )}
+
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            // --- Componente Modal de Autenticación ---
             const AuthModal = ({ onClose }) => {
                 const [isLogin, setIsLogin] = useState(true);
                 const [email, setEmail] = useState('');
@@ -311,15 +574,11 @@
                     e.preventDefault();
                     setLoading(true);
                     setError('');
-                    
                     try {
                         if (isLogin) {
                             const userCredential = await auth.signInWithEmailAndPassword(email, password);
-                            
-                            // LÓGICA DE REPARACIÓN AUTOMÁTICA
                             const docRef = db.collection('users').doc(userCredential.user.uid);
                             const docSnap = await docRef.get();
-                            
                             if (!docSnap.exists) {
                                 await docRef.set({
                                     email: userCredential.user.email,
@@ -327,28 +586,20 @@
                                     createdAt: firebase.firestore.FieldValue.serverTimestamp()
                                 });
                             }
-
                         } else {
                             const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-                            // Crear documento en Firestore por defecto sin premium
                             await db.collection('users').doc(userCredential.user.uid).set({
                                 email: userCredential.user.email,
                                 isPremium: false,
                                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
                             });
                         }
-                        onClose(); // Cerrar modal al tener éxito
+                        onClose();
                     } catch (err) {
-                        // Traducir algunos errores comunes
                         let msg = err.message;
-                        if (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
-                            msg = 'Correo o contraseña incorrectos.';
-                        } else if (err.code === 'auth/email-already-in-use') {
-                            // Mensaje mejorado para indicar el problema de la pestaña Authentication
-                            msg = 'Este correo ya está registrado. (Si estás haciendo pruebas, recuerda borrarlo también de la pestaña "Authentication" en tu consola de Firebase).';
-                        } else if (err.code === 'auth/weak-password') {
-                            msg = 'La contraseña debe tener al menos 6 caracteres.';
-                        }
+                        if (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') msg = 'Correo o contraseña incorrectos.';
+                        else if (err.code === 'auth/email-already-in-use') msg = 'Este correo ya está registrado.';
+                        else if (err.code === 'auth/weak-password') msg = 'La contraseña debe tener al menos 6 caracteres.';
                         setError(msg);
                     }
                     setLoading(false);
@@ -357,75 +608,27 @@
                 return (
                     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-stone-900/40 backdrop-blur-sm animate-fadeIn">
                         <div className="bg-white/95 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-white max-w-md w-full relative">
-                            {/* Botón superior (X) más visible */}
-                            <button 
-                                onClick={onClose} 
-                                className="absolute top-4 right-4 p-2 bg-stone-100/80 rounded-full text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"
-                                title="Cerrar ventana"
-                            >
-                                <X size={20} />
-                            </button>
-                            
+                            <button onClick={onClose} className="absolute top-4 right-4 p-2 bg-stone-100/80 rounded-full text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"><X size={20} /></button>
                             <div className="text-center mb-8 mt-2">
-                                <h3 className="text-3xl font-serif font-bold text-brand-purple mb-2">
-                                    {isLogin ? 'Iniciar Sesión' : 'Crear Cuenta'}
-                                </h3>
-                                <p className="text-stone-500 font-light text-sm">
-                                    {isLogin ? 'Ingresa a tu espacio en Neuro Bloom' : 'Comienza tu proceso con nosotros'}
-                                </p>
+                                <h3 className="text-3xl font-serif font-bold text-brand-purple mb-2">{isLogin ? 'Iniciar Sesión' : 'Crear Cuenta'}</h3>
+                                <p className="text-stone-500 font-light text-sm">{isLogin ? 'Ingresa a tu espacio en Neuro Bloom' : 'Comienza tu proceso con nosotros'}</p>
                             </div>
-
                             <form onSubmit={handleSubmit} className="space-y-5">
                                 <div>
                                     <label className="block text-sm font-bold text-stone-700 mb-1">Correo Electrónico</label>
-                                    <input 
-                                        type="email" 
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50"
-                                        required 
-                                    />
+                                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50" required />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-bold text-stone-700 mb-1">Contraseña</label>
-                                    <input 
-                                        type="password" 
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50"
-                                        required 
-                                    />
+                                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50" required />
                                 </div>
-
                                 {error && <p className="text-red-500 text-sm font-bold text-center bg-red-50 p-2 rounded-lg">{error}</p>}
-
-                                <button 
-                                    type="submit" 
-                                    disabled={loading}
-                                    className="w-full py-4 mt-2 bg-brand-purple text-white rounded-xl font-bold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-                                >
+                                <button type="submit" disabled={loading} className="w-full py-4 mt-2 bg-brand-purple text-white rounded-xl font-bold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
                                     {loading ? <Loader size={20} /> : (isLogin ? 'Ingresar' : 'Registrarme')}
                                 </button>
                             </form>
-
-                            {/* Área inferior con enlace de cambio y botón explícito de Cerrar */}
                             <div className="mt-6 text-center border-t border-stone-100 pt-6 flex flex-col gap-4">
-                                <p className="text-stone-500 text-sm">
-                                    {isLogin ? '¿Aún no tienes cuenta?' : '¿Ya tienes cuenta?'}
-                                    <button 
-                                        onClick={() => {setIsLogin(!isLogin); setError('');}} 
-                                        className="ml-2 text-brand-purple font-bold hover:underline"
-                                    >
-                                        {isLogin ? 'Regístrate aquí' : 'Inicia Sesión'}
-                                    </button>
-                                </p>
-                                
-                                <button 
-                                    onClick={onClose} 
-                                    className="text-stone-400 hover:text-stone-600 text-sm font-bold transition-colors w-fit mx-auto"
-                                >
-                                    Cerrar ventana
-                                </button>
+                                <p className="text-stone-500 text-sm">{isLogin ? '¿Aún no tienes cuenta?' : '¿Ya tienes cuenta?'} <button onClick={() => {setIsLogin(!isLogin); setError('');}} className="ml-2 text-brand-purple font-bold hover:underline">{isLogin ? 'Regístrate aquí' : 'Inicia Sesión'}</button></p>
                             </div>
                         </div>
                     </div>
@@ -435,156 +638,87 @@
             // --- Componente Principal ---
             function NeuroBloom() {
                 const [activeSection, setActiveSection] = useState('home');
-                const [subView, setSubView] = useState(null);
-                const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+                const [subView, setSubView] = useState(null); 
+                const [premiumSubSection, setPremiumSubSection] = useState(null); 
                 
-                // Estados para Auth
+                const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
                 const [user, setUser] = useState(null);
                 const [isPremium, setIsPremium] = useState(false);
                 const [authLoading, setAuthLoading] = useState(true);
                 const [showAuthModal, setShowAuthModal] = useState(false);
-
-                // Estados para pestañas
-                const [indicadoresTab, setIndicadoresTab] = useState('info'); 
-                const [balanceTab, setBalanceTab] = useState('vida');
-                const [retoTab, setRetoTab] = useState('intro');
                 
                 const [appData, setAppData] = useState(null);
+                const [premiumData, setPremiumData] = useState(null);
                 const [dataError, setDataError] = useState(false);
 
-                // Escuchar estado de autenticación EN TIEMPO REAL
+                // Autenticación en tiempo real
                 useEffect(() => {
                     let unsubscribeSnapshot = null;
-
                     const unsubscribeAuth = auth.onAuthStateChanged(async (currentUser) => {
                         if (currentUser) {
                             try {
-                                // 1. Forzar verificación del token (por seguridad)
                                 await currentUser.getIdToken(true);
-
-                                // 2. Escuchar su documento en Firestore EN TIEMPO REAL
                                 unsubscribeSnapshot = db.collection('users').doc(currentUser.uid).onSnapshot(async (doc) => {
-                                    // Si el documento ya no existe, cerramos sesión
                                     if (!doc.exists) {
                                         if (unsubscribeSnapshot) unsubscribeSnapshot();
                                         await auth.signOut();
-                                        setUser(null);
-                                        setIsPremium(false);
-                                        setAuthLoading(false);
-                                        alert("El usuario fue eliminado de la base de datos. Por favor, regístrate de nuevo.");
+                                        setUser(null); setIsPremium(false); setAuthLoading(false);
                                         return;
                                     }
-
                                     let isUserPremium = doc.data().isPremium === true;
-
-                                    // --- LÓGICA: DETECCIÓN DE REDIRECCIÓN DE STRIPE EN LA VENTANITA ---
                                     const urlParams = new URLSearchParams(window.location.search);
                                     if (urlParams.get('payment') === 'success' && !isUserPremium) {
-                                        // Actualizar automáticamente la base de datos
                                         await db.collection('users').doc(currentUser.uid).update({ isPremium: true });
-                                        // Limpiar la URL para evitar bucles de actualización
                                         window.history.replaceState(null, '', window.location.pathname);
-                                        alert('¡Pago completado con éxito! Ya puedes cerrar esta ventanita. 🌟');
-                                        // Aquí la ventanita hizo su trabajo, la de fondo reaccionará al cambio en Firestore
+                                        alert('¡Pago completado con éxito! Ya puedes acceder a Bloom Premium. 🌟');
+                                        setActiveSection('premium_view');
                                         return; 
                                     }
-
-                                    // Actualiza la interfaz automáticamente si Firebase detecta que ahora es premium
                                     setUser(currentUser);
                                     setIsPremium(isUserPremium);
-                                    
-                                    // Si la ventana de fondo detecta que ya es premium por el listener
-                                    if (isUserPremium && !urlParams.get('payment') && activeSection === 'home') {
-                                         // La página principal ya sabe que es premium de inmediato
-                                         // Opcional: Podrías hacer un auto-redirect a premium_view aquí si lo deseas
-                                    }
-                                    
                                     setAuthLoading(false);
-                                }, (error) => {
-                                    console.error("Error al escuchar usuario:", error);
-                                    setAuthLoading(false);
-                                });
-
+                                }, (error) => { console.error("Error al escuchar usuario:", error); setAuthLoading(false); });
                             } catch (error) {
-                                console.error("Error al verificar usuario:", error);
-                                await auth.signOut();
-                                setUser(null);
-                                setIsPremium(false);
-                                setAuthLoading(false);
+                                console.error("Error:", error);
+                                await auth.signOut(); setUser(null); setIsPremium(false); setAuthLoading(false);
                             }
                         } else {
                             if (unsubscribeSnapshot) unsubscribeSnapshot();
-                            setUser(null);
-                            setIsPremium(false);
-                            setAuthLoading(false);
+                            setUser(null); setIsPremium(false); setAuthLoading(false);
                         }
                     });
-
-                    // Limpieza al desmontar el componente
-                    return () => {
-                        unsubscribeAuth();
-                        if (unsubscribeSnapshot) unsubscribeSnapshot();
-                    };
-                }, [activeSection]);
-
-                useEffect(() => {
-                    fetch('./data.json')
-                        .then(res => {
-                            if (!res.ok) throw new Error("No se pudo cargar data.json");
-                            return res.json();
-                        })
-                        .then(data => setAppData(data))
-                        .catch(err => {
-                            console.error(err);
-                            setDataError(true);
-                        });
+                    return () => { unsubscribeAuth(); if (unsubscribeSnapshot) unsubscribeSnapshot(); };
                 }, []);
 
                 useEffect(() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, [activeSection, subView, balanceTab, retoTab]);
+                    fetch('./data.json')
+                        .then(res => { if (!res.ok) throw new Error("No data"); return res.json(); })
+                        .then(data => setAppData(data))
+                        .catch(err => { console.error(err); setDataError(true); });
+                }, []);
 
                 useEffect(() => {
-                    setSubView(null);
-                }, [activeSection]); 
-
-                // Lógica de Acceso Premium
-                const handlePremiumClick = () => {
-                    if (!user) {
-                        // 1. Si no hay sesión, obligar a iniciar sesión/registro
-                        setShowAuthModal(true);
-                    } else if (!isPremium) {
-                        // 2. Si tiene sesión pero NO es premium, mandarlo a pagar en Stripe (Opción 1: Ventana Emergente)
-                        const stripePaymentLink = 'https://buy.stripe.com/5kQeVc2NH6wJ9EVfM377O00';
-                        window.open(stripePaymentLink, 'PagoPremium', 'width=500,height=750,left=200,top=100');
-                    } else {
-                        // 3. Si tiene sesión y ES premium, darle la bienvenida y darle acceso
-                        alert('¡Qué alegría tenerte aquí! Ya cuentas con acceso Premium. Entrando al contenido especial... 🌟');
-                        setActiveSection('premium_view');
+                    if (activeSection === 'premium_view' && !premiumData) {
+                        fetch('./premium_data.json')
+                            .then(res => { if (!res.ok) throw new Error("No premium data"); return res.json(); })
+                            .then(data => setPremiumData(data))
+                            .catch(err => { console.error("Error cargando premium data", err); });
                     }
+                }, [activeSection]);
+
+                useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection, subView, premiumSubSection]);
+                useEffect(() => { setSubView(null); setPremiumSubSection(null); }, [activeSection]); 
+
+                const handlePremiumClick = () => {
+                    if (!user) setShowAuthModal(true);
+                    else if (!isPremium) window.open('https://buy.stripe.com/5kQeVc2NH6wJ9EVfM377O00', 'PagoPremium', 'width=500,height=750,left=200,top=100');
+                    else setActiveSection('premium_view');
                 };
 
-                const handleLogout = async () => {
-                    await auth.signOut();
-                    setActiveSection('home');
-                };
+                const handleLogout = async () => { await auth.signOut(); setActiveSection('home'); };
 
-                if (dataError) {
-                    return (
-                        <div className="loading-screen bg-red-50 text-stone-800 p-8">
-                            <h2 className="text-2xl text-red-600 font-bold mb-4 font-serif">Error al cargar datos</h2>
-                            <p className="max-w-xl text-center mb-4">Revisa la consola o asegúrate de estar utilizando un Live Server local.</p>
-                        </div>
-                    );
-                }
-
-                if (!appData || authLoading) {
-                    return (
-                        <div className="loading-screen">
-                            <h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2>
-                        </div>
-                    );
-                }
+                if (dataError) return <div className="loading-screen bg-red-50 text-stone-800 p-8"><h2 className="text-2xl text-red-600 font-bold mb-4 font-serif">Error al cargar datos</h2></div>;
+                if (!appData || authLoading) return <div className="loading-screen"><h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2></div>;
 
                 const renderContent = () => {
                     switch (activeSection) {
@@ -592,465 +726,126 @@
                             return (
                                 <div className="animate-fadeIn flex flex-col items-center justify-center text-center py-8 lg:py-16 relative z-10">
                                     <img src={logoUrl} alt="Neuro Bloom" className="w-full max-w-lg h-auto mx-auto drop-shadow-md mb-8" />
-                                    
-                                    <h1 className="text-2xl md:text-4xl font-serif font-bold tracking-wide mb-6 text-brand-dark" style={{ color: colors.primary }}>
-                                        “Habitarte también es una forma de florecer”
-                                    </h1>
-                                    <p className="max-w-2xl mb-12 text-lg md:text-xl text-brand-dark/80 leading-relaxed font-light">
-                                        Un espacio dedicado al bienestar emocional, la creatividad y la conexión humana, floreciendo desde el interior.
-                                    </p>
+                                    <h1 className="text-2xl md:text-4xl font-serif font-bold tracking-wide mb-6 text-brand-dark" style={{ color: colors.primary }}>“Habitarte también es una forma de florecer”</h1>
+                                    <p className="max-w-2xl mb-12 text-lg md:text-xl text-brand-dark/80 leading-relaxed font-light">Un espacio dedicado al bienestar emocional, la creatividad y la conexión humana, floreciendo desde el interior.</p>
 
-                                    {/* Botón Bloom Premium Principal */}
                                     <div className="flex justify-center mb-16 w-full animate-bounce" style={{animationDuration: '3s'}}>
-                                        <button 
-                                            onClick={handlePremiumClick} 
-                                            className="px-8 py-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-white rounded-full font-bold text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center gap-3 border-2 border-yellow-300"
-                                        >
-                                            <Star size={28} fill="currentColor" />
-                                            Bloom Premium
+                                        <button onClick={handlePremiumClick} className="px-8 py-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-white rounded-full font-bold text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center gap-3 border-2 border-yellow-300">
+                                            <Star size={28} fill="currentColor" /> Bloom Premium
                                         </button>
                                     </div>
                                     
                                     <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl">
                                         <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                            <Thumbnail 
-                                                src="./indicadores-emocionales.jpeg" 
-                                                alt="Indicadores" 
-                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Activity size={64} className="text-brand-purple" /></div>}
-                                            />
+                                            <Thumbnail src="./indicadores-emocionales.jpeg" alt="Indicadores" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Activity size={64} className="text-brand-purple" /></div>} />
                                         </div>
                                         <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                            <Thumbnail 
-                                                src="./balance-cotidiano.jpeg" 
-                                                alt="Balance" 
-                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sun size={64} className="text-blue-400" /></div>}
-                                            />
+                                            <Thumbnail src="./balance-cotidiano.jpeg" alt="Balance" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sun size={64} className="text-blue-400" /></div>} />
                                         </div>
                                         <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                            <Thumbnail 
-                                                src="./bloom-library.jpeg" 
-                                                alt="Library" 
-                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Library size={64} className="text-brand-lilac" /></div>}
-                                            />
-                                        </div>
-                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                            <Thumbnail 
-                                                src="./infancias.jpeg" 
-                                                alt="Infancias" 
-                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sprout size={64} className="text-pink-400" /></div>}
-                                            />
-                                        </div>
-                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                            <Thumbnail 
-                                                src="./capsulas-en-video.jpeg" 
-                                                alt="Cápsulas" 
-                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><PlayCircle size={64} className="text-orange-400" /></div>}
-                                            />
-                                        </div>
-                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                            <Thumbnail 
-                                                src="./conoce-y-agenda.jpeg" 
-                                                alt="Agenda" 
-                                                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                                                fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Calendar size={64} className="text-brand-green" /></div>}
-                                            />
+                                            <Thumbnail src="./bloom-library.jpeg" alt="Library" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Library size={64} className="text-brand-lilac" /></div>} />
                                         </div>
                                     </div>
-                                </div>
-                            );
-
-                        case 'indicadores':
-                            if (subView) {
-                                const infoData = appData.indicadores?.informacion?.find(d => d.id === subView);
-                                if (infoData) {
-                                    return (
-                                        <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
-                                            <BackButton onClick={() => setSubView(null)} text="Volver a Información" />
-                                            
-                                            {infoData.imagen && (
-                                                <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
-                                                    <img src={infoData.imagen} alt={infoData.title} className="max-w-full rounded-2xl object-contain max-h-[60vh]" />
-                                                </div>
-                                            )}
-
-                                            <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
-                                                <div className="p-4 rounded-full text-white shadow-md" style={{ backgroundColor: infoData.color }}>
-                                                    {getIconComponent(infoData.icon, {size: 32})}
-                                                </div>
-                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>{infoData.title}</h2>
-                                            </div>
-
-                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                                {infoData.contenido.map((parrafo, idx) => {
-                                                    if(parrafo.includes(':') && parrafo.split(':')[0].length < 50) {
-                                                        const parts = parrafo.split(':');
-                                                        return <p key={idx}><strong className="text-stone-800">{parts[0]}:</strong>{parts.slice(1).join(':')}</p>;
-                                                    }
-                                                    return <p key={idx}>{parrafo}</p>;
-                                                })}
-                                            </div>
-                                        </div>
-                                    );
-                                }
-                                
-                                const testData = appData.indicadores?.cuestionarios?.find(d => d.id === subView);
-                                if (testData) {
-                                    return <CuestionarioView data={testData} onBack={() => setSubView(null)} />;
-                                }
-                            }
-
-                            return (
-                                <div className="animate-fadeIn max-w-6xl mx-auto space-y-12 relative z-10">
-                                    <div className="w-full">
-                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    </div>
-                                    <div className="text-center mb-10">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Indicadores Emocionales</h2>
-                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Infórmate sobre tu salud emocional y realiza ejercicios de autoexploración para identificar lo que estás sintiendo.</p>
-                                    </div>
-
-                                    <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto">
-                                        <button 
-                                            onClick={() => setIndicadoresTab('info')} 
-                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'info' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
-                                            >
-                                            Información y Lectura
-                                        </button>
-                                        <button 
-                                            onClick={() => setIndicadoresTab('tests')} 
-                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indicadoresTab === 'tests' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
-                                            >
-                                            Cuestionarios
-                                        </button>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
-                                        {indicadoresTab === 'info' && appData.indicadores?.informacion?.map(item => (
-                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
-                                                <Thumbnail 
-                                                    src={item.imagen} 
-                                                    alt={item.title} 
-                                                    className="w-20 h-20 rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white"
-                                                    fallback={
-                                                        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>
-                                                            {getIconComponent(item.icon)}
-                                                        </div>
-                                                    }
-                                                />
-                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-brand-purple transition-colors">{item.title}</h3>
-                                                <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.contenido[0]}</p>
-                                                <p className="text-sm font-bold text-brand-purple mt-6 tracking-wider uppercase">Leer artículo &rarr;</p>
-                                            </div>
-                                        ))}
-                                        
-                                        {indicadoresTab === 'tests' && appData.indicadores?.cuestionarios?.map(item => (
-                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
-                                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>
-                                                    {getIconComponent(item.icon)}
-                                                </div>
-                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-blue-500 transition-colors">{item.title}</h3>
-                                                <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.intro}</p>
-                                                <p className="text-sm font-bold text-blue-500 mt-6 tracking-wider uppercase">Comenzar Test &rarr;</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            );
-
-                        case 'balance':
-                            const renderContenidoTexto = (parrafos) => {
-                                return parrafos.map((parrafo, idx) => {
-                                    if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
-                                    
-                                    // Manejador Dinámico de Botones Premium (Detecta ⭐ o 🔒)
-                                    if (parrafo.includes('⭐') || parrafo.includes('🔒')) {
-                                        const textoLimpio = parrafo.replace('⭐', '').replace('🔒', '').trim();
-                                        return (
-                                            <button 
-                                                key={idx} 
-                                                onClick={handlePremiumClick}
-                                                className="w-full py-5 mt-6 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 text-white font-bold text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex justify-center items-center gap-3 border-2 border-yellow-300"
-                                            >
-                                                <Star size={28} fill="currentColor" />
-                                                {textoLimpio}
-                                            </button>
-                                        );
-                                    }
-                                    
-                                    if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
-                                        return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
-                                    }
-                                    return <p key={idx}>{parrafo}</p>;
-                                });
-                            };
-
-                            return (
-                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-8 relative z-10">
-                                    <div className="w-full">
-                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    </div>
-
-                                    <div className="text-center mb-10">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Balance Cotidiano</h2>
-                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Estrategias y retos para construir bienestar emocional paso a paso.</p>
-                                    </div>
-
-                                    <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto mb-8">
-                                        <button 
-                                            onClick={() => setBalanceTab('vida')} 
-                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balanceTab === 'vida' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
-                                            >
-                                            Vida en Equilibrio
-                                        </button>
-                                        <button 
-                                            onClick={() => setBalanceTab('reto')} 
-                                            className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balanceTab === 'reto' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}
-                                            >
-                                            Reto del Mes
-                                        </button>
-                                    </div>
-
-                                    {balanceTab === 'vida' && (
-                                        <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
-                                            {appData.balance.imagen && (
-                                                <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
-                                                    <img src={appData.balance.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl object-contain max-h-[70vh]" />
-                                                </div>
-                                            )}
-
-                                            <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
-                                                <div className="p-4 rounded-full text-white shadow-md bg-blue-400">
-                                                    {getIconComponent(appData.balance.icon, {size: 32})}
-                                                </div>
-                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">{appData.balance.title}</h2>
-                                            </div>
-
-                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                                {appData.balance.contenido.map((parrafo, idx) => (
-                                                    <p key={idx}>{parrafo}</p>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {balanceTab === 'reto' && appData.reto_del_mes && (
-                                        <div className="animate-fadeIn space-y-8">
-                                            <div className="flex justify-center flex-wrap gap-2 bg-white/50 backdrop-blur-md p-2 rounded-3xl shadow-glass border border-white w-fit mx-auto">
-                                                <button onClick={() => setRetoTab('intro')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'intro' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Introducción</button>
-                                                <button onClick={() => setRetoTab('sem1')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem1' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 1</button>
-                                                <button onClick={() => setRetoTab('sem2')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem2' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 2</button>
-                                                <button onClick={() => setRetoTab('sem3')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem3' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 3</button>
-                                                <button onClick={() => setRetoTab('sem4')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'sem4' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Semana 4</button>
-                                                <button onClick={() => setRetoTab('cierre')} className={`px-5 py-2 rounded-full font-bold transition-all text-sm md:text-base ${retoTab === 'cierre' ? 'bg-brand-purple text-white shadow-md' : 'text-stone-500 hover:text-stone-800 hover:bg-white/40'}`}>Cierre</button>
-                                            </div>
-
-                                            <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white">
-                                                <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                                    {(()=>{
-                                                        let contenido = [];
-                                                        if(retoTab === 'intro') contenido = appData.reto_del_mes.intro;
-                                                        else if(retoTab === 'cierre') contenido = appData.reto_del_mes.cierre;
-                                                        else {
-                                                            const sem = appData.reto_del_mes.semanas.find(s => s.id === retoTab);
-                                                            if(sem) contenido = sem.contenido;
-                                                        }
-                                                        
-                                                        return renderContenidoTexto(contenido);
-                                                    })()}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
                                 </div>
                             );
 
                         case 'premium_view':
+                            if (!premiumData) {
+                                return <div className="text-center py-20 text-brand-purple"><Loader size={48} className="animate-spin mx-auto mb-4" /> Cargando entorno Premium...</div>;
+                            }
+
+                            // --- VISTAS INTERNAS DE PREMIUM ---
+                            if (premiumSubSection === 'perfil') return <PerfilEmocional premiumData={premiumData} onBack={() => setPremiumSubSection(null)} />;
+                            
+                            // NUEVO: Instancia del Componente de Rutas
+                            if (premiumSubSection === 'rutas') return <RutasBienestar premiumData={premiumData} onBack={() => setPremiumSubSection(null)} />;
+
+                            if (premiumSubSection === 'maternidad') {
+                                return (
+                                    <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
+                                        <BackButton onClick={() => setPremiumSubSection(null)} text="Volver a Premium" />
+                                        <div className="p-12 bg-white/80 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass text-center">
+                                            <Sprout size={64} className="mx-auto text-pink-400 mb-6" />
+                                            <h2 className="text-4xl font-serif font-bold text-stone-800 mb-4">Maternidad con Ciencia</h2>
+                                            <p className="text-lg text-stone-600 mb-8 font-light">El contenido especializado se cargará en el próximo paso.</p>
+                                        </div>
+                                    </div>
+                                );
+                            }
+
+                            // --- DASHBOARD PRINCIPAL PREMIUM ---
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10 text-center">
-                                    <div className="w-full mb-6 text-left">
+                                <div className="animate-fadeIn max-w-6xl mx-auto py-8 lg:py-12 relative z-10">
+                                    <div className="w-full mb-8">
                                         <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
-                                    <div className="p-16 lg:p-24 bg-gradient-to-br from-amber-100 to-yellow-200 backdrop-blur-xl rounded-[3rem] border-2 border-yellow-300 shadow-2xl relative overflow-hidden">
-                                        <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-white/30 rounded-full blur-3xl"></div>
-                                        <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-yellow-400/20 rounded-full blur-3xl"></div>
-                                        
-                                        <Star size={80} className="mx-auto text-yellow-500 mb-8 animate-bounce" fill="currentColor" style={{animationDuration: '3s'}}/>
-                                        <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-6">Bienvenido a Bloom Premium</h2>
-                                        <p className="text-xl text-stone-700 max-w-2xl mx-auto font-light leading-relaxed">
-                                            Gracias por dar este paso hacia tu bienestar. Este es el espacio reservado donde muy pronto podrás encontrar herramientas profundas de autoexploración.
+                                    
+                                    <div className="text-center mb-16">
+                                        <div className="inline-flex items-center justify-center p-4 bg-gradient-to-r from-amber-200 to-yellow-300 rounded-full shadow-lg mb-6">
+                                            <Star size={40} className="text-yellow-600" fill="currentColor" />
+                                        </div>
+                                        <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-4">Tu Espacio Premium</h2>
+                                        <p className="text-xl text-stone-600 max-w-2xl mx-auto font-light leading-relaxed">
+                                            Bienvenido a la zona reservada. Aquí encontrarás herramientas profundas de autoexploración y crecimiento guiado.
                                         </p>
                                     </div>
-                                </div>
-                            );
 
-                        case 'library':
-                            return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
-                                    <div className="w-full mb-6">
-                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    </div>
-                                    <div className="text-center">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">Bloom Library</h2>
-                                        <p className="text-stone-600 mb-12 text-xl font-light">Un espacio para nutrir tu mente y alma a través de recursos, recomendaciones y cuentos terapéuticos.</p>
-                                        <div className="p-20 bg-white/70 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass flex flex-col items-center justify-center relative z-10">
-                                            <Library size={100} className="text-brand-lilac mb-8 animate-pulse" />
-                                            <h3 className="text-3xl font-serif font-bold text-stone-500 mb-4">Próximamente</h3>
-                                            <p className="text-stone-500 max-w-md mx-auto text-lg font-light">Estamos protegiendo la magia de nuestras historias. El contenido estará disponible una vez finalizado el registro de derechos de autor.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+                                        
+                                        <button onClick={() => setPremiumSubSection('perfil')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
+                                            <div className="w-16 h-16 rounded-2xl bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Brain size={32} /></div>
+                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Conoce tu Perfil Emocional</h3>
+                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">Evalúa 7 dimensiones clave de tu bienestar y obtén una ruta personalizada.</p>
+                                            <div className="mt-8 flex items-center text-brand-purple font-bold text-sm tracking-widest uppercase">Comenzar Test &rarr;</div>
+                                        </button>
 
-                        case 'infancias':
-                            return (
-                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-8 relative z-10">
-                                    <div className="w-full">
-                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    </div>
+                                        <button onClick={() => setPremiumSubSection('rutas')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
+                                            <div className="w-16 h-16 rounded-2xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Compass size={32} /></div>
+                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Rutas de Bienestar</h3>
+                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">7 programas guiados por módulos. Desde regular tu sistema nervioso hasta fortalecer tu autoestima y propósito.</p>
+                                            <div className="mt-8 flex items-center text-brand-green font-bold text-sm tracking-widest uppercase">Explorar Rutas &rarr;</div>
+                                        </button>
 
-                                    <div className="text-center mb-10">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Infancias que Florecen</h2>
-                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Desarrollo emocional infantil para comprender antes que juzgar.</p>
-                                    </div>
+                                        <button onClick={() => setPremiumSubSection('maternidad')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
+                                            <div className="w-16 h-16 rounded-2xl bg-pink-100 text-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Sprout size={32} /></div>
+                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Maternidad con Ciencia</h3>
+                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">Entiende el cerebro de mamá, el cerebro infantil y descubre herramientas de crianza basadas en la evidencia.</p>
+                                            <div className="mt-8 flex items-center text-pink-500 font-bold text-sm tracking-widest uppercase">Leer Módulos &rarr;</div>
+                                        </button>
 
-                                    <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
-                                        <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
-                                            <div className="p-4 rounded-full text-white shadow-md bg-pink-400">
-                                                <Sprout size={32} />
-                                            </div>
-                                            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800">
-                                                {appData.detras_conducta?.title || "🪷 Detrás de su conducta"}
-                                            </h2>
-                                        </div>
+                                        <button className="group bg-gradient-to-br from-amber-50 to-yellow-100/50 backdrop-blur-xl p-10 rounded-[2.5rem] border border-yellow-200 shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
+                                            <div className="w-16 h-16 rounded-2xl bg-yellow-200 text-yellow-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Star size={32} fill="currentColor" /></div>
+                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Reto del Mes (Premium)</h3>
+                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">Ejercicios semanales avanzados y audios guiados para acompañar tu proceso de transformación este mes.</p>
+                                            <div className="mt-8 flex items-center text-yellow-600 font-bold text-sm tracking-widest uppercase">Ingresar al Reto &rarr;</div>
+                                        </button>
 
-                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                            {appData.detras_conducta?.contenido.map((parrafo, idx) => {
-                                                if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
-                                                
-                                                if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
-                                                    return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
-                                                }
-                                                return <p key={idx}>{parrafo}</p>;
-                                            })}
-                                        </div>
+                                        <button className="group bg-stone-100/60 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full relative overflow-hidden">
+                                            <div className="absolute top-6 right-6 text-stone-300"><Lock size={24} /></div>
+                                            <div className="w-16 h-16 rounded-2xl bg-stone-200/50 text-stone-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><BookHeart size={32} /></div>
+                                            <h3 className="text-2xl font-serif font-bold text-stone-600 mb-3">La Última Página</h3>
+                                            <p className="text-stone-500 font-light flex-grow leading-relaxed italic">"Hay una razón por la que esta experiencia está al final. Necesitabas vivir este mes para entenderla."</p>
+                                            <div className="mt-8 flex items-center text-stone-400 font-bold text-sm tracking-widest uppercase">Desbloquear al Final &rarr;</div>
+                                        </button>
+
                                     </div>
                                 </div>
                             );
 
-                        case 'capsulas':
-                            return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
-                                    <div className="w-full mb-6">
-                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    </div>
-                                    <div className="text-center">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-orange-400">Cápsulas en Video</h2>
-                                        <p className="text-stone-600 mb-12 text-xl font-light">Espacio reservado para próximas reflexiones y guías audiovisuales de Neuro Bloom.</p>
-                                        <div className="p-20 bg-white/70 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass flex flex-col items-center justify-center relative z-10">
-                                            <PlayCircle size={100} className="text-orange-200 mb-8 animate-pulse" />
-                                            <h3 className="text-3xl font-serif font-bold text-stone-500 mb-4">Próximamente</h3>
-                                            <p className="text-stone-500 max-w-md mx-auto text-lg font-light">Estamos preparando el contenido en video para acompañar tu proceso de bienestar emocional.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-
-                        case 'citas':
-                            return (
-                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-12 relative z-10">
-                                    <div className="w-full">
-                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    </div>
-                                    <div className="text-center mb-16">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">Conoce y Agenda Cita</h2>
-                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Inicia tu proceso de bienestar emocional. Conoce a nuestros especialistas y reserva tu espacio seguro con nosotros.</p>
-                                    </div>
-
-                                    <div className="grid md:grid-cols-2 gap-10 relative z-10">
-                                        {appData.especialistas?.map(esp => (
-                                            <div key={esp.id} className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-glass border border-white overflow-hidden flex flex-col hover:shadow-xl transition-all group">
-                                                <div className="w-full h-80 bg-stone-50 overflow-hidden relative border-b border-white">
-                                                    <Thumbnail 
-                                                        src={esp.imagen} 
-                                                        alt={esp.nombre} 
-                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                                        fallback={<Activity size={80} className="text-stone-300 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />}
-                                                    />
-                                                </div>
-                                                <div className="p-10 flex flex-col flex-grow">
-                                                    <h3 className="text-3xl font-serif font-bold text-stone-800 mb-2">{esp.nombre}</h3>
-                                                    <p className="text-brand-green font-bold text-lg mb-3">{esp.titulo}</p>
-                                                    {esp.cedula && <p className="text-sm text-stone-400 mb-5 font-mono">Cédula: {esp.cedula}</p>}
-                                                    <p className="text-stone-600 text-[15px] mb-8 italic font-light leading-relaxed">{esp.descripcion}</p>
-                                                    
-                                                    <div className="mb-10 flex-grow">
-                                                        <h4 className="font-bold text-sm text-stone-800 mb-4 uppercase tracking-widest border-b border-stone-200 pb-2">Especialidades y Enfoque</h4>
-                                                        <ul className="space-y-3">
-                                                            {esp.enfoques.map((enfoque, i) => (
-                                                                <li key={i} className="text-[15px] text-stone-600 flex items-start gap-3 font-light">
-                                                                    <span className="text-brand-green mt-1"><Heart size={16} fill="currentColor" /></span>
-                                                                    <span className="leading-tight">{enfoque}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </div>
-                                                    
-                                                    <button className="w-full py-4 rounded-full text-white font-bold text-lg shadow-md hover:-translate-y-1 hover:shadow-lg transition-all flex justify-center items-center gap-3 bg-brand-green">
-                                                        <Calendar size={20} />
-                                                        Agendar Cita
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            );
-
-                        default:
-                            return null;
+                        default: return null;
                     }
                 };
 
                 return (
                     <div className="min-h-screen font-sans relative overflow-hidden text-stone-700 bg-[#faf8f9]">
-                        
-                        {/* Renderizar Modal de Autenticación */}
                         {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
-
-                        {/* 1. Fondo de Base */}
+                        
                         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
                             <div className="absolute top-[-15%] left-[-15%] w-[40rem] h-[40rem] bg-[#f2e6e9] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
                             <div className="absolute top-[10%] right-[-15%] w-[35rem] h-[35rem] bg-[#e3dbe8] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
                             <div className="absolute bottom-[-15%] left-[20%] w-[40rem] h-[40rem] bg-[#e1edf2] rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
                         </div>
 
-                        {/* 2. Capa de Decoración Orgánica: Tonos Mate */}
-                        <div className="fixed inset-0 z-1 pointer-events-none overflow-hidden opacity-80">
-                            <div className="absolute top-[8%] left-[2%] w-4 h-4 bg-[#C8B6D6]/70 rounded-full"></div>
-                            <div className="absolute top-[22%] left-[5%] w-10 h-10 bg-[#AEC5B6]/40 rounded-full border-2 border-[#AEC5B6]/70"></div>
-                            <div className="absolute top-[40%] left-[3%] w-5 h-5 bg-[#D9B4B8]/70 rounded-full"></div>
-                            <div className="absolute top-[60%] left-[6%] w-14 h-14 bg-[#B2C2D1]/30 rounded-full border border-[#B2C2D1]/60"></div>
-                            <div className="absolute bottom-[20%] left-[2%] w-7 h-7 bg-[#C8B6D6]/50 rounded-full"></div>
-                            <div className="absolute bottom-[5%] left-[5%] w-3 h-3 bg-[#AEC5B6]/80 rounded-full"></div>
-
-                            <div className="absolute top-[12%] right-[4%] w-8 h-8 bg-[#D9B4B8]/40 rounded-full border-2 border-[#D9B4B8]/70"></div>
-                            <div className="absolute top-[30%] right-[2%] w-4 h-4 bg-[#B2C2D1]/70 rounded-full"></div>
-                            <div className="absolute top-[48%] right-[5%] w-12 h-12 bg-[#C8B6D6]/40 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] border border-[#C8B6D6]/70 rotate-12"></div>
-                            <div className="absolute top-[68%] right-[3%] w-5 h-5 bg-[#AEC5B6]/60 rounded-full"></div>
-                            <div className="absolute bottom-[25%] right-[6%] w-6 h-6 bg-[#D9B4B8]/50 rounded-full"></div>
-                            <div className="absolute bottom-[8%] right-[2%] w-4 h-4 bg-[#C8B6D6]/80 rounded-full"></div>
-
-                            <div className="absolute top-[15%] left-[-5%] w-56 h-56 bg-[#C8B6D6]/20 rounded-full filter blur-2xl animate-blob"></div>
-                            <div className="absolute top-[50%] right-[-6%] w-64 h-64 bg-[#D9B4B8]/20 rounded-[50%_50%_70%_30%/40%_60%_40%_60%] filter blur-2xl animate-blob animation-delay-2000"></div>
-                            <div className="absolute bottom-[10%] left-[-4%] w-48 h-48 bg-[#AEC5B6]/20 rounded-[60%_40%_50%_50%/30%_70%_30%_70%] filter blur-2xl animate-blob animation-delay-4000"></div>
-                        </div>
-
-                        {/* 3. Contenido Principal */}
                         <header className="sticky top-0 z-50 border-b border-white/40 bg-white/60 backdrop-blur-xl shadow-sm">
                             <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
                                 <div className="cursor-pointer hover:opacity-80 transition-opacity h-full py-3" onClick={() => setActiveSection('home')}>
@@ -1062,90 +857,32 @@
                                     <NavButton active={activeSection === 'indicadores'} onClick={() => setActiveSection('indicadores')} icon={<Activity />}>Indicadores</NavButton>
                                     <NavButton active={activeSection === 'balance'} onClick={() => setActiveSection('balance')} icon={<Sun />}>Balance</NavButton>
                                     <NavButton active={activeSection === 'library'} onClick={() => setActiveSection('library')} icon={<Library />}>Library</NavButton>
-                                    <NavButton active={activeSection === 'infancias'} onClick={() => setActiveSection('infancias')} icon={<Sprout />}>Infancias</NavButton>
-                                    <NavButton active={activeSection === 'capsulas'} onClick={() => setActiveSection('capsulas')} icon={<PlayCircle />}>Cápsulas</NavButton>
-                                    <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Agenda</NavButton>
                                 </nav>
 
-                                {/* Controles de Usuario (Cerrar / Iniciar Sesión) */}
                                 <div className="flex items-center gap-4 relative z-50">
                                     {user ? (
-                                        <button 
-                                            onClick={handleLogout} 
-                                            className="hidden sm:flex text-sm font-bold text-stone-500 hover:text-brand-purple transition-colors items-center gap-2"
-                                        >
-                                            <UserCircle size={20} />
-                                            Cerrar Sesión
+                                        <button onClick={handleLogout} className="hidden sm:flex text-sm font-bold text-stone-500 hover:text-brand-purple transition-colors items-center gap-2">
+                                            <UserCircle size={20} /> Cerrar Sesión
                                         </button>
                                     ) : (
-                                        <button 
-                                            onClick={() => setShowAuthModal(true)} 
-                                            className="hidden sm:flex px-4 py-2 bg-white/50 border border-brand-purple/30 rounded-full text-sm font-bold text-brand-purple hover:bg-brand-purple hover:text-white transition-all items-center gap-2"
-                                        >
-                                            <UserCircle size={18} />
-                                            Ingresar
+                                        <button onClick={() => setShowAuthModal(true)} className="hidden sm:flex px-4 py-2 bg-white/50 border border-brand-purple/30 rounded-full text-sm font-bold text-brand-purple hover:bg-brand-purple hover:text-white transition-all items-center gap-2">
+                                            <UserCircle size={18} /> Ingresar
                                         </button>
                                     )}
-
-                                    <button className="lg:hidden p-2 text-brand-purple" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                                        {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
-                                    </button>
                                 </div>
                             </div>
                         </header>
 
-                        {mobileMenuOpen && (
-                            <div className="fixed inset-0 z-40 pt-28 px-6 lg:hidden animate-slideIn bg-white/95 backdrop-blur-3xl">
-                                <div className="flex flex-col gap-4">
-                                    <div className="mb-4 pb-4 border-b border-stone-200">
-                                        {user ? (
-                                            <button onClick={() => {handleLogout(); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-stone-500 bg-stone-100 flex items-center gap-3">
-                                                <UserCircle size={24} /> Cerrar Sesión
-                                            </button>
-                                        ) : (
-                                            <button onClick={() => {setShowAuthModal(true); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-white bg-brand-purple shadow-md flex items-center gap-3">
-                                                <UserCircle size={24} /> Iniciar Sesión / Registro
-                                            </button>
-                                        )}
-                                    </div>
-                                    {['home', 'indicadores', 'balance', 'library', 'infancias', 'capsulas', 'citas'].map(sec => (
-                                        <button 
-                                            key={sec}
-                                            onClick={() => { setActiveSection(sec); setMobileMenuOpen(false); }}
-                                            className="text-left p-5 rounded-2xl font-bold text-xl border border-white/50 shadow-sm"
-                                            style={{ 
-                                                color: activeSection === sec ? colors.white : colors.primary,
-                                                backgroundColor: activeSection === sec ? colors.primary : 'rgba(255,255,255,0.8)'
-                                            }}
-                                        >
-                                            {sec === 'library' ? 'Bloom Library' : sec === 'infancias' ? 'Infancias que Florecen' : sec === 'citas' ? 'Agenda' : sec.charAt(0).toUpperCase() + sec.slice(1)}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
                         <main className="max-w-7xl mx-auto px-6 py-12 min-h-[80vh] relative z-10">
                             {renderContent()}
                         </main>
-
-                        <footer className="py-16 mt-12 bg-stone-900/95 backdrop-blur-md text-stone-400 flex flex-col items-center justify-center text-center relative z-10">
-                            <img 
-                                src={logoUrl} 
-                                alt="Neuro Bloom Logo Blanco" 
-                                className="h-16 w-auto mb-6 opacity-50 brightness-0 invert" 
-                            />
-                            <p className="font-light tracking-wide relative z-20">© {new Date().getFullYear()} Neuro Bloom. Creciendo con cada emoción.</p>
-                        </footer>
                     </div>
                 );
             }
-
             const root = ReactDOM.createRoot(document.getElementById('root'));
             root.render(<NeuroBloom />);
         } catch (error) {
             console.error(error);
-            document.body.innerHTML = '<div class="error-container"><h3 class="error-title">Error Crítico</h3><p>' + error.message + '</p></div>';
         }
     </script>
 </body>

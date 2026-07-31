@@ -2185,8 +2185,6 @@ ARCHIVO: index.html
                             const userCredential = await auth.signInWithEmailAndPassword(email, password);
                             
                             // LÓGICA DE REPARACIÓN AUTOMÁTICA
-                            // Si el usuario inicia sesión pero el dev borró su documento en Firestore
-                            // lo volvemos a crear como usuario gratuito para evitar que quede atrapado
                             const docRef = db.collection('users').doc(userCredential.user.uid);
                             const docSnap = await docRef.get();
                             
@@ -2322,62 +2320,80 @@ ARCHIVO: index.html
                 const [appData, setAppData] = useState(null);
                 const [dataError, setDataError] = useState(false);
 
-                // Escuchar estado de autenticación y detectar eliminación/pagos
+                // Escuchar estado de autenticación EN TIEMPO REAL
                 useEffect(() => {
-                    const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+                    let unsubscribeSnapshot = null;
+
+                    const unsubscribeAuth = auth.onAuthStateChanged(async (currentUser) => {
                         if (currentUser) {
                             try {
-                                // 1. Forzar verificación del usuario en el servidor (elimina caché local si fue borrado en Auth)
+                                // 1. Forzar verificación del token (por seguridad)
                                 await currentUser.getIdToken(true);
 
-                                // 2. Verificar si su documento existe en Firestore
-                                const doc = await db.collection('users').doc(currentUser.uid).get();
-                                
-                                // Si el documento ya no existe (porque lo borraste a mano), cerramos sesión y denegamos acceso
-                                if (!doc.exists) {
-                                    await auth.signOut();
-                                    setUser(null);
-                                    setIsPremium(false);
+                                // 2. Escuchar su documento en Firestore EN TIEMPO REAL
+                                unsubscribeSnapshot = db.collection('users').doc(currentUser.uid).onSnapshot(async (doc) => {
+                                    // Si el documento ya no existe, cerramos sesión
+                                    if (!doc.exists) {
+                                        if (unsubscribeSnapshot) unsubscribeSnapshot();
+                                        await auth.signOut();
+                                        setUser(null);
+                                        setIsPremium(false);
+                                        setAuthLoading(false);
+                                        alert("El usuario fue eliminado de la base de datos. Por favor, regístrate de nuevo.");
+                                        return;
+                                    }
+
+                                    let isUserPremium = doc.data().isPremium === true;
+
+                                    // --- LÓGICA: DETECCIÓN DE REDIRECCIÓN DE STRIPE EN LA VENTANITA ---
+                                    const urlParams = new URLSearchParams(window.location.search);
+                                    if (urlParams.get('payment') === 'success' && !isUserPremium) {
+                                        // Actualizar automáticamente la base de datos
+                                        await db.collection('users').doc(currentUser.uid).update({ isPremium: true });
+                                        // Limpiar la URL para evitar bucles de actualización
+                                        window.history.replaceState(null, '', window.location.pathname);
+                                        alert('¡Pago completado con éxito! Ya puedes cerrar esta ventanita. 🌟');
+                                        // Aquí la ventanita hizo su trabajo, la de fondo reaccionará al cambio en Firestore
+                                        return; 
+                                    }
+
+                                    // Actualiza la interfaz automáticamente si Firebase detecta que ahora es premium
+                                    setUser(currentUser);
+                                    setIsPremium(isUserPremium);
+                                    
+                                    // Si la ventana de fondo detecta que ya es premium por el listener
+                                    if (isUserPremium && !urlParams.get('payment') && activeSection === 'home') {
+                                         // La página principal ya sabe que es premium de inmediato
+                                         // Opcional: Podrías hacer un auto-redirect a premium_view aquí si lo deseas
+                                    }
+                                    
                                     setAuthLoading(false);
-                                    alert("El usuario fue eliminado de la base de datos. Por favor, inicia sesión nuevamente para restaurar tu cuenta, o bórralo de la pestaña 'Authentication' para registrarlo de cero.");
-                                    return;
-                                }
+                                }, (error) => {
+                                    console.error("Error al escuchar usuario:", error);
+                                    setAuthLoading(false);
+                                });
 
-                                let isUserPremium = doc.data().isPremium === true;
-
-                                // --- LÓGICA: DETECCIÓN DE REDIRECCIÓN DE STRIPE ---
-                                const urlParams = new URLSearchParams(window.location.search);
-                                if (urlParams.get('payment') === 'success' && !isUserPremium) {
-                                    // Actualizar automáticamente la base de datos
-                                    await db.collection('users').doc(currentUser.uid).update({ isPremium: true });
-                                    isUserPremium = true;
-                                    
-                                    // Limpiar la URL para evitar que vuelva a ejecutarse al recargar
-                                    window.history.replaceState(null, '', window.location.pathname);
-                                    
-                                    // Mostrar mensaje y llevar al contenido premium
-                                    alert('¡Pago completado con éxito! Ya cuentas con acceso Premium. 🌟');
-                                    setActiveSection('premium_view');
-                                }
-                                // --------------------------------------------------------
-
-                                setUser(currentUser);
-                                setIsPremium(isUserPremium);
                             } catch (error) {
                                 console.error("Error al verificar usuario:", error);
-                                // Si hay un error (ej. fue borrado desde Firebase Auth), forzamos cierre de sesión
                                 await auth.signOut();
                                 setUser(null);
                                 setIsPremium(false);
+                                setAuthLoading(false);
                             }
                         } else {
+                            if (unsubscribeSnapshot) unsubscribeSnapshot();
                             setUser(null);
                             setIsPremium(false);
+                            setAuthLoading(false);
                         }
-                        setAuthLoading(false);
                     });
-                    return () => unsubscribe();
-                }, []);
+
+                    // Limpieza al desmontar el componente
+                    return () => {
+                        unsubscribeAuth();
+                        if (unsubscribeSnapshot) unsubscribeSnapshot();
+                    };
+                }, [activeSection]);
 
                 useEffect(() => {
                     fetch('./data.json')
@@ -2406,9 +2422,9 @@ ARCHIVO: index.html
                         // 1. Si no hay sesión, obligar a iniciar sesión/registro
                         setShowAuthModal(true);
                     } else if (!isPremium) {
-                        // 2. Si tiene sesión pero NO es premium, mandarlo a pagar en Stripe
+                        // 2. Si tiene sesión pero NO es premium, mandarlo a pagar en Stripe (Opción 1: Ventana Emergente)
                         const stripePaymentLink = 'https://buy.stripe.com/5kQeVc2NH6wJ9EVfM377O00';
-                        window.open(stripePaymentLink, '_self');
+                        window.open(stripePaymentLink, 'PagoPremium', 'width=500,height=750,left=200,top=100');
                     } else {
                         // 3. Si tiene sesión y ES premium, darle la bienvenida y darle acceso
                         alert('¡Qué alegría tenerte aquí! Ya cuentas con acceso Premium. Entrando al contenido especial... 🌟');
@@ -2563,7 +2579,7 @@ ARCHIVO: index.html
                                     </div>
                                     <div className="text-center mb-10">
                                         <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Indicadores Emocionales</h2>
-                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Infórmate sobre tu salud emocional y realiza ejercicios de autoexploración para identificar lo que estás early sintiendo.</p>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Infórmate sobre tu salud emocional y realiza ejercicios de autoexploración para identificar lo que estás sintiendo.</p>
                                     </div>
 
                                     <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto">
