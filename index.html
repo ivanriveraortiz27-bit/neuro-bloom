@@ -512,17 +512,39 @@
                                     </div>
                                 )}
 
+                                {/* REPRODUCTOR HÍBRIDO (YOUTUBE O AUDIO DIRECTO .MP3) */}
                                 {modulo.audio && (
-                                    <div className="bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-8 rounded-3xl border border-brand-purple/20 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
-                                        <div className="w-full text-center sm:text-left">
-                                            <div className="flex items-center justify-center sm:justify-start gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm mb-2">
-                                                <Headphones size={20} /> {modulo.audio.duracion}
-                                            </div>
-                                            <h4 className="text-xl font-serif font-bold text-stone-800">{modulo.audio.titulo}</h4>
+                                    <div className="bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-8 rounded-3xl border border-brand-purple/20 flex flex-col gap-4 shadow-sm">
+                                        <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">
+                                            {modulo.audio.youtube_id ? <PlayCircle size={20} /> : <Headphones size={20} />} 
+                                            {modulo.audio.duracion || "Contenido de Audio / Video"}
                                         </div>
-                                        <button className="w-16 h-16 rounded-full bg-brand-purple text-white flex items-center justify-center shadow-lg hover:scale-105 transition-transform flex-shrink-0">
-                                            <PlayCircle size={32} />
-                                        </button>
+                                        <h4 className="text-xl font-serif font-bold text-stone-800">{modulo.audio.titulo}</h4>
+                                        
+                                        {modulo.audio.youtube_id ? (
+                                            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md mt-2">
+                                                <iframe 
+                                                    className="absolute top-0 left-0 w-full h-full"
+                                                    src={`https://www.youtube.com/embed/${modulo.audio.youtube_id}`} 
+                                                    title="YouTube video player" 
+                                                    frameBorder="0" 
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                    allowFullScreen>
+                                                </iframe>
+                                            </div>
+                                        ) : modulo.audio.url ? (
+                                            <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                <audio controls className="w-full outline-none">
+                                                    <source src={modulo.audio.url} type="audio/mpeg" />
+                                                    Tu navegador no soporta el elemento de audio.
+                                                </audio>
+                                            </div>
+                                        ) : (
+                                            <div className="flex items-center gap-3 text-stone-500 italic text-sm mt-2">
+                                                <PlayCircle size={24} className="text-brand-purple" />
+                                                <span>El archivo estará disponible muy pronto.</span>
+                                            </div>
+                                        )}
                                     </div>
                                 )}
 
