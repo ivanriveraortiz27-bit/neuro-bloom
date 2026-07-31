@@ -560,7 +560,6 @@
                 );
             };
             
-            // --- NUEVO: COMPONENTE MATERNIDAD CON CIENCIA ---
             const MaternidadView = ({ premiumData, onBack, onHome }) => {
                 const [activeModulo, setActiveModulo] = useState(0);
                 const maternidad = premiumData.maternidad;
@@ -624,7 +623,7 @@
                 return (
                     <div className="animate-fadeIn max-w-3xl mx-auto py-12 relative z-10 text-center">
                         <div className="text-left">
-                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
+                            <BackButton onClick={onBack} text="Volver al Balance" onHome={onHome} />
                         </div>
 
                         <div className="bg-white/90 backdrop-blur-xl p-10 lg:p-16 rounded-[3rem] border border-white shadow-glass">
@@ -680,7 +679,7 @@
                                         <p className="text-stone-500 font-light whitespace-pre-line italic">{reto.teaser_proximo}</p>
                                     </div>
                                     <div className="text-center mt-12">
-                                        <button onClick={onBack} className="px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Volver a Premium</button>
+                                        <button onClick={onBack} className="px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Cerrar Reto</button>
                                     </div>
                                 </div>
                             )}
@@ -767,6 +766,7 @@
                 const [premiumSubSection, setPremiumSubSection] = useState(null);
                 
                 const [indTab, setIndTab] = useState('info'); 
+                const [balTab, setBalTab] = useState('info'); 
                 
                 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
                 const [user, setUser] = useState(null);
@@ -824,13 +824,15 @@
                 }, []);
 
                 useEffect(() => {
-                    if (activeSection === 'premium_view' && !premiumData) {
-                        fetch('./premium_data.json')
-                            .then(res => { if (!res.ok) throw new Error("No premium data"); return res.json(); })
-                            .then(data => setPremiumData(data))
-                            .catch(err => { console.error("Error cargando premium data", err); });
+                    if (activeSection === 'premium_view' || premiumSubSection === 'reto') {
+                        if (!premiumData) {
+                            fetch('./premium_data.json')
+                                .then(res => { if (!res.ok) throw new Error("No premium data"); return res.json(); })
+                                .then(data => setPremiumData(data))
+                                .catch(err => { console.error("Error cargando premium data", err); });
+                        }
                     }
-                }, [activeSection]);
+                }, [activeSection, premiumSubSection, premiumData]);
 
                 useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection, subView, premiumSubSection]);
                 
@@ -838,6 +840,7 @@
                     setSubView(null); 
                     setPremiumSubSection(null);
                     setIndTab('info');
+                    setBalTab('info');
                 }, [activeSection]); 
 
                 const handlePremiumClick = (target = null) => {
@@ -846,8 +849,12 @@
                     } else if (!isPremium) {
                         window.open('https://buy.stripe.com/5kQeVc2NH6wJ9EVfM377O00', 'PagoPremium', 'width=500,height=750,left=200,top=100');
                     } else {
-                        setActiveSection('premium_view');
-                        if (target) setPremiumSubSection(target);
+                        if (target === 'reto') {
+                            setPremiumSubSection('reto');
+                        } else {
+                            setActiveSection('premium_view');
+                            if (target) setPremiumSubSection(target);
+                        }
                     }
                 };
 
@@ -857,6 +864,10 @@
                 if (!appData || authLoading) return <div className="loading-screen"><h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2></div>;
 
                 const renderContent = () => {
+                    if (premiumSubSection === 'reto' && premiumData) {
+                        return <RetoPremium premiumData={premiumData} onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} onHome={() => setActiveSection('home')} />;
+                    }
+
                     switch (activeSection) {
                         case 'home':
                             return (
@@ -984,6 +995,7 @@
                                     return <p key={idx}>{parrafo}</p>;
                                 });
                             };
+
                             return (
                                 <div className="animate-fadeIn max-w-5xl mx-auto space-y-8 relative z-10">
                                     <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
@@ -991,22 +1003,56 @@
                                         <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Balance Cotidiano</h2>
                                         <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Estrategias y retos para construir bienestar emocional paso a paso.</p>
                                     </div>
-                                    <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
-                                        {appData.balance.imagen && (
-                                            <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
-                                                <img src={appData.balance.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl object-contain max-h-[70vh]" />
-                                            </div>
-                                        )}
-                                        <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
-                                            <div className="p-4 rounded-full text-white shadow-md bg-blue-400">
-                                                {getIconComponent(appData.balance.icon, {size: 32})}
-                                            </div>
-                                            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">{appData.balance.title}</h2>
-                                        </div>
-                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                            {renderContenidoTexto(appData.balance.contenido)}
-                                        </div>
+
+                                    <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto mb-8">
+                                        <button onClick={() => setBalTab('info')} className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balTab === 'info' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500 hover:text-brand-purple'}`}>Vida en Equilibrio</button>
+                                        <button onClick={() => setBalTab('reto')} className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balTab === 'reto' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500 hover:text-brand-purple'}`}>Reto del Mes</button>
                                     </div>
+
+                                    {balTab === 'info' && (
+                                        <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
+                                            {appData.balance.imagen && (
+                                                <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
+                                                    <img src={appData.balance.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl object-contain max-h-[70vh]" />
+                                                </div>
+                                            )}
+                                            <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                                <div className="p-4 rounded-full text-white shadow-md bg-blue-400">
+                                                    {getIconComponent(appData.balance.icon, {size: 32})}
+                                                </div>
+                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">{appData.balance.title}</h2>
+                                            </div>
+                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {renderContenidoTexto(appData.balance.contenido)}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {balTab === 'reto' && (
+                                        <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
+                                            <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                                <div className="p-4 rounded-full text-white shadow-md bg-yellow-400">
+                                                    <Star size={32} fill="currentColor" />
+                                                </div>
+                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">Reto del Mes</h2>
+                                            </div>
+                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {renderContenidoTexto(appData.balance.reto_del_mes.intro)}
+                                                
+                                                {appData.balance.reto_del_mes.semanas.map((sem, idx) => (
+                                                    <div key={idx} className="my-8 p-8 bg-stone-50/80 rounded-3xl border border-stone-200 shadow-sm">
+                                                        <div className="space-y-6">
+                                                            {renderContenidoTexto(sem.contenido)}
+                                                        </div>
+                                                    </div>
+                                                ))}
+
+                                                <div className="mt-12 pt-12 border-t border-stone-200">
+                                                    {renderContenidoTexto(appData.balance.reto_del_mes.cierre)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             );
 
@@ -1115,9 +1161,6 @@
 
                             if (premiumSubSection === 'perfil') return <PerfilEmocional premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
                             if (premiumSubSection === 'rutas') return <RutasBienestar premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
-                            if (premiumSubSection === 'reto') return <RetoPremium premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
-                            
-                            // NUEVO: Instancia de Maternidad con Ciencia
                             if (premiumSubSection === 'maternidad') return <MaternidadView premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
 
                             return (
@@ -1136,7 +1179,7 @@
                                         </p>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 px-4 max-w-4xl mx-auto">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-5xl mx-auto">
                                         
                                         <button onClick={() => setPremiumSubSection('perfil')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
                                             <div className="w-16 h-16 rounded-2xl bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Brain size={32} /></div>
@@ -1157,13 +1200,6 @@
                                             <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Maternidad con Ciencia</h3>
                                             <p className="text-stone-500 font-light flex-grow leading-relaxed">Entiende el cerebro de mamá, el cerebro infantil y descubre herramientas de crianza basadas en la evidencia.</p>
                                             <div className="mt-8 flex items-center text-pink-500 font-bold text-sm tracking-widest uppercase">Leer Módulos &rarr;</div>
-                                        </button>
-
-                                        <button onClick={() => setPremiumSubSection('reto')} className="group bg-gradient-to-br from-amber-50 to-yellow-100/50 backdrop-blur-xl p-10 rounded-[2.5rem] border border-yellow-200 shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
-                                            <div className="w-16 h-16 rounded-2xl bg-yellow-200 text-yellow-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Star size={32} fill="currentColor" /></div>
-                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Reto del Mes</h3>
-                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">Una experiencia final para responderte a ti mismo algunas de las preguntas más profundas.</p>
-                                            <div className="mt-8 flex items-center text-yellow-600 font-bold text-sm tracking-widest uppercase">Ingresar al Reto &rarr;</div>
                                         </button>
 
                                     </div>
