@@ -1037,9 +1037,9 @@
                                                 <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">Reto del Mes</h2>
                                             </div>
                                             <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                                {renderContenidoTexto(appData.balance.reto_del_mes.intro)}
+                                                {renderContenidoTexto(appData.reto_del_mes.intro)}
                                                 
-                                                {appData.balance.reto_del_mes.semanas.map((sem, idx) => (
+                                                {appData.reto_del_mes.semanas.map((sem, idx) => (
                                                     <div key={idx} className="my-8 p-8 bg-stone-50/80 rounded-3xl border border-stone-200 shadow-sm">
                                                         <div className="space-y-6">
                                                             {renderContenidoTexto(sem.contenido)}
@@ -1048,7 +1048,7 @@
                                                 ))}
 
                                                 <div className="mt-12 pt-12 border-t border-stone-200">
-                                                    {renderContenidoTexto(appData.balance.reto_del_mes.cierre)}
+                                                    {renderContenidoTexto(appData.reto_del_mes.cierre)}
                                                 </div>
                                             </div>
                                         </div>
