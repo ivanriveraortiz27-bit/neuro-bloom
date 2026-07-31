@@ -109,7 +109,7 @@
             const Lock = (props) => <IconWrapper name="lock" {...props} />;
             const CheckCircle = (props) => <IconWrapper name="check-circle" {...props} />;
             
-            // Nuevos iconos para las rutas
+            // Iconos de Rutas
             const MessageCircle = (props) => <IconWrapper name="message-circle" {...props} />;
             const PenTool = (props) => <IconWrapper name="pen-tool" {...props} />;
             const Headphones = (props) => <IconWrapper name="headphones" {...props} />;
@@ -120,9 +120,13 @@
                 switch(name) {
                     case 'activity': return <Activity {...props} />;
                     case 'heart': return <Heart {...props} />;
+                    case 'heart-handshake': return <HeartHandshake {...props} />;
                     case 'sun': return <Sun {...props} />;
+                    case 'shield': return <Shield {...props} />;
                     case 'brain': return <Brain {...props} />;
                     case 'book-heart': return <BookHeart {...props} />;
+                    case 'play-circle': return <PlayCircle {...props} />;
+                    case 'library': return <Library {...props} />;
                     case 'sprout': return <Sprout {...props} />;
                     case 'star': return <Star {...props} />;
                     case 'compass': return <Compass {...props} />;
@@ -163,7 +167,7 @@
                 </button>
             );
 
-            // --- Cuestionarios Generales (Info) ---
+            // --- Componentes Reutilizables ---
             const CuestionarioView = ({ data, onBack }) => {
                 const [respuestas, setRespuestas] = useState({});
                 const [resultado, setResultado] = useState(null);
@@ -256,7 +260,6 @@
                 );
             };
 
-            // --- Componente: Perfil Emocional Premium ---
             const PerfilEmocional = ({ premiumData, onBack }) => {
                 const perfil = premiumData.perfil_emocional;
                 const [dimActual, setDimActual] = useState(-1);
@@ -400,7 +403,6 @@
                 return null;
             };
 
-            // --- Componente Exclusivo: Rutas de Bienestar Premium ---
             const RutasBienestar = ({ premiumData, onBack }) => {
                 const [activeRuta, setActiveRuta] = useState(null);
                 const [activeModulo, setActiveModulo] = useState(0);
@@ -438,12 +440,10 @@
                     <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
                         <BackButton onClick={() => setActiveRuta(null)} text="Volver a Rutas" />
                         <div className="bg-white/90 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass overflow-hidden">
-                            {/* Cabecera Ruta */}
                             <div className="p-8 lg:p-10 border-b border-stone-100 bg-gradient-to-r from-stone-50 to-white">
                                 <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800 mb-2">{activeRuta.titulo}</h2>
                             </div>
                             
-                            {/* Menú de Módulos (Tabs) */}
                             <div className="flex overflow-x-auto border-b border-stone-100 bg-white/50 no-scrollbar">
                                 {activeRuta.modulos.map((m, idx) => (
                                     <button 
@@ -456,11 +456,9 @@
                                 ))}
                             </div>
                             
-                            {/* Contenido del Módulo */}
                             <div className="p-8 lg:p-14 space-y-12">
                                 <h3 className="text-3xl font-serif font-bold text-stone-800 mb-8">{modulo.titulo}</h3>
                                 
-                                {/* 1. Psicoeducacion */}
                                 {modulo.psicoeducacion && (
                                     <div className="space-y-6">
                                         <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">
@@ -473,7 +471,6 @@
                                     </div>
                                 )}
 
-                                {/* 2. Te ha pasado que... */}
                                 {modulo.te_ha_pasado && modulo.te_ha_pasado.length > 0 && (
                                     <div className="bg-brand-purple/5 p-8 rounded-3xl border border-brand-purple/10">
                                         <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm mb-6">
@@ -489,7 +486,6 @@
                                     </div>
                                 )}
 
-                                {/* 3. Ejercicio */}
                                 {modulo.ejercicio && (
                                     <div className="bg-stone-50 p-8 rounded-3xl border border-stone-100">
                                         <div className="flex items-center gap-3 text-stone-500 font-bold uppercase tracking-widest text-sm mb-6">
@@ -505,7 +501,6 @@
                                     </div>
                                 )}
 
-                                {/* 4. Audio */}
                                 {modulo.audio && (
                                     <div className="bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-8 rounded-3xl border border-brand-purple/20 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
                                         <div className="w-full text-center sm:text-left">
@@ -520,7 +515,6 @@
                                     </div>
                                 )}
 
-                                {/* 5. Hoja de Trabajo */}
                                 {modulo.hoja_trabajo && (
                                     <div className="space-y-6">
                                         <div className="flex items-center gap-3 text-actionBlue font-bold uppercase tracking-widest text-sm">
@@ -533,7 +527,6 @@
                                     </div>
                                 )}
 
-                                {/* 6. Reto de la semana */}
                                 {modulo.reto && (
                                     <div className="bg-brand-green/10 p-8 rounded-3xl border border-brand-green/20">
                                         <div className="flex items-center gap-3 text-brand-green font-bold uppercase tracking-widest text-sm mb-6">
@@ -546,7 +539,6 @@
                                     </div>
                                 )}
 
-                                {/* 7. Cierre */}
                                 {modulo.cierre && modulo.cierre.length > 0 && (
                                     <div className="border-t border-stone-100 pt-12 space-y-6 text-center">
                                         <HeartHandshake size={48} className="mx-auto text-brand-lilac mb-6" />
@@ -562,7 +554,6 @@
                 );
             };
 
-            // --- Componente Modal de Autenticación ---
             const AuthModal = ({ onClose }) => {
                 const [isLogin, setIsLogin] = useState(true);
                 const [email, setEmail] = useState('');
@@ -635,7 +626,6 @@
                 );
             };
 
-            // --- Componente Principal ---
             function NeuroBloom() {
                 const [activeSection, setActiveSection] = useState('home');
                 const [subView, setSubView] = useState(null); 
@@ -690,6 +680,7 @@
                     return () => { unsubscribeAuth(); if (unsubscribeSnapshot) unsubscribeSnapshot(); };
                 }, []);
 
+                // Carga de Data Pública
                 useEffect(() => {
                     fetch('./data.json')
                         .then(res => { if (!res.ok) throw new Error("No data"); return res.json(); })
@@ -697,6 +688,7 @@
                         .catch(err => { console.error(err); setDataError(true); });
                 }, []);
 
+                // Carga de Data Premium
                 useEffect(() => {
                     if (activeSection === 'premium_view' && !premiumData) {
                         fetch('./premium_data.json')
@@ -745,6 +737,215 @@
                                         <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
                                             <Thumbnail src="./bloom-library.jpeg" alt="Library" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Library size={64} className="text-brand-lilac" /></div>} />
                                         </div>
+                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+                                            <Thumbnail src="./infancias.jpeg" alt="Infancias" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sprout size={64} className="text-pink-400" /></div>} />
+                                        </div>
+                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+                                            <Thumbnail src="./capsulas-en-video.jpeg" alt="Cápsulas" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><PlayCircle size={64} className="text-orange-400" /></div>} />
+                                        </div>
+                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+                                            <Thumbnail src="./conoce-y-agenda.jpeg" alt="Agenda" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Calendar size={64} className="text-brand-green" /></div>} />
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+
+                        case 'indicadores':
+                            if (subView) {
+                                const infoData = appData.indicadores?.informacion?.find(d => d.id === subView);
+                                if (infoData) {
+                                    return (
+                                        <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
+                                            <BackButton onClick={() => setSubView(null)} text="Volver a Información" />
+                                            {infoData.imagen && (
+                                                <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
+                                                    <img src={infoData.imagen} alt={infoData.title} className="max-w-full rounded-2xl object-contain max-h-[60vh]" />
+                                                </div>
+                                            )}
+                                            <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                                <div className="p-4 rounded-full text-white shadow-md" style={{ backgroundColor: infoData.color }}>
+                                                    {getIconComponent(infoData.icon, {size: 32})}
+                                                </div>
+                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>{infoData.title}</h2>
+                                            </div>
+                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {infoData.contenido.map((parrafo, idx) => {
+                                                    if(parrafo.includes(':') && parrafo.split(':')[0].length < 50) {
+                                                        const parts = parrafo.split(':');
+                                                        return <p key={idx}><strong className="text-stone-800">{parts[0]}:</strong>{parts.slice(1).join(':')}</p>;
+                                                    }
+                                                    return <p key={idx}>{parrafo}</p>;
+                                                })}
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                                const testData = appData.indicadores?.cuestionarios?.find(d => d.id === subView);
+                                if (testData) return <CuestionarioView data={testData} onBack={() => setSubView(null)} />;
+                            }
+                            return (
+                                <div className="animate-fadeIn max-w-6xl mx-auto space-y-12 relative z-10">
+                                    <div className="w-full">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    </div>
+                                    <div className="text-center mb-10">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Indicadores Emocionales</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Infórmate sobre tu salud emocional y realiza ejercicios de autoexploración.</p>
+                                    </div>
+                                    <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto">
+                                        <button onClick={() => setSubView('info')} className="px-8 py-3 rounded-full font-bold transition-all text-lg bg-white shadow-sm text-brand-purple">Información</button>
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
+                                        {appData.indicadores?.informacion?.map(item => (
+                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                                <Thumbnail src={item.imagen} alt={item.title} className="w-20 h-20 rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>{getIconComponent(item.icon)}</div>} />
+                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-brand-purple transition-colors">{item.title}</h3>
+                                                <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.contenido[0]}</p>
+                                                <p className="text-sm font-bold text-brand-purple mt-6 tracking-wider uppercase">Leer artículo &rarr;</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            );
+
+                        case 'balance':
+                            const renderContenidoTexto = (parrafos) => {
+                                return parrafos.map((parrafo, idx) => {
+                                    if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
+                                    if (parrafo.includes('⭐') || parrafo.includes('🔒')) {
+                                        const textoLimpio = parrafo.replace('⭐', '').replace('🔒', '').trim();
+                                        return (
+                                            <button key={idx} onClick={handlePremiumClick} className="w-full py-5 mt-6 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 text-white font-bold text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex justify-center items-center gap-3 border-2 border-yellow-300">
+                                                <Star size={28} fill="currentColor" /> {textoLimpio}
+                                            </button>
+                                        );
+                                    }
+                                    if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
+                                        return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
+                                    }
+                                    return <p key={idx}>{parrafo}</p>;
+                                });
+                            };
+                            return (
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-8 relative z-10">
+                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    <div className="text-center mb-10">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Balance Cotidiano</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Estrategias y retos para construir bienestar emocional paso a paso.</p>
+                                    </div>
+                                    <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
+                                        {appData.balance.imagen && (
+                                            <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
+                                                <img src={appData.balance.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl object-contain max-h-[70vh]" />
+                                            </div>
+                                        )}
+                                        <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                            <div className="p-4 rounded-full text-white shadow-md bg-blue-400">
+                                                {getIconComponent(appData.balance.icon, {size: 32})}
+                                            </div>
+                                            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">{appData.balance.title}</h2>
+                                        </div>
+                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                            {appData.balance.contenido.map((parrafo, idx) => <p key={idx}>{parrafo}</p>)}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+
+                        case 'library':
+                            return (
+                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
+                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    <div className="text-center">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">Bloom Library</h2>
+                                        <p className="text-stone-600 mb-12 text-xl font-light">Un espacio para nutrir tu mente y alma a través de recursos, recomendaciones y cuentos terapéuticos.</p>
+                                        <div className="p-20 bg-white/70 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass flex flex-col items-center justify-center relative z-10">
+                                            <Library size={100} className="text-brand-lilac mb-8 animate-pulse" />
+                                            <h3 className="text-3xl font-serif font-bold text-stone-500 mb-4">Próximamente</h3>
+                                            <p className="text-stone-500 max-w-md mx-auto text-lg font-light">Estamos protegiendo la magia de nuestras historias. El contenido estará disponible una vez finalizado el registro de derechos de autor.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+
+                        case 'infancias':
+                            return (
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-8 relative z-10">
+                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    <div className="text-center mb-10">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Infancias que Florecen</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Desarrollo emocional infantil para comprender antes que juzgar.</p>
+                                    </div>
+                                    <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
+                                        <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                            <div className="p-4 rounded-full text-white shadow-md bg-pink-400"><Sprout size={32} /></div>
+                                            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800">{appData.detras_conducta?.title || "🪷 Detrás de su conducta"}</h2>
+                                        </div>
+                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                            {appData.detras_conducta?.contenido.map((parrafo, idx) => {
+                                                if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
+                                                if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
+                                                    return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
+                                                }
+                                                return <p key={idx}>{parrafo}</p>;
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+
+                        case 'capsulas':
+                            return (
+                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
+                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    <div className="text-center">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-orange-400">Cápsulas en Video</h2>
+                                        <p className="text-stone-600 mb-12 text-xl font-light">Espacio reservado para próximas reflexiones y guías audiovisuales de Neuro Bloom.</p>
+                                        <div className="p-20 bg-white/70 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass flex flex-col items-center justify-center relative z-10">
+                                            <PlayCircle size={100} className="text-orange-200 mb-8 animate-pulse" />
+                                            <h3 className="text-3xl font-serif font-bold text-stone-500 mb-4">Próximamente</h3>
+                                            <p className="text-stone-500 max-w-md mx-auto text-lg font-light">Estamos preparando el contenido en video para acompañar tu proceso de bienestar emocional.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+
+                        case 'citas':
+                            return (
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-12 relative z-10">
+                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    <div className="text-center mb-16">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">Conoce y Agenda Cita</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Inicia tu proceso de bienestar emocional. Conoce a nuestros especialistas y reserva tu espacio seguro con nosotros.</p>
+                                    </div>
+                                    <div className="grid md:grid-cols-2 gap-10 relative z-10">
+                                        {appData.especialistas?.map(esp => (
+                                            <div key={esp.id} className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-glass border border-white overflow-hidden flex flex-col hover:shadow-xl transition-all group">
+                                                <div className="w-full h-80 bg-stone-50 overflow-hidden relative border-b border-white">
+                                                    <Thumbnail src={esp.imagen} alt={esp.nombre} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" fallback={<Activity size={80} className="text-stone-300 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />} />
+                                                </div>
+                                                <div className="p-10 flex flex-col flex-grow">
+                                                    <h3 className="text-3xl font-serif font-bold text-stone-800 mb-2">{esp.nombre}</h3>
+                                                    <p className="text-brand-green font-bold text-lg mb-3">{esp.titulo}</p>
+                                                    {esp.cedula && <p className="text-sm text-stone-400 mb-5 font-mono">Cédula: {esp.cedula}</p>}
+                                                    <p className="text-stone-600 text-[15px] mb-8 italic font-light leading-relaxed">{esp.descripcion}</p>
+                                                    <div className="mb-10 flex-grow">
+                                                        <h4 className="font-bold text-sm text-stone-800 mb-4 uppercase tracking-widest border-b border-stone-200 pb-2">Especialidades y Enfoque</h4>
+                                                        <ul className="space-y-3">
+                                                            {esp.enfoques.map((enfoque, i) => (
+                                                                <li key={i} className="text-[15px] text-stone-600 flex items-start gap-3 font-light">
+                                                                    <span className="text-brand-green mt-1"><Heart size={16} fill="currentColor" /></span>
+                                                                    <span className="leading-tight">{enfoque}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                    <button className="w-full py-4 rounded-full text-white font-bold text-lg shadow-md hover:-translate-y-1 hover:shadow-lg transition-all flex justify-center items-center gap-3 bg-brand-green">
+                                                        <Calendar size={20} /> Agendar Cita
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             );
@@ -754,10 +955,7 @@
                                 return <div className="text-center py-20 text-brand-purple"><Loader size={48} className="animate-spin mx-auto mb-4" /> Cargando entorno Premium...</div>;
                             }
 
-                            // --- VISTAS INTERNAS DE PREMIUM ---
                             if (premiumSubSection === 'perfil') return <PerfilEmocional premiumData={premiumData} onBack={() => setPremiumSubSection(null)} />;
-                            
-                            // NUEVO: Instancia del Componente de Rutas
                             if (premiumSubSection === 'rutas') return <RutasBienestar premiumData={premiumData} onBack={() => setPremiumSubSection(null)} />;
 
                             if (premiumSubSection === 'maternidad') {
@@ -773,7 +971,6 @@
                                 );
                             }
 
-                            // --- DASHBOARD PRINCIPAL PREMIUM ---
                             return (
                                 <div className="animate-fadeIn max-w-6xl mx-auto py-8 lg:py-12 relative z-10">
                                     <div className="w-full mb-8">
@@ -791,7 +988,6 @@
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-                                        
                                         <button onClick={() => setPremiumSubSection('perfil')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full">
                                             <div className="w-16 h-16 rounded-2xl bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Brain size={32} /></div>
                                             <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Conoce tu Perfil Emocional</h3>
@@ -857,6 +1053,9 @@
                                     <NavButton active={activeSection === 'indicadores'} onClick={() => setActiveSection('indicadores')} icon={<Activity />}>Indicadores</NavButton>
                                     <NavButton active={activeSection === 'balance'} onClick={() => setActiveSection('balance')} icon={<Sun />}>Balance</NavButton>
                                     <NavButton active={activeSection === 'library'} onClick={() => setActiveSection('library')} icon={<Library />}>Library</NavButton>
+                                    <NavButton active={activeSection === 'infancias'} onClick={() => setActiveSection('infancias')} icon={<Sprout />}>Infancias</NavButton>
+                                    <NavButton active={activeSection === 'capsulas'} onClick={() => setActiveSection('capsulas')} icon={<PlayCircle />}>Cápsulas</NavButton>
+                                    <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Agenda</NavButton>
                                 </nav>
 
                                 <div className="flex items-center gap-4 relative z-50">
@@ -869,9 +1068,43 @@
                                             <UserCircle size={18} /> Ingresar
                                         </button>
                                     )}
+                                    <button className="lg:hidden p-2 text-brand-purple" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                        {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+                                    </button>
                                 </div>
                             </div>
                         </header>
+
+                        {mobileMenuOpen && (
+                            <div className="fixed inset-0 z-40 pt-28 px-6 lg:hidden animate-slideIn bg-white/95 backdrop-blur-3xl">
+                                <div className="flex flex-col gap-4">
+                                    <div className="mb-4 pb-4 border-b border-stone-200">
+                                        {user ? (
+                                            <button onClick={() => {handleLogout(); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-stone-500 bg-stone-100 flex items-center gap-3">
+                                                <UserCircle size={24} /> Cerrar Sesión
+                                            </button>
+                                        ) : (
+                                            <button onClick={() => {setShowAuthModal(true); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-white bg-brand-purple shadow-md flex items-center gap-3">
+                                                <UserCircle size={24} /> Iniciar Sesión / Registro
+                                            </button>
+                                        )}
+                                    </div>
+                                    {['home', 'indicadores', 'balance', 'library', 'infancias', 'capsulas', 'citas'].map(sec => (
+                                        <button 
+                                            key={sec}
+                                            onClick={() => { setActiveSection(sec); setMobileMenuOpen(false); }}
+                                            className="text-left p-5 rounded-2xl font-bold text-xl border border-white/50 shadow-sm"
+                                            style={{ 
+                                                color: activeSection === sec ? colors.white : colors.primary,
+                                                backgroundColor: activeSection === sec ? colors.primary : 'rgba(255,255,255,0.8)'
+                                            }}
+                                        >
+                                            {sec === 'library' ? 'Bloom Library' : sec === 'infancias' ? 'Infancias que Florecen' : sec === 'citas' ? 'Agenda' : sec.charAt(0).toUpperCase() + sec.slice(1)}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
 
                         <main className="max-w-7xl mx-auto px-6 py-12 min-h-[80vh] relative z-10">
                             {renderContent()}
