@@ -1160,19 +1160,70 @@
                             );
 
                         case 'capsulas':
+                            if (subView) {
+                                const capsulaData = appData.capsulas?.find(c => c.id === subView);
+                                if (capsulaData) {
+                                    return (
+                                        <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
+                                            <BackButton onClick={() => setSubView(null)} text="Volver a Cápsulas" />
+                                            <div className="flex items-center gap-4 mb-8">
+                                                <div className="p-4 rounded-full text-white shadow-md bg-orange-400">
+                                                    <PlayCircle size={32} />
+                                                </div>
+                                                <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800">
+                                                    <span className="brush-highlight-yellow">{capsulaData.title}</span>
+                                                </h2>
+                                            </div>
+                                            
+                                            {capsulaData.youtube_id && (
+                                                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-10 border border-white">
+                                                    <iframe 
+                                                        className="absolute top-0 left-0 w-full h-full"
+                                                        src={`https://www.youtube.com/embed/${capsulaData.youtube_id}`} 
+                                                        title="YouTube video player" 
+                                                        frameBorder="0" 
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                        allowFullScreen>
+                                                    </iframe>
+                                                </div>
+                                            )}
+
+                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {capsulaData.guion.map((parrafo, idx) => <p key={idx}>{parrafo}</p>)}
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                            }
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
-                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    <div className="text-center">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-orange-400">
+                                <div className="animate-fadeIn max-w-6xl mx-auto space-y-12 relative z-10">
+                                    <div className="w-full">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    </div>
+                                    <div className="text-center mb-10">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">
                                             <span className="brush-highlight-yellow">Cápsulas en Video</span>
                                         </h2>
-                                        <p className="text-stone-600 mb-12 text-xl font-light">Espacio reservado para próximas reflexiones y guías audiovisuales de Neuro Bloom.</p>
-                                        <div className="p-20 bg-white/70 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass flex flex-col items-center justify-center relative z-10">
-                                            <PlayCircle size={100} className="text-orange-200 mb-8 animate-pulse" />
-                                            <h3 className="text-3xl font-serif font-bold text-stone-500 mb-4">Próximamente</h3>
-                                            <p className="text-stone-500 max-w-md mx-auto text-lg font-light">Estamos preparando el contenido en video para acompañar tu proceso de bienestar emocional.</p>
-                                        </div>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Reflexiones y guías audiovisuales de Neuro Bloom.</p>
+                                    </div>
+                                    
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
+                                        {appData.capsulas?.map(item => (
+                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                                {item.imagen ? (
+                                                    <Thumbnail src={item.imagen} alt={item.title} className="w-full aspect-video rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm bg-orange-400"><PlayCircle size={32} /></div>} />
+                                                ) : (
+                                                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm bg-orange-400">
+                                                        <PlayCircle size={32} />
+                                                    </div>
+                                                )}
+                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-orange-500 transition-colors">{item.title}</h3>
+                                                <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.guion[0]}</p>
+                                                <p className="text-sm font-bold text-orange-500 mt-6 tracking-wider uppercase flex items-center gap-2">
+                                                    {item.youtube_id ? <><PlayCircle size={16}/> Ver Video</> : "Leer Guión"} &rarr;
+                                                </p>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             );
