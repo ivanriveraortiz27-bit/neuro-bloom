@@ -1,4 +1,6 @@
-{
+const fs = require('fs');
+
+const data = {
   "indicadores": {
     "informacion": [
       {
@@ -419,40 +421,16 @@
           "Siento que estas preocupaciones interfieren con mi bienestar, mis relaciones o mis actividades diarias."
         ],
         "opciones": [
-          {
-            "l": "Nunca",
-            "v": 0
-          },
-          {
-            "l": "Algunas veces",
-            "v": 1
-          },
-          {
-            "l": "Frecuentemente",
-            "v": 2
-          },
-          {
-            "l": "Casi todos los días",
-            "v": 3
-          }
+          {"l": "Nunca", "v": 0},
+          {"l": "Algunas veces", "v": 1},
+          {"l": "Frecuentemente", "v": 2},
+          {"l": "Casi todos los días", "v": 3}
         ],
         "interpretacion": [
-          {
-            "rango": "0-10",
-            "texto": "Ansiedad dentro de un rango esperado."
-          },
-          {
-            "rango": "11-20",
-            "texto": "Presencia de ansiedad leve a moderada."
-          },
-          {
-            "rango": "21-30",
-            "texto": "Ansiedad elevada; podría ser útil buscar orientación profesional."
-          },
-          {
-            "rango": "31-40",
-            "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental."
-          }
+          { "rango": "0-10", "texto": "Ansiedad dentro de un rango esperado." },
+          { "rango": "11-20", "texto": "Presencia de ansiedad leve a moderada." },
+          { "rango": "21-30", "texto": "Ansiedad elevada; podría ser útil buscar orientación profesional." },
+          { "rango": "31-40", "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental." }
         ]
       },
       {
@@ -476,36 +454,15 @@
           "A veces siento que sin esa relación “me pierdo” o me quedo vacía/o."
         ],
         "opciones": [
-          {
-            "l": "Nunca",
-            "v": 1
-          },
-          {
-            "l": "Algunas veces",
-            "v": 2
-          },
-          {
-            "l": "Frecuentemente",
-            "v": 3
-          },
-          {
-            "l": "Casi todos los días",
-            "v": 4
-          }
+          {"l": "Nunca", "v": 1},
+          {"l": "Algunas veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi todos los días", "v": 4}
         ],
         "interpretacion": [
-          {
-            "rango": "12-20",
-            "texto": "Tu forma de vincularte suele ser relatively segura. Aun así, todos podemos fortalecer nuestra autonomía emocional."
-          },
-          {
-            "rango": "21-32",
-            "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección."
-          },
-          {
-            "rango": "33-48",
-            "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte."
-          }
+          { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relatively segura. Aun así, todos podemos fortalecer nuestra autonomía emocional." },
+          { "rango": "21-32", "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección." },
+          { "rango": "33-48", "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte." }
         ]
       },
       {
@@ -529,36 +486,15 @@
           "Siento que, haga lo que haga, nunca es suficiente."
         ],
         "opciones": [
-          {
-            "l": "Nunca",
-            "v": 1
-          },
-          {
-            "l": "Algunas veces",
-            "v": 2
-          },
-          {
-            "l": "Frecuentemente",
-            "v": 3
-          },
-          {
-            "l": "Casi todos los días",
-            "v": 4
-          }
+          {"l": "Nunca", "v": 1},
+          {"l": "Algunas veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi todos los días", "v": 4}
         ],
         "interpretacion": [
-          {
-            "rango": "12-20",
-            "texto": "Tu diálogo interno suele ser relativamente amable. Aun así, puede haber áreas donde fortalecer tu autovaloración."
-          },
-          {
-            "rango": "21-32",
-            "texto": "Hay señales de autoexigencia y duda. Probablemente a veces eres más duro/a contigo de lo que mereces."
-          },
-          {
-            "rango": "33-48",
-            "texto": "Aparecen varios indicadores asociados a una autoestima baja. No significa que haya algo “mal” en ti, sino que has aprendido a tratarte desde la exigencia y el juicio."
-          }
+          { "rango": "12-20", "texto": "Tu diálogo interno suele ser relativamente amable. Aun así, puede haber áreas donde fortalecer tu autovaloración." },
+          { "rango": "21-32", "texto": "Hay señales de autoexigencia y duda. Probablemente a veces eres más duro/a contigo de lo que mereces." },
+          { "rango": "33-48", "texto": "Aparecen varios indicadores asociados a una autoestima baja. No significa que haya algo “mal” en ti, sino que has aprendido a tratarte desde la exigencia y el juicio." }
         ]
       },
       {
@@ -580,40 +516,16 @@
           "He sentido que debo ser fuerte y no mostrar lo que realmente duele."
         ],
         "opciones": [
-          {
-            "l": "Nunca",
-            "v": 0
-          },
-          {
-            "l": "Rara vez",
-            "v": 1
-          },
-          {
-            "l": "A veces",
-            "v": 2
-          },
-          {
-            "l": "Frecuentemente",
-            "v": 3
-          },
-          {
-            "l": "Casi siempre",
-            "v": 4
-          }
+          {"l": "Nunca", "v": 0},
+          {"l": "Rara vez", "v": 1},
+          {"l": "A veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi siempre", "v": 4}
         ],
         "interpretacion": [
-          {
-            "rango": "0-10",
-            "texto": "El duelo parece estar integrado, aunque puede haber emociones que aún acompañen."
-          },
-          {
-            "rango": "11-25",
-            "texto": "Existen señales de duelo activo que merecen escucha y cuidado emocional."
-          },
-          {
-            "rango": "26-40",
-            "texto": "Es posible que el duelo esté interfiriendo en tu bienestar emocional; acompañamiento psicológico puede ser una forma de cuidado, no de debilidad."
-          }
+          { "rango": "0-10", "texto": "El duelo parece estar integrado, aunque puede haber emociones que aún acompañen." },
+          { "rango": "11-25", "texto": "Existen señales de duelo activo que merecen escucha y cuidado emocional." },
+          { "rango": "26-40", "texto": "Es posible que el duelo esté interfiriendo en tu bienestar emocional; acompañamiento psicológico puede ser una forma de cuidado, no de debilidad." }
         ]
       },
       {
@@ -645,44 +557,17 @@
           "Aunque paro un poco, siento que no logro recuperarme del todo."
         ],
         "opciones": [
-          {
-            "l": "Nunca",
-            "v": 0
-          },
-          {
-            "l": "Rara vez",
-            "v": 1
-          },
-          {
-            "l": "A veces",
-            "v": 2
-          },
-          {
-            "l": "Frecuentemente",
-            "v": 3
-          },
-          {
-            "l": "Casi siempre",
-            "v": 4
-          }
+          {"l": "Nunca", "v": 0},
+          {"l": "Rara vez", "v": 1},
+          {"l": "A veces", "v": 2},
+          {"l": "Frecuentemente", "v": 3},
+          {"l": "Casi siempre", "v": 4}
         ],
         "interpretacion": [
-          {
-            "rango": "0-15",
-            "texto": "Nivel bajo de señales de burnout. Aun así, conviene cuidar tus límites."
-          },
-          {
-            "rango": "16-30",
-            "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente están pidiendo atención."
-          },
-          {
-            "rango": "31-45",
-            "texto": "Riesgo alto de burnout emocional. Es importante detenerte y buscar apoyo."
-          },
-          {
-            "rango": "46-80",
-            "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional."
-          }
+          { "rango": "0-15", "texto": "Nivel bajo de señales de burnout. Aun así, conviene cuidar tus límites." },
+          { "rango": "16-30", "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente están pidiendo atención." },
+          { "rango": "31-45", "texto": "Riesgo alto de burnout emocional. Es importante detenerte y buscar apoyo." },
+          { "rango": "46-80", "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional." }
         ]
       },
       {
@@ -709,36 +594,15 @@
           "Siento que, si me detengo, todo se descontrola."
         ],
         "opciones": [
-          {
-            "l": "Nunca",
-            "v": 0
-          },
-          {
-            "l": "Algunas veces",
-            "v": 1
-          },
-          {
-            "l": "Frecuentemente",
-            "v": 2
-          },
-          {
-            "l": "Casi todo el tiempo",
-            "v": 3
-          }
+          {"l": "Nunca", "v": 0},
+          {"l": "Algunas veces", "v": 1},
+          {"l": "Frecuentemente", "v": 2},
+          {"l": "Casi todo el tiempo", "v": 3}
         ],
         "interpretacion": [
-          {
-            "rango": "0-15",
-            "texto": "Estrés bajo: Tu nivel de estrés es manejable. Aun así, es importante mantener hábitos de autocuidado."
-          },
-          {
-            "rango": "16-30",
-            "texto": "Estrés moderado: El estrés ya está influyendo en tu bienestar emocional o físico. Escucharte y hacer ajustes puede prevenir que aumente."
-          },
-          {
-            "rango": "31-45",
-            "texto": "Estrés alto: El estrés está teniendo un impacto significativo en tu vida. Buscar apoyo y priorizar tu salud emocional es muy recomendable."
-          }
+          { "rango": "0-15", "texto": "Estrés bajo: Tu nivel de estrés es manejable. Aun así, es importante mantener hábitos de autocuidado." },
+          { "rango": "16-30", "texto": "Estrés moderado: El estrés ya está influyendo en tu bienestar emocional o físico. Escucharte y hacer ajustes puede prevenir que aumente." },
+          { "rango": "31-45", "texto": "Estrés alto: El estrés está teniendo un impacto significativo en tu vida. Buscar apoyo y priorizar tu salud emocional es muy recomendable." }
         ]
       },
       {
@@ -763,36 +627,15 @@
           "He sentido que mi vida tiene poco sentido o que sería mejor no estar aquí."
         ],
         "opciones": [
-          {
-            "l": "Nunca",
-            "v": 0
-          },
-          {
-            "l": "Algunas veces",
-            "v": 1
-          },
-          {
-            "l": "Frecuentemente",
-            "v": 2
-          },
-          {
-            "l": "Casi todo el tiempo",
-            "v": 3
-          }
+          {"l": "Nunca", "v": 0},
+          {"l": "Algunas veces", "v": 1},
+          {"l": "Frecuentemente", "v": 2},
+          {"l": "Casi todo el tiempo", "v": 3}
         ],
         "interpretacion": [
-          {
-            "rango": "0-13",
-            "texto": "Malestar emocional bajo: Tus respuestas no muestran señales importantes de síntomas depresivos. Mantener hábitos de autocuidado y espacios de conexión emocional sigue siendo importante para proteger tu bienestar."
-          },
-          {
-            "rango": "14-26",
-            "texto": "Malestar emocional moderado: Es posible que estés atravesando un periodo de desgaste emocional que merece atención. Escucharte, hablar con alguien de confianza o buscar orientación profesional puede ayudarte a prevenir que el malestar aumente."
-          },
-          {
-            "rango": "27-39",
-            "texto": "Malestar emocional elevado: Tus respuestas indican un nivel importante de síntomas depresivos que podría estar afectando distintas áreas de tu vida. Buscar apoyo profesional puede ayudarte a comprender lo que estás viviendo y encontrar estrategias para sentirte mejor."
-          }
+          { "rango": "0-13", "texto": "Malestar emocional bajo: Tus respuestas no muestran señales importantes de síntomas depresivos. Mantener hábitos de autocuidado y espacios de conexión emocional sigue siendo importante para proteger tu bienestar." },
+          { "rango": "14-26", "texto": "Malestar emocional moderado: Es posible que estés atravesando un periodo de desgaste emocional que merece atención. Escucharte, hablar con alguien de confianza o buscar orientación profesional puede ayudarte a prevenir que el malestar aumente." },
+          { "rango": "27-39", "texto": "Malestar emocional elevado: Tus respuestas indican un nivel importante de síntomas depresivos que podría estar afectando distintas áreas de tu vida. Buscar apoyo profesional puede ayudarte a comprender lo que estás viviendo y encontrar estrategias para sentirte mejor." }
         ]
       }
     ]
@@ -2035,4 +1878,7 @@
       ]
     }
   ]
-}
+};
+
+fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
+console.log('Archivo data.json generado con éxito.');
