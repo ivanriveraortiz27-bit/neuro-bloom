@@ -460,7 +460,7 @@ const data = {
           {"l": "Casi todos los días", "v": 4}
         ],
         "interpretacion": [
-          { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relatively segura. Aun así, todos podemos fortalecer nuestra autonomía emocional." },
+          { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relativamente segura. Aun así, todos podemos fortalecer nuestra autonomía emocional." },
           { "rango": "21-32", "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección." },
           { "rango": "33-48", "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte." }
         ]
