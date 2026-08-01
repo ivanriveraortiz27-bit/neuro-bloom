@@ -225,7 +225,7 @@
         "contenido": [
           "¿Por qué nos pasa?",
           "Durante mucho tiempo se creyó que el burnout era un problema exclusivo de quienes tenían trabajos extremadamente demandantes. Hoy sabemos que no es así.",
-          "Puede aparecer en cualquier persona que, durante কাশী  tiempo, ha sostenido más de lo que realmente puede: quienes trabajan sin descanso, cuidan de otros, enfrentan múltiples responsabilidades o viven con la sensación constante de que siempre deben hacer un poco más.",
+          "Puede aparecer en cualquier persona que, durante mucho tiempo, ha sostenido más de lo que realmente puede: quienes trabajan sin descanso, cuidan de otros, enfrentan múltiples responsabilidades o viven con la sensación constante de que siempre deben hacer un poco más.",
           "A veces el desgaste nace de circunstancias externas: una carga laboral excesiva, dificultades económicas, conflictos personales o la falta de una red de apoyo.",
           "Pero otras veces comienza de una forma mucho más silenciosa: cuando nos exigimos ser perfectos, nos cuesta poner límites o sentimos que, por más que hagamos, nunca es suficiente.",
           "Las señales que no deberíamos ignorar",
@@ -688,6 +688,7 @@
     ]
   },
   "reto_del_mes": {
+    "youtube_id": "3MSohh4uBgw",
     "intro": [
       "✨ ENFOQUE DEL MES | AGOSTO",
       "🌸 Volver a mí",
@@ -771,6 +772,7 @@
     "semanas": [
       {
         "id": "sem1",
+        "youtube_id": "q6LTwWarLag",
         "contenido": [
           "🌱 SEMANA 1 | Volver a escucharme",
           "¿Hace cuánto no te preguntas qué necesitas tú?",
@@ -872,6 +874,7 @@
       },
       {
         "id": "sem2",
+        "youtube_id": "xurBF4VkTtw",
         "contenido": [
           "🤍 SEMANA 2 | Elegirme sin culpa",
           "Lo difícil que es elegirte sin sentir culpa",
@@ -1005,6 +1008,7 @@
       },
       {
         "id": "sem3",
+        "youtube_id": "zC847SyiK_I",
         "contenido": [
           "🌸 SEMANA 3 | Recordar quién soy",
           "¿Quién eres además de todo lo que haces?",
@@ -1137,6 +1141,7 @@
       },
       {
         "id": "sem4",
+        "youtube_id": "aGYN_8ThCS8",
         "contenido": [
           "🪷 SEMANA 4 | Empezar desde mí",
           "¿Qué versión de ti quieres empezar a construir?",
@@ -1729,6 +1734,7 @@
     {
       "id": "capsula-ansiedad",
       "title": "Hablemos de la Ansiedad",
+      "youtube_id": "b-DcQeZoFnw",
       "guion": [
         "Muchas veces usamos la palabra ansiedad como algo cotidiano, pero no siempre entendemos qué significa realmente. La ansiedad es una emoción natural, todos la sentimos en algún momento. El problema aparece cuando la preocupación es constante, difícil de controlar y empieza a afectar nuestro descanso, nuestro cuerpo o nuestra vida diaria.",
         "La ansiedad no solo está en la mente. Puede manifestarse como cansancio, tensión muscular, problemas para dormir o una sensación constante de alerta, incluso cuando todo parece estar 'bien'.",
@@ -1766,6 +1772,7 @@
     {
       "id": "capsula-burnout",
       "title": "Burnout Emocional",
+      "youtube_id": "wXRqSDCqyxs",
       "guion": [
         "Hay un cansancio que no se quita durmiendo más. Un cansancio que no desaparece con un fin de semana libre ni con unas vacaciones. Es ese agotamiento que se siente en el cuerpo, en la mente y en el ánimo, aunque por fuera todo parezca 'normal'. A eso se le llama burnout emocional.",
         "El burnout no tiene que ver con ser débil, flojo o exagerado. Tiene que ver con haber sostenido demasiadas responsabilidades durante demasiado tiempo. Con haber dado más de lo que se podía dar sin escuchar las propias señales.",
@@ -1778,6 +1785,7 @@
     {
       "id": "capsula-dependencia",
       "title": "Dependencia Emocional",
+      "youtube_id": "Rc15qsTrW-g",
       "guion": [
         "Si alguna vez has sentido que una relación te sostiene… pero al mismo tiempo te desgasta, esto puede ser para ti.",
         "La dependencia emocional no es amar demasiado. Es sentir que sin la otra persona te pierdes un poco. Que tu calma, tu valor o tu seguridad dependen de que el otro esté, responda o no se vaya.",
@@ -1790,6 +1798,7 @@
     {
       "id": "capsula-depresion",
       "title": "Señales de alerta de la depresión",
+      "youtube_id": "QhkbP1rWqhE",
       "guion": [
         "Hoy quiero hablarte de algo importante, especialmente si eres mamá, mujer o docente… La depresión no siempre se nota, y muchas veces se vive en silencio.",
         "A veces la depresión no es llorar todo el día. Puede verse así: Sentirte cansada constantemente, incluso después de dormir. Perder interés en cosas que antes te hacían bien. Cambios en el sueño o en el apetito. Irritabilidad, culpa o una sensación de vacío. Seguir cumpliendo con todo, pero por dentro sentirte apagada.",
@@ -1800,6 +1809,7 @@
     {
       "id": "capsula-estres",
       "title": "Hablemos del Estrés",
+      "youtube_id": "Ki4debu96IA",
       "guion": [
         "Hay emociones que no siempre se notan, pero pesan. No hacen ruido, no detienen el día, no interrumpen las responsabilidades. Aun así, se quedan en el cuerpo, en la forma en que respiramos, en el cansancio que no se quita con dormir.",
         "Muchas personas aprenden a seguir funcionando. A cumplir, a responder, a sostener. Desde fuera todo parece estar bien, pero por dentro algo se va tensando poco a poco. No siempre es tristeza. A veces es agotamiento emocional. A veces es estrés acumulado. A veces es una sensación silenciosa de desconexión con uno mismo.",
@@ -1819,6 +1829,16 @@
         "Porque el agotamiento no siempre se ve dramático. A veces se ve como eficiencia constante. Como estar siempre ocupada. Como no permitirte descansar porque 'todavía falta algo'. Pero si siempre falta algo… ¿cuándo te eliges tú?",
         "Equilibrio es preguntarte: ¿Esto me está construyendo o me está desgastando? ¿Estoy eligiendo… o solo estoy reaccionando? No se trata de hacerlo todo. Se trata de que ninguna parte de ti desaparezca.",
         "En NeuroBloom no buscamos vidas perfectas. Buscamos vidas sostenibles. Porque florecer no es acelerar hasta romperte. Es crecer con raíces fuertes. Y eso… también es equilibrio."
+      ]
+    },
+    {
+      "id": "capsula-duelo",
+      "title": "Hablemos del Duelo",
+      "youtube_id": "8BQCvFriAao",
+      "guion": [
+        "El duelo es una respuesta natural ante la pérdida de alguien o algo importante en nuestra vida.",
+        "No existe una forma correcta de atravesarlo ni un tiempo exacto para que termine.",
+        "Sanar no significa olvidar, sino aprender a integrar esa pérdida en nuestra historia. Pedir ayuda durante este proceso es un acto de valentía y cuidado personal."
       ]
     }
   ],
