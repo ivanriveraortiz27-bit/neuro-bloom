@@ -1036,6 +1036,24 @@
                             const renderContenidoTexto = (parrafos) => {
                                 return parrafos.map((parrafo, idx) => {
                                     if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
+                                    
+                                    // LA NUEVA CONDICIÓN PARA EL MARCADOR DEL AUDIO 🎧
+                                    if (parrafo === '[AUDIO_RETO]') {
+                                        return (
+                                            <div key={idx} className="my-8 bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-6 rounded-3xl border border-brand-purple/20 shadow-sm flex flex-col gap-4">
+                                                <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">
+                                                    <Headphones size={20} /> Audio del Mes
+                                                </div>
+                                                <div className="bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                    <audio controls className="w-full outline-none">
+                                                        <source src={appData.reto_del_mes.url} type="audio/mpeg" />
+                                                        Tu navegador no soporta el elemento de audio.
+                                                    </audio>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+
                                     if (parrafo.includes('⭐') || parrafo.includes('🔒')) {
                                         const textoLimpio = parrafo.replace('⭐', '').replace('🔒', '').trim();
                                         return (
@@ -1123,14 +1141,8 @@
                                                                 <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${appData.reto_del_mes.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
                                                             </div>
                                                         )}
-                                                        {appData.reto_del_mes.url && (
-                                                            <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
-                                                                <audio controls className="w-full outline-none">
-                                                                    <source src={appData.reto_del_mes.url} type="audio/mpeg" />
-                                                                    Tu navegador no soporta el elemento de audio.
-                                                                </audio>
-                                                            </div>
-                                                        )}
+                                                        
+                                                        {/* Se ha eliminado el audio estático y ahora lo procesará renderContenidoTexto */}
                                                         {renderContenidoTexto(appData.reto_del_mes.intro)}
                                                     </div>
                                                 )}

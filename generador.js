@@ -915,6 +915,7 @@ const data = {
       "Los grandes cambios casi siempre comienzan con pequeños gestos repetidos.",
       "---",
       "🎧 Cuando necesites volver a ti",
+      "[AUDIO_RETO]",
       "---",
       "💬 La conversación de la semana",
       "Cada lunes encontrarás una nueva conversación relacionada con el tema del mes.",
