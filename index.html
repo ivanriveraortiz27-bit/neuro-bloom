@@ -658,42 +658,19 @@
                             
                             {step === 0 && (
                                 <div className="animate-fadeIn space-y-6">
-                                    <h2 className="text-4xl font-serif font-bold text-stone-800 mb-8"><span className="brush-highlight-yellow">{reto.titulo || "Reto del Mes"}</span></h2>
-                                    
-                                    {/* Mapeo del intro. El reproductor se ubica donde se encuentre la frase solicitada */}
-                                    {reto.intro?.map((p, i) => {
-                                        if (p === "🎧 Cuando necesites volver a ti") {
-                                            return (
-                                                <div key={i} className="bg-brand-purple/5 p-8 rounded-3xl border border-brand-purple/20 my-10 flex flex-col items-center shadow-sm">
-                                                    <div className="flex items-center gap-2 text-brand-purple font-bold uppercase tracking-widest text-sm mb-6">
-                                                        <Headphones size={24} /> Cuando necesites volver a ti
-                                                    </div>
-                                                    {reto.url && (
-                                                        <audio controls className="w-full max-w-md rounded-full shadow-sm outline-none">
-                                                            <source src={reto.url} type="audio/mpeg" />
-                                                            Tu navegador no soporta el elemento de audio.
-                                                        </audio>
-                                                    )}
-                                                </div>
-                                            );
-                                        }
-                                        return <p key={i} className="text-xl text-stone-600 font-light leading-relaxed">{p}</p>;
-                                    })}
-                                    
+                                    <h2 className="text-4xl font-serif font-bold text-stone-800 mb-8"><span className="brush-highlight-yellow">{reto.titulo}</span></h2>
+                                    {reto.intro.map((p, i) => <p key={i} className="text-xl text-stone-600 font-light leading-relaxed">{p}</p>)}
                                     <button onClick={() => setStep(1)} className="mt-8 px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Continuar</button>
                                 </div>
                             )}
 
                             {step === 1 && (
                                 <div className="animate-fadeIn space-y-6 text-left">
-                                    {reto.desarrollo?.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
-                                    
-                                    {reto.pregunta_1 && (
-                                        <div className="bg-brand-purple/5 p-8 rounded-2xl border border-brand-purple/20 my-8">
-                                            <h3 className="text-2xl font-serif font-bold text-brand-purple mb-4">{reto.pregunta_1}</h3>
-                                            <textarea className="w-full bg-white border border-stone-200 rounded-xl p-4 min-h-[120px] focus:outline-none focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 resize-none" placeholder="Escribe aquí con total honestidad..."></textarea>
-                                        </div>
-                                    )}
+                                    {reto.desarrollo.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
+                                    <div className="bg-brand-purple/5 p-8 rounded-2xl border border-brand-purple/20 my-8">
+                                        <h3 className="text-2xl font-serif font-bold text-brand-purple mb-4">{reto.pregunta_1}</h3>
+                                        <textarea className="w-full bg-white border border-stone-200 rounded-xl p-4 min-h-[120px] focus:outline-none focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 resize-none" placeholder="Escribe aquí con total honestidad..."></textarea>
+                                    </div>
                                     <div className="text-center">
                                         <button onClick={() => setStep(2)} className="px-8 py-4 bg-brand-purple text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Siguiente</button>
                                     </div>
@@ -702,20 +679,14 @@
 
                             {step === 2 && (
                                 <div className="animate-fadeIn space-y-6 text-left">
-                                    {reto.reflexion_1?.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
-                                    
-                                    {reto.transicion && (
-                                        <div className="my-8 border-t border-b border-stone-100 py-8 space-y-6">
-                                            {reto.transicion?.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
-                                        </div>
-                                    )}
-
-                                    {reto.pregunta_2 && (
-                                        <div className="bg-brand-green/10 p-8 rounded-2xl border border-brand-green/20 my-8">
-                                            <h3 className="text-2xl font-serif font-bold text-brand-green mb-4">{reto.pregunta_2}</h3>
-                                            <textarea className="w-full bg-white border border-stone-200 rounded-xl p-4 min-h-[120px] focus:outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 resize-none" placeholder="Tómate tu tiempo para recordar..."></textarea>
-                                        </div>
-                                    )}
+                                    {reto.reflexion_1.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
+                                    <div className="my-8 border-t border-b border-stone-100 py-8 space-y-6">
+                                        {reto.transicion.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
+                                    </div>
+                                    <div className="bg-brand-green/10 p-8 rounded-2xl border border-brand-green/20 my-8">
+                                        <h3 className="text-2xl font-serif font-bold text-brand-green mb-4">{reto.pregunta_2}</h3>
+                                        <textarea className="w-full bg-white border border-stone-200 rounded-xl p-4 min-h-[120px] focus:outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 resize-none" placeholder="Tómate tu tiempo para recordar..."></textarea>
+                                    </div>
                                     <div className="text-center">
                                         <button onClick={() => setStep(3)} className="px-8 py-4 bg-brand-green text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Finalizar Reflexión</button>
                                     </div>
@@ -725,18 +696,15 @@
                             {step === 3 && (
                                 <div className="animate-fadeIn space-y-6 text-left">
                                     <div className="space-y-6 mb-12">
-                                        {reto.cierre?.map((p, i) => <p key={i} className="text-lg text-stone-700 font-bold leading-relaxed">{p}</p>)}
+                                        {reto.cierre.map((p, i) => <p key={i} className="text-lg text-stone-700 font-bold leading-relaxed">{p}</p>)}
                                     </div>
                                     <hr className="border-stone-200 mb-12" />
                                     <div className="space-y-6">
-                                        {reto.despedida?.map((p, i) => <p key={i} className="text-lg text-stone-600 font-light leading-relaxed">{p}</p>)}
+                                        {reto.despedida.map((p, i) => <p key={i} className="text-lg text-stone-600 font-light leading-relaxed">{p}</p>)}
                                     </div>
-
-                                    {reto.teaser_proximo && (
-                                        <div className="bg-stone-50 p-8 rounded-2xl border border-stone-200 mt-12">
-                                            <p className="text-stone-500 font-light whitespace-pre-line italic">{reto.teaser_proximo}</p>
-                                        </div>
-                                    )}
+                                    <div className="bg-stone-50 p-8 rounded-2xl border border-stone-200 mt-12">
+                                        <p className="text-stone-500 font-light whitespace-pre-line italic">{reto.teaser_proximo}</p>
+                                    </div>
                                     <div className="text-center mt-12">
                                         <button onClick={onBack} className="px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Cerrar Reto</button>
                                     </div>
@@ -947,13 +915,8 @@
                 if (!appData || authLoading) return <div className="loading-screen"><h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2></div>;
 
                 const renderContent = () => {
-                    if (premiumSubSection === 'reto' && appData.reto_del_mes) {
-                        let dataToPass = { reto_premium: appData.reto_del_mes };
-                        if (premiumData && isPremium) {
-                            dataToPass = premiumData;
-                        }
-
-                        return <RetoPremium premiumData={dataToPass} onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} onHome={() => setActiveSection('home')} />;
+                    if (premiumSubSection === 'reto' && premiumData) {
+                        return <RetoPremium premiumData={premiumData} onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} onHome={() => setActiveSection('home')} />;
                     }
 
                     switch (activeSection) {
@@ -1049,13 +1012,20 @@
                                         {indTab === 'info' && appData.indicadores?.informacion?.map(item => (
                                             <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
                                                 <Thumbnail src={item.imagen} alt={item.title} className="w-20 h-20 rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>{getIconComponent(item.icon)}</div>} />
-                                                <h3 className="text-xl font-bold text-stone-800 mb-2">{item.title}</h3>
+                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-brand-purple transition-colors">{item.title}</h3>
+                                                <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.contenido[0]}</p>
+                                                <p className="text-sm font-bold text-brand-purple mt-6 tracking-wider uppercase">Leer artículo &rarr;</p>
                                             </div>
                                         ))}
+
                                         {indTab === 'test' && appData.indicadores?.cuestionarios?.map(item => (
                                             <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
-                                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>{getIconComponent(item.icon)}</div>
-                                                <h3 className="text-xl font-bold text-stone-800 mb-2">{item.title}</h3>
+                                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color || colors.primary }}>
+                                                    {getIconComponent(item.icon)}
+                                                </div>
+                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-brand-purple transition-colors">{item.title}</h3>
+                                                <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.intro || 'Realiza esta evaluación para conocer más sobre ti.'}</p>
+                                                <p className="text-sm font-bold text-brand-purple mt-6 tracking-wider uppercase">Realizar test &rarr;</p>
                                             </div>
                                         ))}
                                     </div>
@@ -1063,62 +1033,155 @@
                             );
 
                         case 'balance':
+                            const renderContenidoTexto = (parrafos) => {
+                                return parrafos.map((parrafo, idx) => {
+                                    if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
+                                    if (parrafo.includes('⭐') || parrafo.includes('🔒')) {
+                                        const textoLimpio = parrafo.replace('⭐', '').replace('🔒', '').trim();
+                                        return (
+                                            <button key={idx} onClick={() => handlePremiumClick('reto')} className="w-full py-6 mt-12 rounded-2xl bg-gradient-to-r from-stone-800 to-stone-700 text-white font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all flex justify-center items-center gap-3 border border-stone-600 group premium-card-border">
+                                                <Lock size={24} className="text-stone-300 group-hover:text-white transition-colors" /> {textoLimpio}
+                                            </button>
+                                        );
+                                    }
+                                    if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
+                                        return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
+                                    }
+                                    return <p key={idx}>{parrafo}</p>;
+                                });
+                            };
+
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-8 relative z-10">
                                     <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-14 rounded-[3rem] shadow-glass border border-white relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none"><Sun size={200} className="text-blue-500" /></div>
-                                        <div className="relative z-10">
+                                    <div className="text-center mb-10">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>
+                                            <span className="brush-highlight">Balance Cotidiano</span>
+                                        </h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Estrategias y retos para construir bienestar emocional paso a paso.</p>
+                                    </div>
+
+                                    <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto mb-8">
+                                        <button onClick={() => setBalTab('info')} className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balTab === 'info' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500 hover:text-brand-purple'}`}>Vida en Equilibrio</button>
+                                        <button onClick={() => setBalTab('reto')} className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${balTab === 'reto' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500 hover:text-brand-purple'}`}>Reto del Mes</button>
+                                    </div>
+
+                                    {balTab === 'info' && (
+                                        <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
                                             {appData.balance.imagen && (
                                                 <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
-                                                    <img src={appData.balance.imagen} alt={appData.balance.title} className="max-w-full rounded-2xl object-contain max-h-[60vh]" />
+                                                    <img src={appData.balance.imagen} alt="Hábitos Sanos" className="max-w-full rounded-2xl object-contain max-h-[70vh]" />
                                                 </div>
                                             )}
                                             <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
-                                                <div className="p-4 rounded-full text-white shadow-md" style={{ backgroundColor: appData.balance.color || colors.actionBlue }}>
+                                                <div className="p-4 rounded-full text-white shadow-md bg-blue-400">
                                                     {getIconComponent(appData.balance.icon, {size: 32})}
                                                 </div>
-                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">
-                                                    <span className="brush-highlight-blue">{appData.balance.title}</span>
-                                                </h2>
+                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">{appData.balance.title}</h2>
                                             </div>
                                             <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                                {appData.balance.contenido.map((p, idx) => <p key={idx}>{p}</p>)}
-                                            </div>
-
-                                            <div className="mt-16 bg-gradient-to-br from-yellow-50 to-amber-100/50 p-8 lg:p-10 rounded-[2rem] border border-yellow-200/50 text-center shadow-sm relative overflow-hidden">
-                                                <div className="absolute -right-4 -top-4 text-yellow-200/50 transform rotate-12"><Star size={120} fill="currentColor" /></div>
-                                                <div className="relative z-10">
-                                                    <Star size={48} className="mx-auto text-yellow-500 mb-6" fill="currentColor" />
-                                                    <h3 className="text-3xl font-serif font-bold text-stone-800 mb-4">Reto del Mes</h3>
-                                                    <p className="text-stone-600 mb-8 max-w-lg mx-auto">Una experiencia guiada con actividades diseñadas para acompañarte en un objetivo específico de crecimiento personal.</p>
-                                                    <button onClick={() => setPremiumSubSection('reto')} className="px-10 py-5 bg-stone-800 text-white rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all">
-                                                        Ver Reto Actual
-                                                    </button>
-                                                </div>
+                                                {renderContenidoTexto(appData.balance.contenido)}
                                             </div>
                                         </div>
-                                    </div>
+                                    )}
+
+                                    {balTab === 'reto' && (
+                                        <div className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-glass border border-white animate-fadeIn overflow-hidden">
+                                            <div className="p-8 lg:p-10 border-b border-stone-200/50 flex items-center gap-5">
+                                                <div className="p-4 rounded-full text-white shadow-md bg-yellow-400">
+                                                    <Star size={32} fill="currentColor" />
+                                                </div>
+                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">
+                                                    <span className="brush-highlight-yellow">Reto del Mes</span>
+                                                </h2>
+                                            </div>
+
+                                            <div className="flex overflow-x-auto border-b border-stone-100 bg-stone-50/50 no-scrollbar">
+                                                {[
+                                                    { id: 'intro', label: 'Introducción' },
+                                                    { id: 'sem1', label: 'Semana 1' },
+                                                    { id: 'sem2', label: 'Semana 2' },
+                                                    { id: 'sem3', label: 'Semana 3' },
+                                                    { id: 'sem4', label: 'Semana 4' },
+                                                    { id: 'cierre', label: 'Cierre' }
+                                                ].map(tab => (
+                                                    <button 
+                                                        key={tab.id}
+                                                        onClick={() => setRetoTab(tab.id)}
+                                                        className={`px-6 py-4 font-bold whitespace-nowrap transition-colors ${retoTab === tab.id ? 'text-brand-purple border-b-4 border-brand-purple bg-white' : 'text-stone-400 hover:text-stone-600'}`}
+                                                    >
+                                                        {tab.label}
+                                                    </button>
+                                                ))}
+                                            </div>
+
+                                            <div className="p-8 lg:p-14 space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {retoTab === 'intro' && (
+                                                    <div className="animate-fadeIn space-y-6">
+                                                        {appData.reto_del_mes.youtube_id && (
+                                                            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
+                                                                <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${appData.reto_del_mes.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                                            </div>
+                                                        )}
+                                                        {appData.reto_del_mes.url && (
+                                                            <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                                <audio controls className="w-full outline-none">
+                                                                    <source src={appData.reto_del_mes.url} type="audio/mpeg" />
+                                                                    Tu navegador no soporta el elemento de audio.
+                                                                </audio>
+                                                            </div>
+                                                        )}
+                                                        {renderContenidoTexto(appData.reto_del_mes.intro)}
+                                                    </div>
+                                                )}
+                                                
+                                                {['sem1', 'sem2', 'sem3', 'sem4'].includes(retoTab) && (() => {
+                                                    const index = parseInt(retoTab.replace('sem', '')) - 1;
+                                                    const semanaData = appData.reto_del_mes.semanas[index];
+                                                    return (
+                                                        <div className="animate-fadeIn space-y-6">
+                                                            {semanaData.youtube_id && (
+                                                                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
+                                                                    <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${semanaData.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                                                </div>
+                                                            )}
+                                                            {semanaData.url && (
+                                                                <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                                    <audio controls className="w-full outline-none">
+                                                                        <source src={semanaData.url} type="audio/mpeg" />
+                                                                        Tu navegador no soporta el elemento de audio.
+                                                                    </audio>
+                                                                </div>
+                                                            )}
+                                                            {renderContenidoTexto(semanaData.contenido)}
+                                                        </div>
+                                                    );
+                                                })()}
+
+                                                {retoTab === 'cierre' && (
+                                                    <div className="animate-fadeIn space-y-6">
+                                                        {renderContenidoTexto(appData.reto_del_mes.cierre)}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             );
 
                         case 'library':
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                                <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
                                     <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-14 rounded-[3rem] shadow-glass border border-white">
-                                        <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
-                                            <div className="p-4 rounded-full bg-brand-lilac text-white shadow-md"><Library size={32} /></div>
-                                            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800"><span className="brush-highlight">Librería Bloom</span></h2>
-                                        </div>
-                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                            {appData.bloom_library.intro_text.map((p, idx) => {
-                                                if (p.includes(':')) {
-                                                    const [title, ...rest] = p.split(':');
-                                                    return <p key={idx}><strong className="text-brand-purple">{title}:</strong> {rest.join(':')}</p>;
-                                                }
-                                                return <p key={idx}>{p}</p>;
-                                            })}
+                                    <div className="text-center">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">
+                                            <span className="brush-highlight">Bloom Library</span>
+                                        </h2>
+                                        <p className="text-stone-600 mb-12 text-xl font-light">Un espacio para nutrir tu mente y alma a través de recursos, recomendaciones y cuentos terapéuticos.</p>
+                                        <div className="p-20 bg-white/70 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass flex flex-col items-center justify-center relative z-10">
+                                            <Library size={100} className="text-brand-lilac mb-8 animate-pulse" />
+                                            <h3 className="text-3xl font-serif font-bold text-stone-500 mb-4">Próximamente</h3>
+                                            <p className="text-stone-500 max-w-md mx-auto text-lg font-light">Estamos protegiendo la magia de nuestras historias. El contenido estará disponible una vez finalizado el registro de derechos de autor.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1126,20 +1189,26 @@
 
                         case 'infancias':
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-8 relative z-10">
                                     <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-14 rounded-[3rem] shadow-glass border border-white">
+                                    <div className="text-center mb-10">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>
+                                            <span className="brush-highlight-pink">Infancias que Florecen</span>
+                                        </h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Desarrollo emocional infantil para comprender antes que juzgar.</p>
+                                    </div>
+                                    <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white animate-fadeIn">
                                         <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
-                                            <div className="p-4 rounded-full bg-pink-400 text-white shadow-md"><Sprout size={32} /></div>
-                                            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800"><span className="brush-highlight-pink">{appData.detras_conducta.title.replace('🪷 ', '')}</span></h2>
+                                            <div className="p-4 rounded-full text-white shadow-md bg-pink-400"><Sprout size={32} /></div>
+                                            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800">{appData.detras_conducta?.title || "🪷 Detrás de su conducta"}</h2>
                                         </div>
                                         <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                            {appData.detras_conducta.contenido.map((p, idx) => {
-                                                if (p === "---") return <hr key={idx} className="border-stone-200 my-8" />;
-                                                if (p.startsWith('🌸') || p.startsWith('🌧️') || p.startsWith('🔥') || p.startsWith('💛') || p.startsWith('🚧') || p.startsWith('🪷')) {
-                                                    return <h3 key={idx} className="text-2xl font-bold text-stone-800 mt-8 mb-4">{p}</h3>;
+                                            {appData.detras_conducta?.contenido.map((parrafo, idx) => {
+                                                if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
+                                                if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
+                                                    return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
                                                 }
-                                                return <p key={idx}>{p}</p>;
+                                                return <p key={idx}>{parrafo}</p>;
                                             })}
                                         </div>
                                     </div>
@@ -1147,30 +1216,68 @@
                             );
 
                         case 'capsulas':
+                            if (subView) {
+                                const capsulaData = appData.capsulas?.find(c => c.id === subView);
+                                if (capsulaData) {
+                                    return (
+                                        <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
+                                            <BackButton onClick={() => setSubView(null)} text="Volver a Cápsulas" />
+                                            <div className="flex items-center gap-4 mb-8">
+                                                <div className="p-4 rounded-full text-white shadow-md bg-orange-400">
+                                                    <PlayCircle size={32} />
+                                                </div>
+                                                <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800">
+                                                    <span className="brush-highlight-yellow">{capsulaData.title}</span>
+                                                </h2>
+                                            </div>
+                                            
+                                            {capsulaData.youtube_id && (
+                                                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-10 border border-white">
+                                                    <iframe 
+                                                        className="absolute top-0 left-0 w-full h-full"
+                                                        src={`https://www.youtube.com/embed/${capsulaData.youtube_id}`} 
+                                                        title="YouTube video player" 
+                                                        frameBorder="0" 
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                        allowFullScreen>
+                                                    </iframe>
+                                                </div>
+                                            )}
+
+                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {capsulaData.guion.map((parrafo, idx) => <p key={idx}>{parrafo}</p>)}
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                            }
                             return (
                                 <div className="animate-fadeIn max-w-6xl mx-auto space-y-12 relative z-10">
-                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    <div className="text-center mb-10">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">Cápsulas en Video</h2>
-                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Reflexiones breves para tu día a día.</p>
+                                    <div className="w-full">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                        {appData.capsulas.map(cap => (
-                                            <div key={cap.id} className="bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white flex flex-col">
-                                                <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
-                                                    <PlayCircle className="text-orange-400" /> {cap.title}
-                                                </h3>
-                                                {cap.youtube_id && (
-                                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md mb-6 bg-stone-100">
-                                                        <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${cap.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                    <div className="text-center mb-10">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">
+                                            <span className="brush-highlight-yellow">Cápsulas en Video</span>
+                                        </h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Reflexiones y guías audiovisuales de Neuro Bloom.</p>
+                                    </div>
+                                    
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
+                                        {appData.capsulas?.map(item => (
+                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                                {item.imagen ? (
+                                                    <Thumbnail src={item.imagen} alt={item.title} className="w-full aspect-video rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm bg-orange-400"><PlayCircle size={32} /></div>} />
+                                                ) : (
+                                                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm bg-orange-400">
+                                                        <PlayCircle size={32} />
                                                     </div>
                                                 )}
-                                                {cap.imagen && !cap.youtube_id && (
-                                                    <img src={cap.imagen} alt={cap.title} className="w-full h-48 object-cover rounded-xl mb-6 shadow-sm" />
-                                                )}
-                                                <div className="text-stone-600 font-light space-y-3 flex-grow text-justify">
-                                                    {cap.guion.slice(0, 2).map((p, i) => <p key={i}>{p}</p>)}
-                                                </div>
+                                                <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-orange-500 transition-colors">{item.title}</h3>
+                                                <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.guion[0]}</p>
+                                                <p className="text-sm font-bold text-orange-500 mt-6 tracking-wider uppercase flex items-center gap-2">
+                                                    {item.youtube_id ? <><PlayCircle size={16}/> Ver Video</> : "Leer Guión"} &rarr;
+                                                </p>
                                             </div>
                                         ))}
                                     </div>
@@ -1179,142 +1286,201 @@
 
                         case 'citas':
                             return (
-                                <div className="animate-fadeIn max-w-5xl mx-auto py-8 relative z-10">
+                                <div className="animate-fadeIn max-w-5xl mx-auto space-y-12 relative z-10">
                                     <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     <div className="text-center mb-16">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800"><span className="brush-highlight-green">Especialistas</span></h2>
-                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Conoce a nuestro equipo de profesionales y agenda tu cita.</p>
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">
+                                            <span className="brush-highlight-green">Conoce y Agenda Cita</span>
+                                        </h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Inicia tu proceso de bienestar emocional. Conoce a nuestros especialistas y reserva tu espacio seguro con nosotros.</p>
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                        {appData.especialistas.map(esp => (
-                                            <div key={esp.id} className="bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white hover:shadow-xl transition-all group">
-                                                <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start mb-6 border-b border-stone-100 pb-6">
-                                                    <img src={esp.imagen} alt={esp.nombre} className="w-32 h-32 rounded-full object-cover shadow-md border-4 border-white" />
-                                                    <div className="text-center sm:text-left">
-                                                        <h3 className="text-2xl font-bold text-stone-800">{esp.nombre}</h3>
-                                                        <p className="text-brand-green font-bold text-lg">{esp.titulo}</p>
-                                                        <p className="text-stone-400 text-sm mt-1">Cédula: {esp.cedula}</p>
+                                    <div className="grid md:grid-cols-2 gap-10 relative z-10">
+                                        {appData.especialistas?.map(esp => (
+                                            <div key={esp.id} className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-glass border border-white overflow-hidden flex flex-col hover:shadow-xl transition-all group">
+                                                <div className="w-full h-80 bg-stone-50 overflow-hidden relative border-b border-white">
+                                                    <Thumbnail src={esp.imagen} alt={esp.nombre} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" fallback={<Activity size={80} className="text-stone-300 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />} />
+                                                </div>
+                                                <div className="p-10 flex flex-col flex-grow">
+                                                    <h3 className="text-3xl font-serif font-bold text-stone-800 mb-2">{esp.nombre}</h3>
+                                                    <p className="text-brand-green font-bold text-lg mb-3">{esp.titulo}</p>
+                                                    {esp.cedula && <p className="text-sm text-stone-400 mb-5 font-mono">Cédula: {esp.cedula}</p>}
+                                                    <p className="text-stone-600 text-[15px] mb-8 italic font-light leading-relaxed">{esp.descripcion}</p>
+                                                    <div className="mb-10 flex-grow">
+                                                        <h4 className="font-bold text-sm text-stone-800 mb-4 uppercase tracking-widest border-b border-stone-200 pb-2">Especialidades y Enfoque</h4>
+                                                        <ul className="space-y-3">
+                                                            {esp.enfoques.map((enfoque, i) => (
+                                                                <li key={i} className="text-[15px] text-stone-600 flex items-start gap-3 font-light">
+                                                                    <span className="text-brand-green mt-1"><Heart size={16} fill="currentColor" /></span>
+                                                                    <span className="leading-tight">{enfoque}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
                                                     </div>
+                                                    <button className="w-full py-4 rounded-full text-white font-bold text-lg shadow-md hover:-translate-y-1 hover:shadow-lg transition-all flex justify-center items-center gap-3 bg-brand-green">
+                                                        <Calendar size={20} /> Agendar Cita
+                                                    </button>
                                                 </div>
-                                                <p className="text-stone-600 font-medium mb-4">{esp.descripcion}</p>
-                                                <div className="space-y-2 mb-8">
-                                                    {esp.enfoques.map((e, i) => (
-                                                        <div key={i} className="flex items-start gap-2 text-stone-600 font-light">
-                                                            <CheckCircle size={16} className="text-brand-green mt-1 flex-shrink-0" />
-                                                            <span>{e}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                                <button className="w-full py-4 bg-stone-800 text-white rounded-full font-bold shadow-md hover:bg-brand-green transition-colors">Agendar Cita</button>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             );
-                            
-                        default:
-                            return <div className="text-center mt-20 text-stone-500 text-xl font-light">Sección en construcción.</div>;
+
+                        case 'premium_view':
+                            if (!premiumData) {
+                                return <div className="text-center py-20 text-brand-purple"><Loader size={48} className="animate-spin mx-auto mb-4" /> Cargando entorno Premium...</div>;
+                            }
+
+                            if (premiumSubSection === 'perfil') return <PerfilEmocional premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
+                            if (premiumSubSection === 'rutas') return <RutasBienestar premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
+                            if (premiumSubSection === 'maternidad') return <MaternidadView premiumData={premiumData} onBack={() => setPremiumSubSection(null)} onHome={() => setActiveSection('home')} />;
+
+                            return (
+                                <div className="animate-fadeIn max-w-6xl mx-auto py-8 lg:py-12 relative z-10">
+                                    <div className="w-full mb-8">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    </div>
+                                    
+                                    <div className="text-center mb-16">
+                                        <div className="inline-flex items-center justify-center p-4 bg-gradient-to-r from-amber-200 to-yellow-300 rounded-full shadow-lg mb-6">
+                                            <Star size={40} className="text-yellow-600" fill="currentColor" />
+                                        </div>
+                                        <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-4"><span className="brush-highlight-yellow">Tu Espacio Premium</span></h2>
+                                        <p className="text-xl text-stone-600 max-w-2xl mx-auto font-light leading-relaxed">
+                                            Bienvenido a la zona reservada. Aquí encontrarás herramientas profundas de autoexploración y crecimiento guiado.
+                                        </p>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-5xl mx-auto">
+                                        
+                                        <button onClick={() => setPremiumSubSection('perfil')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full premium-card-border">
+                                            <div className="w-16 h-16 rounded-2xl bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Brain size={32} /></div>
+                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Conoce tu Perfil Emocional</h3>
+                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">Evalúa 7 dimensiones clave de tu bienestar y obtén una ruta personalizada.</p>
+                                            <div className="mt-8 flex items-center text-brand-purple font-bold text-sm tracking-widest uppercase">Comenzar Test &rarr;</div>
+                                        </button>
+
+                                        <button onClick={() => setPremiumSubSection('rutas')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full premium-card-border">
+                                            <div className="w-16 h-16 rounded-2xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Compass size={32} /></div>
+                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Rutas de Bienestar</h3>
+                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">7 programas guiados por módulos. Desde regular tu sistema nervioso hasta fortalecer tu autoestima y propósito.</p>
+                                            <div className="mt-8 flex items-center text-brand-green font-bold text-sm tracking-widest uppercase">Explorar Rutas &rarr;</div>
+                                        </button>
+
+                                        <button onClick={() => setPremiumSubSection('maternidad')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full premium-card-border">
+                                            <div className="w-16 h-16 rounded-2xl bg-pink-100 text-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Sprout size={32} /></div>
+                                            <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Maternidad con Ciencia</h3>
+                                            <p className="text-stone-500 font-light flex-grow leading-relaxed">Entiende el cerebro de mamá, el cerebro infantil y descubre herramientas de crianza basadas en la evidencia.</p>
+                                            <div className="mt-8 flex items-center text-pink-500 font-bold text-sm tracking-widest uppercase">Leer Módulos &rarr;</div>
+                                        </button>
+
+                                    </div>
+                                </div>
+                            );
+
+                        default: return null;
                     }
                 };
 
                 return (
-                    <div className="min-h-screen relative font-sans text-stone-800 overflow-x-hidden selection:bg-brand-purple/20 selection:text-brand-purple">
-                        {/* Fondo Decorativo Base */}
-                        <div className="fixed inset-0 z-0 bg-stone-50 pointer-events-none"></div>
+                    <div className="min-h-screen font-sans relative overflow-hidden text-stone-700 bg-[#faf8f9]">
+                        {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
+                        
                         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-                            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-brand-lilac/20 rounded-full blur-[150px]"></div>
-                            <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-brand-blue/10 rounded-full blur-[150px]"></div>
-                            <div className="absolute top-[40%] right-[-20%] w-[40%] h-[40%] bg-brand-green/10 rounded-full blur-[150px]"></div>
+                            {/* Manchas Orgánicas (Base estilo acuarela) */}
+                            <div className="absolute top-[-10%] left-[-10%] w-[45rem] h-[45rem] bg-[#fdf2f8] animate-organic-blob mix-blend-multiply filter blur-2xl opacity-70"></div>
+                            <div className="absolute top-[20%] right-[-10%] w-[35rem] h-[35rem] bg-[#f3e8ff] animate-organic-blob animation-delay-2000 mix-blend-multiply filter blur-2xl opacity-70"></div>
+                            <div className="absolute bottom-[-10%] left-[15%] w-[40rem] h-[40rem] bg-[#fff7ed] animate-organic-blob animation-delay-4000 mix-blend-multiply filter blur-2xl opacity-70"></div>
+                            
+                            {/* Formas sutiles flotantes (Círculos y pinceladas suaves que no rompen la calma) */}
+                            <div className="absolute top-[15%] left-[5%] w-48 h-48 bg-pink-300/10 rounded-full animate-float-slow blur-xl"></div>
+                            <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-brand-green/10 rounded-full animate-float-slow animation-delay-2000 blur-xl"></div>
+                            <div className="absolute top-[60%] left-[80%] w-32 h-32 bg-yellow-400/10 rounded-full animate-float-slow animation-delay-4000 blur-xl"></div>
                         </div>
 
-                        {/* Top Bar / Header */}
-                        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-stone-200/50 shadow-sm transition-all duration-300">
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-                                <button onClick={() => setActiveSection('home')} className="flex items-center hover:opacity-80 transition-opacity">
-                                    <Logo className="h-10" />
-                                </button>
+                        <header className="sticky top-0 z-50 border-b border-white/40 bg-white/60 backdrop-blur-xl shadow-sm">
+                            <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+                                <div className="cursor-pointer hover:opacity-80 transition-opacity h-full py-3" onClick={() => setActiveSection('home')}>
+                                    <Logo className="h-full" />
+                                </div>
 
-                                {/* Desktop Nav */}
-                                <div className="hidden md:flex items-center gap-3 bg-stone-100/50 p-1.5 rounded-full border border-stone-200/50">
+                                <nav className="hidden lg:flex gap-2 relative z-50">
                                     <NavButton active={activeSection === 'home'} onClick={() => setActiveSection('home')} icon={<Heart />}>Inicio</NavButton>
                                     <NavButton active={activeSection === 'indicadores'} onClick={() => setActiveSection('indicadores')} icon={<Activity />}>Indicadores</NavButton>
                                     <NavButton active={activeSection === 'balance'} onClick={() => setActiveSection('balance')} icon={<Sun />}>Balance</NavButton>
                                     <NavButton active={activeSection === 'library'} onClick={() => setActiveSection('library')} icon={<Library />}>Library</NavButton>
-                                </div>
+                                    <NavButton active={activeSection === 'infancias'} onClick={() => setActiveSection('infancias')} icon={<Sprout />}>Infancias</NavButton>
+                                    <NavButton active={activeSection === 'capsulas'} onClick={() => setActiveSection('capsulas')} icon={<PlayCircle />}>Cápsulas</NavButton>
+                                    <NavButton active={activeSection === 'citas'} onClick={() => setActiveSection('citas')} icon={<Calendar />}>Agenda</NavButton>
+                                </nav>
 
-                                <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-4 relative z-50">
                                     {user ? (
-                                        <div className="flex items-center gap-3">
-                                            {isPremium && (
-                                                <button onClick={() => setActiveSection('premium_view')} className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition-all border border-yellow-300">
-                                                    <Star size={16} fill="currentColor" /> Premium
-                                                </button>
-                                            )}
-                                            <div className="group relative">
-                                                <button className="flex items-center justify-center w-10 h-10 rounded-full bg-stone-100 text-stone-600 border border-stone-200 hover:border-brand-purple hover:text-brand-purple transition-colors">
-                                                    <UserCircle size={24} />
-                                                </button>
-                                                <div className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-stone-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right">
-                                                    <div className="px-4 py-3 border-b border-stone-50 mb-1">
-                                                        <p className="text-xs text-stone-400 font-bold uppercase tracking-wider mb-1">Cuenta</p>
-                                                        <p className="text-sm text-stone-700 truncate font-medium">{user.email}</p>
-                                                    </div>
-                                                    <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-sm text-stone-600 hover:bg-stone-50 hover:text-brand-purple font-medium transition-colors">
-                                                        Cerrar Sesión
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <button onClick={handleLogout} className="hidden sm:flex text-sm font-bold text-stone-500 hover:text-brand-purple transition-colors items-center gap-2">
+                                            <UserCircle size={20} /> Cerrar Sesión
+                                        </button>
                                     ) : (
-                                        <button onClick={() => setShowAuthModal(true)} className="flex items-center gap-2 text-stone-600 hover:text-brand-purple font-bold text-sm bg-white border border-stone-200 px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all">
-                                            <UserCircle size={18} /> <span className="hidden sm:inline">Ingresar</span>
+                                        <button onClick={() => setShowAuthModal(true)} className="hidden sm:flex px-4 py-2 bg-white/50 border border-brand-purple/30 rounded-full text-sm font-bold text-brand-purple hover:bg-brand-purple hover:text-white transition-all items-center gap-2">
+                                            <UserCircle size={18} /> Ingresar
                                         </button>
                                     )}
-                                    <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-stone-600 bg-stone-100 rounded-full">
-                                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                                    <button className="lg:hidden p-2 text-brand-purple" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                        {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
                                     </button>
                                 </div>
                             </div>
                         </header>
 
-                        {/* Mobile Menu */}
                         {mobileMenuOpen && (
-                            <div className="md:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl pt-24 px-6 animate-fadeIn flex flex-col items-center gap-6">
-                                <button onClick={() => { setActiveSection('home'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'home' ? 'text-brand-purple' : 'text-stone-600'}`}>Inicio</button>
-                                <button onClick={() => { setActiveSection('indicadores'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'indicadores' ? 'text-brand-purple' : 'text-stone-600'}`}>Indicadores</button>
-                                <button onClick={() => { setActiveSection('balance'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'balance' ? 'text-brand-purple' : 'text-stone-600'}`}>Balance</button>
-                                <button onClick={() => { setActiveSection('library'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'library' ? 'text-brand-purple' : 'text-stone-600'}`}>Library</button>
-                                <button onClick={() => { setActiveSection('infancias'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'infancias' ? 'text-brand-purple' : 'text-stone-600'}`}>Infancias</button>
-                                <button onClick={() => { setActiveSection('capsulas'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'capsulas' ? 'text-brand-purple' : 'text-stone-600'}`}>Cápsulas</button>
-                                <button onClick={() => { setActiveSection('citas'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'citas' ? 'text-brand-purple' : 'text-stone-600'}`}>Especialistas</button>
-                                {user && isPremium && (
-                                    <button onClick={() => { setActiveSection('premium_view'); setMobileMenuOpen(false); }} className="text-2xl font-bold text-yellow-500 mt-4 flex items-center gap-2">
-                                        <Star size={24} fill="currentColor"/> Bloom Premium
-                                    </button>
-                                )}
+                            <div className="fixed inset-0 z-40 pt-28 px-6 lg:hidden animate-slideIn bg-white/95 backdrop-blur-3xl">
+                                <div className="flex flex-col gap-4">
+                                    <div className="mb-4 pb-4 border-b border-stone-200">
+                                        {user ? (
+                                            <button onClick={() => {handleLogout(); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-stone-500 bg-stone-100 flex items-center gap-3">
+                                                <UserCircle size={24} /> Cerrar Sesión
+                                            </button>
+                                        ) : (
+                                            <button onClick={() => {setShowAuthModal(true); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-white bg-brand-purple shadow-md flex items-center gap-3">
+                                                <UserCircle size={24} /> Iniciar Sesión / Registro
+                                            </button>
+                                        )}
+                                    </div>
+                                    {['home', 'indicadores', 'balance', 'library', 'infancias', 'capsulas', 'citas'].map(sec => (
+                                        <button 
+                                            key={sec}
+                                            onClick={() => { setActiveSection(sec); setMobileMenuOpen(false); }}
+                                            className="text-left p-5 rounded-2xl font-bold text-xl border border-white/50 shadow-sm"
+                                            style={{ 
+                                                color: activeSection === sec ? colors.white : colors.primary,
+                                                backgroundColor: activeSection === sec ? colors.primary : 'rgba(255,255,255,0.8)'
+                                            }}
+                                        >
+                                            {sec === 'library' ? 'Bloom Library' : sec === 'infancias' ? 'Infancias que Florecen' : sec === 'citas' ? 'Agenda' : sec.charAt(0).toUpperCase() + sec.slice(1)}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
                         )}
 
-                        {/* Modales */}
-                        {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
-
-                        {/* Main Content Area */}
-                        <main className="w-full relative min-h-[calc(100vh-80px)]">
-                            <div className="absolute inset-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 flex justify-center">
-                                <div className="w-full max-w-6xl">
-                                    {renderContent()}
-                                </div>
-                            </div>
+                        <main className="max-w-7xl mx-auto px-6 py-12 min-h-[80vh] relative z-10">
+                            {renderContent()}
                         </main>
+
+                        <footer className="py-16 mt-12 bg-stone-900/95 backdrop-blur-md text-stone-400 flex flex-col items-center justify-center text-center relative z-10">
+                            <img 
+                                src={logoUrl} 
+                                alt="Neuro Bloom Logo Blanco" 
+                                className="h-16 w-auto mb-6 opacity-50 brightness-0 invert" 
+                            />
+                            <p className="font-light tracking-wide relative z-20">© {new Date().getFullYear()} Neuro Bloom. Creciendo con cada emoción.</p>
+                        </footer>
                     </div>
                 );
             }
-
             const root = ReactDOM.createRoot(document.getElementById('root'));
             root.render(<NeuroBloom />);
         } catch (error) {
-            console.error("Error general:", error);
-            document.getElementById('root').innerHTML = `<div style="padding: 2rem; color: red;">Error al iniciar la aplicación: ${error.message}</div>`;
+            console.error(error);
         }
     </script>
 </body>
