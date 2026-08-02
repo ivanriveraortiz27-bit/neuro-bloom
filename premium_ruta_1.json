@@ -1,0 +1,247 @@
+{
+  "id": "ruta1",
+  "titulo": "Ruta 1. Regular mi sistema nervioso",
+  "descripcion": "Aprende a comprender las respuestas de tu cuerpo al estrés y desarrolla herramientas para recuperar la calma.",
+  "modulos": [
+    {
+      "titulo": "Módulo 1. Comprender lo que está ocurriendo",
+      "psicoeducacion": {
+        "titulo": "¿Por qué siento que ya no puedo más?",
+        "parrafos": [
+          "Quizá has llegado hasta aquí porque últimamente sientes que cualquier cosa te sobrepasa.",
+          "Tal vez te irritas con más facilidad, te cuesta concentrarte, duermes pero despiertas cansado, o tu mente parece no detenerse ni un momento.",
+          "Y si esto te está ocurriendo, quiero empezar diciéndote algo importante: No significa que seas débil. No significa que estés fallando. Y tampoco significa que haya algo \"mal\" en ti.",
+          "Cuando vivimos estrés durante días, semanas o incluso meses, nuestro sistema nervioso puede permanecer en un estado de alerta casi constante. Imagina que tu cerebro tiene una alarma diseñada para protegerte del peligro.",
+          "Cuando detecta una amenaza, activa una serie de respuestas automáticas: tu corazón late más rápido, tus músculos se tensan, tu respiración cambia y tu atención se enfoca en aquello que considera importante para mantenerte a salvo.",
+          "El problema es que esa alarma no distingue siempre entre un peligro físico y una preocupación constante, una sobrecarga de responsabilidades o un agotamiento emocional. Con el tiempo, tu cuerpo puede empezar a comportarse como si necesitara estar preparado todo el tiempo.",
+          "La buena noticia es que el sistema nervioso también puede aprender a salir poco a poco de ese estado de alerta. No ocurre de un día para otro, pero sí puede lograrse con pequeñas acciones repetidas en el tiempo.",
+          "Y ese será el objetivo de esta ruta: ayudarte a comprender lo que está ocurriendo y ofrecerte herramientas para recuperar, paso a paso, una mayor sensación de calma y seguridad."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Sientes que, aunque descanses, sigues sintiéndote agotado?",
+        "¿Te cuesta dejar de pensar incluso cuando intentas relajarte?",
+        "¿Notas que reaccionas con más intensidad por situaciones pequeñas?",
+        "¿Sientes que siempre hay algo pendiente y que nunca puedes desconectar?",
+        "¿Te descubres respirando rápido o con el cuerpo tenso sin darte cuenta?",
+        "¿Has sentido que llevas tanto tiempo sosteniendo responsabilidades que ya no recuerdas cómo se siente estar realmente tranquilo?"
+      ],
+      "ejercicio": {
+        "titulo": "Mi semáforo del sistema nervioso",
+        "instrucciones": "A veces creemos que el estrés aparece de un momento a otro, cuando en realidad nuestro cuerpo lleva días enviándonos señales. Observa tus respuestas a las siguientes situaciones para reconocerlas:",
+        "pasos": [
+          "🟢 VERDE: Cuando me siento en equilibrio. ¿Cómo se siente mi cuerpo? ¿Qué pensamientos suelo tener? ¿Qué hago diferente cuando me siento bien?",
+          "🟡 AMARILLO: Cuando empiezo a sobrecargarme. ¿Cuáles son las primeras señales que aparecen? ¿Qué cambia en mi comportamiento? ¿Qué suele desencadenar este estado?",
+          "🔴 ROJO: Cuando siento que ya no puedo más. ¿Cómo reacciona mi cuerpo? ¿Qué emociones predominan? ¿Qué necesito normalmente en esos momentos?"
+        ]
+      },
+      "audio": {
+        "titulo": "Volviendo a un lugar seguro",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Conociendo las señales de mi sistema nervioso",
+        "contenido": [
+          "Instrucciones: Durante los próximos tres días, observa cómo responde tu cuerpo en distintos momentos del día. No busques cambiar nada. Solo registra lo que notas.",
+          "1. Momento del día y qué estaba ocurriendo.",
+          "2. ¿Qué sentí en mi cuerpo? (Tensión, respiración rápida, dolor de cabeza, nudo en el estómago, taquicardia...).",
+          "3. ¿Qué emoción predominaba y qué necesitaba en ese momento?",
+          "4. Al finalizar los tres días, pregúntate: ¿Qué señal aparece primero cuando comienzo a sentirme sobrecargado/a? ¿Qué descubrí sobre mí que antes no había notado?"
+        ]
+      },
+      "reto": {
+        "titulo": "Un minuto de pausa consciente",
+        "contenido": [
+          "Durante los próximos tres días, dedica un minuto, tres veces al día, para detenerte y preguntarte:",
+          "¿Cómo está mi cuerpo en este momento? No intentes cambiar la respuesta. Solo obsérvala.",
+          "Después realiza una respiración lenta: inhala durante 4 segundos y exhala durante 6.",
+          "Al terminar, pregúntate: ¿Necesito seguir al mismo ritmo o necesito hacer una pequeña pausa?",
+          "Recuerda: El objetivo no es eliminar el estrés. Es aprender a reconocer las señales de tu sistema nervioso antes de llegar al agotamiento."
+        ]
+      },
+      "cierre": [
+        "Hoy diste un paso importante. Muchas de las sensaciones que has experimentado no significan que seas una persona débil o incapaz. Son señales de un sistema nervioso que ha permanecido en estado de alerta durante demasiado tiempo.",
+        "Comprender lo que está ocurriendo no elimina el malestar de inmediato, pero sí cambia la forma en que empiezas a relacionarte contigo mismo.",
+        "A partir de hoy, te invito a observarte con más curiosidad que juicio. Cada vez que identifiques una señal de tu cuerpo, recuerda que no es un enemigo. Es una forma en la que tu organismo intenta comunicarse contigo.",
+        "No necesitas hacerlo perfecto. No necesitas cambiar de un día para otro. Solo necesitas seguir dando un paso a la vez."
+      ]
+    },
+    {
+      "titulo": "Módulo 2. Enseñar a mi cuerpo que está a salvo",
+      "psicoeducacion": {
+        "titulo": "¿Por qué sigo sintiéndome en alerta si el peligro ya pasó?",
+        "parrafos": [
+          "¿Alguna vez has sentido que sabes, racionalmente, que todo está bien, pero tu cuerpo parece no estar de acuerdo?",
+          "Tal vez ya resolviste ese problema. Tal vez esa conversación terminó hace días. O quizá las circunstancias cambiaron, pero tu corazón sigue acelerándose, tus músculos permanecen tensos o tu mente continúa esperando que algo salga mal.",
+          "Si esto te ha ocurrido, no significa que estés exagerando. Nuestro sistema nervioso aprende a partir de la experiencia.",
+          "Cuando vivimos situaciones de estrés durante mucho tiempo, el cerebro puede acostumbrarse a mantenerse en estado de vigilancia, incluso cuando el peligro ya no está presente. Es como si una alarma hubiera sonado durante tanto tiempo que ahora se activara con mucha facilidad.",
+          "La buena noticia es que, así como el sistema nervioso aprendió a mantenerse en alerta, también puede aprender a sentirse seguro nuevamente. Y ese aprendizaje ocurre poco a poco, mediante experiencias repetidas de calma, descanso, respiración, movimiento, autocuidado y seguridad.",
+          "No se trata de convencer a tu mente. Se trata de enseñarle a tu cuerpo, una y otra vez, que este momento es diferente."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Has sentido que reaccionas con mucha intensidad ante situaciones pequeñas?",
+        "¿Te cuesta relajarte incluso cuando tienes tiempo para descansar?",
+        "¿Sientes que siempre estás esperando que ocurra algo malo?",
+        "¿Te descubres pensando: \"¿Y si pasa algo?\" incluso cuando no existe una razón clara para preocuparte?",
+        "¿Sientes que tu cuerpo tarda mucho más en calmarse que otras personas?"
+      ],
+      "ejercicio": {
+        "titulo": "Enseñándole seguridad a mi cuerpo",
+        "instrucciones": "Este ejercicio tiene como objetivo ayudarte a identificar qué situaciones le envían a tu cuerpo un mensaje de seguridad. Responde lo primero que venga a tu mente:",
+        "pasos": [
+          "Cuando me siento seguro o segura... ¿Dónde estoy? ¿Con quién estoy? ¿Qué estoy haciendo? ¿Cómo se siente mi cuerpo?",
+          "Cuando mi cuerpo se pone en alerta... ¿Qué suele ocurrir antes? ¿Qué pensamientos aparecen? ¿Qué cambios noto en mi cuerpo?",
+          "Mis recursos de seguridad: Escribe 5 cosas pequeñas que normalmente te ayudan a sentirte un poco más tranquilo/a (escuchar música, salir a caminar, abrazar a alguien, tomar té...)."
+        ]
+      },
+      "audio": {
+        "titulo": "Mi cuerpo puede sentirse seguro nuevamente",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Mi mapa de seguridad",
+        "contenido": [
+          "A lo largo del día, nuestro sistema nervioso recibe señales que aumentan la sensación de amenaza y otras que favorecen la sensación de seguridad.",
+          "Durante tres días, registra:",
+          "1. Hoy me sentí en calma cuando... (¿Qué estaba ocurriendo? ¿Qué hizo mi cuerpo? ¿Qué pensamientos aparecieron?)",
+          "2. Hoy me sentí en alerta cuando... (¿Qué ocurrió antes? ¿Cómo reaccionó mi cuerpo? ¿Qué necesité?)",
+          "3. ¿Qué pequeño cambio puedo hacer esta semana para ofrecerle más momentos de calma a mi cuerpo?"
+        ]
+      },
+      "reto": {
+        "titulo": "Un espacio de seguridad cada día",
+        "contenido": [
+          "Durante los próximos cinco días, regálate al menos diez minutos para realizar una actividad que le envíe a tu sistema nervioso un mensaje de seguridad.",
+          "No tiene que ser algo extraordinario. Puede ser respirar, escuchar música, abrazar a alguien, tomar una bebida caliente.",
+          "Al terminar cada día, pregúntate: ¿Cómo se siente mi cuerpo después de este momento?",
+          "Cada pequeña experiencia cuenta."
+        ]
+      },
+      "cierre": [
+        "Hoy aprendiste algo muy importante: Tu sistema nervioso no permanece en alerta porque quiera hacerte daño. Permanece en alerta porque, en algún momento, aprendió que esa era la mejor manera de protegerte.",
+        "Así como tu cuerpo aprendió a reaccionar con tensión, también puede aprender nuevas formas de responder.",
+        "Cada respiración consciente. Cada pausa. Cada momento de autocuidado. Es una oportunidad para enseñarle a tu cerebro que no todo representa una amenaza.",
+        "No necesitas hacerlo perfecto. Solo necesitas repetir, una y otra vez, pequeñas experiencias de seguridad."
+      ]
+    },
+    {
+      "titulo": "Módulo 3. Creando hábitos que le devuelven calma a mi sistema nervioso",
+      "psicoeducacion": {
+        "titulo": "Tu sistema nervioso aprende con la repetición, no con la perfección",
+        "parrafos": [
+          "Es común pensar que para sentirnos mejor necesitamos hacer grandes cambios de un día para otro. Dormir 8 horas, hacer ejercicio todos los días, meditar una hora...",
+          "Pero nuestro sistema nervioso no funciona así. No cambia porque un día hicimos todo \"bien\". Cambia gracias a las pequeñas experiencias que repetimos una y otra vez.",
+          "Cada vez que respiras lentamente durante unos minutos, tu cuerpo recibe un mensaje de calma. Cada vez que haces una pausa para descansar antes de llegar al agotamiento, tu cerebro aprende que no necesita permanecer en alerta constante.",
+          "No se trata de hacerlo perfecto. Se trata de hacerlo constante. Piensa en cómo aprendiste a caminar. No ocurrió en un solo intento. Fueron cientos de pequeños intentos.",
+          "Lo mismo sucede con el bienestar emocional. Cada pequeño hábito es como un voto a favor del equilibrio que deseas construir."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Empiezas una rutina de autocuidado con mucho entusiasmo, pero la abandonas pocos días después?",
+        "¿Sientes que, si no puedes hacerlo perfecto, prefieres no hacerlo?",
+        "¿Esperas sentirte muy mal para darte permiso de descansar?",
+        "¿Te exiges tanto que incluso el autocuidado termina convirtiéndose en otra obligación?"
+      ],
+      "ejercicio": {
+        "titulo": "Mi primer hábito de calma",
+        "instrucciones": "Elige una acción sencilla que puedas realizar durante esta semana en una de las siguientes áreas:",
+        "pasos": [
+          "Respiración: ¿Qué pequeña práctica podrías incorporar?",
+          "Descanso: ¿Qué cambio realista puedes hacer para cuidar mejor tu descanso?",
+          "Movimiento: ¿Qué actividad física agradable podrías realizar?",
+          "Bienestar emocional: ¿Qué actividad disfrutas y hace tiempo no realizas?",
+          "Elige la acción que se sienta más FÁCIL de comenzar hoy. Ese será tu primer hábito."
+        ]
+      },
+      "audio": {
+        "titulo": "Un pequeño hábito puede cambiar mucho",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Construyendo mi rutina de calma",
+        "contenido": [
+          "El bienestar emocional no depende de tener días perfectos, depende de rutinas posibles.",
+          "Diseña tu rutina personal:",
+          "• Al despertar quiero...",
+          "• Durante la mañana quiero recordar...",
+          "• Cuando note que estoy entrando en estrés quiero...",
+          "• Antes de dormir quiero...",
+          "• Mi hábito más importante de esta semana será..."
+        ]
+      },
+      "reto": {
+        "titulo": "Una acción pequeña, todos los días",
+        "contenido": [
+          "Durante los próximos siete días elige únicamente un hábito de bienestar. Solo uno.",
+          "Puede ser respirar 2 minutos, salir a caminar 10 minutos o tomar agua al despertar.",
+          "Al finalizar cada día, responde: ¿Cómo me sentí después de cumplir este pequeño compromiso conmigo?",
+          "Cada vez que repites una acción de autocuidado, fortaleces la confianza en ti mismo."
+        ]
+      },
+      "cierre": [
+        "Hoy descubriste que el bienestar emocional no depende de hacer cambios extraordinarios. Depende de las pequeñas decisiones que repites cada día.",
+        "Quizá algunas veces olvides tu nuevo hábito. Eso no significa que hayas retrocedido. Significa que eres humano. El cambio no ocurre en línea recta.",
+        "Lo importante es volver a empezar una y otra vez, con la misma amabilidad con la que acompañarías a alguien que quieres.",
+        "Cada pequeña acción le envía un mensaje a tu sistema nervioso: \"Estoy aprendiendo a cuidarme. Mi bienestar también merece un espacio en mi vida.\""
+      ]
+    },
+    {
+      "titulo": "Módulo 4. Construyendo una vida con mayor calma",
+      "psicoeducacion": {
+        "titulo": "El bienestar no significa dejar de sentir estrés",
+        "parrafos": [
+          "Muchas personas creen que sentirse bien significa no volver a experimentar ansiedad, preocupación o momentos difíciles. Sin embargo, esa expectativa suele generar más frustración que tranquilidad.",
+          "Las emociones incómodas forman parte de la experiencia humana. El estrés, la incertidumbre o el miedo aparecerán en distintos momentos de la vida. La diferencia está en cómo respondemos cuando llegan.",
+          "A lo largo de esta ruta has aprendido que tu sistema nervioso puede activarse para protegerte, pero también puede aprender a recuperar la calma.",
+          "El bienestar emocional no consiste en eliminar las emociones difíciles, sino en desarrollar recursos para atravesarlas sin perderte en ellas. No se trata de controlar cada situación, se trata de confiar cada vez más en tu capacidad para afrontarla."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Piensas que si un día vuelves a sentir ansiedad significa que todo el esfuerzo anterior no sirvió?",
+        "¿Te exiges mantenerte bien todo el tiempo?",
+        "¿Cuando tienes un mal día, dudas de todo el proceso que has recorrido?",
+        "¿Olvidas que el bienestar también incluye días difíciles?"
+      ],
+      "ejercicio": {
+        "titulo": "Mi plan personal de bienestar",
+        "instrucciones": "Es momento de crear un plan que puedas utilizar cada vez que lo necesites. Respóndelo con sinceridad:",
+        "pasos": [
+          "1. ¿Cuáles son las primeras señales que me indican que necesito detenerme y cuidar de mí?",
+          "2. ¿Qué herramientas de esta ruta me ayudan más a recuperar la calma? (Respiración, movimiento, escribir, etc.)",
+          "3. ¿Qué hábitos quiero conservar durante las próximas semanas?",
+          "4. ¿Quiénes forman parte de mi red de apoyo cuando necesito ayuda?",
+          "5. Escribe una frase que quieras recordar cuando atravieses un momento difícil."
+        ]
+      },
+      "audio": {
+        "titulo": "Volver a mí",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Mi caja de herramientas",
+        "contenido": [
+          "Guarda este registro donde puedas consultarlo:",
+          "• Cuando noto estas señales en mi cuerpo...",
+          "• Las herramientas que mejor funcionan para mí son...",
+          "• Las personas con quienes puedo apoyarme son...",
+          "• La frase que quiero recordar en los días difíciles es..."
+        ]
+      },
+      "reto": {
+        "titulo": "Integrando el bienestar en mi vida",
+        "contenido": [
+          "Durante los próximos siete días, dedica unos minutos al final de cada jornada para responder estas dos preguntas:",
+          "1. ¿Qué hice hoy para cuidar de mí?",
+          "2. ¿Qué necesito regalarme mañana para seguir fortaleciendo mi bienestar?",
+          "A veces cuidar de ti será respirar; otras veces será pedir ayuda o reconocer que tuviste un mal día."
+        ]
+      },
+      "cierre": [
+        "Has llegado al final de esta ruta. Quizá no sientas que todo cambió de un día para otro, y eso está bien. Los cambios profundos comienzan a través de pequeñas decisiones que repetimos una y otra vez.",
+        "Durante esta ruta comprendiste mejor cómo funciona tu sistema nervioso, descubriste herramientas para recuperar la calma y comenzaste a construir hábitos sostenibles.",
+        "Lo más importante no es recordar cada ejercicio, sino saber que ahora cuentas con recursos para acompañarte con mayor comprensión y amabilidad. ¡Felicidades por dar este paso!"
+      ]
+    }
+  ]
+}

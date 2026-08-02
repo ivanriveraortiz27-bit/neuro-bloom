@@ -1,0 +1,159 @@
+{
+  "intro": "Antes de comenzar tu recorrido en Bloom Premium, te invitamos a realizar esta evaluación.\n\nHa sido diseñada como una herramienta de autoconocimiento que te ayudará a comprender cómo estás viviendo este momento de tu vida, identificar tus principales fortalezas emocionales y reconocer aquellas áreas que pueden beneficiarse de una mayor atención.\n\nResponde pensando en cómo te has sentido durante las últimas dos semanas. No existen respuestas correctas o incorrectas. Lo más importante es responder con honestidad.",
+  "escala": [
+    { "l": "Nunca", "v": 0 },
+    { "l": "Casi nunca", "v": 1 },
+    { "l": "Algunas veces", "v": 2 },
+    { "l": "Con frecuencia", "v": 3 },
+    { "l": "Casi siempre", "v": 4 }
+  ],
+  "dimensiones": [
+    {
+      "id": "dim1",
+      "titulo": "Dimensión 1. Regulación emocional",
+      "descripcion": "La regulación emocional refleja la forma en que reconoces, comprendes y manejas tus emociones.",
+      "preguntas": [
+        { "texto": "Cuando experimento emociones intensas, me resulta difícil recuperar la calma." },
+        { "texto": "Paso mucho tiempo dando vueltas a situaciones que me preocuparon o molestaron." },
+        { "texto": "Me cuesta aceptar emociones como la tristeza, el miedo o el enojo sin juzgarme por sentirlas." },
+        { "texto": "Reacciono impulsivamente cuando experimento emociones intensas." },
+        { "texto": "Cuando algo me afecta emocionalmente, noto tensión, inquietud o malestar físico en mi cuerpo." },
+        { "texto": "Después de una situación estresante, mi cuerpo tarda mucho tiempo en relajarse." },
+        { "texto": "Incluso en situaciones de estrés, puedo encontrar formas saludables de tranquilizarme.", "invertida": true },
+        { "texto": "Soy capaz de reconocer lo que estoy sintiendo antes de reaccionar impulsivamente.", "invertida": true }
+      ],
+      "resultados": [
+        { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "La regulación emocional es una fortaleza. Generalmente logras recuperar la calma y responder de forma equilibrada.", "reflejo": "Reconoces lo que sientes. Recuperas la calma. Actúas con reflexión.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 6. Relacionarme con los demás sin dejar de ser yo" },
+        { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "En algunas situaciones regular tus emociones requiere un mayor esfuerzo, aunque cuentas con recursos para fortalecer esta habilidad.", "reflejo": "Mayor sensibilidad emocional. Preocupaciones ocasionales. Necesitas más tiempo para recuperarte.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+        { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Actualmente esta área genera un desgaste importante y merece atención para recuperar el equilibrio emocional.", "reflejo": "Emociones intensas. Estrés persistente. Dificultad para recuperar la calma.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 3. Gestionar la ansiedad" },
+        { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Esta es una de las áreas prioritarias para trabajar. Con apoyo y herramientas adecuadas es posible fortalecerla.", "reflejo": "Desborde emocional. Agotamiento. Estrés frecuente.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 3. Gestionar la ansiedad" }
+      ]
+    },
+    {
+      "id": "dim2",
+      "titulo": "Dimensión 2. Carga emocional",
+      "descripcion": "La carga emocional refleja el impacto que las responsabilidades y preocupaciones tienen sobre tu bienestar.",
+      "preguntas": [
+        { "texto": "Me he sentido emocionalmente agotado(a), como si ya no tuviera energía para afrontar el día." },
+        { "texto": "Me cuesta encontrar motivación para realizar actividades que normalmente forman parte de mi rutina." },
+        { "texto": "Siento que las preocupaciones se acumulan y pesan más de lo que puedo manejar." },
+        { "texto": "He perdido el interés o el entusiasmo por actividades que antes disfrutaba." },
+        { "texto": "En varios momentos del día experimento una sensación de vacío o desconexión emocional." },
+        { "texto": "Tengo la sensación de que necesito descansar emocionalmente, aunque haya dormido." },
+        { "texto": "A pesar de las dificultades, todavía puedo disfrutar pequeños momentos de bienestar.", "invertida": true },
+        { "texto": "Mantengo esperanza de que las situaciones difíciles pueden mejorar.", "invertida": true }
+      ],
+      "resultados": [
+        { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Mantienes un equilibrio saludable entre tus responsabilidades y tus recursos personales.", "reflejo": "Recuperas energía. Mantienes espacios de descanso. Conservas equilibrio.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" },
+        { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Las exigencias han aumentado y conviene prestar mayor atención al descanso y al autocuidado.", "reflejo": "Más cansancio. Menos tiempo para ti. Pendientes constantes.", "ruta_prin": "Ruta 4. Recuperar mi energía y aprender a descansar", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+        { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Actualmente sostienes una carga emocional importante que puede afectar tu bienestar.", "reflejo": "Agotamiento. Dificultad para desconectar. Poca energía.", "ruta_prin": "Ruta 4. Recuperar mi energía y aprender a descansar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
+        { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "La sobrecarga emocional requiere atención prioritaria para recuperar energía y equilibrio.", "reflejo": "Desgaste persistente. Desmotivación. Sobrecarga constante.", "ruta_prin": "Ruta 4. Recuperar mi energía y aprender a descansar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" }
+      ]
+    },
+    {
+      "id": "dim3",
+      "titulo": "Dimensión 3. Relaciones interpersonales",
+      "descripcion": "Esta dimensión refleja cómo vives tus relaciones, la comunicación, la confianza y la capacidad para establecer límites saludables.",
+      "preguntas": [
+        { "texto": "Me preocupa que las personas importantes para mí puedan alejarse o dejar de quererme." },
+        { "texto": "Con frecuencia me cuesta expresar lo que realmente siento o necesito." },
+        { "texto": "Suelo priorizar las necesidades de otras personas antes que las mías, incluso cuando eso me afecta." },
+        { "texto": "Me resulta difícil establecer límites cuando algo me incomoda." },
+        { "texto": "Me doy cuenta de que repito patrones similares en diferentes relaciones." },
+        { "texto": "A veces evito expresar mi opinión por miedo a generar rechazo o conflicto." },
+        { "texto": "Soy capaz de establecer límites saludables cuando una situación lo requiere.", "invertida": true },
+        { "texto": "Siento que puedo mostrar quién soy realmente sin miedo a ser juzgado(a) por las personas cercanas.", "invertida": true }
+      ],
+      "resultados": [
+        { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Tus relaciones representan una fortaleza. Generalmente logras comunicarte con respeto, expresar tus necesidades y construir vínculos equilibrados.", "reflejo": "Expresas lo que necesitas. Estableces límites saludables. Disfrutas relaciones de confianza.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+        { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Algunas situaciones sociales pueden representar un reto, aunque cuentas con recursos para fortalecer tus relaciones.", "reflejo": "Te cuesta decir 'no'. Evitas algunos conflictos. Priorizas a otros antes que a ti.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" },
+        { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Esta área está generando un desgaste importante y puede afectar la forma en que te relacionas con los demás.", "reflejo": "Dificultad para poner límites. Miedo al rechazo. Descuidas tus propias necesidades.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" },
+        { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Actualmente esta es una de las áreas prioritarias para trabajar y fortalecer vínculos más seguros y saludables.", "reflejo": "Relaciones desgastantes. Culpa al poner límites. Temor constante a decepcionar.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" }
+      ]
+    },
+    {
+      "id": "dim4",
+      "titulo": "Dimensión 4. Autoimagen y autoexigencia",
+      "descripcion": "Esta dimensión refleja la forma en que te percibes, el nivel de exigencia que tienes contigo y la estabilidad de tu autoestima.",
+      "preguntas": [
+        { "texto": "Con frecuencia siento que lo que hago nunca es suficiente." },
+        { "texto": "Me hablo con dureza cuando cometo un error." },
+        { "texto": "Suelo compararme con otras personas y sentir que debería hacer más." },
+        { "texto": "Siento que necesito demostrar constantemente mi valor o capacidad." },
+        { "texto": "Me cuesta sentirme satisfecho(a) con mis logros, incluso cuando alcanzo mis objetivos." },
+        { "texto": "Me cuesta permitirme descansar porque siento que siempre hay algo más por hacer." },
+        { "texto": "Me trato con amabilidad y comprensión cuando las cosas no salen como esperaba.", "invertida": true },
+        { "texto": "Considero que mi valor como persona no depende únicamente de mis resultados o desempeño.", "invertida": true }
+      ],
+      "resultados": [
+        { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Mantienes una relación saludable contigo mismo(a). Reconoces tus fortalezas y aceptas tus áreas de oportunidad.", "reflejo": "Valoras tus logros. Aprendes de los errores. Tienes expectativas realistas.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+        { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "En ocasiones eres más crítico(a) contigo de lo necesario. Esta área puede fortalecerse.", "reflejo": "Te comparas con otros. Minimizas tus logros. Sientes que podrías hacer más.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" },
+        { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "La autoexigencia está afectando tu bienestar y puede convertirse en una fuente importante de desgaste emocional.", "reflejo": "Autocrítica frecuente. Dificultad para disfrutar tus logros. Perfeccionismo.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" },
+        { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "La relación contigo mismo(a) requiere atención prioritaria para desarrollar una autoestima más estable y compasiva.", "reflejo": "Sientes que nunca es suficiente. Culpa al descansar. Necesidad de hacerlo todo perfecto.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" }
+      ]
+    },
+    {
+      "id": "dim5",
+      "titulo": "Dimensión 5. Recursos internos y resiliencia",
+      "descripcion": "Esta dimensión refleja tu capacidad para afrontar dificultades, adaptarte a los cambios y recuperar el equilibrio después de experiencias estresantes.",
+      "preguntas": [
+        { "texto": "Cuando enfrento una situación difícil, confío en que podré encontrar una forma de afrontarla.", "invertida": true },
+        { "texto": "Siento que cuento con herramientas emocionales para manejar los desafíos de la vida.", "invertida": true },
+        { "texto": "Cuando necesito apoyo, me resulta fácil pedir ayuda a personas de confianza.", "invertida": true },
+        { "texto": "Dedico tiempo a cuidar de mi bienestar físico y emocional.", "invertida": true },
+        { "texto": "Me siento conectado(a) conmigo mismo(a) y con lo que necesito.", "invertida": true },
+        { "texto": "Generalmente puedo identificar lo que me ayuda a recuperar la calma cuando paso por momentos difíciles.", "invertida": true },
+        { "texto": "Aun en etapas complicadas, suelo encontrar pequeñas acciones que me ayudan a sentirme mejor.", "invertida": true },
+        { "texto": "Con frecuencia siento que no tengo los recursos suficientes para afrontar lo que estoy viviendo." }
+      ],
+      "resultados": [
+        { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Cuentas con recursos personales sólidos para afrontar los desafíos y recuperar el equilibrio.", "reflejo": "Confías en tus capacidades. Te adaptas a los cambios. Recuperas la motivación.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" },
+        { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Aunque cuentas con fortalezas, en algunas situaciones puedes dudar de tus propios recursos.", "reflejo": "Inseguridad ante cambios. Dudas en momentos de estrés. Recuperación más lenta.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+        { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Actualmente podrías percibir que las dificultades superan tus recursos personales.", "reflejo": "Sensación de no poder. Poca confianza. Cambios abrumadores.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+        { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Esta es una de las áreas prioritarias para fortalecer y recuperar la confianza en tus capacidades.", "reflejo": "Desesperanza. Poca confianza. Dificultad para afrontar retos.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" }
+      ]
+    },
+    {
+      "id": "dim6",
+      "titulo": "Dimensión 6. Flexibilidad psicológica",
+      "descripcion": "Esta dimensión refleja tu capacidad para adaptarte a los cambios, aceptar experiencias difíciles y actuar de acuerdo con tus valores.",
+      "preguntas": [
+        { "texto": "Cuando aparecen emociones difíciles, siento que ellas controlan mis decisiones." },
+        { "texto": "Me cuesta aceptar situaciones que no puedo cambiar." },
+        { "texto": "Cuando algo no sale como esperaba, me resulta difícil adaptarme." },
+        { "texto": "Suelo evitar situaciones que podrían hacerme sentir incómodo(a) o vulnerable." },
+        { "texto": "Me quedo atrapado(a) durante mucho tiempo en pensamientos negativos." },
+        { "texto": "La incertidumbre suele generar en mí un nivel de tensión difícil de manejar." },
+        { "texto": "Aunque experimente emociones desagradables, puedo continuar haciendo aquello que considero importante.", "invertida": true },
+        { "texto": "Cuando enfrento dificultades, procuro tomar decisiones de acuerdo con mis valores y no únicamente con mis emociones del momento.", "invertida": true }
+      ],
+      "resultados": [
+        { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Generalmente logras adaptarte a los cambios y mantenerte conectado(a) con lo que es importante para ti.", "reflejo": "Aceptas los cambios. Actúas según tus valores. Te adaptas con facilidad.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 1. Regular mi sistema nervioso" },
+        { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "En algunas circunstancias adaptarte puede requerir un mayor esfuerzo.", "reflejo": "Resistencia al cambio. Dudas al decidir. Evitas algunas situaciones.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+        { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "La rigidez emocional está interfiriendo con tu bienestar y merece atención.", "reflejo": "Evitas la incertidumbre. Pensamientos persistentes. Dificultad para adaptarte.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+        { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Actualmente esta área requiere atención prioritaria para desarrollar mayor flexibilidad y bienestar.", "reflejo": "Bloqueo ante cambios. Evitación. Pensamientos dominantes.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" }
+      ]
+    },
+    {
+      "id": "dim7",
+      "titulo": "Dimensión 7. Bienestar psicológico",
+      "descripcion": "Esta dimensión refleja la percepción general que tienes sobre tu bienestar, equilibrio emocional y sentido de vida.",
+      "preguntas": [
+        { "texto": "Me siento satisfecho(a) con la forma en que está transcurriendo mi vida en este momento.", "invertida": true },
+        { "texto": "Generalmente encuentro motivos para disfrutar pequeños momentos de mi día.", "invertida": true },
+        { "texto": "Mantengo una actitud optimista respecto a mi futuro.", "invertida": true },
+        { "texto": "Considero que mi vida mantiene un equilibrio saludable entre responsabilidades y bienestar personal.", "invertida": true },
+        { "texto": "Me siento con energía suficiente para realizar las actividades que considero importantes.", "invertida": true },
+        { "texto": "Suelo experimentar momentos de tranquilidad, satisfaction o bienestar durante la semana.", "invertida": true },
+        { "texto": "Dedico tiempo a actividades que disfruto y que aportan bienestar a mi vida.", "invertida": true },
+        { "texto": "Con frecuencia siento que mi vida ha perdido el equilibrio." }
+      ],
+      "resultados": [
+        { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Experimentas una percepción positiva de tu bienestar y encuentras satisfacción en distintas áreas de tu vida.", "reflejo": "Disfrutas tus actividades. Encuentras propósito. Mantienes equilibrio.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
+        { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Algunas preocupaciones pueden estar disminuyendo temporalmente tu bienestar.", "reflejo": "Menor entusiasmo. Más preocupaciones. Necesidad de reconectar contigo.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
+        { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "El bienestar psicológico se ha visto afectado y conviene intervenir para recuperar el equilibrio.", "reflejo": "Desmotivación. Estrés constante. Menor disfrute.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
+        { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Esta es una de las áreas prioritarias para trabajar y fortalecer gradualmente tu bienestar emocional.", "reflejo": "Pérdida de motivación. Desgaste emocional. Falta de propósito.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "id": "ruta2",
+  "titulo": "Ruta 2. Fortalecer mi autoestima",
+  "descripcion": "Construye una relación más amable contigo, reconoce tu valor y fortalece tu confianza.",
+  "modulos": [
+    {
+      "titulo": "Módulo 1. Descubriendo cómo se construyó mi autoestima",
+      "psicoeducacion": {
+        "titulo": "¿Por qué me cuesta reconocer mi valor?",
+        "parrafos": [
+          "¿Alguna vez has sentido que, por más que te esfuerzas, nunca parece ser suficiente? Tal vez otras personas reconocen tus capacidades, pero tú solo logras ver tus errores. Quizá recibes un cumplido y te cuesta creerlo.",
+          "Si esto te ha ocurrido, no significa que tengas una autoestima 'rota' o que haya algo malo en ti. La autoestima no aparece de un día para otro. Se va construyendo poco a poco a partir de las experiencias que vivimos y de los mensajes que recibimos.",
+          "Con el paso del tiempo, nuestro cerebro comienza a formar creencias sobre nosotros mismos. Estas creencias no son hechos. Son aprendizajes. Y, como todo aprendizaje, también pueden modificarse.",
+          "Fortalecer tu autoestima no significa convertirte en alguien diferente. Significa comenzar a mirar con mayor amabilidad a la persona que siempre ha estado ahí: tú."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Te cuesta aceptar un cumplido y sientes la necesidad de minimizarlo?",
+        "¿Sueles enfocarte más en tus errores que en tus logros?",
+        "¿Te comparas con otras personas y casi siempre sales perdiendo?",
+        "¿Te hablas con mucha más dureza de la que usarías con alguien que quieres?",
+        "¿Sientes que, hagas lo que hagas, nunca es suficiente?"
+      ],
+      "ejercicio": {
+        "titulo": "Conociendo la historia de mi autoestima",
+        "instrucciones": "No se trata de juzgar tu historia. Se trata de comprenderla con curiosidad y respeto. Escribe lo primero que llegue a tu mente:",
+        "pasos": [
+          "Cuando era niño(a)... ¿Qué críticas o comentarios recuerdo haber escuchado con frecuencia? ¿Sentía que podía equivocarme sin dejar de ser valioso(a)?",
+          "Hoy, en mi vida adulta... ¿Cuáles son las frases que más suelo decirme cuando cometo un error? ¿Qué aspectos de mí me cuesta reconocer o valorar?",
+          "Comprender el origen de esas creencias es el primer paso para comenzar a transformarlas. Tu historia explica muchas cosas, pero no define todo lo que puedes llegar a ser."
+        ]
+      },
+      "audio": {
+        "titulo": "Descubriendo mi valor con mayor amabilidad",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Descubriendo cómo me hablo",
+        "contenido": [
+          "Durante tres días, observa con curiosidad tu diálogo interno:",
+          "• Hoy me sentí orgulloso(a) de mí cuando... ¿Qué pensé sobre mí en ese momento?",
+          "• Hoy fui muy crítico(a) conmigo cuando... ¿Qué me dije? Si un ser querido estuviera viviendo lo mismo, ¿qué le diría?",
+          "• ¿Qué tipo de frases me repito con mayor frecuencia? ¿Qué nueva forma de hablarme quiero comenzar a practicar?"
+        ]
+      },
+      "reto": {
+        "titulo": "Un momento de reconocimiento cada día",
+        "contenido": [
+          "Durante los próximos cinco días, dedica unos minutos al final del día para reconocer tres cosas que hiciste bien. No tienen que ser grandes logros.",
+          "Haber pedido ayuda, descansar sin culpa, tratar a alguien con amabilidad... todo cuenta.",
+          "Cada vez que reconoces tus esfuerzos, ayudas a que tu cerebro construya una imagen más completa, equilibrada y amable de quién eres."
+        ]
+      },
+      "cierre": [
+        "Hoy comenzaste a descubrir que la forma en que te ves a ti mismo no apareció por casualidad. Se fue construyendo a lo largo de tu historia, a partir de las experiencias que viviste.",
+        "Y aquello que fue aprendido también puede transformarse. No necesitas luchar contra tu voz interior, solo necesitas comenzar a escucharla con curiosidad y responderle desde un lugar más amable.",
+        "Tu valor no depende de la aprobación de los demás. Tu valor existe porque eres una persona digna de respeto, de cuidado y de compasión."
+      ]
+    },
+    {
+      "titulo": "Módulo 2. Aprendiendo a hablarme con mayor amabilidad",
+      "psicoeducacion": {
+        "titulo": "¿Por qué soy tan duro conmigo?",
+        "parrafos": [
+          "¿Te has dado cuenta de que, a veces, eres la persona que más se critica? Curiosamente, muchas personas jamás le hablarían de esa manera a alguien que aman.",
+          "Esto muchas veces ocurre porque esa voz crítica fue aprendida de la manera en que fuimos corregidos en el pasado. El problema es que nuestro cerebro escucha esa voz una y otra vez, fortaleciendo esas conexiones neuronales.",
+          "La buena noticia es que nuestro cerebro también puede aprender una forma diferente de relacionarse consigo mismo.",
+          "Hablarte con amabilidad no significa justificar todo lo que haces ni dejar de reconocer tus errores. Significa aprender a corregirte sin humillarte. Convertir tu voz interior en una aliada, en lugar de tu principal crítica."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Te dices cosas que jamás le dirías a alguien que quieres?",
+        "¿Te cuesta reconocer tus logros porque inmediatamente piensas en lo que faltó?",
+        "¿Cuando algo sale mal piensas que el problema eres tú, en lugar de la situación?",
+        "¿Te resulta más fácil comprender a los demás que comprenderte a ti?"
+      ],
+      "ejercicio": {
+        "titulo": "Descubriendo mi diálogo interior",
+        "instrucciones": "Observa cómo suele hablarte tu mente en distintos momentos:",
+        "pasos": [
+          "Cuando cometo un error... ¿Qué es lo primero que suelo decirme? ¿Cómo me hace sentir esa forma de hablarme?",
+          "Si un ser querido estuviera viviendo esa misma situación, ¿qué le diría? ¿Cómo podría decirme esas mismas palabras a mí?",
+          "Escribe 3 frases de 'Mi voz que critica' y transfórmalas en mensajes más amables, realistas y respetuosos."
+        ]
+      },
+      "audio": {
+        "titulo": "Aprendiendo a hablarme con mayor amabilidad",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Transformando mi diálogo interior",
+        "contenido": [
+          "Durante los próximos tres días, observa cómo aparece tu diálogo interno en distintas situations.",
+          "• Hoy me hablé con dureza cuando... ¿Qué palabras me dije?",
+          "• Si hubiera respondido con mayor amabilidad... ¿Qué podría haberme dicho? ¿Cómo creo que me habría sentido?",
+          "No se trata de dejar de reconocer tus errores. Se trata de aprender que puedes crecer sin convertirte en tu propio enemigo."
+        ]
+      },
+      "reto": {
+        "titulo": "Cambiando una frase cada día",
+        "contenido": [
+          "Durante los próximos cinco días, cuando notes que te estás hablando con dureza, haz una pausa. Respira. Y reemplázala por una frase realista y compasiva.",
+          "En lugar de 'No soy suficiente', prueba decir: 'Estoy aprendiendo'.",
+          "Al finalizar el día, pregúntate: ¿Cómo cambió mi estado emocional cuando elegí hablarme con mayor amabilidad?"
+        ]
+      },
+      "cierre": [
+        "Hoy descubriste que una de las conversaciones más importantes de tu vida ocurre dentro de ti.",
+        "Esa voz interior tiene el poder de fortalecer tu confianza o de hacer que dudes de ti mismo. Y, precisamente porque fue aprendida, también puede transformarse.",
+        "No necesitas ser perfecto para tratarte con compasión. Cada vez que eliges responderte con comprensión, estás construyendo una autoestima más fuerte, más sana y más estable."
+      ]
+    },
+    {
+      "titulo": "Módulo 3. Redescubriendo el valor que ya existe en mí",
+      "psicoeducacion": {
+        "titulo": "¿Por qué me cuesta reconocer todo lo bueno que hay en mí?",
+        "parrafos": [
+          "¿Alguna vez has sentido que es más fácil recordar tus errores que todo lo que has logrado? Nuestro cerebro está diseñado para detectar aquello que podría representar un problema para sobrevivir.",
+          "Pero cuando esa tendencia se combina con una autoestima frágil, dejamos de reconocer nuestros recursos, nuestras capacidades y las experiencias que nos han permitido salir adelante.",
+          "No porque no existan. Sino porque hemos aprendido a mirar solo una parte de nuestra historia.",
+          "Fortalecer la autoestima no consiste en inventar cualidades que no tienes. Consiste en aprender a reconocer, con honestidad, todo aquello que ya existe en ti y que durante mucho tiempo pasó desapercibido."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Sientes que otras personas tienen muchas más capacidades que tú?",
+        "¿Te resulta más fácil reconocer las cualidades de los demás que las tuyas?",
+        "¿Piensas que hablar bien de ti podría parecer arrogante?",
+        "¿Con frecuencia olvidas todo lo que has superado y solo recuerdas lo que aún te falta?"
+      ],
+      "ejercicio": {
+        "titulo": "Descubriendo mis recursos personales",
+        "instrucciones": "Responde con honestidad para identificar los recursos personales que has dejado de mirar:",
+        "pasos": [
+          "Mirando mi camino: ¿Qué situación difícil he logrado superar? ¿Qué capacidades o recursos me ayudaron a salir adelante?",
+          "Mirándome con otros ojos: ¿Qué suelen agradecer o valorar las personas que me conocen? ¿Qué valores considero que guían mi manera de actuar?",
+          "Escribe al menos 5 recursos, capacidades o valores que reconoces en ti hoy."
+        ]
+      },
+      "audio": {
+        "titulo": "Redescubriendo el valor que ya existe en mí",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Reconociendo mis recursos cada día",
+        "contenido": [
+          "A lo largo del día utilizamos muchas capacidades sin darnos cuenta. Registra por 3 días:",
+          "• Hoy enfrenté... (Situación)",
+          "• ¿Qué recurso personal utilicé? (Ej: paciencia, creatividad, valentía, empatía, organización)",
+          "• ¿Cómo me sentí después?",
+          "Tus recursos no aparecen únicamente en los grandes logros. También en tus decisiones de cada día."
+        ]
+      },
+      "reto": {
+        "titulo": "Un recurso nuevo cada día",
+        "contenido": [
+          "Durante los próximos cinco días, dedica unos minutos al final de tu jornada para responder: ¿Qué recurso personal utilicé hoy?",
+          "No importa si fue algo pequeño. Tal vez escuchaste con atención, mostraste empatía o pediste ayuda.",
+          "Escríbelo en tu libreta y observa cómo cambia tu autoimagen."
+        ]
+      },
+      "cierre": [
+        "Hoy comenzaste a mirar tu historia desde una perspectiva diferente. Descubriste que tu historia no está formada solamente por los errores, sino por los recursos que has desarrollado.",
+        "Reconocer tus recursos no significa dejar de crecer. Significa construir una imagen más justa de quién eres.",
+        "Tu autoestima no se fortalece porque te repitas que eres extraordinario. Se fortalece porque aprendes a reconocer la evidencia real de todo lo que ya existe en ti."
+      ]
+    },
+    {
+      "titulo": "Módulo 4. Construyendo una autoestima que nace de mí",
+      "psicoeducacion": {
+        "titulo": "¿Por qué mi valor cambia según lo que ocurre a mi alrededor?",
+        "parrafos": [
+          "¿Te has dado cuenta de que hay días en los que te sientes muy bien contigo y otros en los que una sola crítica parece hacer tambalear toda tu confianza?",
+          "Es muy común. Muchas personas aprenden a medir su valor según lo que sucede a su alrededor. Si reciben reconocimiento, sienten que valen. Si cometen un error, dudan de sí mismas.",
+          "Cuando esto ocurre, la autoestima se vuelve frágil. La buena noticia es que existe otra manera de relacionarte contigo. Una autoestima saludable significa que tu valor como persona no cambia dependiendo de un resultado o la aprobación externa.",
+          "Fortalecer la autoestima no consiste en sentirte seguro todo el tiempo. Consiste en aprender a regresar a ti una y otra vez, recordando que tu valor permanece, incluso cuando las circunstancias cambian."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Tu estado de ánimo cambia mucho dependiendo de la opinión de otras personas?",
+        "¿Sientes que una crítica pesa mucho más que varios comentarios positivos?",
+        "¿Necesitas que otras personas reconozcan tus logros para sentirte satisfecho(a)?",
+        "¿Te cuesta recordar quién eres cuando las cosas se ponen difíciles?"
+      ],
+      "ejercicio": {
+        "titulo": "Construyendo mi propia referencia",
+        "instrucciones": "Identifica los pilares sobre los que quieres construir una autoestima estable:",
+        "pasos": [
+          "Cuando pienso en la persona que quiero ser... ¿Qué valores deseo que guíen mi vida? ¿Qué cualidades quiero seguir cultivando?",
+          "Mi brújula interior. Completa: 'Yo sé que soy una persona valiosa porque...' / 'Cuando dude de mí, quiero recordar que...'",
+          "Una autoestima sólida nace de recordar que tu valor siempre ha estado contigo."
+        ]
+      },
+      "audio": {
+        "titulo": "Construyendo una autoestima que nace de mí",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Mi brújula interior",
+        "contenido": [
+          "Durante los próximos 3 días registra:",
+          "• Hoy tomé una decisión de la que me siento orgulloso(a) porque...",
+          "• ¿Lo hice alineado con mis valores o buscaba aprobación externa?",
+          "• Hoy recordé mi valor cuando...",
+          "¿Qué puedes hacer para regresar a tu propia brújula cuando dudes de ti?"
+        ]
+      },
+      "reto": {
+        "titulo": "Volver a mí",
+        "contenido": [
+          "Durante cinco días, responde 3 preguntas al final del día:",
+          "1. ¿Qué decisión tomé hoy que estuvo alineada con mis valores?",
+          "2. ¿Qué recurso personal utilicé hoy?",
+          "3. ¿Qué puedo agradecerme antes de terminar este día?",
+          "Cada vez que eliges volver a ti, fortaleces la confianza en la persona que estás construyendo."
+        ]
+      },
+      "cierre": [
+        "Hoy diste un paso muy importante. Descubriste que una autoestima saludable no depende de recibir aprobación constante o de compararte con los demás.",
+        "Comienza cuando aprendes a reconocer tu propio valor desde un lugar más profundo y estable, regresando a tus valores y recursos.",
+        "Es posible que, en algunos momentos, vuelvas a dudar de ti. Eso no significa que hayas retrocedido. Significa que eres humano.",
+        "Pero ahora cuentas con herramientas para recordar quién eres. ¡Felicidades por completar esta Ruta!"
+      ]
+    }
+  ]
+}

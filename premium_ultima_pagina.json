@@ -1,0 +1,110 @@
+{
+  "titulo": "La Última Página",
+  "intro_previa": [
+    "Hay una razón por la que esta experiencia está al final.",
+    "No habría tenido sentido el primer día.",
+    "Necesitabas vivir este mes.",
+    "Responderte algunas preguntas.",
+    "Escuchar cosas que quizá habías olvidado.",
+    "Solo entonces podíamos hacerte la pregunta correcta.",
+    "Porque una buena pregunta, en el momento equivocado, solo genera confusión.",
+    "Pero en el momento adecuado...",
+    "Puede cambiar la forma en la que entiendes toda tu historia.",
+    "Respira profundo.",
+    "Apaga el ruido."
+  ],
+  "mensaje_1": [
+    "Lo primero que queremos decirte...",
+    "Si llegaste hasta aquí, probablemente eres una persona que lleva mucho tiempo intentando entenderse.",
+    "Has leído.",
+    "Has reflexionado.",
+    "Has buscado respuestas.",
+    "Y, aun así, es posible que haya algo que siga repitiéndose.",
+    "No porque te falte fuerza de voluntad.",
+    "No porque no quieras cambiar.",
+    "Sino porque hay preguntas que nunca nos enseñaron a hacernos.",
+    "Y mientras no aparezcan esas preguntas...",
+    "Las respuestas siempre parecen incompletas.",
+    "Hoy no vamos a darte una respuesta.",
+    "Vamos a regalarte una pregunta.",
+    "Pero antes...",
+    "Queremos pedirte algo.",
+    "No respondas pensando en quién te gustaría ser.",
+    "Responde pensando en quién eres cuando nadie te está mirando."
+  ],
+  "pregunta_1": "¿Qué parte de tu vida seguiría exactamente igual si dentro de un año no cambiaras nada?",
+  "observacion_1": [
+    "Léelo otra vez.",
+    "No para corregirlo.",
+    "Solo para observarlo.",
+    "Ahora queremos pedirte algo un poco diferente.",
+    "Subraya mentalmente la palabra que más peso tenga para ti.",
+    "No la más bonita.",
+    "La que más incomode."
+  ],
+  "mensaje_2": [
+    "Esa palabra probablemente no apareció por casualidad.",
+    "Muchas veces creemos que nuestro problema es el estrés.",
+    "O la ansiedad.",
+    "O el miedo.",
+    "Pero debajo de todo eso suele haber una historia.",
+    "Y esa historia casi siempre empieza mucho antes de que nos diéramos cuenta.",
+    "Por eso queremos hacerte una segunda pregunta.",
+    "No para responderla rápido.",
+    "Sino para escucharla de verdad."
+  ],
+  "pregunta_2": "¿Recuerdas cuándo fue la primera vez que empezaste a sentir eso?",
+  "cierre": [
+    "No vamos a hacerte más preguntas.",
+    "Porque ya tienes suficiente para empezar.",
+    "La mayoría de las personas creen que el cambio ocurre cuando encuentran respuestas.",
+    "Nosotros creemos que comienza cuando, por primera vez, se atreven a formular la pregunta correcta.",
+    "Guarda esta página.",
+    "Vuelve a leerla dentro de seis meses.",
+    "Quizá descubras que las respuestas cambiaron.",
+    "O quizá descubras algo todavía más importante.",
+    "Que quien cambió fuiste tú."
+  ],
+  "despedida": {
+    "titulo": "🌸 Antes de irte...",
+    "parrafos": [
+      "Este mes aprendiste a detenerte.",
+      "A escucharte.",
+      "A hacerte preguntas que quizá llevabas mucho tiempo evitando.",
+      "Y eso ya es un paso enorme.",
+      "Pero antes de cerrar este recorrido, queremos dejarte con una última reflexión.",
+      "Hay algo curioso sobre los seres humanos.",
+      "Aunque cambiemos de trabajo...",
+      "De pareja...",
+      "De ciudad...",
+      "O incluso de metas...",
+      "Muchas veces terminamos sintiendo lo mismo.",
+      "No porque la vida siempre sea igual.",
+      "Sino porque, sin darnos cuenta, repetimos formas de pensar, sentir y actuar que se vuelven familiares.",
+      "A eso, en psicología, solemos llamarlo patrones.",
+      "Patrones en la manera en que nos hablamos.",
+      "Patrones en aquello que esperamos de nosotros mismos.",
+      "Patrones en la forma en que ponemos límites.",
+      "Patrones en las relaciones que elegimos.",
+      "Patrones en lo que toleramos.",
+      "Y también en aquello que evitamos.",
+      "La mayoría de las personas pasa años intentando cambiar sus resultados.",
+      "Muy pocas se detienen a comprender los patrones que los producen.",
+      "Porque aquello que no comprendemos, suele repetirse.",
+      "Y aquello que comprendemos... empieza a transformarse."
+    ]
+  },
+  "teaser": {
+    "titulo": "🔒 La siguiente conversación...",
+    "parrafos": [
+      "Cuando sentir que nunca es suficiente se convierte en un patrón.",
+      "La autoexigencia y el perfeccionismo no siempre nacen del deseo de hacer las cosas bien.",
+      "A veces nacen del miedo a equivocarnos.",
+      "Del miedo a decepcionar.",
+      "O de la sensación de que nuestro valor depende de lo que logramos.",
+      "En el próximo recorrido exploraremos cómo reconocer este patrón, comprender de dónde viene y comenzar a construir una relación más amable contigo.",
+      "Porque hacer las cosas con amor no es lo mismo que vivir exigiéndote constantemente."
+    ],
+    "disponible": "🌸 Disponible próximamente en Bloom Premium."
+  }
+}

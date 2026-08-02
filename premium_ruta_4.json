@@ -1,0 +1,245 @@
+{
+  "id": "ruta4",
+  "titulo": "Ruta 4. Recuperar mi energía y aprender a descansar",
+  "descripcion": "Escucha las señales de tu cuerpo, libera la culpa del descanso y construye hábitos de recuperación sostenibles.",
+  "modulos": [
+    {
+      "titulo": "Módulo 1. Comprendiendo por qué me siento tan agotado(a)",
+      "psicoeducacion": {
+        "titulo": "¿Por qué sigo sintiéndome cansado(a) aunque descanse?",
+        "parrafos": [
+          "Hay personas que duermen varias horas y, aun así, despiertan sintiéndose agotadas. Otras terminan el día con la sensación de haber dado todo de sí, aunque apenas hayan tenido un momento para respirar. El cansancio no siempre depende únicamente del sueño. Nuestro cuerpo también se agota cuando permanece durante mucho tiempo funcionando en modo supervivencia.",
+          "El estrés continuo mantiene al sistema nervioso en un estado de alerta casi permanente. El cerebro dedica gran parte de su energía a resolver problemas, anticipar dificultades y responder a múltiples demandas. Con el paso del tiempo, este esfuerzo constante puede generar una sensación de agotamiento físico, mental y emocional.",
+          "No es falta de fuerza de voluntad. No significa que seas una persona débil. Significa que tu organismo ha estado intentando sostener un ritmo para el que no fue diseñado durante tanto tiempo.",
+          "Muchas personas creen que descansar es un premio que deben ganarse después de terminar todas sus responsabilidades. Pero el descanso no es un lujo, es una necesidad biológica. Descansar no significa rendirse. Significa reconocer que tú también necesitas espacios para recuperarte."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Sientes que, por más que descanses, nunca recuperas completamente la energía?",
+        "¿Te cuesta permitirte hacer una pausa porque sientes que siempre hay algo pendiente?",
+        "¿Te descubres funcionando en 'piloto automático' durante gran parte del día?",
+        "¿Te sientes culpable cuando decides descansar?",
+        "¿Has pensado que deberías poder con todo sin sentirte agotado(a)?",
+        "¿Hace mucho tiempo que no recuerdas cómo se siente estar realmente descansado(a)?"
+      ],
+      "ejercicio": {
+        "titulo": "Escuchando a mi energía",
+        "instrucciones": "Antes de intentar cambiar algo, primero necesitamos comprender cómo se encuentra hoy nuestra energía. Responde con honestidad:",
+        "pasos": [
+          "¿Cómo describiría mi nivel de energía durante la última semana?",
+          "¿Qué situaciones consumen gran parte de mi energía? ¿Qué actividades me ayudan a recuperarla?",
+          "¿Cuándo fue la última vez que descansé sin sentir culpa?",
+          "Si mi cuerpo pudiera hablar hoy, ¿qué crees que me pediría?",
+          "Reflexión: Nuestro cuerpo suele enviarnos señales mucho antes de llegar al agotamiento extremo. Aprender a escucharlas es una forma de autocuidado."
+        ]
+      },
+      "audio": {
+        "titulo": "Darme permiso para descansar",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Mi balance de energía",
+        "contenido": [
+          "Durante los próximos tres días, observa cómo cambia tu energía a lo largo del día. No busques hacer más. Solo observa.",
+          "• ¿Qué actividades aumentan mi energía?",
+          "• ¿Qué actividades la disminuyen?",
+          "• ¿Qué personas me ayudan a sentirme mejor?",
+          "• ¿Qué situaciones me dejan emocionalmente agotado(a)?",
+          "• ¿Qué pequeño espacio de descanso podría regalarme cada día?",
+          "Reflexión: No toda la energía se recupera durmiendo. También se recupera cuando hacemos espacio para aquello que nos nutre."
+        ]
+      },
+      "reto": {
+        "titulo": "Cinco minutos para mí",
+        "contenido": [
+          "Durante esta semana, dedica cinco minutos diarios únicamente a recuperar energía. No tienen que ser productivos. Puedes: escuchar una canción, salir unos minutos al sol, respirar en silencio, leer unas páginas de un libro, tomar una bebida caliente con calma, estirarte o mirar el cielo.",
+          "Al terminar esos cinco minutos, responde: ¿Cómo se siente mi cuerpo después de haberme regalado este espacio?",
+          "Descansar no siempre significa hacer menos. Muchas veces significa recuperar la energía necesaria para vivir mejor."
+        ]
+      },
+      "cierre": [
+        "Hoy diste un paso importante. Quizá durante mucho tiempo pensaste que sentirte cansado(a) era simplemente parte de la vida, o que descansar era algo que solo podías hacer cuando todo estuviera terminado.",
+        "Comprendiste que el agotamiento no siempre aparece porque seas débil. Muchas veces aparece porque has sostenido demasiado durante demasiado tiempo. También descubriste que el descanso es una necesidad humana, tan importante como alimentarte, dormir o respirar.",
+        "Tal vez no puedas cambiar inmediatamente todas las exigencias que existen en tu vida. Pero sí puedes comenzar a cambiar la forma en que te relacionas con ellas. Con más conciencia. Con más respeto. Y con más amabilidad hacia ti."
+      ]
+    },
+    {
+      "titulo": "Módulo 2. Cuando descansar también da culpa",
+      "psicoeducacion": {
+        "titulo": "¿Por qué me cuesta tanto detenerme?",
+        "parrafos": [
+          "¿Alguna vez has intentado descansar y, en lugar de sentir tranquilidad, comenzaste a pensar en todo lo que todavía faltaba por hacer? Quizá te sentaste unos minutos y apareció la culpa. Incluso es posible que hayas pensado: 'Primero termino todo y después descanso.' El problema es que ese 'después' muchas veces nunca llega.",
+          "Vivimos en una cultura que suele valorar la productividad, la rapidez y el estar siempre disponibles. Poco a poco, muchas personas aprenden a relacionar su valor con lo mucho que hacen. Como consecuencia, descansar puede sentirse incómodo. No porque el cuerpo no lo necesite, sino porque la mente interpreta la pausa como si fuera irresponsabilidad.",
+          "Sin embargo, descansar no significa abandonar tus responsabilidades. Significa recuperar la energía necesaria para poder sostenerlas de una manera más saludable. El descanso no disminuye tu compromiso. Lo fortalece.",
+          "Aprender a detenerte también es una habilidad. Cuidar tu energía no es egoísmo. Es una forma de proteger aquello que te permite seguir construyendo la vida que deseas."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Te sientes incómodo(a) cuando no estás haciendo algo 'útil'?",
+        "¿Descansas, pero tu mente sigue repasando pendientes?",
+        "¿Te cuesta decir 'hoy necesito una pausa'?",
+        "¿Sientes culpa cuando alguien más hace cosas por ti?",
+        "¿Piensas que deberías poder con todo sin necesitar descanso?",
+        "¿Has dejado actividades que disfrutas porque siempre hay algo 'más importante' que hacer?"
+      ],
+      "ejercicio": {
+        "titulo": "Conversando con mi culpa",
+        "instrucciones": "Piensa en la última vez que intentaste descansar y responde con honestidad:",
+        "pasos": [
+          "¿Qué estaba haciendo antes de detenerme? ¿Qué pensamientos aparecieron cuando intenté descansar?",
+          "¿Qué me decía esa voz que me hacía sentir culpa? ¿De dónde creo que aprendí esa idea sobre el descanso?",
+          "Si una persona que quiero estuviera completamente agotada, ¿le diría que siga esforzándose o le daría permiso para descansar? ¿Por qué me cuesta ofrecerme esa misma comprensión?",
+          "Reflexión: Muchas veces tratamos a nuestro cuerpo con una exigencia que jamás tendríamos hacia alguien que amamos. Quizá hoy puedas comenzar a ofrecerte el mismo cuidado que darías a otra persona."
+        ]
+      },
+      "audio": {
+        "titulo": "Escuchar lo que mi energía necesita",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Lo que hoy necesita mi energía",
+        "contenido": [
+          "Antes de responder, detente unos segundos y respira profundamente. Ahora escribe:",
+          "• ¿Cómo llega mi energía hoy?",
+          "• ¿Qué la ha desgastado durante los últimos días?",
+          "• ¿Qué actividades, personas o lugares me ayudan a recuperarme?",
+          "• ¿Qué necesidad he estado ignorando?",
+          "• Si hoy pudiera regalarme un pequeño acto de cuidado, ¿cuál sería?",
+          "Reflexión: Escuchar tus necesidades no te hace egoísta. Te hace humano."
+        ]
+      },
+      "reto": {
+        "titulo": "Un acto de recuperación al día",
+        "contenido": [
+          "Durante los próximos siete días, dedica unos minutos a realizar una acción que no tenga como objetivo producir más, sino recuperar tu energía. Puede ser: dormir una siesta breve, salir a caminar sin prisa, escuchar música, leer por placer, estirarte, hablar con alguien que te haga sentir en paz o permanecer unos minutos en silencio.",
+          "Antes de elegir la actividad, pregúntate: ¿Qué necesita hoy mi energía?",
+          "Al finalizar el día, escribe: ¿Cómo cambió mi energía después de regalarme ese espacio?",
+          "Recuperarte no siempre implica hacer grandes cambios. Muchas veces comienza con pequeños momentos en los que decides dejar de tratarte como una máquina."
+        ]
+      },
+      "cierre": [
+        "Hoy descubriste que muchas veces el mayor obstáculo para descansar no es la falta de tiempo. Es la culpa. Esa voz que dice que deberías seguir, que todavía falta más, que descansar puede esperar.",
+        "Sin embargo, también comenzaste a cuestionar esa idea. Comprendiste que tu valor no depende de cuánto produces ni de cuánto eres capaz de sostener antes de agotarte. Tu cuerpo no necesita demostrar que merece descanso. Lo necesita porque es humano.",
+        "Quizá hoy no cambien todas tus responsabilidades. Pero sí puede comenzar a cambiar la forma en que te relacionas contigo mientras las enfrentas. Con más respeto. Con más escucha. Y con la certeza de que cuidar tu energía no es un acto de egoísmo."
+      ]
+    },
+    {
+      "titulo": "Módulo 3. Aprender a escuchar las señales antes del agotamiento",
+      "psicoeducacion": {
+        "titulo": "¿Qué intenta decirme mi cuerpo antes de llegar al límite?",
+        "parrafos": [
+          "Nuestro cuerpo rara vez pasa del bienestar al agotamiento extremo de un momento a otro. Generalmente nos envía pequeñas señales mucho antes. Una tensión constante en los hombros. Dificultad para concentrarnos. Irritabilidad. Cansancio que no desaparece. Dolores de cabeza frecuentes. Cambios en el sueño. Sensación de estar funcionando en automático.",
+          "El problema es que muchas veces aprendemos a ignorar esas señales. Pensamos: 'Cuando termine esta semana descansaré.' 'Solo un esfuerzo más.' Y, sin darnos cuenta, convertimos el agotamiento en una forma habitual de vivir.",
+          "Escuchar nuestro cuerpo no significa alarmarnos por cada molestia. Significa reconocer que las emociones y el cuerpo suelen avisarnos cuando algo necesita atención. Cuanto antes aprendemos a escuchar esas señales, menos necesitaremos recuperarnos de haberlas ignorado.",
+          "El autocuidado no comienza cuando estamos completamente agotados. Comienza cuando prestamos atención a los primeros mensajes que nuestro cuerpo intenta enviarnos."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Has seguido trabajando aunque tu cuerpo te pedía detenerte?",
+        "¿Te descubres diciendo con frecuencia: 'Solo un poco más'?",
+        "¿Ignoras el hambre, el sueño o el cansancio porque sientes que hay cosas más importantes?",
+        "¿Notas que te irritas con facilidad cuando llevas varios días sin descansar?",
+        "¿Has normalizado sentirte agotado(a) casi todos los días?",
+        "¿Te cuesta identificar cómo se siente realmente tu cuerpo porque hace mucho tiempo no le prestas atención?"
+      ],
+      "ejercicio": {
+        "titulo": "Mi mapa personal de señales",
+        "instrucciones": "Cada persona experimenta el estrés y el agotamiento de manera diferente. Identifica las señales que aparecen en ti antes de llegar al límite:",
+        "pasos": [
+          "Cuando comienzo a agotarme, mi cuerpo suele... / Mis emociones cambian de esta manera... / Mis pensamientos suelen decirme...",
+          "Mis relaciones cambian porque... ¿Qué señal suelo ignorar con mayor frecuencia?",
+          "¿Qué podría hacer la próxima vez que aparezca esa señal?",
+          "Reflexión: Cada vez que eliges escucharte, estás fortaleciendo una relación más amable y respetuosa contigo mismo."
+        ]
+      },
+      "audio": {
+        "titulo": "Escuchando las señales de mi cuerpo",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Mi semáforo de energía",
+        "contenido": [
+          "Piensa en cómo se manifiesta tu energía en diferentes momentos. Completa este semáforo personal:",
+          "🟢 Cuando estoy bien... ¿Cómo se siente mi cuerpo? ¿Qué emociones predominan?",
+          "🟡 Cuando comienzo a agotarme... ¿Qué primeras señales aparecen? ¿Qué suelo hacer normalmente?",
+          "🔴 Cuando llego al límite... ¿Cómo reacciona mi cuerpo? ¿Cómo afectan esas señales mi trabajo, mis relaciones y mi bienestar?",
+          "Reflexión: ¿Qué podría hacer cuando aparezcan las señales amarillas para evitar llegar al rojo?"
+        ]
+      },
+      "reto": {
+        "titulo": "Mi pausa preventiva",
+        "contenido": [
+          "Durante los próximos siete días, realiza tres pausas breves distribuidas a lo largo del día. En cada una detente durante un minuto y pregúntate: ¿Cómo está mi energía en este momento? ¿Qué noto en mi cuerpo? ¿Qué emoción está más presente? ¿Qué necesito ahora mismo?",
+          "Si es posible, realiza una pequeña acción de cuidado: cambiar de postura, respirar profundamente, beber agua, estirarte, caminar un par de minutos o mirar por la ventana.",
+          "Al finalizar el día escribe: ¿Qué cambió cuando escuché las señales de mi cuerpo antes de seguir?",
+          "El autocuidado comienza cuando aprendes a hacer pequeñas pausas antes de llegar al límite."
+        ]
+      },
+      "cierre": [
+        "Hoy aprendiste que el agotamiento rara vez aparece sin avisar. Tu cuerpo suele enviar pequeñas señales mucho antes de llegar al límite. Quizá durante mucho tiempo esas señales pasaron desapercibidas, no porque no existieran, sino porque aprendiste a seguir adelante incluso cuando necesitabas detenerte.",
+        "Hoy comenzaste a desarrollar una habilidad diferente. La capacidad de escucharte. No para alarmarte. No para dejar de hacer todo. Sino para responder con mayor conciencia antes de que el desgaste se vuelva demasiado grande.",
+        "Tu cuerpo no es un obstáculo que debas vencer. Es un compañero que intenta ayudarte a sostener tu vida de la mejor manera posible. Cada vez que escuchas una señal temprana, estás diciendo: 'Mi bienestar también importa.'"
+      ]
+    },
+    {
+      "titulo": "Módulo 4. Construyendo una vida donde mi energía también importa",
+      "psicoeducacion": {
+        "titulo": "¿Cómo puedo cuidar mi energía de forma sostenible?",
+        "parrafos": [
+          "Muchas personas solo comienzan a cuidarse cuando el cuerpo ya no puede más. Esperan a sentirse completamente agotadas para hacer una pausa. Sin embargo, el verdadero autocuidado no consiste únicamente en recuperarse. También consiste en construir una vida donde el desgaste constante deje de ser la norma.",
+          "Eso significa aprender a observar cómo distribuyes tu energía. Reconocer qué actividades la fortalecen. Cuáles la consumen. Y qué pequeños cambios pueden ayudarte a vivir con mayor equilibrio.",
+          "No siempre será posible eliminar todas las fuentes de estrés. Pero sí es posible desarrollar hábitos que permitan recuperar energía antes de llegar al límite. El bienestar no depende únicamente de los grandes cambios. Con frecuencia se construye a través de pequeñas decisiones repetidas cada día.",
+          "Cuidar de tu energía no significa vivir haciendo menos. Significa aprender a sostener aquello que realmente es importante sin dejarte a ti en el último lugar."
+        ]
+      },
+      "te_ha_pasado": [
+        "¿Organizas tus días pensando únicamente en todo lo que debes hacer y muy poco en cómo quieres sentirte?",
+        "¿Te resulta más fácil cuidar de otras personas que cuidar de ti?",
+        "¿Has pensado que descansar es algo que harás 'cuando tengas tiempo'?",
+        "¿Sientes que siempre estás apagando incendios en lugar de prevenirlos?",
+        "¿Te gustaría vivir con un ritmo más equilibrado, pero no sabes por dónde comenzar?"
+      ],
+      "ejercicio": {
+        "titulo": "Diseñando mi plan de recuperación",
+        "instrucciones": "Piensa en cómo te gustaría cuidar de tu energía durante las próximas semanas. No busques hacer cambios enormes. Busca cambios posibles:",
+        "pasos": [
+          "¿Qué hábito pequeño me gustaría incorporar para cuidar mejor mi energía?",
+          "¿Qué actividad necesito realizar con mayor frecuencia porque me ayuda a recuperarme?",
+          "¿Qué situación necesito comenzar a limitar para proteger mi bienestar?",
+          "¿Qué persona podría acompañarme o apoyarme en este proceso? ¿Cuál será mi primer paso durante esta semana?",
+          "Reflexión: Las grandes transformaciones rara vez comienzan con cambios radicales. La mayoría empiezan con pequeñas decisiones que repetimos hasta convertirlas en una nueva forma de vivir."
+        ]
+      },
+      "audio": {
+        "titulo": "Imaginando una vida con más equilibrio",
+        "duracion": "Audio Guiado"
+      },
+      "hoja_trabajo": {
+        "titulo": "Mi plan de bienestar sostenible",
+        "contenido": [
+          "Después de todo lo aprendido en esta ruta, es momento de transformar las ideas en acciones concretas.",
+          "• Tres hábitos que quiero mantener para cuidar mi energía:",
+          "• Tres señales que no volveré a ignorar:",
+          "• Tres acciones que puedo realizar cuando note esas señales:",
+          "• Personas o espacios que pueden ayudarme a sostener este cambio:",
+          "Reflexión final: ¿Qué quiero recordar cuando vuelva a sentir que debo exigirme más de lo que puedo sostener?"
+        ]
+      },
+      "reto": {
+        "titulo": "Elegir mi energía cada día",
+        "contenido": [
+          "Durante los próximos siete días, comienza cada mañana respondiendo una sola pregunta: ¿Qué decisión puedo tomar hoy para cuidar mejor mi energía?",
+          "No busques cambios grandes. Elige una acción sencilla: hacer una pausa antes de sentirte agotado(a), dormir un poco más temprano, delegar una tarea, comer con calma, decir 'no' a un compromiso innecesario o salir a caminar unos minutos.",
+          "Al finalizar el día escribe: ¿Cómo cambió mi día al elegir cuidar mi energía desde el inicio?",
+          "No necesitas transformar toda tu vida en una semana. Solo necesitas repetir pequeñas decisiones que, con el tiempo, se convertirán en una nueva forma de vivir."
+        ]
+      },
+      "cierre": [
+        "A lo largo de esta ruta aprendiste que el agotamiento no aparece de un día para otro. Descubriste cómo el estrés sostenido puede afectar tu cuerpo, tus emociones y tu manera de relacionarte contigo mismo. Comprendiste que descansar no es un premio. Es una necesidad humana.",
+        "Aprendiste a reconocer las señales tempranas de tu cuerpo. A hacer pausas antes de llegar al límite. Y, sobre todo, comenzaste a construir una relación más amable con tu propia energía.",
+        "Quizá tus responsabilidades no desaparezcan mañana. Tal vez sigas teniendo días difíciles. Pero ahora cuentas con mayor conciencia, herramientas para escucharte y la posibilidad de elegirte incluso en medio de las exigencias de la vida.",
+        "El bienestar no consiste en vivir sin estrés. Consiste en aprender a recuperarte, a cuidarte y a regresar a ti antes de que el agotamiento tome el control. ¡Felicidades por completar esta Ruta!"
+      ]
+    }
+  ]
+}
