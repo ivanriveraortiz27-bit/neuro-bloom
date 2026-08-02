@@ -1,0 +1,34 @@
+[
+  {
+    "id": "feler-munoz",
+    "nombre": "Féler Muñoz",
+    "titulo": "Psicoterapeuta Gestalt",
+    "cedula": "12509953",
+    "imagen": "./feler-munoz.jpeg",
+    "descripcion": "Atención a adolescentes y adultos.",
+    "enfoques": [
+      "Enfoque Gestalt",
+      "Especialidad en sexualidad",
+      "Trabajo relacional (pareja y familia)",
+      "Toma de responsabilidad para accionar",
+      "Abundancia desde el autoapoyo",
+      "Problemas financieros",
+      "Enfermedades desde el enfoque dinámico y emocional"
+    ]
+  },
+  {
+    "id": "fernanda-regalado",
+    "nombre": "Fernanda Isabel Regalado López",
+    "titulo": "Psicóloga Clínica",
+    "cedula": "15212017",
+    "imagen": "./fernanda-regalado.jpeg",
+    "descripcion": "Maestrante en Terapia Cognitivo Conductual.",
+    "enfoques": [
+      "Ansiedad",
+      "Depresión",
+      "Estrés y regulación emocional",
+      "Autoestima",
+      "Terapia Cognitivo Conductual"
+    ]
+  }
+]

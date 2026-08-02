@@ -845,10 +845,32 @@
                 }, []);
 
                 useEffect(() => {
-                    fetch('./data.json')
-                        .then(res => { if (!res.ok) throw new Error("No data"); return res.json(); })
-                        .then(data => setAppData(data))
-                        .catch(err => { console.error(err); setDataError(true); });
+                    Promise.all([
+                        fetch('./datos_indicadores.json').then(res => res.json()),
+                        fetch('./datos_balance.json').then(res => res.json()),
+                        fetch('./datos_reto.json').then(res => res.json()),
+                        fetch('./datos_capsulas.json').then(res => res.json()),
+                        fetch('./datos_especialistas.json').then(res => res.json()),
+                        fetch('./datos_infancias.json').then(res => res.json()),
+                        fetch('./datos_library.json').then(res => res.json()),
+                        fetch('./datos_cuentos.json').then(res => res.json())
+                    ])
+                    .then(([indicadores, balance, reto_del_mes, capsulas, especialistas, detras_conducta, bloom_library, cuentos]) => {
+                        setAppData({
+                            indicadores,
+                            balance,
+                            reto_del_mes,
+                            capsulas,
+                            especialistas,
+                            detras_conducta,
+                            bloom_library,
+                            cuentos
+                        });
+                    })
+                    .catch(err => {
+                        console.error("Error al cargar los datos modulares:", err);
+                        setDataError(true);
+                    });
                 }, []);
 
                 useEffect(() => {
@@ -1094,13 +1116,31 @@
                                             </div>
 
                                             <div className="p-8 lg:p-14 space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                                {retoTab === 'intro' && renderContenidoTexto(appData.reto_del_mes.intro)}
-                                                
-                                                {['sem1', 'sem2', 'sem3', 'sem4'].includes(retoTab) && (
+                                                {retoTab === 'intro' && (
                                                     <div className="animate-fadeIn space-y-6">
-                                                        {renderContenidoTexto(appData.reto_del_mes.semanas[parseInt(retoTab.replace('sem', '')) - 1].contenido)}
+                                                        {appData.reto_del_mes.youtube_id && (
+                                                            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
+                                                                <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${appData.reto_del_mes.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                                            </div>
+                                                        )}
+                                                        {renderContenidoTexto(appData.reto_del_mes.intro)}
                                                     </div>
                                                 )}
+                                                
+                                                {['sem1', 'sem2', 'sem3', 'sem4'].includes(retoTab) && (() => {
+                                                    const index = parseInt(retoTab.replace('sem', '')) - 1;
+                                                    const semanaData = appData.reto_del_mes.semanas[index];
+                                                    return (
+                                                        <div className="animate-fadeIn space-y-6">
+                                                            {semanaData.youtube_id && (
+                                                                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
+                                                                    <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${semanaData.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                                                </div>
+                                                            )}
+                                                            {renderContenidoTexto(semanaData.contenido)}
+                                                        </div>
+                                                    );
+                                                })()}
 
                                                 {retoTab === 'cierre' && (
                                                     <div className="animate-fadeIn space-y-6">

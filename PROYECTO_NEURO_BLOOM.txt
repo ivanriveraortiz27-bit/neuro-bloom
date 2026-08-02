@@ -502,7 +502,7 @@ ARCHIVO: data.json
         "interpretacion": [
           {
             "rango": "12-20",
-            "texto": "Tu forma de vincularte suele ser relativamente segura. Aun así, todos podemos fortalecer nuestra autonomía emocional."
+            "texto": "Tu forma de vincularte suele ser relatively segura. Aun así, todos podemos fortalecer nuestra autonomía emocional."
           },
           {
             "rango": "21-32",
@@ -2044,6 +2044,54 @@ ARCHIVO: data.json
 }
 
 =================================================================
+ARCHIVO: datos_balance.json
+=================================================================
+
+
+
+=================================================================
+ARCHIVO: datos_capsulas.json
+=================================================================
+
+
+
+=================================================================
+ARCHIVO: datos_cuentos.json
+=================================================================
+
+
+
+=================================================================
+ARCHIVO: datos_especialistas.json
+=================================================================
+
+
+
+=================================================================
+ARCHIVO: datos_indicadores.json
+=================================================================
+
+
+
+=================================================================
+ARCHIVO: datos_infancias.json
+=================================================================
+
+
+
+=================================================================
+ARCHIVO: datos_library.json
+=================================================================
+
+
+
+=================================================================
+ARCHIVO: datos_reto.json
+=================================================================
+
+
+
+=================================================================
 ARCHIVO: generador.js
 =================================================================
 
@@ -2470,16 +2518,40 @@ const data = {
           "Siento que estas preocupaciones interfieren con mi bienestar, mis relaciones o mis actividades diarias."
         ],
         "opciones": [
-          {"l": "Nunca", "v": 0},
-          {"l": "Algunas veces", "v": 1},
-          {"l": "Frecuentemente", "v": 2},
-          {"l": "Casi todos los días", "v": 3}
+          {
+            "l": "Nunca",
+            "v": 0
+          },
+          {
+            "l": "Algunas veces",
+            "v": 1
+          },
+          {
+            "l": "Frecuentemente",
+            "v": 2
+          },
+          {
+            "l": "Casi todos los días",
+            "v": 3
+          }
         ],
         "interpretacion": [
-          { "rango": "0-10", "texto": "Ansiedad dentro de un rango esperado." },
-          { "rango": "11-20", "texto": "Presencia de ansiedad leve a moderada." },
-          { "rango": "21-30", "texto": "Ansiedad elevada; podría ser útil buscar orientación profesional." },
-          { "rango": "31-40", "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental." }
+          {
+            "rango": "0-10",
+            "texto": "Ansiedad dentro de un rango esperado."
+          },
+          {
+            "rango": "11-20",
+            "texto": "Presencia de ansiedad leve a moderada."
+          },
+          {
+            "rango": "21-30",
+            "texto": "Ansiedad elevada; podría ser útil buscar orientación profesional."
+          },
+          {
+            "rango": "31-40",
+            "texto": "Ansiedad significativa; se recomienda consultar a un profesional de la salud mental."
+          }
         ]
       },
       {
@@ -2503,15 +2575,36 @@ const data = {
           "A veces siento que sin esa relación “me pierdo” o me quedo vacía/o."
         ],
         "opciones": [
-          {"l": "Nunca", "v": 1},
-          {"l": "Algunas veces", "v": 2},
-          {"l": "Frecuentemente", "v": 3},
-          {"l": "Casi todos los días", "v": 4}
+          {
+            "l": "Nunca",
+            "v": 1
+          },
+          {
+            "l": "Algunas veces",
+            "v": 2
+          },
+          {
+            "l": "Frecuentemente",
+            "v": 3
+          },
+          {
+            "l": "Casi todos los días",
+            "v": 4
+          }
         ],
         "interpretacion": [
-          { "rango": "12-20", "texto": "Tu forma de vincularte suele ser relativamente segura. Aun así, todos podemos fortalecer nuestra autonomía emocional." },
-          { "rango": "21-32", "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección." },
-          { "rango": "33-48", "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte." }
+          {
+            "rango": "12-20",
+            "texto": "Tu forma de vincularte suele ser relatively segura. Aun así, todos podemos fortalecer nuestra autonomía emocional."
+          },
+          {
+            "rango": "21-32",
+            "texto": "Aparecen señales de dependencia emocional leve. Tal vez te vinculas desde el miedo más que desde la elección."
+          },
+          {
+            "rango": "33-48",
+            "texto": "Hay varios indicadores de dependencia emocional. Esto no define quién eres, sino cómo aprendiste a relacionarte."
+          }
         ]
       },
       {
@@ -2535,15 +2628,36 @@ const data = {
           "Siento que, haga lo que haga, nunca es suficiente."
         ],
         "opciones": [
-          {"l": "Nunca", "v": 1},
-          {"l": "Algunas veces", "v": 2},
-          {"l": "Frecuentemente", "v": 3},
-          {"l": "Casi todos los días", "v": 4}
+          {
+            "l": "Nunca",
+            "v": 1
+          },
+          {
+            "l": "Algunas veces",
+            "v": 2
+          },
+          {
+            "l": "Frecuentemente",
+            "v": 3
+          },
+          {
+            "l": "Casi todos los días",
+            "v": 4
+          }
         ],
         "interpretacion": [
-          { "rango": "12-20", "texto": "Tu diálogo interno suele ser relativamente amable. Aun así, puede haber áreas donde fortalecer tu autovaloración." },
-          { "rango": "21-32", "texto": "Hay señales de autoexigencia y duda. Probablemente a veces eres más duro/a contigo de lo que mereces." },
-          { "rango": "33-48", "texto": "Aparecen varios indicadores asociados a una autoestima baja. No significa que haya algo “mal” en ti, sino que has aprendido a tratarte desde la exigencia y el juicio." }
+          {
+            "rango": "12-20",
+            "texto": "Tu diálogo interno suele ser relativamente amable. Aun así, puede haber áreas donde fortalecer tu autovaloración."
+          },
+          {
+            "rango": "21-32",
+            "texto": "Hay señales de autoexigencia y duda. Probablemente a veces eres más duro/a contigo de lo que mereces."
+          },
+          {
+            "rango": "33-48",
+            "texto": "Aparecen varios indicadores asociados a una autoestima baja. No significa que haya algo “mal” en ti, sino que has aprendido a tratarte desde la exigencia y el juicio."
+          }
         ]
       },
       {
@@ -2565,16 +2679,40 @@ const data = {
           "He sentido que debo ser fuerte y no mostrar lo que realmente duele."
         ],
         "opciones": [
-          {"l": "Nunca", "v": 0},
-          {"l": "Rara vez", "v": 1},
-          {"l": "A veces", "v": 2},
-          {"l": "Frecuentemente", "v": 3},
-          {"l": "Casi siempre", "v": 4}
+          {
+            "l": "Nunca",
+            "v": 0
+          },
+          {
+            "l": "Rara vez",
+            "v": 1
+          },
+          {
+            "l": "A veces",
+            "v": 2
+          },
+          {
+            "l": "Frecuentemente",
+            "v": 3
+          },
+          {
+            "l": "Casi siempre",
+            "v": 4
+          }
         ],
         "interpretacion": [
-          { "rango": "0-10", "texto": "El duelo parece estar integrado, aunque puede haber emociones que aún acompañen." },
-          { "rango": "11-25", "texto": "Existen señales de duelo activo que merecen escucha y cuidado emocional." },
-          { "rango": "26-40", "texto": "Es posible que el duelo esté interfiriendo en tu bienestar emocional; acompañamiento psicológico puede ser una forma de cuidado, no de debilidad." }
+          {
+            "rango": "0-10",
+            "texto": "El duelo parece estar integrado, aunque puede haber emociones que aún acompañen."
+          },
+          {
+            "rango": "11-25",
+            "texto": "Existen señales de duelo activo que merecen escucha y cuidado emocional."
+          },
+          {
+            "rango": "26-40",
+            "texto": "Es posible que el duelo esté interfiriendo en tu bienestar emocional; acompañamiento psicológico puede ser una forma de cuidado, no de debilidad."
+          }
         ]
       },
       {
@@ -2606,17 +2744,44 @@ const data = {
           "Aunque paro un poco, siento que no logro recuperarme del todo."
         ],
         "opciones": [
-          {"l": "Nunca", "v": 0},
-          {"l": "Rara vez", "v": 1},
-          {"l": "A veces", "v": 2},
-          {"l": "Frecuentemente", "v": 3},
-          {"l": "Casi siempre", "v": 4}
+          {
+            "l": "Nunca",
+            "v": 0
+          },
+          {
+            "l": "Rara vez",
+            "v": 1
+          },
+          {
+            "l": "A veces",
+            "v": 2
+          },
+          {
+            "l": "Frecuentemente",
+            "v": 3
+          },
+          {
+            "l": "Casi siempre",
+            "v": 4
+          }
         ],
         "interpretacion": [
-          { "rango": "0-15", "texto": "Nivel bajo de señales de burnout. Aun así, conviene cuidar tus límites." },
-          { "rango": "16-30", "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente están pidiendo atención." },
-          { "rango": "31-45", "texto": "Riesgo alto de burnout emocional. Es importante detenerte y buscar apoyo." },
-          { "rango": "46-80", "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional." }
+          {
+            "rango": "0-15",
+            "texto": "Nivel bajo de señales de burnout. Aun así, conviene cuidar tus límites."
+          },
+          {
+            "rango": "16-30",
+            "texto": "Señales moderadas de agotamiento. Tu cuerpo y mente están pidiendo atención."
+          },
+          {
+            "rango": "31-45",
+            "texto": "Riesgo alto de burnout emocional. Es importante detenerte y buscar apoyo."
+          },
+          {
+            "rango": "46-80",
+            "texto": "Alto nivel de desgaste emocional. Se recomienda acompañamiento profesional."
+          }
         ]
       },
       {
@@ -2643,15 +2808,36 @@ const data = {
           "Siento que, si me detengo, todo se descontrola."
         ],
         "opciones": [
-          {"l": "Nunca", "v": 0},
-          {"l": "Algunas veces", "v": 1},
-          {"l": "Frecuentemente", "v": 2},
-          {"l": "Casi todo el tiempo", "v": 3}
+          {
+            "l": "Nunca",
+            "v": 0
+          },
+          {
+            "l": "Algunas veces",
+            "v": 1
+          },
+          {
+            "l": "Frecuentemente",
+            "v": 2
+          },
+          {
+            "l": "Casi todo el tiempo",
+            "v": 3
+          }
         ],
         "interpretacion": [
-          { "rango": "0-15", "texto": "Estrés bajo: Tu nivel de estrés es manejable. Aun así, es importante mantener hábitos de autocuidado." },
-          { "rango": "16-30", "texto": "Estrés moderado: El estrés ya está influyendo en tu bienestar emocional o físico. Escucharte y hacer ajustes puede prevenir que aumente." },
-          { "rango": "31-45", "texto": "Estrés alto: El estrés está teniendo un impacto significativo en tu vida. Buscar apoyo y priorizar tu salud emocional es muy recomendable." }
+          {
+            "rango": "0-15",
+            "texto": "Estrés bajo: Tu nivel de estrés es manejable. Aun así, es importante mantener hábitos de autocuidado."
+          },
+          {
+            "rango": "16-30",
+            "texto": "Estrés moderado: El estrés ya está influyendo en tu bienestar emocional o físico. Escucharte y hacer ajustes puede prevenir que aumente."
+          },
+          {
+            "rango": "31-45",
+            "texto": "Estrés alto: El estrés está teniendo un impacto significativo en tu vida. Buscar apoyo y priorizar tu salud emocional es muy recomendable."
+          }
         ]
       },
       {
@@ -2676,15 +2862,36 @@ const data = {
           "He sentido que mi vida tiene poco sentido o que sería mejor no estar aquí."
         ],
         "opciones": [
-          {"l": "Nunca", "v": 0},
-          {"l": "Algunas veces", "v": 1},
-          {"l": "Frecuentemente", "v": 2},
-          {"l": "Casi todo el tiempo", "v": 3}
+          {
+            "l": "Nunca",
+            "v": 0
+          },
+          {
+            "l": "Algunas veces",
+            "v": 1
+          },
+          {
+            "l": "Frecuentemente",
+            "v": 2
+          },
+          {
+            "l": "Casi todo el tiempo",
+            "v": 3
+          }
         ],
         "interpretacion": [
-          { "rango": "0-13", "texto": "Malestar emocional bajo: Tus respuestas no muestran señales importantes de síntomas depresivos. Mantener hábitos de autocuidado y espacios de conexión emocional sigue siendo importante para proteger tu bienestar." },
-          { "rango": "14-26", "texto": "Malestar emocional moderado: Es posible que estés atravesando un periodo de desgaste emocional que merece atención. Escucharte, hablar con alguien de confianza o buscar orientación profesional puede ayudarte a prevenir que el malestar aumente." },
-          { "rango": "27-39", "texto": "Malestar emocional elevado: Tus respuestas indican un nivel importante de síntomas depresivos que podría estar afectando distintas áreas de tu vida. Buscar apoyo profesional puede ayudarte a comprender lo que estás viviendo y encontrar estrategias para sentirte mejor." }
+          {
+            "rango": "0-13",
+            "texto": "Malestar emocional bajo: Tus respuestas no muestran señales importantes de síntomas depresivos. Mantener hábitos de autocuidado y espacios de conexión emocional sigue siendo importante para proteger tu bienestar."
+          },
+          {
+            "rango": "14-26",
+            "texto": "Malestar emocional moderado: Es posible que estés atravesando un periodo de desgaste emocional que merece atención. Escucharte, hablar con alguien de confianza o buscar orientación profesional puede ayudarte a prevenir que el malestar aumente."
+          },
+          {
+            "rango": "27-39",
+            "texto": "Malestar emocional elevado: Tus respuestas indican un nivel importante de síntomas depresivos que podría estar afectando distintas áreas de tu vida. Buscar apoyo profesional puede ayudarte a comprender lo que estás viviendo y encontrar estrategias para sentirte mejor."
+          }
         ]
       }
     ]
@@ -3929,8 +4136,8 @@ const data = {
   ]
 };
 
-fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
-console.log('Archivo data.json generado con éxito.');
+fs.writeFileSync('data_actualizado.json', JSON.stringify(data, null, 2));
+console.log('Archivo data_actualizado.json generado con éxito.');
 
 =================================================================
 ARCHIVO: index.html
@@ -5032,13 +5239,31 @@ ARCHIVO: index.html
                                             </div>
 
                                             <div className="p-8 lg:p-14 space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                                {retoTab === 'intro' && renderContenidoTexto(appData.reto_del_mes.intro)}
-                                                
-                                                {['sem1', 'sem2', 'sem3', 'sem4'].includes(retoTab) && (
+                                                {retoTab === 'intro' && (
                                                     <div className="animate-fadeIn space-y-6">
-                                                        {renderContenidoTexto(appData.reto_del_mes.semanas[parseInt(retoTab.replace('sem', '')) - 1].contenido)}
+                                                        {appData.reto_del_mes.youtube_id && (
+                                                            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
+                                                                <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${appData.reto_del_mes.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                                            </div>
+                                                        )}
+                                                        {renderContenidoTexto(appData.reto_del_mes.intro)}
                                                     </div>
                                                 )}
+                                                
+                                                {['sem1', 'sem2', 'sem3', 'sem4'].includes(retoTab) && (() => {
+                                                    const index = parseInt(retoTab.replace('sem', '')) - 1;
+                                                    const semanaData = appData.reto_del_mes.semanas[index];
+                                                    return (
+                                                        <div className="animate-fadeIn space-y-6">
+                                                            {semanaData.youtube_id && (
+                                                                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
+                                                                    <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${semanaData.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                                                </div>
+                                                            )}
+                                                            {renderContenidoTexto(semanaData.contenido)}
+                                                        </div>
+                                                    );
+                                                })()}
 
                                                 {retoTab === 'cierre' && (
                                                     <div className="animate-fadeIn space-y-6">
@@ -5367,6 +5592,1279 @@ ARCHIVO: index.html
     </script>
 </body>
 </html>
+
+=================================================================
+ARCHIVO: premium_data.json
+=================================================================
+
+{
+  "perfil_emocional": {
+    "intro": "Antes de comenzar tu recorrido en Bloom Premium, te invitamos a realizar esta evaluación.\n\nHa sido diseñada como una herramienta de autoconocimiento que te ayudará a comprender cómo estás viviendo este momento de tu vida, identificar tus principales fortalezas emocionales y reconocer aquellas áreas que pueden beneficiarse de una mayor atención.\n\nResponde pensando en cómo te has sentido durante las últimas dos semanas. No existen respuestas correctas o incorrectas. Lo más importante es responder con honestidad.",
+    "escala": [
+      { "l": "Nunca", "v": 0 },
+      { "l": "Casi nunca", "v": 1 },
+      { "l": "Algunas veces", "v": 2 },
+      { "l": "Con frecuencia", "v": 3 },
+      { "l": "Casi siempre", "v": 4 }
+    ],
+    "dimensiones": [
+      {
+        "id": "dim1",
+        "titulo": "Dimensión 1. Regulación emocional",
+        "descripcion": "La regulación emocional refleja la forma en que reconoces, comprendes y manejas tus emociones.",
+        "preguntas": [
+          { "texto": "Cuando experimento emociones intensas, me resulta difícil recuperar la calma." },
+          { "texto": "Paso mucho tiempo dando vueltas a situaciones que me preocuparon o molestaron." },
+          { "texto": "Me cuesta aceptar emociones como la tristeza, el miedo o el enojo sin juzgarme por sentirlas." },
+          { "texto": "Reacciono impulsivamente cuando experimento emociones intensas." },
+          { "texto": "Cuando algo me afecta emocionalmente, noto tensión, inquietud o malestar físico en mi cuerpo." },
+          { "texto": "Después de una situación estresante, mi cuerpo tarda mucho tiempo en relajarse." },
+          { "texto": "Incluso en situaciones de estrés, puedo encontrar formas saludables de tranquilizarme.", "invertida": true },
+          { "texto": "Soy capaz de reconocer lo que estoy sintiendo antes de reaccionar impulsivamente.", "invertida": true }
+        ],
+        "resultados": [
+          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "La regulación emocional es una fortaleza. Generalmente logras recuperar la calma y responder de forma equilibrada.", "reflejo": "Reconoces lo que sientes. Recuperas la calma. Actúas con reflexión.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 6. Relacionarme con los demás sin dejar de ser yo" },
+          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "En algunas situaciones regular tus emociones requiere un mayor esfuerzo, aunque cuentas con recursos para fortalecer esta habilidad.", "reflejo": "Mayor sensibilidad emocional. Preocupaciones ocasionales. Necesitas más tiempo para recuperarte.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Actualmente esta área genera un desgaste importante y merece atención para recuperar el equilibrio emocional.", "reflejo": "Emociones intensas. Estrés persistente. Dificultad para recuperar la calma.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 3. Gestionar la ansiedad" },
+          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Esta es una de las áreas prioritarias para trabajar. Con apoyo y herramientas adecuadas es posible fortalecerla.", "reflejo": "Desborde emocional. Agotamiento. Estrés frecuente.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 3. Gestionar la ansiedad" }
+        ]
+      },
+      {
+        "id": "dim2",
+        "titulo": "Dimensión 2. Carga emocional",
+        "descripcion": "La carga emocional refleja el impacto que las responsabilidades y preocupaciones tienen sobre tu bienestar.",
+        "preguntas": [
+          { "texto": "Me he sentido emocionalmente agotado(a), como si ya no tuviera energía para afrontar el día." },
+          { "texto": "Me cuesta encontrar motivación para realizar actividades que normalmente forman parte de mi rutina." },
+          { "texto": "Siento que las preocupaciones se acumulan y pesan más de lo que puedo manejar." },
+          { "texto": "He perdido el interés o el entusiasmo por actividades que antes disfrutaba." },
+          { "texto": "En varios momentos del día experimento una sensación de vacío o desconexión emocional." },
+          { "texto": "Tengo la sensación de que necesito descansar emocionalmente, aunque haya dormido." },
+          { "texto": "A pesar de las dificultades, todavía puedo disfrutar pequeños momentos de bienestar.", "invertida": true },
+          { "texto": "Mantengo esperanza de que las situaciones difíciles pueden mejorar.", "invertida": true }
+        ],
+        "resultados": [
+          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Mantienes un equilibrio saludable entre tus responsabilidades y tus recursos personales.", "reflejo": "Recuperas energía. Mantienes espacios de descanso. Conservas equilibrio.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" },
+          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Las exigencias han aumentado y conviene prestar mayor atención al descanso y al autocuidado.", "reflejo": "Más cansancio. Menos tiempo para ti. Pendientes constantes.", "ruta_prin": "Ruta 4. Recuperar mi energía y aprender a descansar", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Actualmente sostienes una carga emocional importante que puede afectar tu bienestar.", "reflejo": "Agotamiento. Dificultad para desconectar. Poca energía.", "ruta_prin": "Ruta 4. Recuperar mi energía y aprender a descansar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
+          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "La sobrecarga emocional requiere atención prioritaria para recuperar energía y equilibrio.", "reflejo": "Desgaste persistente. Desmotivación. Sobrecarga constante.", "ruta_prin": "Ruta 4. Recuperar mi energía y aprender a descansar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" }
+        ]
+      },
+      {
+        "id": "dim3",
+        "titulo": "Dimensión 3. Relaciones interpersonales",
+        "descripcion": "Esta dimensión refleja cómo vives tus relaciones, la comunicación, la confianza y la capacidad para establecer límites saludables.",
+        "preguntas": [
+          { "texto": "Me preocupa que las personas importantes para mí puedan alejarse o dejar de quererme." },
+          { "texto": "Con frecuencia me cuesta expresar lo que realmente siento o necesito." },
+          { "texto": "Suelo priorizar las necesidades de otras personas antes que las mías, incluso cuando eso me afecta." },
+          { "texto": "Me resulta difícil establecer límites cuando algo me incomoda." },
+          { "texto": "Me doy cuenta de que repito patrones similares en diferentes relaciones." },
+          { "texto": "A veces evito expresar mi opinión por miedo a generar rechazo o conflicto." },
+          { "texto": "Soy capaz de establecer límites saludables cuando una situación lo requiere.", "invertida": true },
+          { "texto": "Siento que puedo mostrar quién soy realmente sin miedo a ser juzgado(a) por las personas cercanas.", "invertida": true }
+        ],
+        "resultados": [
+          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Tus relaciones representan una fortaleza. Generalmente logras comunicarte con respeto, expresar tus necesidades y construir vínculos equilibrados.", "reflejo": "Expresas lo que necesitas. Estableces límites saludables. Disfrutas relaciones de confianza.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Algunas situaciones sociales pueden representar un reto, aunque cuentas con recursos para fortalecer tus relaciones.", "reflejo": "Te cuesta decir 'no'. Evitas algunos conflictos. Priorizas a otros antes que a ti.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" },
+          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Esta área está generando un desgaste importante y puede afectar la forma en que te relacionas con los demás.", "reflejo": "Dificultad para poner límites. Miedo al rechazo. Descuidas tus propias necesidades.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" },
+          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Actualmente esta es una de las áreas prioritarias para trabajar y fortalecer vínculos más seguros y saludables.", "reflejo": "Relaciones desgastantes. Culpa al poner límites. Temor constante a decepcionar.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" }
+        ]
+      },
+      {
+        "id": "dim4",
+        "titulo": "Dimensión 4. Autoimagen y autoexigencia",
+        "descripcion": "Esta dimensión refleja la forma en que te percibes, el nivel de exigencia que tienes contigo y la estabilidad de tu autoestima.",
+        "preguntas": [
+          { "texto": "Con frecuencia siento que lo que hago nunca es suficiente." },
+          { "texto": "Me hablo con dureza cuando cometo un error." },
+          { "texto": "Suelo compararme con otras personas y sentir que debería hacer más." },
+          { "texto": "Siento que necesito demostrar constantemente mi valor o capacidad." },
+          { "texto": "Me cuesta sentirme satisfecho(a) con mis logros, incluso cuando alcanzo mis objetivos." },
+          { "texto": "Me cuesta permitirme descansar porque siento que siempre hay algo más por hacer." },
+          { "texto": "Me trato con amabilidad y comprensión cuando las cosas no salen como esperaba.", "invertida": true },
+          { "texto": "Considero que mi valor como persona no depende únicamente de mis resultados o desempeño.", "invertida": true }
+        ],
+        "resultados": [
+          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Mantienes una relación saludable contigo mismo(a). Reconoces tus fortalezas y aceptas tus áreas de oportunidad.", "reflejo": "Valoras tus logros. Aprendes de los errores. Tienes expectativas realistas.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "En ocasiones eres más crítico(a) contigo de lo necesario. Esta área puede fortalecerse.", "reflejo": "Te comparas con otros. Minimizas tus logros. Sientes que podrías hacer más.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" },
+          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "La autoexigencia está afectando tu bienestar y puede convertirse en una fuente importante de desgaste emocional.", "reflejo": "Autocrítica frecuente. Dificultad para disfrutar tus logros. Perfeccionismo.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" },
+          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "La relación contigo mismo(a) requiere atención prioritaria para desarrollar una autoestima más estable y compasiva.", "reflejo": "Sientes que nunca es suficiente. Culpa al descansar. Necesidad de hacerlo todo perfecto.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" }
+        ]
+      },
+      {
+        "id": "dim5",
+        "titulo": "Dimensión 5. Recursos internos y resiliencia",
+        "descripcion": "Esta dimensión refleja tu capacidad para afrontar dificultades, adaptarte a los cambios y recuperar el equilibrio después de experiencias estresantes.",
+        "preguntas": [
+          { "texto": "Cuando enfrento una situación difícil, confío en que podré encontrar una forma de afrontarla.", "invertida": true },
+          { "texto": "Siento que cuento con herramientas emocionales para manejar los desafíos de la vida.", "invertida": true },
+          { "texto": "Cuando necesito apoyo, me resulta fácil pedir ayuda a personas de confianza.", "invertida": true },
+          { "texto": "Dedico tiempo a cuidar de mi bienestar físico y emocional.", "invertida": true },
+          { "texto": "Me siento conectado(a) conmigo mismo(a) y con lo que necesito.", "invertida": true },
+          { "texto": "Generalmente puedo identificar lo que me ayuda a recuperar la calma cuando paso por momentos difíciles.", "invertida": true },
+          { "texto": "Aun en etapas complicadas, suelo encontrar pequeñas acciones que me ayudan a sentirme mejor.", "invertida": true },
+          { "texto": "Con frecuencia siento que no tengo los recursos suficientes para afrontar lo que estoy viviendo." }
+        ],
+        "resultados": [
+          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Cuentas con recursos personales sólidos para afrontar los desafíos y recuperar el equilibrio.", "reflejo": "Confías en tus capacidades. Te adaptas a los cambios. Recuperas la motivación.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" },
+          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Aunque cuentas con fortalezas, en algunas situaciones puedes dudar de tus propios recursos.", "reflejo": "Inseguridad ante cambios. Dudas en momentos de estrés. Recuperación más lenta.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Actualmente podrías percibir que las dificultades superan tus recursos personales.", "reflejo": "Sensación de no poder. Poca confianza. Cambios abrumadores.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Esta es una de las áreas prioritarias para fortalecer y recuperar la confianza en tus capacidades.", "reflejo": "Desesperanza. Poca confianza. Dificultad para afrontar retos.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" }
+        ]
+      },
+      {
+        "id": "dim6",
+        "titulo": "Dimensión 6. Flexibilidad psicológica",
+        "descripcion": "Esta dimensión refleja tu capacidad para adaptarte a los cambios, aceptar experiencias difíciles y actuar de acuerdo con tus valores.",
+        "preguntas": [
+          { "texto": "Cuando aparecen emociones difíciles, siento que ellas controlan mis decisiones." },
+          { "texto": "Me cuesta aceptar situaciones que no puedo cambiar." },
+          { "texto": "Cuando algo no sale como esperaba, me resulta difícil adaptarme." },
+          { "texto": "Suelo evitar situaciones que podrían hacerme sentir incómodo(a) o vulnerable." },
+          { "texto": "Me quedo atrapado(a) durante mucho tiempo en pensamientos negativos." },
+          { "texto": "La incertidumbre suele generar en mí un nivel de tensión difícil de manejar." },
+          { "texto": "Aunque experimente emociones desagradables, puedo continuar haciendo aquello que considero importante.", "invertida": true },
+          { "texto": "Cuando enfrento dificultades, procuro tomar decisiones de acuerdo con mis valores y no únicamente con mis emociones del momento.", "invertida": true }
+        ],
+        "resultados": [
+          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Generalmente logras adaptarte a los cambios y mantenerte conectado(a) con lo que es importante para ti.", "reflejo": "Aceptas los cambios. Actúas según tus valores. Te adaptas con facilidad.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 1. Regular mi sistema nervioso" },
+          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "En algunas circunstancias adaptarte puede requerir un mayor esfuerzo.", "reflejo": "Resistencia al cambio. Dudas al decidir. Evitas algunas situaciones.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "La rigidez emocional está interfiriendo con tu bienestar y merece atención.", "reflejo": "Evitas la incertidumbre. Pensamientos persistentes. Dificultad para adaptarte.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
+          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Actualmente esta área requiere atención prioritaria para desarrollar mayor flexibilidad y bienestar.", "reflejo": "Bloqueo ante cambios. Evitación. Pensamientos dominantes.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" }
+        ]
+      },
+      {
+        "id": "dim7",
+        "titulo": "Dimensión 7. Bienestar psicológico",
+        "descripcion": "Esta dimensión refleja la percepción general que tienes sobre tu bienestar, equilibrio emocional y sentido de vida.",
+        "preguntas": [
+          { "texto": "Me siento satisfecho(a) con la forma en que está transcurriendo mi vida en este momento.", "invertida": true },
+          { "texto": "Generalmente encuentro motivos para disfrutar pequeños momentos de mi día.", "invertida": true },
+          { "texto": "Mantengo una actitud optimista respecto a mi futuro.", "invertida": true },
+          { "texto": "Considero que mi vida mantiene un equilibrio saludable entre responsabilidades y bienestar personal.", "invertida": true },
+          { "texto": "Me siento con energía suficiente para realizar las actividades que considero importantes.", "invertida": true },
+          { "texto": "Suelo experimentar momentos de tranquilidad, satisfaction o bienestar durante la semana.", "invertida": true },
+          { "texto": "Dedico tiempo a actividades que disfruto y que aportan bienestar a mi vida.", "invertida": true },
+          { "texto": "Con frecuencia siento que mi vida ha perdido el equilibrio." }
+        ],
+        "resultados": [
+          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Experimentas una percepción positiva de tu bienestar y encuentras satisfacción en distintas áreas de tu vida.", "reflejo": "Disfrutas tus actividades. Encuentras propósito. Mantienes equilibrio.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
+          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Algunas preocupaciones pueden estar disminuyendo temporalmente tu bienestar.", "reflejo": "Menor entusiasmo. Más preocupaciones. Necesidad de reconectar contigo.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
+          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "El bienestar psicológico se ha visto afectado y conviene intervenir para recuperar el equilibrio.", "reflejo": "Desmotivación. Estrés constante. Menor disfrute.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
+          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Esta es una de las áreas prioritarias para trabajar y fortalecer gradualmente tu bienestar emocional.", "reflejo": "Pérdida de motivación. Desgaste emocional. Falta de propósito.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" }
+        ]
+      }
+    ]
+  },
+  "rutas": [
+    {
+      "id": "ruta1",
+      "titulo": "Ruta 1. Regular mi sistema nervioso",
+      "descripcion": "Aprende a comprender las respuestas de tu cuerpo al estrés y desarrolla herramientas para recuperar la calma.",
+      "modulos": [
+        {
+          "titulo": "Módulo 1. Comprender lo que está ocurriendo",
+          "psicoeducacion": {
+            "titulo": "¿Por qué siento que ya no puedo más?",
+            "parrafos": [
+              "Quizá has llegado hasta aquí porque últimamente sientes que cualquier cosa te sobrepasa.",
+              "Tal vez te irritas con más facilidad, te cuesta concentrarte, duermes pero despiertas cansado, o tu mente parece no detenerse ni un momento.",
+              "Y si esto te está ocurriendo, quiero empezar diciéndote algo importante: No significa que seas débil. No significa que estés fallando. Y tampoco significa que haya algo \"mal\" en ti.",
+              "Cuando vivimos estrés durante días, semanas o incluso meses, nuestro sistema nervioso puede permanecer en un estado de alerta casi constante. Imagina que tu cerebro tiene una alarma diseñada para protegerte del peligro.",
+              "Cuando detecta una amenaza, activa una serie de respuestas automáticas: tu corazón late más rápido, tus músculos se tensan, tu respiración cambia y tu atención se enfoca en aquello que considera importante para mantenerte a salvo.",
+              "El problema es que esa alarma no distingue siempre entre un peligro físico y una preocupación constante, una sobrecarga de responsabilidades o un agotamiento emocional. Con el tiempo, tu cuerpo puede empezar a comportarse como si necesitara estar preparado todo el tiempo.",
+              "La buena noticia es que el sistema nervioso también puede aprender a salir poco a poco de ese estado de alerta. No ocurre de un día para otro, pero sí puede lograrse con pequeñas acciones repetidas en el tiempo.",
+              "Y ese será el objetivo de esta ruta: ayudarte a comprender lo que está ocurriendo y ofrecerte herramientas para recuperar, paso a paso, una mayor sensación de calma y seguridad."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Sientes que, aunque descanses, sigues sintiéndote agotado?",
+            "¿Te cuesta dejar de pensar incluso cuando intentas relajarte?",
+            "¿Notas que reaccionas con más intensidad por situaciones pequeñas?",
+            "¿Sientes que siempre hay algo pendiente y que nunca puedes desconectar?",
+            "¿Te descubres respirando rápido o con el cuerpo tenso sin darte cuenta?",
+            "¿Has sentido que llevas tanto tiempo sosteniendo responsabilidades que ya no recuerdas cómo se siente estar realmente tranquilo?"
+          ],
+          "ejercicio": {
+            "titulo": "Mi semáforo del sistema nervioso",
+            "instrucciones": "A veces creemos que el estrés aparece de un momento a otro, cuando en realidad nuestro cuerpo lleva días enviándonos señales. Observa tus respuestas a las siguientes situaciones para reconocerlas:",
+            "pasos": [
+              "🟢 VERDE: Cuando me siento en equilibrio. ¿Cómo se siente mi cuerpo? ¿Qué pensamientos suelo tener? ¿Qué hago diferente cuando me siento bien?",
+              "🟡 AMARILLO: Cuando empiezo a sobrecargarme. ¿Cuáles son las primeras señales que aparecen? ¿Qué cambia en mi comportamiento? ¿Qué suele desencadenar este estado?",
+              "🔴 ROJO: Cuando siento que ya no puedo más. ¿Cómo reacciona mi cuerpo? ¿Qué emociones predominan? ¿Qué necesito normalmente en esos momentos?"
+            ]
+          },
+          "audio": {
+            "titulo": "Volviendo a un lugar seguro",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Conociendo las señales de mi sistema nervioso",
+            "contenido": [
+              "Instrucciones: Durante los próximos tres días, observa cómo responde tu cuerpo en distintos momentos del día. No busques cambiar nada. Solo registra lo que notas.",
+              "1. Momento del día y qué estaba ocurriendo.",
+              "2. ¿Qué sentí en mi cuerpo? (Tensión, respiración rápida, dolor de cabeza, nudo en el estómago, taquicardia...).",
+              "3. ¿Qué emoción predominaba y qué necesitaba en ese momento?",
+              "4. Al finalizar los tres días, pregúntate: ¿Qué señal aparece primero cuando comienzo a sentirme sobrecargado/a? ¿Qué descubrí sobre mí que antes no había notado?"
+            ]
+          },
+          "reto": {
+            "titulo": "Un minuto de pausa consciente",
+            "contenido": [
+              "Durante los próximos tres días, dedica un minuto, tres veces al día, para detenerte y preguntarte:",
+              "¿Cómo está mi cuerpo en este momento? No intentes cambiar la respuesta. Solo obsérvala.",
+              "Después realiza una respiración lenta: inhala durante 4 segundos y exhala durante 6.",
+              "Al terminar, pregúntate: ¿Necesito seguir al mismo ritmo o necesito hacer una pequeña pausa?",
+              "Recuerda: El objetivo no es eliminar el estrés. Es aprender a reconocer las señales de tu sistema nervioso antes de llegar al agotamiento."
+            ]
+          },
+          "cierre": [
+            "Hoy diste un paso importante. Muchas de las sensaciones que has experimentado no significan que seas una persona débil o incapaz. Son señales de un sistema nervioso que ha permanecido en estado de alerta durante demasiado tiempo.",
+            "Comprender lo que está ocurriendo no elimina el malestar de inmediato, pero sí cambia la forma en que empiezas a relacionarte contigo mismo.",
+            "A partir de hoy, te invito a observarte con más curiosidad que juicio. Cada vez que identifiques una señal de tu cuerpo, recuerda que no es un enemigo. Es una forma en la que tu organismo intenta comunicarse contigo.",
+            "No necesitas hacerlo perfecto. No necesitas cambiar de un día para otro. Solo necesitas seguir dando un paso a la vez."
+          ]
+        },
+        {
+          "titulo": "Módulo 2. Enseñar a mi cuerpo que está a salvo",
+          "psicoeducacion": {
+            "titulo": "¿Por qué sigo sintiéndome en alerta si el peligro ya pasó?",
+            "parrafos": [
+              "¿Alguna vez has sentido que sabes, racionalmente, que todo está bien, pero tu cuerpo parece no estar de acuerdo?",
+              "Tal vez ya resolviste ese problema. Tal vez esa conversación terminó hace días. O quizá las circunstancias cambiaron, pero tu corazón sigue acelerándose, tus músculos permanecen tensos o tu mente continúa esperando que algo salga mal.",
+              "Si esto te ha ocurrido, no significa que estés exagerando. Nuestro sistema nervioso aprende a partir de la experiencia.",
+              "Cuando vivimos situaciones de estrés durante mucho tiempo, el cerebro puede acostumbrarse a mantenerse en estado de vigilancia, incluso cuando el peligro ya no está presente. Es como si una alarma hubiera sonado durante tanto tiempo que ahora se activara con mucha facilidad.",
+              "La buena noticia es que, así como el sistema nervioso aprendió a mantenerse en alerta, también puede aprender a sentirse seguro nuevamente. Y ese aprendizaje ocurre poco a poco, mediante experiencias repetidas de calma, descanso, respiración, movimiento, autocuidado y seguridad.",
+              "No se trata de convencer a tu mente. Se trata de enseñarle a tu cuerpo, una y otra vez, que este momento es diferente."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Has sentido que reaccionas con mucha intensidad ante situaciones pequeñas?",
+            "¿Te cuesta relajarte incluso cuando tienes tiempo para descansar?",
+            "¿Sientes que siempre estás esperando que ocurra algo malo?",
+            "¿Te descubres pensando: \"¿Y si pasa algo?\" incluso cuando no existe una razón clara para preocuparte?",
+            "¿Sientes que tu cuerpo tarda mucho más en calmarse que otras personas?"
+          ],
+          "ejercicio": {
+            "titulo": "Enseñándole seguridad a mi cuerpo",
+            "instrucciones": "Este ejercicio tiene como objetivo ayudarte a identificar qué situaciones le envían a tu cuerpo un mensaje de seguridad. Responde lo primero que venga a tu mente:",
+            "pasos": [
+              "Cuando me siento seguro o segura... ¿Dónde estoy? ¿Con quién estoy? ¿Qué estoy haciendo? ¿Cómo se siente mi cuerpo?",
+              "Cuando mi cuerpo se pone en alerta... ¿Qué suele ocurrir antes? ¿Qué pensamientos aparecen? ¿Qué cambios noto en mi cuerpo?",
+              "Mis recursos de seguridad: Escribe 5 cosas pequeñas que normalmente te ayudan a sentirte un poco más tranquilo/a (escuchar música, salir a caminar, abrazar a alguien, tomar té...)."
+            ]
+          },
+          "audio": {
+            "titulo": "Mi cuerpo puede sentirse seguro nuevamente",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Mi mapa de seguridad",
+            "contenido": [
+              "A lo largo del día, nuestro sistema nervioso recibe señales que aumentan la sensación de amenaza y otras que favorecen la sensación de seguridad.",
+              "Durante tres días, registra:",
+              "1. Hoy me sentí en calma cuando... (¿Qué estaba ocurriendo? ¿Qué hizo mi cuerpo? ¿Qué pensamientos aparecieron?)",
+              "2. Hoy me sentí en alerta cuando... (¿Qué ocurrió antes? ¿Cómo reaccionó mi cuerpo? ¿Qué necesité?)",
+              "3. ¿Qué pequeño cambio puedo hacer esta semana para ofrecerle más momentos de calma a mi cuerpo?"
+            ]
+          },
+          "reto": {
+            "titulo": "Un espacio de seguridad cada día",
+            "contenido": [
+              "Durante los próximos cinco días, regálate al menos diez minutos para realizar una actividad que le envíe a tu sistema nervioso un mensaje de seguridad.",
+              "No tiene que ser algo extraordinario. Puede ser respirar, escuchar música, abrazar a alguien, tomar una bebida caliente.",
+              "Al terminar cada día, pregúntate: ¿Cómo se siente mi cuerpo después de este momento?",
+              "Cada pequeña experiencia cuenta."
+            ]
+          },
+          "cierre": [
+            "Hoy aprendiste algo muy importante: Tu sistema nervioso no permanece en alerta porque quiera hacerte daño. Permanece en alerta porque, en algún momento, aprendió que esa era la mejor manera de protegerte.",
+            "Así como tu cuerpo aprendió a reaccionar con tensión, también puede aprender nuevas formas de responder.",
+            "Cada respiración consciente. Cada pausa. Cada momento de autocuidado. Es una oportunidad para enseñarle a tu cerebro que no todo representa una amenaza.",
+            "No necesitas hacerlo perfecto. Solo necesitas repetir, una y otra vez, pequeñas experiencias de seguridad."
+          ]
+        },
+        {
+          "titulo": "Módulo 3. Creando hábitos que le devuelven calma a mi sistema nervioso",
+          "psicoeducacion": {
+            "titulo": "Tu sistema nervioso aprende con la repetición, no con la perfección",
+            "parrafos": [
+              "Es común pensar que para sentirnos mejor necesitamos hacer grandes cambios de un día para otro. Dormir 8 horas, hacer ejercicio todos los días, meditar una hora...",
+              "Pero nuestro sistema nervioso no funciona así. No cambia porque un día hicimos todo \"bien\". Cambia gracias a las pequeñas experiencias que repetimos una y otra vez.",
+              "Cada vez que respiras lentamente durante unos minutos, tu cuerpo recibe un mensaje de calma. Cada vez que haces una pausa para descansar antes de llegar al agotamiento, tu cerebro aprende que no necesita permanecer en alerta constante.",
+              "No se trata de hacerlo perfecto. Se trata de hacerlo constante. Piensa en cómo aprendiste a caminar. No ocurrió en un solo intento. Fueron cientos de pequeños intentos.",
+              "Lo mismo sucede con el bienestar emocional. Cada pequeño hábito es como un voto a favor del equilibrio que deseas construir."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Empiezas una rutina de autocuidado con mucho entusiasmo, pero la abandonas pocos días después?",
+            "¿Sientes que, si no puedes hacerlo perfecto, prefieres no hacerlo?",
+            "¿Esperas sentirte muy mal para darte permiso de descansar?",
+            "¿Te exiges tanto que incluso el autocuidado termina convirtiéndose en otra obligación?"
+          ],
+          "ejercicio": {
+            "titulo": "Mi primer hábito de calma",
+            "instrucciones": "Elige una acción sencilla que puedas realizar durante esta semana en una de las siguientes áreas:",
+            "pasos": [
+              "Respiración: ¿Qué pequeña práctica podrías incorporar?",
+              "Descanso: ¿Qué cambio realista puedes hacer para cuidar mejor tu descanso?",
+              "Movimiento: ¿Qué actividad física agradable podrías realizar?",
+              "Bienestar emocional: ¿Qué actividad disfrutas y hace tiempo no realizas?",
+              "Elige la acción que se sienta más FÁCIL de comenzar hoy. Ese será tu primer hábito."
+            ]
+          },
+          "audio": {
+            "titulo": "Un pequeño hábito puede cambiar mucho",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Construyendo mi rutina de calma",
+            "contenido": [
+              "El bienestar emocional no depende de tener días perfectos, depende de rutinas posibles.",
+              "Diseña tu rutina personal:",
+              "• Al despertar quiero...",
+              "• Durante la mañana quiero recordar...",
+              "• Cuando note que estoy entrando en estrés quiero...",
+              "• Antes de dormir quiero...",
+              "• Mi hábito más importante de esta semana será..."
+            ]
+          },
+          "reto": {
+            "titulo": "Una acción pequeña, todos los días",
+            "contenido": [
+              "Durante los próximos siete días elige únicamente un hábito de bienestar. Solo uno.",
+              "Puede ser respirar 2 minutos, salir a caminar 10 minutos o tomar agua al despertar.",
+              "Al finalizar cada día, responde: ¿Cómo me sentí después de cumplir este pequeño compromiso conmigo?",
+              "Cada vez que repites una acción de autocuidado, fortaleces la confianza en ti mismo."
+            ]
+          },
+          "cierre": [
+            "Hoy descubriste que el bienestar emocional no depende de hacer cambios extraordinarios. Depende de las pequeñas decisiones que repites cada día.",
+            "Quizá algunas veces olvides tu nuevo hábito. Eso no significa que hayas retrocedido. Significa que eres humano. El cambio no ocurre en línea recta.",
+            "Lo importante es volver a empezar una y otra vez, con la misma amabilidad con la que acompañarías a alguien que quieres.",
+            "Cada pequeña acción le envía un mensaje a tu sistema nervioso: \"Estoy aprendiendo a cuidarme. Mi bienestar también merece un espacio en mi vida.\""
+          ]
+        },
+        {
+          "titulo": "Módulo 4. Construyendo una vida con mayor calma",
+          "psicoeducacion": {
+            "titulo": "El bienestar no significa dejar de sentir estrés",
+            "parrafos": [
+              "Muchas personas creen que sentirse bien significa no volver a experimentar ansiedad, preocupación o momentos difíciles. Sin embargo, esa expectativa suele generar más frustración que tranquilidad.",
+              "Las emociones incómodas forman parte de la experiencia humana. El estrés, la incertidumbre o el miedo aparecerán en distintos momentos de la vida. La diferencia está en cómo respondemos cuando llegan.",
+              "A lo largo de esta ruta has aprendido que tu sistema nervioso puede activarse para protegerte, pero también puede aprender a recuperar la calma.",
+              "El bienestar emocional no consiste en eliminar las emociones difíciles, sino en desarrollar recursos para atravesarlas sin perderte en ellas. No se trata de controlar cada situación, se trata de confiar cada vez más en tu capacidad para afrontarla."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Piensas que si un día vuelves a sentir ansiedad significa que todo el esfuerzo anterior no sirvió?",
+            "¿Te exiges mantenerte bien todo el tiempo?",
+            "¿Cuando tienes un mal día, dudas de todo el proceso que has recorrido?",
+            "¿Olvidas que el bienestar también incluye días difíciles?"
+          ],
+          "ejercicio": {
+            "titulo": "Mi plan personal de bienestar",
+            "instrucciones": "Es momento de crear un plan que puedas utilizar cada vez que lo necesites. Respóndelo con sinceridad:",
+            "pasos": [
+              "1. ¿Cuáles son las primeras señales que me indican que necesito detenerme y cuidar de mí?",
+              "2. ¿Qué herramientas de esta ruta me ayudan más a recuperar la calma? (Respiración, movimiento, escribir, etc.)",
+              "3. ¿Qué hábitos quiero conservar durante las próximas semanas?",
+              "4. ¿Quiénes forman parte de mi red de apoyo cuando necesito ayuda?",
+              "5. Escribe una frase que quieras recordar cuando atravieses un momento difícil."
+            ]
+          },
+          "audio": {
+            "titulo": "Volver a mí",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Mi caja de herramientas",
+            "contenido": [
+              "Guarda este registro donde puedas consultarlo:",
+              "• Cuando noto estas señales en mi cuerpo...",
+              "• Las herramientas que mejor funcionan para mí son...",
+              "• Las personas con quienes puedo apoyarme son...",
+              "• La frase que quiero recordar en los días difíciles es..."
+            ]
+          },
+          "reto": {
+            "titulo": "Integrando el bienestar en mi vida",
+            "contenido": [
+              "Durante los próximos siete días, dedica unos minutos al final de cada jornada para responder estas dos preguntas:",
+              "1. ¿Qué hice hoy para cuidar de mí?",
+              "2. ¿Qué necesito regalarme mañana para seguir fortaleciendo mi bienestar?",
+              "A veces cuidar de ti será respirar; otras veces será pedir ayuda o reconocer que tuviste un mal día."
+            ]
+          },
+          "cierre": [
+            "Has llegado al final de esta ruta. Quizá no sientas que todo cambió de un día para otro, y eso está bien. Los cambios profundos comienzan a través de pequeñas decisiones que repetimos una y otra vez.",
+            "Durante esta ruta comprendiste mejor cómo funciona tu sistema nervioso, descubriste herramientas para recuperar la calma y comenzaste a construir hábitos sostenibles.",
+            "Lo más importante no es recordar cada ejercicio, sino saber que ahora cuentas con recursos para acompañarte con mayor comprensión y amabilidad. ¡Felicidades por dar este paso!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruta2",
+      "titulo": "Ruta 2. Fortalecer mi autoestima",
+      "descripcion": "Construye una relación más amable contigo, reconoce tu valor y fortalece tu confianza.",
+      "modulos": [
+        {
+          "titulo": "Módulo 1. Descubriendo cómo se construyó mi autoestima",
+          "psicoeducacion": {
+            "titulo": "¿Por qué me cuesta reconocer mi valor?",
+            "parrafos": [
+              "¿Alguna vez has sentido que, por más que te esfuerzas, nunca parece ser suficiente? Tal vez otras personas reconocen tus capacidades, pero tú solo logras ver tus errores. Quizá recibes un cumplido y te cuesta creerlo.",
+              "Si esto te ha ocurrido, no significa que tengas una autoestima 'rota' o que haya algo malo en ti. La autoestima no aparece de un día para otro. Se va construyendo poco a poco a partir de las experiencias que vivimos y de los mensajes que recibimos.",
+              "Con el paso del tiempo, nuestro cerebro comienza a formar creencias sobre nosotros mismos. Estas creencias no son hechos. Son aprendizajes. Y, como todo aprendizaje, también pueden modificarse.",
+              "Fortalecer tu autoestima no significa convertirte en alguien diferente. Significa comenzar a mirar con mayor amabilidad a la persona que siempre ha estado ahí: tú."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Te cuesta aceptar un cumplido y sientes la necesidad de minimizarlo?",
+            "¿Sueles enfocarte más en tus errores que en tus logros?",
+            "¿Te comparas con otras personas y casi siempre sales perdiendo?",
+            "¿Te hablas con mucha más dureza de la que usarías con alguien que quieres?",
+            "¿Sientes que, hagas lo que hagas, nunca es suficiente?"
+          ],
+          "ejercicio": {
+            "titulo": "Conociendo la historia de mi autoestima",
+            "instrucciones": "No se trata de juzgar tu historia. Se trata de comprenderla con curiosidad y respeto. Escribe lo primero que llegue a tu mente:",
+            "pasos": [
+              "Cuando era niño(a)... ¿Qué críticas o comentarios recuerdo haber escuchado con frecuencia? ¿Sentía que podía equivocarme sin dejar de ser valioso(a)?",
+              "Hoy, en mi vida adulta... ¿Cuáles son las frases que más suelo decirme cuando cometo un error? ¿Qué aspectos de mí me cuesta reconocer o valorar?",
+              "Comprender el origen de esas creencias es el primer paso para comenzar a transformarlas. Tu historia explica muchas cosas, pero no define todo lo que puedes llegar a ser."
+            ]
+          },
+          "audio": {
+            "titulo": "Descubriendo mi valor con mayor amabilidad",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Descubriendo cómo me hablo",
+            "contenido": [
+              "Durante tres días, observa con curiosidad tu diálogo interno:",
+              "• Hoy me sentí orgulloso(a) de mí cuando... ¿Qué pensé sobre mí en ese momento?",
+              "• Hoy fui muy crítico(a) conmigo cuando... ¿Qué me dije? Si un ser querido estuviera viviendo lo mismo, ¿qué le diría?",
+              "• ¿Qué tipo de frases me repito con mayor frecuencia? ¿Qué nueva forma de hablarme quiero comenzar a practicar?"
+            ]
+          },
+          "reto": {
+            "titulo": "Un momento de reconocimiento cada día",
+            "contenido": [
+              "Durante los próximos cinco días, dedica unos minutos al final del día para reconocer tres cosas que hiciste bien. No tienen que ser grandes logros.",
+              "Haber pedido ayuda, descansar sin culpa, tratar a alguien con amabilidad... todo cuenta.",
+              "Cada vez que reconoces tus esfuerzos, ayudas a que tu cerebro construya una imagen más completa, equilibrada y amable de quién eres."
+            ]
+          },
+          "cierre": [
+            "Hoy comenzaste a descubrir que la forma en que te ves a ti mismo no apareció por casualidad. Se fue construyendo a lo largo de tu historia, a partir de las experiencias que viviste.",
+            "Y aquello que fue aprendido también puede transformarse. No necesitas luchar contra tu voz interior, solo necesitas comenzar a escucharla con curiosidad y responderle desde un lugar más amable.",
+            "Tu valor no depende de la aprobación de los demás. Tu valor existe porque eres una persona digna de respeto, de cuidado y de compasión."
+          ]
+        },
+        {
+          "titulo": "Módulo 2. Aprendiendo a hablarme con mayor amabilidad",
+          "psicoeducacion": {
+            "titulo": "¿Por qué soy tan duro conmigo?",
+            "parrafos": [
+              "¿Te has dado cuenta de que, a veces, eres la persona que más se critica? Curiosamente, muchas personas jamás le hablarían de esa manera a alguien que aman.",
+              "Esto muchas veces ocurre porque esa voz crítica fue aprendida de la manera en que fuimos corregidos en el pasado. El problema es que nuestro cerebro escucha esa voz una y otra vez, fortaleciendo esas conexiones neuronales.",
+              "La buena noticia es que nuestro cerebro también puede aprender una forma diferente de relacionarse consigo mismo.",
+              "Hablarte con amabilidad no significa justificar todo lo que haces ni dejar de reconocer tus errores. Significa aprender a corregirte sin humillarte. Convertir tu voz interior en una aliada, en lugar de tu principal crítica."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Te dices cosas que jamás le dirías a alguien que quieres?",
+            "¿Te cuesta reconocer tus logros porque inmediatamente piensas en lo que faltó?",
+            "¿Cuando algo sale mal piensas que el problema eres tú, en lugar de la situación?",
+            "¿Te resulta más fácil comprender a los demás que comprenderte a ti?"
+          ],
+          "ejercicio": {
+            "titulo": "Descubriendo mi diálogo interior",
+            "instrucciones": "Observa cómo suele hablarte tu mente en distintos momentos:",
+            "pasos": [
+              "Cuando cometo un error... ¿Qué es lo primero que suelo decirme? ¿Cómo me hace sentir esa forma de hablarme?",
+              "Si un ser querido estuviera viviendo esa misma situación, ¿qué le diría? ¿Cómo podría decirme esas mismas palabras a mí?",
+              "Escribe 3 frases de 'Mi voz que critica' y transfórmalas en mensajes más amables, realistas y respetuosos."
+            ]
+          },
+          "audio": {
+            "titulo": "Aprendiendo a hablarme con mayor amabilidad",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Transformando mi diálogo interior",
+            "contenido": [
+              "Durante los próximos tres días, observa cómo aparece tu diálogo interno en distintas situations.",
+              "• Hoy me hablé con dureza cuando... ¿Qué palabras me dije?",
+              "• Si hubiera respondido con mayor amabilidad... ¿Qué podría haberme dicho? ¿Cómo creo que me habría sentido?",
+              "No se trata de dejar de reconocer tus errores. Se trata de aprender que puedes crecer sin convertirte en tu propio enemigo."
+            ]
+          },
+          "reto": {
+            "titulo": "Cambiando una frase cada día",
+            "contenido": [
+              "Durante los próximos cinco días, cuando notes que te estás hablando con dureza, haz una pausa. Respira. Y reemplázala por una frase realista y compasiva.",
+              "En lugar de 'No soy suficiente', prueba decir: 'Estoy aprendiendo'.",
+              "Al finalizar el día, pregúntate: ¿Cómo cambió mi estado emocional cuando elegí hablarme con mayor amabilidad?"
+            ]
+          },
+          "cierre": [
+            "Hoy descubriste que una de las conversaciones más importantes de tu vida ocurre dentro de ti.",
+            "Esa voz interior tiene el poder de fortalecer tu confianza o de hacer que dudes de ti mismo. Y, precisamente porque fue aprendida, también puede transformarse.",
+            "No necesitas ser perfecto para tratarte con compasión. Cada vez que eliges responderte con comprensión, estás construyendo una autoestima más fuerte, más sana y más estable."
+          ]
+        },
+        {
+          "titulo": "Módulo 3. Redescubriendo el valor que ya existe en mí",
+          "psicoeducacion": {
+            "titulo": "¿Por qué me cuesta reconocer todo lo bueno que hay en mí?",
+            "parrafos": [
+              "¿Alguna vez has sentido que es más fácil recordar tus errores que todo lo que has logrado? Nuestro cerebro está diseñado para detectar aquello que podría representar un problema para sobrevivir.",
+              "Pero cuando esa tendencia se combina con una autoestima frágil, dejamos de reconocer nuestros recursos, nuestras capacidades y las experiencias que nos han permitido salir adelante.",
+              "No porque no existan. Sino porque hemos aprendido a mirar solo una parte de nuestra historia.",
+              "Fortalecer la autoestima no consiste en inventar cualidades que no tienes. Consiste en aprender a reconocer, con honestidad, todo aquello que ya existe en ti y que durante mucho tiempo pasó desapercibido."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Sientes que otras personas tienen muchas más capacidades que tú?",
+            "¿Te resulta más fácil reconocer las cualidades de los demás que las tuyas?",
+            "¿Piensas que hablar bien de ti podría parecer arrogante?",
+            "¿Con frecuencia olvidas todo lo que has superado y solo recuerdas lo que aún te falta?"
+          ],
+          "ejercicio": {
+            "titulo": "Descubriendo mis recursos personales",
+            "instrucciones": "Responde con honestidad para identificar los recursos personales que has dejado de mirar:",
+            "pasos": [
+              "Mirando mi camino: ¿Qué situación difícil he logrado superar? ¿Qué capacidades o recursos me ayudaron a salir adelante?",
+              "Mirándome con otros ojos: ¿Qué suelen agradecer o valorar las personas que me conocen? ¿Qué valores considero que guían mi manera de actuar?",
+              "Escribe al menos 5 recursos, capacidades o valores que reconoces en ti hoy."
+            ]
+          },
+          "audio": {
+            "titulo": "Redescubriendo el valor que ya existe en mí",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Reconociendo mis recursos cada día",
+            "contenido": [
+              "A lo largo del día utilizamos muchas capacidades sin darnos cuenta. Registra por 3 días:",
+              "• Hoy enfrenté... (Situación)",
+              "• ¿Qué recurso personal utilicé? (Ej: paciencia, creatividad, valentía, empatía, organización)",
+              "• ¿Cómo me sentí después?",
+              "Tus recursos no aparecen únicamente en los grandes logros. También en tus decisiones de cada día."
+            ]
+          },
+          "reto": {
+            "titulo": "Un recurso nuevo cada día",
+            "contenido": [
+              "Durante los próximos cinco días, dedica unos minutos al final de tu jornada para responder: ¿Qué recurso personal utilicé hoy?",
+              "No importa si fue algo pequeño. Tal vez escuchaste con atención, mostraste empatía o pediste ayuda.",
+              "Escríbelo en tu libreta y observa cómo cambia tu autoimagen."
+            ]
+          },
+          "cierre": [
+            "Hoy comenzaste a mirar tu historia desde una perspectiva diferente. Descubriste que tu historia no está formada solamente por los errores, sino por los recursos que has desarrollado.",
+            "Reconocer tus recursos no significa dejar de crecer. Significa construir una imagen más justa de quién eres.",
+            "Tu autoestima no se fortalece porque te repitas que eres extraordinario. Se fortalece porque aprendes a reconocer la evidencia real de todo lo que ya existe en ti."
+          ]
+        },
+        {
+          "titulo": "Módulo 4. Construyendo una autoestima que nace de mí",
+          "psicoeducacion": {
+            "titulo": "¿Por qué mi valor cambia según lo que ocurre a mi alrededor?",
+            "parrafos": [
+              "¿Te has dado cuenta de que hay días en los que te sientes muy bien contigo y otros en los que una sola crítica parece hacer tambalear toda tu confianza?",
+              "Es muy común. Muchas personas aprenden a medir su valor según lo que sucede a su alrededor. Si reciben reconocimiento, sienten que valen. Si cometen un error, dudan de sí mismas.",
+              "Cuando esto ocurre, la autoestima se vuelve frágil. La buena noticia es que existe otra manera de relacionarte contigo. Una autoestima saludable significa que tu valor como persona no cambia dependiendo de un resultado o la aprobación externa.",
+              "Fortalecer la autoestima no consiste en sentirte seguro todo el tiempo. Consiste en aprender a regresar a ti una y otra vez, recordando que tu valor permanece, incluso cuando las circunstancias cambian."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Tu estado de ánimo cambia mucho dependiendo de la opinión de otras personas?",
+            "¿Sientes que una crítica pesa mucho más que varios comentarios positivos?",
+            "¿Necesitas que otras personas reconozcan tus logros para sentirte satisfecho(a)?",
+            "¿Te cuesta recordar quién eres cuando las cosas se ponen difíciles?"
+          ],
+          "ejercicio": {
+            "titulo": "Construyendo mi propia referencia",
+            "instrucciones": "Identifica los pilares sobre los que quieres construir una autoestima estable:",
+            "pasos": [
+              "Cuando pienso en la persona que quiero ser... ¿Qué valores deseo que guíen mi vida? ¿Qué cualidades quiero seguir cultivando?",
+              "Mi brújula interior. Completa: 'Yo sé que soy una persona valiosa porque...' / 'Cuando dude de mí, quiero recordar que...'",
+              "Una autoestima sólida nace de recordar que tu valor siempre ha estado contigo."
+            ]
+          },
+          "audio": {
+            "titulo": "Construyendo una autoestima que nace de mí",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Mi brújula interior",
+            "contenido": [
+              "Durante los próximos 3 días registra:",
+              "• Hoy tomé una decisión de la que me siento orgulloso(a) porque...",
+              "• ¿Lo hice alineado con mis valores o buscaba aprobación externa?",
+              "• Hoy recordé mi valor cuando...",
+              "¿Qué puedes hacer para regresar a tu propia brújula cuando dudes de ti?"
+            ]
+          },
+          "reto": {
+            "titulo": "Volver a mí",
+            "contenido": [
+              "Durante cinco días, responde 3 preguntas al final del día:",
+              "1. ¿Qué decisión tomé hoy que estuvo alineada con mis valores?",
+              "2. ¿Qué recurso personal utilicé hoy?",
+              "3. ¿Qué puedo agradecerme antes de terminar este día?",
+              "Cada vez que eliges volver a ti, fortaleces la confianza en la persona que estás construyendo."
+            ]
+          },
+          "cierre": [
+            "Hoy diste un paso muy importante. Descubriste que una autoestima saludable no depende de recibir aprobación constante o de compararte con los demás.",
+            "Comienza cuando aprendes a reconocer tu propio valor desde un lugar más profundo y estable, regresando a tus valores y recursos.",
+            "Es posible que, en algunos momentos, vuelvas a dudar de ti. Eso no significa que hayas retrocedido. Significa que eres humano.",
+            "Pero ahora cuentas con herramientas para recordar quién eres. ¡Felicidades por completar esta Ruta!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruta3",
+      "titulo": "Ruta 3. Gestionar la ansiedad",
+      "descripcion": "Desarrolla seguridad personal para enfrentar los desafíos con mayor confianza e identificar las verdaderas alarmas.",
+      "modulos": [
+        {
+          "titulo": "Módulo 1. Comprendiendo por qué aparece la ansiedad",
+          "psicoeducacion": {
+            "titulo": "¿Por qué mi mente imagina peligros incluso cuando todo parece estar bien?",
+            "parrafos": [
+              "¿Alguna vez has sentido que tu mente no deja de pensar en todo lo que podría salir mal? Tal vez revisas una conversación una y otra vez, imaginas distintos escenarios antes de tomar una decisión o te descubres anticipando problemas que todavía no han ocurrido.",
+              "Si esto te sucede, no significa que seas una persona débil ni que haya algo malo en ti. La ansiedad no aparece porque tu mente quiera hacerte sufrir. Aparece porque intenta protegerte.",
+              "Nuestro cerebro está diseñado para anticipar posibles amenazas. Durante miles de años, esta capacidad aumentó nuestras posibilidades de supervivencia. Poder prever un peligro permitía reaccionar antes de que fuera demasiado tarde.",
+              "El problema es que hoy nuestro cerebro no solo anticipa peligros reales. También puede anticipar posibilidades, suposiciones e incluso escenarios que nunca llegarán a ocurrir. Cuando eso sucede, el cuerpo comienza a prepararse como si ese peligro ya estuviera presente.",
+              "El corazón late más rápido, los músculos se tensan, la respiración cambia y nuestra atención se concentra en aquello que podría salir mal. Lo más difícil es que, cuanto más intentamos controlar todos esos escenarios imaginarios, más tiempo permanece activa la ansiedad.",
+              "La buena noticia es que no necesitamos eliminar todos los pensamientos preocupantes para vivir con mayor tranquilidad. Podemos aprender a relacionarnos de una manera diferente con ellos. A reconocer cuándo nuestra mente está intentando protegernos y cuándo simplemente está anticipando posibilidades que todavía no existen.",
+              "A lo largo de esta ruta descubrirás que gestionar la ansiedad no significa dejar de sentirla. Significa aprender a responder de una manera distinta cuando aparece."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Te descubres imaginando todo lo que podría salir mal antes de que ocurra?",
+            "¿Te cuesta disfrutar el presente porque tu mente está ocupada pensando en el futuro?",
+            "¿Sueles prepararte para problemas que, al final, nunca suceden?",
+            "¿Te resulta difícil tomar decisiones por miedo a equivocarte?",
+            "¿Revisas una y otra vez conversaciones, mensajes o situaciones buscando haber hecho 'lo correcto'?",
+            "¿Sientes que necesitas tener todo bajo control para sentirte tranquilo(a)?",
+            "¿Tu cuerpo se activa aunque objetivamente no exista un peligro inmediato?"
+          ],
+          "ejercicio": {
+            "titulo": "¿Qué está ocurriendo realmente?",
+            "instrucciones": "La ansiedad suele hacer que nuestra mente viaje hacia el futuro y dé por hecho que aquello que imaginamos terminará ocurriendo. Este ejercicio tiene como objetivo ayudarte a diferenciar entre los hechos que están ocurriendo en este momento y las historias que tu mente comienza a construir. Piensa en una situación reciente que te haya generado ansiedad. Respóndela con calma y sin juzgarte.",
+            "pasos": [
+              "La situación: ¿Qué ocurrió?",
+              "Lo que mi mente comenzó a imaginar: ¿Qué pensamientos aparecieron? ¿Qué fue lo peor que imaginé que podía pasar?",
+              "Lo que realmente estaba ocurriendo: En este momento, ¿qué hechos puedo comprobar que son reales? ¿Qué parte corresponde a hechos y cuál corresponde a posibilidades que mi mente está anticipando?",
+              "Reflexión: Observa tus respuestas. La ansiedad suele hablarnos en términos de posibilidades. La realidad, en cambio, está formada por hechos que podemos observar aquí y ahora. Eso no significa ignorar los riesgos. Significa aprender a distinguir entre aquello que está ocurriendo y aquello que nuestra mente teme que podría ocurrir. Cada vez que haces esta diferencia, ayudas a tu cerebro a responder con mayor claridad y menos miedo frente a la incertidumbre."
+            ]
+          },
+          "audio": {
+            "titulo": "Volviendo al momento presente",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Hechos o anticipaciones",
+            "contenido": [
+              "La ansiedad suele hacer que confundamos aquello que realmente está ocurriendo con aquello que nuestra mente imagina que podría ocurrir. Durante los próximos tres días, dedica unos minutos a observar esa diferencia.",
+              "Situación: ¿Qué ocurrió?",
+              "Lo que mi mente anticipó",
+              "Lo que realmente estaba ocurriendo en ese momento",
+              "¿Qué hice para regresar al presente?",
+              "¿Cómo cambió mi ansiedad después de hacerlo?",
+              "Reflexión: Después de completar este registro durante tres días, responde: ¿Qué tipo de anticipaciones aparecen con mayor frecuencia? ¿Qué situaciones suelen activar mi necesidad de controlar el futuro? ¿Qué estrategias me ayudan a regresar al presente cuando eso ocurre?"
+            ]
+          },
+          "reto": {
+            "titulo": "Cinco pausas para volver al presente",
+            "contenido": [
+              "Durante los próximos cinco días, realiza al menos una pausa consciente cuando notes que tu mente comienza a adelantarse al futuro. Haz lo siguiente:",
+              "• Respira profundamente tres veces.",
+              "• Observa cinco cosas que puedas ver.",
+              "• Identifica cuatro cosas que puedas sentir con el tacto.",
+              "• Escucha tres sonidos a tu alrededor.",
+              "• Reconoce dos aromas o sensaciones físicas.",
+              "• Pregúntate una vez más: ¿Esto está ocurriendo ahora... o mi mente está anticipando lo que podría ocurrir?",
+              "Al finalizar la práctica, responde: ¿Cómo cambió mi cuerpo después de regresar al presente?",
+              "Recuerda: No buscamos controlar todos los pensamientos. Buscamos desarrollar la capacidad de elegir a cuál de ellos queremos prestar atención. Cada vez que vuelves al presente, también ayudas a tu sistema nervioso a recuperar la calma."
+            ]
+          },
+          "cierre": [
+            "🤍 MI COMPROMISO DE HOY",
+            "Antes de terminar este módulo, elige un compromiso para practicar durante las próximas 24 horas.",
+            "☐ Cuando aparezca una preocupación, haré una pausa antes de creer automáticamente todo lo que mi mente me dice.",
+            "☐ Hoy recordaré preguntarme: '¿Esto está ocurriendo ahora o mi mente está anticipando lo que podría ocurrir?'",
+            "☐ Cuando sienta ansiedad, volveré conscientemente a mi respiración y a lo que está ocurriendo en este momento.",
+            "☐ Hoy elegiré responder con curiosidad en lugar de responder desde el miedo.",
+            "Recuerda que gestionar la ansiedad no significa dejar de sentir incertidumbre. Significa desarrollar la capacidad de regresar al presente una y otra vez, incluso cuando tu mente quiera llevarte al futuro.",
+            "💜 CIERRE DEL MÓDULO 1",
+            "Hoy diste el primer paso para comprender la ansiedad desde una perspectiva diferente.",
+            "Descubriste que la ansiedad no aparece porque haya algo malo en ti. Aparece porque tu cerebro intenta protegerte anticipando posibles amenazas.",
+            "También aprendiste que no todos los pensamientos representan hechos y que no todo aquello que imagina tu mente terminará ocurriendo.",
+            "Esa diferencia puede parecer pequeña, pero cambia profundamente la manera en que nos relacionamos con la ansiedad.",
+            "A partir de ahora, cuando notes que tu mente comienza a adelantarse al futuro, recuerda hacer una pausa y preguntarte: ¿Esto está ocurriendo ahora... o mi mente está anticipando lo que podría ocurrir?",
+            "No necesitas responder de inmediato. A veces, la pregunta por sí sola ya es suficiente para interrumpir el ciclo de preocupación y regresar al presente.",
+            "En el siguiente módulo descubrirás que, además de anticipar escenarios, nuestra mente también genera pensamientos automáticos que pueden parecer completamente verdaderos.",
+            "Aprenderás que un pensamiento no siempre es un hecho y que es posible observarlo sin dejar que dirija cada una de tus decisiones. Continúa."
+          ]
+        },
+        {
+          "titulo": "Módulo 2. No todo lo que pienso es un hecho",
+          "psicoeducacion": {
+            "titulo": "¿Por qué algunos pensamientos parecen tan reales?",
+            "parrafos": [
+              "¿Alguna vez has pensado algo y, en cuestión de segundos, tu cuerpo reaccionó como si fuera completamente cierto?",
+              "Tal vez imaginaste que alguien estaba molesto contigo porque no respondió un mensaje. Pensaste que cometerías un error antes de una reunión. O sentiste que algo malo iba a pasar sin tener una evidencia clara.",
+              "Lo interesante es que nuestro cerebro no siempre distingue entre un hecho y un pensamiento. Cuando una idea aparece acompañada de emociones intensas, es fácil asumir que debe ser verdadera.",
+              "Sin embargo, los pensamientos son interpretaciones que nuestra mente construye para intentar dar sentido a lo que ocurre. Algunas interpretaciones son útiles y se acercan a la realidad. Otras están influenciadas por el miedo, experiencias pasadas, preocupaciones o suposiciones.",
+              "Cuando vivimos con ansiedad, nuestra mente suele llenar los espacios de incertidumbre con las explicaciones más amenazantes. Y cuanto más creemos esos pensamientos sin cuestionarlos, más intensa puede volverse la ansiedad.",
+              "La buena noticia es que no necesitamos eliminar los pensamientos difíciles. Podemos aprender a observarlos con cierta distancia. Reconocer que un pensamiento puede sentirse muy convincente sin ser necesariamente un hecho.",
+              "Esa pequeña diferencia abre un espacio para elegir cómo queremos responder. Gestionar la ansiedad no consiste en controlar todo lo que pensamos. Consiste en dejar de asumir que todo pensamiento merece ser creído."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Has dado por hecho que alguien estaba enojado contigo sin comprobarlo?",
+            "¿Te has imaginado el peor resultado posible antes de que ocurra una situación importante?",
+            "¿Alguna vez sentiste que un pensamiento era tan fuerte que parecía una realidad?",
+            "¿Has cambiado una decisión únicamente por miedo a algo que imaginaste?",
+            "¿Te descubres creando explicaciones negativas aun cuando tienes poca información?",
+            "¿Te cuesta detener una cadena de pensamientos una vez que comienza?"
+          ],
+          "ejercicio": {
+            "titulo": "¿Pensamiento o hecho?",
+            "instrucciones": "Piensa en una situación reciente que haya despertado ansiedad.",
+            "pasos": [
+              "Situación: ¿Qué pensamiento apareció primero? ¿Qué emoción despertó ese pensamiento?",
+              "¿Qué evidencia tengo de que ese pensamiento es completamente cierto?",
+              "¿Existe alguna otra explicación posible?",
+              "Si una persona que quiero estuviera viviendo esta misma situación, ¿qué le diría?",
+              "Reflexión: Observa cómo cambia tu perspectiva cuando dejas de tratar todos tus pensamientos como si fueran hechos. Los pensamientos son eventos mentales. Los hechos son aquello que puede comprobarse. Aprender a diferenciarlos es una de las habilidades más valiosas para disminuir el impacto de la ansiedad y responder con mayor claridad ante la incertidumbre."
+            ]
+          },
+          "audio": {
+            "titulo": "Observando mis pensamientos con distancia",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Cuestionando mis pensamientos",
+            "contenido": [
+              "Durante esta semana, cuando aparezca un pensamiento que genere ansiedad, completa este ejercicio.",
+              "¿Cuál fue el pensamiento?",
+              "¿Qué emoción apareció?",
+              "¿Qué evidencia objetiva apoya ese pensamiento? ¿Qué evidencia lo contradice?",
+              "¿Existe una explicación alternativa?",
+              "Si este pensamiento fuera el de un amigo querido, ¿qué le respondería?",
+              "Después de responder estas preguntas... ¿Cómo cambió mi manera de sentir la situación?",
+              "Reflexión: No buscamos demostrar que todos nuestros pensamientos son falsos. Buscamos aprender a observarlos con mayor flexibilidad antes de reaccionar automáticamente."
+            ]
+          },
+          "reto": {
+            "titulo": "Hacer una pausa antes de creer",
+            "contenido": [
+              "Durante los próximos cinco días, cada vez que aparezca un pensamiento que despierte ansiedad, practica esta secuencia:",
+              "Paso 1. Haz una respiración profunda.",
+              "Paso 2. Nombra el pensamiento diciendo: 'Estoy teniendo el pensamiento de que...' (Por ejemplo: 'Estoy teniendo el pensamiento de que voy a fracasar.' En lugar de: 'Voy a fracasar.')",
+              "Paso 3. Pregúntate: ¿Este pensamiento es un hecho o una interpretación?",
+              "Paso 4. Elige conscientemente cómo quieres responder.",
+              "Al finalizar el día, escribe brevemente: ¿Qué descubrí al observar mis pensamientos con más distancia?",
+              "Recuerda: No siempre podemos elegir qué pensamiento aparece. Pero sí podemos aprender a elegir cuánto poder le damos."
+            ]
+          },
+          "cierre": [
+            "🤍 MI COMPROMISO DE HOY",
+            "Antes de continuar, elige un compromiso que te acompañe durante las próximas 24 horas.",
+            "☐ Hoy recordaré que un pensamiento no es un hecho.",
+            "☐ Cuando aparezca una preocupación, haré una pausa antes de reaccionar automáticamente.",
+            "☐ Hoy observaré mis pensamientos con curiosidad en lugar de luchar contra ellos.",
+            "☐ Cuando note que mi mente me cuenta una historia, buscaré primero la evidencia antes de creerla.",
+            "Recuerda: No puedes controlar todos los pensamientos que aparecen en tu mente. Pero sí puedes aprender a elegir cuáles merecen tu atención. Cada vez que haces esa elección, fortaleces una relación más libre y consciente con tu mundo interior.",
+            "💜 CIERRE DEL MÓDULO 2",
+            "Hoy descubriste algo que puede cambiar profundamente la manera en que experimentas la ansiedad. Los pensamientos no siempre describen la realidad.",
+            "Muchas veces son interpretaciones, suposiciones o intentos de tu mente por protegerte frente a la incertidumbre. Eso significa que no necesitas creer automáticamente todo lo que piensas. Puedes detenerte. Observar. Cuestionar. Y decidir cómo responder.",
+            "Quizá los pensamientos difíciles sigan apareciendo de vez en cuando. Eso forma parte de la experiencia humana. La diferencia es que ahora cuentas con una nueva habilidad: puedes tomar distancia de ellos sin dejar que dirijan todas tus emociones y decisiones.",
+            "Cada vez que recuerdes decirte: 'Estoy teniendo el pensamiento de que...' estarás creando un pequeño espacio entre lo que tu mente dice y la forma en que eliges actuar.",
+            "En el siguiente módulo aprenderás una habilidad igual de importante: regresar conscientemente al momento presente cuando tu mente quede atrapada en el futuro. Continúa."
+          ]
+        },
+        {
+          "titulo": "Módulo 3. Volver al presente cuando mi mente viaja al futuro",
+          "psicoeducacion": {
+            "titulo": "¿Dónde ocurre realmente la vida?",
+            "parrafos": [
+              "Cuando sentimos ansiedad, nuestra atención rara vez permanece en el presente. Nuestra mente comienza a adelantarse. Imagina conversaciones que aún no suceden. Ensaya respuestas. Calcula riesgos. Busca todas las maneras posibles de evitar el dolor o el error.",
+              "Y, sin darnos cuenta, dejamos de habitar el único lugar donde realmente podemos actuar: este momento.",
+              "El presente suele ser mucho más tranquilo de lo que la ansiedad nos hace creer. Sin embargo, cuando vivimos constantemente anticipando el futuro, nuestro cuerpo permanece en un estado de alerta casi continuo. No porque exista un peligro real. Sino porque nuestra mente sigue preparándose para posibilidades.",
+              "Volver al presente no significa ignorar el futuro. Significa dejar de vivir exclusivamente en él. Es recordar que la mayoría de nuestras decisiones, nuestras relaciones y nuestras experiencias solo pueden ocurrir aquí y ahora.",
+              "Cada vez que regresas al presente, le envías un mensaje importante a tu cerebro: 'En este momento, puedo ocuparme de lo que realmente está ocurriendo.' Y ese mensaje ayuda a disminuir poco a poco la sensación de amenaza constante.",
+              "La atención es como un músculo. Con práctica, puedes aprender a traerla de regreso una y otra vez, incluso cuando la ansiedad intente llevarla hacia el futuro."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Llegas al final del día sin recordar muchos momentos porque pasaste gran parte del tiempo preocupado por lo que vendría después?",
+            "¿Mientras hablas con alguien, tu mente ya está pensando en el siguiente problema?",
+            "¿Te cuesta disfrutar los momentos agradables porque inmediatamente aparece una nueva preocupación?",
+            "¿Sientes que estás físicamente presente, pero mentalmente en otro lugar?",
+            "¿Con frecuencia piensas: 'Cuando resuelva esto, entonces podré estar tranquilo(a)'?"
+          ],
+          "ejercicio": {
+            "titulo": "Regresando al aquí y ahora",
+            "instrucciones": "Piensa en un momento reciente en el que la ansiedad te llevó a preocuparte por algo que todavía no había ocurrido.",
+            "pasos": [
+              "¿Qué estaba sucediendo realmente en ese instante?",
+              "¿Hacia dónde viajó mi mente?",
+              "¿Qué estaba perdiéndome del momento presente mientras mi atención estaba en el futuro?",
+              "Si volviera a vivir esa situación, ¿qué podría observar, escuchar o sentir para regresar al aquí y ahora?",
+              "Reflexión: La ansiedad suele convencernos de que el futuro necesita toda nuestra atención. Pero la calma comienza cuando recordamos que la vida solo puede experimentarse en el presente. Cada vez que eliges regresar al aquí y ahora, fortaleces una capacidad que puedes practicar durante toda tu vida."
+            ]
+          },
+          "audio": {
+            "titulo": "Regresando a este momento",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Recuperando momentos de vida",
+            "contenido": [
+              "Durante esta semana, identifica pequeños momentos en los que lograste regresar al presente. No importa si fueron unos segundos. Cada regreso cuenta.",
+              "¿En qué momento del día ocurrió?",
+              "¿Dónde estaba mi mente antes de volver al presente?",
+              "¿Qué hice para regresar?",
+              "¿Qué descubrí cuando presté atención al momento presente?",
+              "¿Cómo cambió mi cuerpo después de hacerlo?",
+              "Reflexión: Al finalizar la semana, responde: ¿Cuántos momentos de mi vida habría pasado por alto si hubiera permanecido atrapado(a) en la preocupación? Recuerda: La calma no siempre aparece cuando desaparecen las preocupaciones. Muchas veces aparece cuando volvemos a conectar con aquello que ya está sucediendo."
+            ]
+          },
+          "reto": {
+            "titulo": "Un minuto completamente presente",
+            "contenido": [
+              "Durante los próximos siete días, regálate un minuto al día para vivirlo con toda tu atención.",
+              "Puedes hacerlo mientras tomas agua. Mientras te bañas. Mientras abrazas a alguien. Mientras observas el cielo. Mientras caminas. Mientras tomas una taza de café.",
+              "El objetivo no es relajarte. El objetivo es estar completamente presente.",
+              "Al terminar ese minuto, pregúntate: ¿Qué habría pasado desaperapercibido si mi mente hubiera seguido en el futuro? Escribe tu respuesta.",
+              "Recuerda: La ansiedad suele robarnos el futuro intentando protegerlo. Pero, muchas veces, termina robándonos el presente. Y el presente es el lugar donde realmente sucede la vida."
+            ]
+          },
+          "cierre": [
+            "🤍 MI COMPROMISO DE HOY",
+            "Antes de continuar, elige un compromiso para practicar durante las próximas 24 horas.",
+            "☐ Hoy regalaré al menos un minuto de atención plena a un momento de mi día.",
+            "☐ Cuando note que mi mente viaja al futuro, regresaré con amabilidad al presente.",
+            "☐ Hoy intentaré vivir una experiencia cotidiana con toda mi atención.",
+            "☐ Recordaré que la vida está ocurriendo ahora.",
+            "No se trata de permanecer presente todo el tiempo. Se trata de recordar que siempre puedes regresar. Cada regreso fortalece una nueva forma de vivir con mayor calma y consciencia.",
+            "💜 CIERRE DEL MÓDULO 3",
+            "Hoy aprendiste que volver al presente no significa olvidar el futuro. Significa dejar de vivir permanentemente en él.",
+            "La ansiedad suele convencernos de que debemos resolver todo lo que podría ocurrir. Pero la realidad es que nuestras decisiones, nuestras relaciones y los momentos que dan sentido a nuestra vida solo pueden experimentarse aquí y ahora.",
+            "Quizá descubras que tu mente seguirá viajando hacia el futuro en algunos momentos. Eso es completamente normal. La diferencia es que ahora conoces el camino de regreso.",
+            "Puedes respirar. Observar. Sentir. Y volver, una vez más, a este instante. Cada vez que lo haces, recuperas un momento de tu vida que antes quedaba atrapado entre preocupaciones.",
+            "En el siguiente módulo aprenderás la última pieza de esta ruta: cómo desarrollar una relación diferente con la incertidumbre para dejar de sentir que necesitas controlar todo lo que ocurrirá. Continúa."
+          ]
+        },
+        {
+          "titulo": "Módulo 4. Aprender a vivir con la incertidumbre",
+          "psicoeducacion": {
+            "titulo": "¿Y si nunca puedo tener todas las respuestas?",
+            "parrafos": [
+              "Muchas personas creen que la ansiedad desaparece cuando logran controlar todo lo que ocurre a su alrededor.",
+              "Sin embargo, cuanto más intentamos eliminar la incertidumbre, más descubrimos que siempre aparece una nueva pregunta, una nueva duda o un nuevo escenario por resolver.",
+              "La realidad es que la incertidumbre forma parte de la vida. Ninguna persona puede saber con absoluta certeza qué sucederá mañana. Y, aunque esto pueda parecer incómodo al principio, también significa que el futuro permanece abierto a múltiples posibilidades, no solo a aquellas que el miedo imagina.",
+              "La ansiedad suele pedirnos garantías antes de avanzar. Nos dice: 'Espera un poco más.' 'Asegúrate primero.' 'No te equivoques.'",
+              "Pero muchas decisiones importantes de nuestra vida nunca vienen acompañadas de una certeza absoluta. Confiar no significa saber exactamente lo que ocurrirá. Confiar significa reconocer que, incluso si aparecen dificultades, contamos con recursos para afrontarlas.",
+              "Después de todo lo que has aprendido en esta ruta, quizá notes que ya no necesitas responder inmediatamente a cada duda que aparece. Puedes hacer una pausa. Respirar. Volver al presente. Y recordar que no es necesario controlar el futuro para seguir construyendo una vida valiosa.",
+              "La incertidumbre no es el enemigo. Es una condición natural de estar vivo. Y aprender a convivir con ella puede convertirse en una de las mayores fuentes de libertad emocional."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Pospones decisiones esperando sentirte completamente seguro(a)?",
+            "¿Buscas constantemente confirmar que todo saldrá bien antes de actuar?",
+            "¿Te resulta difícil tolerar no tener todas las respuestas?",
+            "¿Sientes que necesitas controlar cada detalle para sentir tranquilidad?",
+            "¿Te descubres revisando una y otra vez la misma situación esperando encontrar una certeza que nunca llega?"
+          ],
+          "ejercicio": {
+            "titulo": "Haciendo espacio para la incertidumbre",
+            "instrucciones": "Piensa en una situación que actualmente te genere preocupación porque aún no conoces el resultado.",
+            "pasos": [
+              "¿Qué es lo que todavía no sé?",
+              "¿Qué parte sí conozco en este momento?",
+              "¿Qué recursos personales podrían ayudarme si las cosas no salieran como espero?",
+              "¿Qué decisión puedo tomar hoy, aun sin tener todas las respuestas?",
+              "Reflexión: La incertidumbre no desaparece cuando intentamos controlarla. Muchas veces disminuye cuando descubrimos que somos capaces de avanzar incluso sin conocer el desenlace. Confiar no siempre significa tener certeza. A veces significa recordar que ya has superado muchas situaciones antes y que también podrás afrontar las que vengan."
+            ]
+          },
+          "audio": {
+            "titulo": "Confiar incluso cuando no tengo todas las respuestas",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Lo que puedo controlar y lo que necesito soltar",
+            "contenido": [
+              "Piensa en una situación que hoy te genere incertidumbre.",
+              "Escribe cuál es esa situación.",
+              "¿Qué aspectos dependen de mí?",
+              "¿Qué aspectos no puedo controlar?",
+              "¿Qué puedo hacer hoy con aquello que sí depende de mí?",
+              "¿Qué necesitaría aceptar o soltar para dejar de cargar con aquello que no puedo controlar?",
+              "Reflexión: Observa tus respuestas. Muchas veces invertimos gran parte de nuestra energía intentando controlar aquello que está fuera de nuestras manos. La tranquilidad comienza cuando aprendemos a dirigir nuestra atención hacia aquello sobre lo que sí podemos actuar."
+            ]
+          },
+          "reto": {
+            "titulo": "Dar el siguiente paso",
+            "contenido": [
+              "Durante esta semana, cada vez que aparezca una situación incierta, practica esta secuencia.",
+              "Paso 1. Pregúntate: ¿Qué sí depende de mí en este momento?",
+              "Paso 2. Realiza una pequeña acción relacionada con esa respuesta. No la perfecta. Solo la siguiente.",
+              "Paso 3. Respira profundamente y recuerda: 'No necesito resolver toda mi vida hoy.'",
+              "Al finalizar el día, escribe: ¿Qué paso pequeño di hoy, aun sin tener todas las respuestas?",
+              "Recuerda: La confianza no aparece cuando desaparece la incertidumbre. La confianza crece cada vez que decides avanzar, incluso cuando el camino aún no está completamente claro."
+            ]
+          },
+          "cierre": [
+            "🤍 MI COMPROMISO DE HOY",
+            "Antes de terminar este módulo, elige un compromiso para acompañarte durante las próximas 24 horas.",
+            "☐ Hoy daré el siguiente paso, aunque no tenga todas las respuestas.",
+            "☐ Cuando aparezca la incertidumbre, recordaré que puedo confiar en mis recursos.",
+            "☐ Hoy dirigiré mi energía hacia aquello que sí depende de mí.",
+            "☐ Recordaré que no necesito controlar el futuro para construir una vida valiosa.",
+            "Recuerda: La confianza no consiste en saber que todo saldrá exactamente como esperas. Consiste en reconocer que, pase lo que pase, podrás responder con los recursos que has ido construyendo.",
+            "💜 CIERRE DEL MÓDULO 4",
+            "Has llegado al final de esta ruta.",
+            "Quizá comenzaste este recorrido sintiendo que la ansiedad ocupaba gran parte de tu energía. Es posible que buscaras respuestas, certezas o una forma de dejar de preocuparte.",
+            "A lo largo de estos módulos descubriste algo diferente. Comprendiste que tu mente intenta protegerte anticipando peligros. Aprendiste que no todo pensamiento representa un hecho. Descubriste que siempre puedes regresar al momento presente.",
+            "Y, finalmente, comenzaste a desarrollar una relación distinta con la incertidumbre. La incertidumbre seguirá formando parte de la vida. Pero ya no necesitas verla únicamente como una amenaza. Puedes reconocerla como un espacio donde también existen posibilidades, aprendizaje y crecimiento.",
+            "Quizá esa sea una de las transformaciones más importantes de esta ruta. No eliminar la ansiedad. Sino dejar de permitir que sea ella quien tome todas las decisiones por ti.",
+            "A partir de hoy, cada vez que aparezca el miedo al futuro, recuerda todo lo que has aprendido. Respira. Observa. Regresa al presente. Confía en tus recursos. Y da el siguiente paso. No porque tengas todas las respuestas. Sino porque has descubierto que no las necesitas para seguir avanzando."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruta4",
+      "titulo": "Ruta 4. Recuperar mi energía y aprender a descansar",
+      "descripcion": "Identifica aquello que te está sobrecargando y crea hábitos que protejan tu bienestar y tu descanso.",
+      "modulos": [
+        {
+          "titulo": "Módulo 1. Comprendiendo por qué me siento tan agotado(a)",
+          "psicoeducacion": {
+            "titulo": "¿Por qué sigo sintiéndome cansado(a) aunque descanse?",
+            "parrafos": [
+              "Hay personas que duermen varias horas y, aun así, despiertan sintiéndose agotadas. Otras terminan el día con la sensación de haber dado todo de sí, aunque apenas hayan tenido un momento para respirar.",
+              "Si esto te sucede, es importante saber que el cansancio no siempre depende únicamente del sueño. Nuestro cuerpo también se agota cuando permanece durante mucho tiempo funcionando en modo supervivencia.",
+              "El estrés continuo mantiene al sistema nervioso en un estado de alerta casi permanente. El cerebro dedica gran parte de su energía a resolver problemas, anticipar dificultades y responder a múltiples demandas. Con el paso del tiempo, este esfuerzo constante puede generar una sensación de agotamiento físico, mental y emocional.",
+              "No es falta de fuerza de voluntad. No significa que seas una persona débil. Significa que tu organismo ha estado intentando sostener un ritmo para el que no fue diseñado durante tanto tiempo.",
+              "Muchas personas creen que descansar es un premio que deben ganarse después de terminar todas sus responsabilidades. Pero el descanso no es un lujo. Es una necesidad biológica. Es una forma de permitir que el cuerpo y la mente recuperen la energía necesaria para seguir funcionando de manera saludable.",
+              "A lo largo de esta ruta aprenderás que descansar no significa rendirse. Significa reconocer que tú también necesitas espacios para recuperarte. Y descubrirás que cuidar de ti no disminuye tu capacidad para cuidar de los demás. Al contrario. La fortalece."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Sientes que, por más que descanses, nunca recuperas completamente la energía?",
+            "¿Te cuesta permitirte hacer una pausa porque sientes que siempre hay algo pendiente?",
+            "¿Te descubres funcionando en 'piloto automático' durante gran parte del día?",
+            "¿Te sientes culpable cuando decides descansar?",
+            "¿Has pensado que deberías poder con todo sin sentirte agotado(a)?",
+            "¿Hace mucho tiempo que no recuerdas cómo se siente estar realmente descansado(a)?"
+          ],
+          "ejercicio": {
+            "titulo": "Escuchando a mi energía",
+            "instrucciones": "Antes de intentar cambiar algo, primero necesitamos comprender cómo se encuentra hoy nuestra energía. Responde con honestidad.",
+            "pasos": [
+              "¿Cómo describiría mi nivel de energía durante la última semana?",
+              "¿Qué situaciones consumen gran parte de mi energía?",
+              "¿Qué actividades me ayudan a recuperarla, aunque sea un poco?",
+              "¿Cuándo fue la última vez que descansé sin sentir culpa?",
+              "Si mi cuerpo pudiera hablar hoy, ¿qué crees que me pediría?",
+              "Reflexión: Nuestro cuerpo suele enviarnos señales mucho antes de llegar al agotamiento extremo. Aprender a escucharlas es una forma de autocuidado. Quizá no puedas cambiar todas las exigencias de tu vida de un día para otro. Pero sí puedes comenzar a prestar atención a la persona que ha sostenido todas esas exigencias: tú."
+            ]
+          },
+          "audio": {
+            "titulo": "Darme permiso para descansar",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Mi balance de energía",
+            "contenido": [
+              "Durante los próximos tres días, observa cómo cambia tu energía a lo largo del día. No busques hacer más. Solo observa.",
+              "¿Qué actividades aumentan mi energía?",
+              "¿Qué actividades la disminuyen?",
+              "¿Qué personas me ayudan a sentirme mejor?",
+              "¿Qué situaciones me dejan emocionalmente agotado(a)?",
+              "¿Qué pequeño espacio de descanso podría regalarme cada día?",
+              "Reflexión: No toda la energía se recupera durmiendo. También se recupera cuando hacemos espacio para aquello que nos nutre, nos calma y nos permite volver a nosotros mismos."
+            ]
+          },
+          "reto": {
+            "titulo": "Cinco minutos para mí",
+            "contenido": [
+              "Durante esta semana, dedica cinco minutos diarios únicamente a recuperar energía. No tienen que ser productivos. No tienen que servir para cumplir una meta. Solo tienen que ayudarte a recuperar un poco de bienestar.",
+              "Puedes: Escuchar una canción. Salir unos minutos al sol. Respirar en silencio. Leer unas páginas de un libro. Tomar una bebida caliente con calma. Estirarte. Mirar el cielo.",
+              "Al terminar esos cinco minutos, responde: ¿Cómo se siente mi cuerpo después de haberme regalado este espacio?",
+              "Recuerda: Descansar no siempre significa hacer menos. Muchas veces significa recuperar la energía necesaria para vivir mejor."
+            ]
+          },
+          "cierre": [
+            "🤍 MI COMPROMISO DE HOY",
+            "Antes de continuar, elige un compromiso para practicar durante las próximas 24 horas.",
+            "☐ Hoy escucharé las señales de mi cuerpo antes de exigirle más.",
+            "☐ Me regalaré una pausa sin sentir que necesito ganármela.",
+            "☐ Hoy recordaré que cuidar mi energía también es una responsabilidad.",
+            "☐ Cuando aparezca la culpa por descansar, recordaré que recuperarme también forma parte del camino.",
+            "Recuerda: No necesitas esperar a estar completamente agotado(a) para comenzar a cuidarte. Escuchar tus necesidades hoy puede evitar que tu cuerpo tenga que gritar mañana.",
+            "💜 CIERRE DEL MÓDULO 1",
+            "Hoy diste un paso importante. Quizá durante mucho tiempo pensaste que sentirte cansado(a) era simplemente parte de la vida. O que descansar era algo que solo podías hacer cuando todo estuviera terminado.",
+            "Sin embargo, hoy descubriste una mirada diferente. Comprendiste que el agotamiento no siempre aparece porque seas débil. Muchas veces aparece porque has sostenido demasiado durante demasiado tiempo.",
+            "También descubriste que el descanso no es un premio. Es una necesidad humana. Tan importante como alimentarte, dormir o respirar. Escuchar a tu cuerpo no significa dejar de ser responsable. Significa reconocer que tu bienestar también merece un lugar entre todas las personas y responsabilidades que cuidas cada día.",
+            "En el siguiente módulo descubrirás por qué muchas personas sienten culpa cuando descansan y aprenderás a cuestionar esa idea para construir una relación más saludable con el autocuidado. Continúa."
+          ]
+        },
+        {
+          "titulo": "Módulo 2. Cuando descansar también da culpa",
+          "psicoeducacion": {
+            "titulo": "¿Por qué me cuesta tanto detenerme?",
+            "parrafos": [
+              "¿Alguna vez has intentado descansar y, en lugar de sentir tranquilidad, comenzaste a pensar en todo lo que todavía faltaba por hacer?",
+              "Quizá te sentaste unos minutos y apareció la culpa. O sentiste que estabas perdiendo el tiempo. Incluso es posible que hayas pensado: 'Primero termino todo y después descanso.' El problema es que ese 'después' muchas veces nunca llega.",
+              "Vivimos en una cultura que suele valorar la productividad, la rapidez y el estar siempre disponibles. Poco a poco, muchas personas aprenden a relacionar su valor con lo mucho que hacen. Como consecuencia, descansar puede sentirse incómodo.",
+              "No porque el cuerpo no lo necesite. Sino porque la mente interpreta la pausa como si fuera irresponsabilidad.",
+              "Sin embargo, descansar no significa abandonar tus responsabilidades. Significa recuperar la energía necesaria para poder sostenerlas de una manera más saludable. El descanso no disminuye tu compromiso. Lo fortalece.",
+              "Aprender a detenerte también es una habilidad. Y, como cualquier habilidad, puede desarrollarse poco a poco. En este módulo descubrirás que cuidar tu energía no es egoísmo. Es una forma de proteger aquello que te permite seguir construyendo la vida que deseas."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Te sientes incómodo(a) cuando no estás haciendo algo 'útil'?",
+            "¿Descansas, pero tu mente sigue repasando pendientes?",
+            "¿Te cuesta decir 'hoy necesito una pausa'?",
+            "¿Sientes culpa cuando alguien más hace cosas por ti?",
+            "¿Piensas que deberías poder con todo sin necesitar descanso?",
+            "¿Has dejado actividades que disfrutas porque siempre hay algo 'más importante' que hacer?"
+          ],
+          "ejercicio": {
+            "titulo": "Conversando con mi culpa",
+            "instrucciones": "Piensa en la última vez que intentaste descansar y responde con honestidad.",
+            "pasos": [
+              "¿Qué estaba haciendo antes de detenerme?",
+              "¿Qué pensamientos aparecieron cuando intenté descansar?",
+              "¿Qué me decía esa voz que me hacía sentir culpa?",
+              "¿De dónde creo que aprendí esa idea sobre el descanso?",
+              "Si una persona que quiero estuviera completamente agotada, ¿le diría que siga esforzándose o le daría permiso para descansar?",
+              "¿Por qué me cuesta ofrecerme esa misma comprensión?",
+              "Reflexión: Muchas veces tratamos a nuestro cuerpo con una exigencia que jamás tendríamos hacia alguien que amamos. Quizá hoy puedas comenzar a ofrecerte el mismo cuidado que darías a otra persona. Ese también es un acto de fortaleza."
+            ]
+          },
+          "audio": {
+            "titulo": "Escuchar lo que mi energía necesita",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Lo que hoy necesita mi energía",
+            "contenido": [
+              "Antes de responder, detente unos segundos y respira profundamente. Ahora escribe.",
+              "¿Cómo llega mi energía hoy?",
+              "¿Qué la ha desgastado durante los últimos días?",
+              "¿Qué actividades, personas o lugares me ayudan a recuperarme?",
+              "¿Qué necesidad he estado ignorando?",
+              "Si hoy pudiera regalarme un pequeño acto de cuidado, ¿cuál sería?",
+              "Reflexión: Escuchar tus necesidades no te hace egoísta. Te hace humano. Recuperar tu energía comienza cuando dejas de ignorar aquello que tu cuerpo y tu mente llevan tiempo intentando decirte."
+            ]
+          },
+          "reto": {
+            "titulo": "Un acto de recuperación al día",
+            "contenido": [
+              "Durante los próximos siete días, dedica unos minutos a realizar una acción que no tenga como objetivo producir más, sino recuperar tu energía.",
+              "Puede ser algo tan sencillo como: Dormir una siesta breve. Salir a caminar sin prisa. Escuchar música. Leer por placer. Tomar agua con calma. Estirarte. Hablar con alguien que te haga sentir en paz.",
+              "Antes de elegir la actividad, pregúntate: ¿Qué necesita hoy mi energía?",
+              "Al finalizar el día, escribe: ¿Cómo cambió mi energía después de regalarme ese espacio?",
+              "Recuerda: Recuperarte no siempre implica hacer grandes cambios. Muchas veces comienza con pequeños momentos en los que decides dejar de tratarte como una máquina y empiezas a tratarte como una persona que también necesita ser cuidada."
+            ]
+          },
+          "cierre": [
+            "🤍 MI COMPROMISO DE HOY",
+            "Antes de continuar, elige un compromiso para acompañarte durante las próximas 24 horas.",
+            "☐ Hoy escucharé lo que mi energía necesita antes de exigirme más.",
+            "☐ Me regalaré un momento de recuperación sin sentir culpa.",
+            "☐ Recordaré que mi bienestar también merece un espacio en mi día.",
+            "☐ Hoy cuidaré de mí con la misma dedicación con la que suelo cuidar de los demás.",
+            "Recuerda: No necesitas llegar al límite para comenzar a cuidarte. Cada pequeño acto de recuperación es una inversión en tu bienestar físico, emocional y mental.",
+            "💜 CIERRE DEL MÓDULO 2",
+            "Hoy descubriste que muchas veces el mayor obstáculo para descansar no es la falta de tiempo. Es la culpa. Esa voz que dice que deberías seguir. Que todavía falta más. Que descansar puede esperar.",
+            "Sin embargo, también comenzaste a cuestionar esa idea. Comprendiste que tu valor no depende de cuánto produces ni de cuánto eres capaz de sostener antes de agotarte. Tu cuerpo no necesita demostrar que merece descanso. Lo necesita porque es humano. Y tú también.",
+            "Quizá hoy no cambien todas tus responsabilidades. Pero sí puede comenzar a cambiar la forma en que te relacionas contigo mientras las enfrentas. Con más respeto. Con más escucha. Y con la certeza de que cuidar tu energía no es un acto de egoísmo.",
+            "En el siguiente módulo aprenderás a reconocer las señales tempranas que tu cuerpo y tu mente envían antes de llegar al agotamiento extremo. Continúa. Porque el descanso deja de sentirse como una culpa cuando comienzas a reconocerlo como una expresión de amor propio y de responsabilidad hacia tu bienestar."
+          ]
+        },
+        {
+          "titulo": "Módulo 3. Aprender a escuchar las señales antes del agotamiento",
+          "psicoeducacion": {
+            "titulo": "¿Qué intenta decirme mi cuerpo antes de llegar al límite?",
+            "parrafos": [
+              "Nuestro cuerpo rara vez pasa del bienestar al agotamiento extremo de un momento a otro. Generalmente nos envía pequeñas señales mucho antes.",
+              "Una tensión constante en los hombros. Dificultad para concentrarnos. Irritabilidad. Cansancio que no desaparece. Dolores de cabeza frecuentes. Cambios en el sueño. Sensación de estar funcionando en automático.",
+              "El problema es que muchas veces aprendemos a ignorar esas señales. Pensamos: 'Cuando termine esta semana descansaré.' 'Solo un esfuerzo más.' 'Después tendré tiempo para mí.' Y, sin darnos cuenta, convertimos el agotamiento en una forma habitual de vivir.",
+              "Escuchar nuestro cuerpo no significa alarmarnos por cada molestia. Significa reconocer que las emociones y el cuerpo suelen avisarnos cuando algo necesita atención.",
+              "Cuanto antes aprendemos a escuchar esas señales, menos necesitaremos recuperarnos de haberlas ignorado. El autocuidado no comienza cuando estamos completamente agotados. Comienza cuando prestamos atención a los primeros mensajes que nuestro cuerpo intenta enviarnos."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Has seguido trabajando aunque tu cuerpo te pedía detenerte?",
+            "¿Te descubres diciendo con frecuencia: 'Solo un poco más'?",
+            "¿Ignoras el hambre, el sueño o el cansancio porque sientes que hay cosas más importantes?",
+            "¿Notas que te irritas con facilidad cuando llevas varios días sin descansar?",
+            "¿Has normalizado sentirte agotado(a) casi todos los días?",
+            "¿Te cuesta identificar cómo se siente realmente tu cuerpo porque hace mucho tiempo no le prestas atención?"
+          ],
+          "ejercicio": {
+            "titulo": "Mi mapa personal de señales",
+            "instrucciones": "Cada persona experimenta el estrés y el agotamiento de manera diferente. El objetivo de este ejercicio es ayudarte a identificar las señales que aparecen en ti antes de llegar al límite.",
+            "pasos": [
+              "Cuando comienzo a agotarme, mi cuerpo suele...",
+              "Mis emociones cambian de esta manera...",
+              "Mis pensamientos suelen decirme...",
+              "Mis relaciones cambian porque...",
+              "¿Qué señal suelo ignorar con mayor frecuencia?",
+              "¿Qué podría hacer la próxima vez que aparezca esa señal?",
+              "Reflexión: Escuchar las señales tempranas no evita que existan momentos difíciles. Pero sí permite responder antes de que el agotamiento ocupe todo tu espacio. Cada vez que eliges escucharte, estás fortaleciendo una relación más amable y respetuosa contigo mismo."
+            ]
+          },
+          "audio": {
+            "titulo": "Escuchando las señales de mi cuerpo",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Mi semáforo de energía",
+            "contenido": [
+              "Piensa en cómo se manifiesta tu energía en diferentes momentos. Completa este semáforo personal.",
+              "🟢 Cuando estoy bien... ¿Cómo se siente mi cuerpo? ¿Qué emociones predominan?",
+              "🟡 Cuando comienzo a agotarme... ¿Qué primeras señales aparecen? ¿Qué suelo hacer normalmente?",
+              "🔴 Cuando llego al límite... ¿Cómo reacciona mi cuerpo? ¿Cómo afectan esas señales mi trabajo, mis relaciones y mi bienestar?",
+              "Reflexión: ¿Qué podría hacer cuando aparezcan las señales amarillas para evitar llegar al rojo? Recuerda: No necesitamos esperar a sentirnos completamente agotados para empezar a cuidarnos. Las señales tempranas son una oportunidad para actuar con tiempo."
+            ]
+          },
+          "reto": {
+            "titulo": "Mi pausa preventiva",
+            "contenido": [
+              "Durante los próximos siete días, realiza tres pausas breves distribuidas a lo largo del día.",
+              "En cada una de ellas, detente durante un minuto y pregúntate: ¿Cómo está mi energía en este momento?",
+              "Después responde: ¿Qué noto en mi cuerpo? ¿Qué emoción está más presente? ¿Qué necesito ahora mismo?",
+              "Si es posible, realiza una pequeña acción de cuidado. Puede ser: Cambiar de postura. Respirar profundamente. Beber agua. Estirarte. Caminar un par de minutos. Hacer una pausa antes de continuar.",
+              "Al finalizar el día, escribe: ¿Qué cambió cuando escuché las señales de mi cuerpo antes de seguir?",
+              "Recuerda: El autocuidado no comienza cuando todo se detiene. Comienza cuando aprendes a hacer pequeñas pausas antes de llegar al límite."
+            ]
+          },
+          "cierre": [
+            "🤍 MI COMPROMISO DE HOY",
+            "Antes de continuar, elige un compromiso para acompañarte durante las próximas 24 horas.",
+            "☐ Hoy haré una pausa cuando mi cuerpo me envíe la primera señal de cansancio.",
+            "☐ Escucharé mi energía antes de llegar al límite.",
+            "☐ Hoy recordaré que prevenir el agotamiento también es una forma de cuidarme.",
+            "☐ Trataré a mi cuerpo con el mismo respeto con el que trataría a alguien que amo.",
+            "Recuerda: Tu cuerpo no necesita demostrar que está completamente agotado para merecer descanso. Escucharlo a tiempo es una forma de prevenir, proteger y cuidar tu bienestar.",
+            "💜 CIERRE DEL MÓDULO 3",
+            "Hoy aprendiste que el agotamiento rara vez aparece sin avisar. Tu cuerpo suele enviar pequeñas señales mucho antes de llegar al límite.",
+            "Quizá durante mucho tiempo esas señales pasaron desapercibidas. No porque no existieran. Sino porque aprendiste a seguir adelante incluso cuando necesitabas detenerte.",
+            "Sin embargo, hoy comenzaste a desarrollar una habilidad diferente. La capacidad de escucharte. No para alarmarte. No para dejar de hacer todo. Sino para responder con mayor conciencia antes de que el desgaste se vuelva demasiado grande.",
+            "Tu cuerpo no es un obstáculo que debas vencer. Es un compañero que intenta ayudarte a sostener tu vida de la mejor manera posible. Cada vez que escuchas una señal temprana, estás diciendo: 'Mi bienestar también importa.' Continúa."
+          ]
+        },
+        {
+          "titulo": "Módulo 4. Construyendo una vida donde mi energía también importa",
+          "psicoeducacion": {
+            "titulo": "¿Cómo puedo cuidar mi energía de forma sostenible?",
+            "parrafos": [
+              "Muchas personas solo comienzan a cuidarse cuando el cuerpo ya no puede más. Esperan a sentirse completamente agotadas para hacer una pausa.",
+              "Sin embargo, el verdadero autocuidado no consiste únicamente en recuperarse. También consiste en construir una vida donde el desgaste constante deje de ser la norma.",
+              "Eso significa aprender a observar cómo distribuyes tu energía. Reconocer qué actividades la fortalecen. Cuáles la consumen. Y qué pequeños cambios pueden ayudarte a vivir con mayor equilibrio.",
+              "No siempre será posible eliminar todas las fuentes de estrés. La vida seguirá teniendo responsabilidades, desafíos y momentos de mucho esfuerzo. Pero sí es posible desarrollar hábitos que permitan recuperar energía antes de llegar al límite.",
+              "El bienestar no depende únicamente de los grandes cambios. Con frecuencia se construye a través de pequeñas decisiones repetidas cada día. Una pausa. Dormir un poco mejor. Pedir ayuda cuando la necesitas. Decir 'no' cuando algo supera tus posibilidades. Elegir momentos para disfrutar sin sentir culpa.",
+              "Cuidar de tu energía no significa vivir haciendo menos. Significa aprender a sostener aquello que realmente es importante sin dejarte a ti en el último lugar."
+            ]
+          },
+          "te_ha_pasado": [
+            "¿Organizas tus días pensando únicamente en todo lo que debes hacer y muy poco en cómo quieres sentirte?",
+            "¿Te resulta más fácil cuidar de otras personas que cuidar de ti?",
+            "¿Has pensado que descansar es algo que harás 'cuando tengas tiempo'?",
+            "¿Sientes que siempre estás apagando incendios en lugar de prevenirlos?",
+            "¿Te gustaría vivir con un ritmo más equilibrado, pero no sabes por dónde comenzar?"
+          ],
+          "ejercicio": {
+            "titulo": "Diseñando mi plan de recuperación",
+            "instrucciones": "Piensa en cómo te gustaría cuidar de tu energía durante las próximas semanas. No busques hacer cambios enormes. Busca cambios posibles.",
+            "pasos": [
+              "¿Qué hábito pequeño me gustaría incorporar para cuidar mejor mi energía?",
+              "¿Qué actividad necesito realizar con mayor frecuencia porque me ayuda a recuperarme?",
+              "¿Qué situación necesito comenzar a limitar para proteger mi bienestar?",
+              "¿Qué persona podría acompañarme o apoyarme en este proceso?",
+              "¿Cuál será mi primer paso durante esta semana?",
+              "Reflexión: Las grandes transformaciones rara vez comienzan con cambios radicales. La mayoría empiezan con pequeñas decisiones que repetimos hasta convertirlas en una nueva forma de vivir."
+            ]
+          },
+          "audio": {
+            "titulo": "Imaginando una vida con más equilibrio",
+            "duracion": "Audio Guiado",
+            "url": "ENLACE_PENDIENTE.mp3"
+          },
+          "hoja_trabajo": {
+            "titulo": "Mi plan de bienestar sostenible",
+            "contenido": [
+              "Después de todo lo aprendido en esta ruta, es momento de transformar las ideas en acciones concretas.",
+              "Tres hábitos que quiero mantener para cuidar mi energía:",
+              "Tres señales que no volveré a ignorar:",
+              "Tres acciones que puedo realizar cuando note esas señales:",
+              "Personas o espacios que pueden ayudarme a sostener este cambio:",
+              "Reflexión final: ¿Qué quiero recordar cuando vuelva a sentir que debo exigirme más de lo que puedo sostener?",
+              "Guarda esta hoja. Puede convertirse en un recordatorio para volver a ti cada vez que la rutina intente llevarte nuevamente al agotamiento."
+            ]
+          },
+          "reto": {
+            "titulo": "Elegir mi energía cada día",
+            "contenido": [
+              "Durante los próximos siete días, comienza cada mañana respondiendo una sola pregunta: ¿Qué decisión puedo tomar hoy para cuidar mejor mi energía?",
+              "No busques cambios grandes. Elige una acción sencilla. Por ejemplo: Hacer una pausa antes de sentirte agotado(a). Dormir un poco más temprano. Delegar una tarea. Comer con calma. Decir 'no' a un compromiso innecesario.",
+              "Al finalizar el día, escribe: ¿Cómo cambió mi día al elegir cuidar mi energía desde el inicio?",
+              "Recuerda: No necesitas transformar toda tu vida en una semana. Solo necesitas repetir pequeñas decisiones que, con el tiempo, se convertirán en una nueva forma de vivir."
+            ]
+          },
+          "cierre": [
+            "🤍 MI COMPROMISO DE HOY",
+            "Antes de cerrar esta ruta, dedica un momento para elegir el compromiso que deseas llevar contigo.",
+            "☐ Hoy recordaré que mi energía tiene un límite y merece ser respetada.",
+            "☐ Elegiré hacer una pausa antes de llegar al agotamiento.",
+            "☐ Cuidaré de mí con la misma dedicación con la que suelo cuidar de los demás.",
+            "☐ A partir de hoy, dejaré de medir mi valor por todo lo que logro hacer.",
+            "Respira profundamente. Este compromiso no es una promesa de perfección. Es una decisión de volver a escucharte una y otra vez, incluso cuando la rutina intente llevarte nuevamente al desgaste.",
+            "🌿 CIERRE DE LA RUTA",
+            "Recuperar mi energía también es recuperar una parte de mí.",
+            "A lo largo de esta ruta aprendiste que el agotamiento no aparece de un día para otro. Descubriste cómo el estrés sostenido puede afectar tu cuerpo, tus emociones y tu manera de relacionarte contigo mismo.",
+            "Comprendiste que descansar no es un premio que se obtiene después de terminarlo todo. Es una necesidad humana. Aprendiste a reconocer las señales tempranas de tu cuerpo. A hacer pausas antes de llegar al límite. Y, sobre todo, comenzaste a construir una relación más amable con tu propia energía.",
+            "Quizá tus responsabilidades no desaparezcan mañana. Tal vez sigas teniendo días difíciles. Pero ahora cuentas con algo que antes no tenías. Mayor conciencia. Herramientas para escucharte. Y la posibilidad de elegirte incluso en medio de las exigencias de la vida.",
+            "Recuerda que el bienestar no consiste en vivir sin estrés. Consiste en aprender a recuperarte, a cuidarte y a regresar a ti antes de que el agotamiento tome el control.",
+            "Gracias por recorrer esta ruta. Esperamos que las herramientas que encontraste aquí continúen acompañándote mucho después de haber terminado este programa. Porque cuidar tu energía no es un lujo. Es una manera de honrar la vida que estás construyendo."
+          ]
+        }
+      ]
+    }
+  ]
 
 =================================================================
 ARCHIVO: premium_data.json
