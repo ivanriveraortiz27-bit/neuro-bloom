@@ -1314,7 +1314,7 @@ ARCHIVO: datos_reto.json
 =================================================================
 
 {
-  "youtube_id": "3MSohh4uBgw",
+  "url": "./audios/reto_agosto.mpeg",
   "intro": [
     "✨ ENFOQUE DEL MES | AGOSTO",
     "🌸 Volver a mí",
@@ -1398,7 +1398,7 @@ ARCHIVO: datos_reto.json
   "semanas": [
     {
       "id": "sem1",
-      "youtube_id": "q6LTwWarLag",
+      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🌱 SEMANA 1 | Volver a escucharme",
         "¿Hace cuánto no te preguntas qué necesitas tú?",
@@ -1500,7 +1500,7 @@ ARCHIVO: datos_reto.json
     },
     {
       "id": "sem2",
-      "youtube_id": "xurBF4VkTtw",
+      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🤍 SEMANA 2 | Elegirme sin culpa",
         "Lo difícil que es elegirte sin sentir culpa",
@@ -1634,7 +1634,7 @@ ARCHIVO: datos_reto.json
     },
     {
       "id": "sem3",
-      "youtube_id": "zC847SyiK_I",
+      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🌸 SEMANA 3 | Recordar quién soy",
         "¿Quién eres además de todo lo que haces?",
@@ -1767,7 +1767,7 @@ ARCHIVO: datos_reto.json
     },
     {
       "id": "sem4",
-      "youtube_id": "aGYN_8ThCS8",
+      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🪷 SEMANA 4 | Empezar desde mí",
         "¿Qué versión de ti quieres empezar a construir?",
@@ -5094,6 +5094,14 @@ ARCHIVO: index.html
                                                                 <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${appData.reto_del_mes.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
                                                             </div>
                                                         )}
+                                                        {appData.reto_del_mes.url && (
+                                                            <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                                <audio controls className="w-full outline-none">
+                                                                    <source src={appData.reto_del_mes.url} type="audio/mpeg" />
+                                                                    Tu navegador no soporta el elemento de audio.
+                                                                </audio>
+                                                            </div>
+                                                        )}
                                                         {renderContenidoTexto(appData.reto_del_mes.intro)}
                                                     </div>
                                                 )}
@@ -5106,6 +5114,14 @@ ARCHIVO: index.html
                                                             {semanaData.youtube_id && (
                                                                 <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
                                                                     <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${semanaData.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                                                </div>
+                                                            )}
+                                                            {semanaData.url && (
+                                                                <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                                    <audio controls className="w-full outline-none">
+                                                                        <source src={semanaData.url} type="audio/mpeg" />
+                                                                        Tu navegador no soporta el elemento de audio.
+                                                                    </audio>
                                                                 </div>
                                                             )}
                                                             {renderContenidoTexto(semanaData.contenido)}
@@ -5446,165 +5462,6 @@ ARCHIVO: premium_data.json
 =================================================================
 
 {
-  "perfil_emocional": {
-    "intro": "Antes de comenzar tu recorrido en Bloom Premium, te invitamos a realizar esta evaluación.\n\nHa sido diseñada como una herramienta de autoconocimiento que te ayudará a comprender cómo estás viviendo este momento de tu vida, identificar tus principales fortalezas emocionales y reconocer aquellas áreas que pueden beneficiarse de una mayor atención.\n\nResponde pensando en cómo te has sentido durante las últimas dos semanas. No existen respuestas correctas o incorrectas. Lo más importante es responder con honestidad.",
-    "escala": [
-      { "l": "Nunca", "v": 0 },
-      { "l": "Casi nunca", "v": 1 },
-      { "l": "Algunas veces", "v": 2 },
-      { "l": "Con frecuencia", "v": 3 },
-      { "l": "Casi siempre", "v": 4 }
-    ],
-    "dimensiones": [
-      {
-        "id": "dim1",
-        "titulo": "Dimensión 1. Regulación emocional",
-        "descripcion": "La regulación emocional refleja la forma en que reconoces, comprendes y manejas tus emociones.",
-        "preguntas": [
-          { "texto": "Cuando experimento emociones intensas, me resulta difícil recuperar la calma." },
-          { "texto": "Paso mucho tiempo dando vueltas a situaciones que me preocuparon o molestaron." },
-          { "texto": "Me cuesta aceptar emociones como la tristeza, el miedo o el enojo sin juzgarme por sentirlas." },
-          { "texto": "Reacciono impulsivamente cuando experimento emociones intensas." },
-          { "texto": "Cuando algo me afecta emocionalmente, noto tensión, inquietud o malestar físico en mi cuerpo." },
-          { "texto": "Después de una situación estresante, mi cuerpo tarda mucho tiempo en relajarse." },
-          { "texto": "Incluso en situaciones de estrés, puedo encontrar formas saludables de tranquilizarme.", "invertida": true },
-          { "texto": "Soy capaz de reconocer lo que estoy sintiendo antes de reaccionar impulsivamente.", "invertida": true }
-        ],
-        "resultados": [
-          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "La regulación emocional es una fortaleza. Generalmente logras recuperar la calma y responder de forma equilibrada.", "reflejo": "Reconoces lo que sientes. Recuperas la calma. Actúas con reflexión.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 6. Relacionarme con los demás sin dejar de ser yo" },
-          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "En algunas situaciones regular tus emociones requiere un mayor esfuerzo, aunque cuentas con recursos para fortalecer esta habilidad.", "reflejo": "Mayor sensibilidad emocional. Preocupaciones ocasionales. Necesitas más tiempo para recuperarte.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
-          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Actualmente esta área genera un desgaste importante y merece atención para recuperar el equilibrio emocional.", "reflejo": "Emociones intensas. Estrés persistente. Dificultad para recuperar la calma.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 3. Gestionar la ansiedad" },
-          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Esta es una de las áreas prioritarias para trabajar. Con apoyo y herramientas adecuadas es posible fortalecerla.", "reflejo": "Desborde emocional. Agotamiento. Estrés frecuente.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 3. Gestionar la ansiedad" }
-        ]
-      },
-      {
-        "id": "dim2",
-        "titulo": "Dimensión 2. Carga emocional",
-        "descripcion": "La carga emocional refleja el impacto que las responsabilidades y preocupaciones tienen sobre tu bienestar.",
-        "preguntas": [
-          { "texto": "Me he sentido emocionalmente agotado(a), como si ya no tuviera energía para afrontar el día." },
-          { "texto": "Me cuesta encontrar motivación para realizar actividades que normalmente forman parte de mi rutina." },
-          { "texto": "Siento que las preocupaciones se acumulan y pesan más de lo que puedo manejar." },
-          { "texto": "He perdido el interés o el entusiasmo por actividades que antes disfrutaba." },
-          { "texto": "En varios momentos del día experimento una sensación de vacío o desconexión emocional." },
-          { "texto": "Tengo la sensación de que necesito descansar emocionalmente, aunque haya dormido." },
-          { "texto": "A pesar de las dificultades, todavía puedo disfrutar pequeños momentos de bienestar.", "invertida": true },
-          { "texto": "Mantengo esperanza de que las situaciones difíciles pueden mejorar.", "invertida": true }
-        ],
-        "resultados": [
-          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Mantienes un equilibrio saludable entre tus responsabilidades y tus recursos personales.", "reflejo": "Recuperas energía. Mantienes espacios de descanso. Conservas equilibrio.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" },
-          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Las exigencias han aumentado y conviene prestar mayor atención al descanso y al autocuidado.", "reflejo": "Más cansancio. Menos tiempo para ti. Pendientes constantes.", "ruta_prin": "Ruta 4. Recuperar mi energía y aprender a descansar", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
-          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Actualmente sostienes una carga emocional importante que puede afectar tu bienestar.", "reflejo": "Agotamiento. Dificultad para desconectar. Poca energía.", "ruta_prin": "Ruta 4. Recuperar mi energía y aprender a descansar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
-          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "La sobrecarga emocional requiere atención prioritaria para recuperar energía y equilibrio.", "reflejo": "Desgaste persistente. Desmotivación. Sobrecarga constante.", "ruta_prin": "Ruta 4. Recuperar mi energía y aprender a descansar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" }
-        ]
-      },
-      {
-        "id": "dim3",
-        "titulo": "Dimensión 3. Relaciones interpersonales",
-        "descripcion": "Esta dimensión refleja cómo vives tus relaciones, la comunicación, la confianza y la capacidad para establecer límites saludables.",
-        "preguntas": [
-          { "texto": "Me preocupa que las personas importantes para mí puedan alejarse o dejar de quererme." },
-          { "texto": "Con frecuencia me cuesta expresar lo que realmente siento o necesito." },
-          { "texto": "Suelo priorizar las necesidades de otras personas antes que las mías, incluso cuando eso me afecta." },
-          { "texto": "Me resulta difícil establecer límites cuando algo me incomoda." },
-          { "texto": "Me doy cuenta de que repito patrones similares en diferentes relaciones." },
-          { "texto": "A veces evito expresar mi opinión por miedo a generar rechazo o conflicto." },
-          { "texto": "Soy capaz de establecer límites saludables cuando una situación lo requiere.", "invertida": true },
-          { "texto": "Siento que puedo mostrar quién soy realmente sin miedo a ser juzgado(a) por las personas cercanas.", "invertida": true }
-        ],
-        "resultados": [
-          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Tus relaciones representan una fortaleza. Generalmente logras comunicarte con respeto, expresar tus necesidades y construir vínculos equilibrados.", "reflejo": "Expresas lo que necesitas. Estableces límites saludables. Disfrutas relaciones de confianza.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
-          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Algunas situaciones sociales pueden representar un reto, aunque cuentas con recursos para fortalecer tus relaciones.", "reflejo": "Te cuesta decir 'no'. Evitas algunos conflictos. Priorizas a otros antes que a ti.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" },
-          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Esta área está generando un desgaste importante y puede afectar la forma en que te relacionas con los demás.", "reflejo": "Dificultad para poner límites. Miedo al rechazo. Descuidas tus propias necesidades.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" },
-          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Actualmente esta es una de las áreas prioritarias para trabajar y fortalecer vínculos más seguros y saludables.", "reflejo": "Relaciones desgastantes. Culpa al poner límites. Temor constante a decepcionar.", "ruta_prin": "Ruta 6. Relacionarme con los demás sin dejar de ser yo", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" }
-        ]
-      },
-      {
-        "id": "dim4",
-        "titulo": "Dimensión 4. Autoimagen y autoexigencia",
-        "descripcion": "Esta dimensión refleja la forma en que te percibes, el nivel de exigencia que tienes contigo y la estabilidad de tu autoestima.",
-        "preguntas": [
-          { "texto": "Con frecuencia siento que lo que hago nunca es suficiente." },
-          { "texto": "Me hablo con dureza cuando cometo un error." },
-          { "texto": "Suelo compararme con otras personas y sentir que debería hacer más." },
-          { "texto": "Siento que necesito demostrar constantemente mi valor o capacidad." },
-          { "texto": "Me cuesta sentirme satisfecho(a) con mis logros, incluso cuando alcanzo mis objetivos." },
-          { "texto": "Me cuesta permitirme descansar porque siento que siempre hay algo más por hacer." },
-          { "texto": "Me trato con amabilidad y comprensión cuando las cosas no salen como esperaba.", "invertida": true },
-          { "texto": "Considero que mi valor como persona no depende únicamente de mis resultados o desempeño.", "invertida": true }
-        ],
-        "resultados": [
-          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Mantienes una relación saludable contigo mismo(a). Reconoces tus fortalezas y aceptas tus áreas de oportunidad.", "reflejo": "Valoras tus logros. Aprendes de los errores. Tienes expectativas realistas.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
-          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "En ocasiones eres más crítico(a) contigo de lo necesario. Esta área puede fortalecerse.", "reflejo": "Te comparas con otros. Minimizas tus logros. Sientes que podrías hacer más.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" },
-          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "La autoexigencia está afectando tu bienestar y puede convertirse en una fuente importante de desgaste emocional.", "reflejo": "Autocrítica frecuente. Dificultad para disfrutar tus logros. Perfeccionismo.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" },
-          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "La relación contigo mismo(a) requiere atención prioritaria para desarrollar una autoestima más estable y compasiva.", "reflejo": "Sientes que nunca es suficiente. Culpa al descansar. Necesidad de hacerlo todo perfecto.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 4. Recuperar mi energía y aprender a descansar" }
-        ]
-      },
-      {
-        "id": "dim5",
-        "titulo": "Dimensión 5. Recursos internos y resiliencia",
-        "descripcion": "Esta dimensión refleja tu capacidad para afrontar dificultades, adaptarte a los cambios y recuperar el equilibrio después de experiencias estresantes.",
-        "preguntas": [
-          { "texto": "Cuando enfrento una situación difícil, confío en que podré encontrar una forma de afrontarla.", "invertida": true },
-          { "texto": "Siento que cuento con herramientas emocionales para manejar los desafíos de la vida.", "invertida": true },
-          { "texto": "Cuando necesito apoyo, me resulta fácil pedir ayuda a personas de confianza.", "invertida": true },
-          { "texto": "Dedico tiempo a cuidar de mi bienestar físico y emocional.", "invertida": true },
-          { "texto": "Me siento conectado(a) conmigo mismo(a) y con lo que necesito.", "invertida": true },
-          { "texto": "Generalmente puedo identificar lo que me ayuda a recuperar la calma cuando paso por momentos difíciles.", "invertida": true },
-          { "texto": "Aun en etapas complicadas, suelo encontrar pequeñas acciones que me ayudan a sentirme mejor.", "invertida": true },
-          { "texto": "Con frecuencia siento que no tengo los recursos suficientes para afrontar lo que estoy viviendo." }
-        ],
-        "resultados": [
-          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Cuentas con recursos personales sólidos para afrontar los desafíos y recuperar el equilibrio.", "reflejo": "Confías en tus capacidades. Te adaptas a los cambios. Recuperas la motivación.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 2. Fortalecer mi autoestima" },
-          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Aunque cuentas con fortalezas, en algunas situaciones puedes dudar de tus propios recursos.", "reflejo": "Inseguridad ante cambios. Dudas en momentos de estrés. Recuperación más lenta.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
-          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "Actualmente podrías percibir que las dificultades superan tus recursos personales.", "reflejo": "Sensación de no poder. Poca confianza. Cambios abrumadores.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
-          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Esta es una de las áreas prioritarias para fortalecer y recuperar la confianza en tus capacidades.", "reflejo": "Desesperanza. Poca confianza. Dificultad para afrontar retos.", "ruta_prin": "Ruta 2. Fortalecer mi autoestima", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" }
-        ]
-      },
-      {
-        "id": "dim6",
-        "titulo": "Dimensión 6. Flexibilidad psicológica",
-        "descripcion": "Esta dimensión refleja tu capacidad para adaptarte a los cambios, aceptar experiencias difíciles y actuar de acuerdo con tus valores.",
-        "preguntas": [
-          { "texto": "Cuando aparecen emociones difíciles, siento que ellas controlan mis decisiones." },
-          { "texto": "Me cuesta aceptar situaciones que no puedo cambiar." },
-          { "texto": "Cuando algo no sale como esperaba, me resulta difícil adaptarme." },
-          { "texto": "Suelo evitar situaciones que podrían hacerme sentir incómodo(a) o vulnerable." },
-          { "texto": "Me quedo atrapado(a) durante mucho tiempo en pensamientos negativos." },
-          { "texto": "La incertidumbre suele generar en mí un nivel de tensión difícil de manejar." },
-          { "texto": "Aunque experimente emociones desagradables, puedo continuar haciendo aquello que considero importante.", "invertida": true },
-          { "texto": "Cuando enfrento dificultades, procuro tomar decisiones de acuerdo con mis valores y no únicamente con mis emociones del momento.", "invertida": true }
-        ],
-        "resultados": [
-          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Generalmente logras adaptarte a los cambios y mantenerte conectado(a) con lo que es importante para ti.", "reflejo": "Aceptas los cambios. Actúas según tus valores. Te adaptas con facilidad.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 1. Regular mi sistema nervioso" },
-          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "En algunas circunstancias adaptarte puede requerir un mayor esfuerzo.", "reflejo": "Resistencia al cambio. Dudas al decidir. Evitas algunas situaciones.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
-          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "La rigidez emocional está interfiriendo con tu bienestar y merece atención.", "reflejo": "Evitas la incertidumbre. Pensamientos persistentes. Dificultad para adaptarte.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" },
-          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Actualmente esta área requiere atención prioritaria para desarrollar mayor flexibilidad y bienestar.", "reflejo": "Bloqueo ante cambios. Evitación. Pensamientos dominantes.", "ruta_prin": "Ruta 1. Regular mi sistema nervioso", "ruta_comp": "Ruta 7. Construir una vida con propósito y bienestar" }
-        ]
-      },
-      {
-        "id": "dim7",
-        "titulo": "Dimensión 7. Bienestar psicológico",
-        "descripcion": "Esta dimensión refleja la percepción general que tienes sobre tu bienestar, equilibrio emocional y sentido de vida.",
-        "preguntas": [
-          { "texto": "Me siento satisfecho(a) con la forma en que está transcurriendo mi vida en este momento.", "invertida": true },
-          { "texto": "Generalmente encuentro motivos para disfrutar pequeños momentos de mi día.", "invertida": true },
-          { "texto": "Mantengo una actitud optimista respecto a mi futuro.", "invertida": true },
-          { "texto": "Considero que mi vida mantiene un equilibrio saludable entre responsabilidades y bienestar personal.", "invertida": true },
-          { "texto": "Me siento con energía suficiente para realizar las actividades que considero importantes.", "invertida": true },
-          { "texto": "Suelo experimentar momentos de tranquilidad, satisfaction o bienestar durante la semana.", "invertida": true },
-          { "texto": "Dedico tiempo a actividades que disfruto y que aportan bienestar a mi vida.", "invertida": true },
-          { "texto": "Con frecuencia siento que mi vida ha perdido el equilibrio." }
-        ],
-        "resultados": [
-          { "rango": [0, 7], "nivel": "Bajo", "color": "text-green-500", "bg": "bg-green-100", "desc": "Experimentas una percepción positiva de tu bienestar y encuentras satisfacción en distintas áreas de tu vida.", "reflejo": "Disfrutas tus actividades. Encuentras propósito. Mantienes equilibrio.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
-          { "rango": [8, 15], "nivel": "Moderado", "color": "text-yellow-500", "bg": "bg-yellow-100", "desc": "Algunas preocupaciones pueden estar disminuyendo temporalmente tu bienestar.", "reflejo": "Menor entusiasmo. Más preocupaciones. Necesidad de reconectar contigo.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
-          { "rango": [16, 23], "nivel": "Alto", "color": "text-orange-500", "bg": "bg-orange-100", "desc": "El bienestar psicológico se ha visto afectado y conviene intervenir para recuperar el equilibrio.", "reflejo": "Desmotivación. Estrés constante. Menor disfrute.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" },
-          { "rango": [24, 32], "nivel": "Muy alto", "color": "text-red-500", "bg": "bg-red-100", "desc": "Esta es una de las áreas prioritarias para trabajar y fortalecer gradualmente tu bienestar emocional.", "reflejo": "Pérdida de motivación. Desgaste emocional. Falta de propósito.", "ruta_prin": "Ruta 7. Construir una vida con propósito y bienestar", "ruta_comp": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza" }
-        ]
-      }
-    ]
-  },
   "rutas": [
     {
       "id": "ruta1",
@@ -5645,7 +5502,8 @@ ARCHIVO: premium_data.json
           },
           "audio": {
             "titulo": "Volviendo a un lugar seguro",
-            "duracion": "Audio Guiado"
+            "duracion": "Audio Guiado",
+            "url": "./audios/ruta1-modulo1.mpeg"
           },
           "hoja_trabajo": {
             "titulo": "Conociendo las señales de mi sistema nervioso",
@@ -5705,7 +5563,8 @@ ARCHIVO: premium_data.json
           },
           "audio": {
             "titulo": "Mi cuerpo puede sentirse seguro nuevamente",
-            "duracion": "Audio Guiado"
+            "duracion": "Audio Guiado",
+            "url": "./audios/ruta1-modulo2.mpeg"
           },
           "hoja_trabajo": {
             "titulo": "Mi mapa de seguridad",
@@ -5764,7 +5623,8 @@ ARCHIVO: premium_data.json
           },
           "audio": {
             "titulo": "Un pequeño hábito puede cambiar mucho",
-            "duracion": "Audio Guiado"
+            "duracion": "Audio Guiado",
+            "url": "./audios/ruta1-modulo3.mpeg"
           },
           "hoja_trabajo": {
             "titulo": "Construyendo mi rutina de calma",
@@ -5824,7 +5684,8 @@ ARCHIVO: premium_data.json
           },
           "audio": {
             "titulo": "Volver a mí",
-            "duracion": "Audio Guiado"
+            "duracion": "Audio Guiado",
+            "url": "./audios/ruta1-modulo4.mpeg"
           },
           "hoja_trabajo": {
             "titulo": "Mi caja de herramientas",
@@ -5885,10 +5746,6 @@ ARCHIVO: premium_data.json
               "Comprender el origen de esas creencias es el primer paso para comenzar a transformarlas. Tu historia explica muchas cosas, pero no define todo lo que puedes llegar a ser."
             ]
           },
-          "audio": {
-            "titulo": "Descubriendo mi valor con mayor amabilidad",
-            "duracion": "Audio Guiado"
-          },
           "hoja_trabajo": {
             "titulo": "Descubriendo cómo me hablo",
             "contenido": [
@@ -5937,10 +5794,6 @@ ARCHIVO: premium_data.json
               "Si un ser querido estuviera viviendo esa misma situación, ¿qué le diría? ¿Cómo podría decirme esas mismas palabras a mí?",
               "Escribe 3 frases de 'Mi voz que critica' y transfórmalas en mensajes más amables, realistas y respetuosos."
             ]
-          },
-          "audio": {
-            "titulo": "Aprendiendo a hablarme con mayor amabilidad",
-            "duracion": "Audio Guiado"
           },
           "hoja_trabajo": {
             "titulo": "Transformando mi diálogo interior",
@@ -5991,10 +5844,6 @@ ARCHIVO: premium_data.json
               "Escribe al menos 5 recursos, capacidades o valores que reconoces en ti hoy."
             ]
           },
-          "audio": {
-            "titulo": "Redescubriendo el valor que ya existe en mí",
-            "duracion": "Audio Guiado"
-          },
           "hoja_trabajo": {
             "titulo": "Reconociendo mis recursos cada día",
             "contenido": [
@@ -6044,10 +5893,6 @@ ARCHIVO: premium_data.json
               "Mi brújula interior. Completa: 'Yo sé que soy una persona valiosa porque...' / 'Cuando dude de mí, quiero recordar que...'",
               "Una autoestima sólida nace de recordar que tu valor siempre ha estado contigo."
             ]
-          },
-          "audio": {
-            "titulo": "Construyendo una autoestima que nace de mí",
-            "duracion": "Audio Guiado"
           },
           "hoja_trabajo": {
             "titulo": "Mi brújula interior",
@@ -6115,10 +5960,6 @@ ARCHIVO: premium_data.json
               "Lo que realmente estaba ocurriendo: En este momento, ¿qué hechos puedo comprobar que son reales? ¿Qué parte corresponde a hechos y cuál corresponde a posibilidades que mi mente está anticipando?",
               "Reflexión: Observa tus respuestas. La ansiedad suele hablarnos en términos de posibilidades. La realidad, en cambio, está formada por hechos que podemos observar aquí y ahora. Eso no significa ignorar los riesgos. Significa aprender a distinguir entre aquello que está ocurriendo y aquello que nuestra mente teme que podría ocurrir. Cada vez que haces esta diferencia, ayudas a tu cerebro a responder con mayor claridad y menos miedo frente a la incertidumbre."
             ]
-          },
-          "audio": {
-            "titulo": "Volviendo al momento presente",
-            "duracion": "Audio Guiado"
           },
           "hoja_trabajo": {
             "titulo": "Hechos o anticipaciones",
@@ -6198,10 +6039,6 @@ ARCHIVO: premium_data.json
               "Reflexión: Observa cómo cambia tu perspectiva cuando dejas de tratar todos tus pensamientos como si fueran hechos. Los pensamientos son eventos mentales. Los hechos son aquello que puede comprobarse. Aprender a diferenciarlos es una de las habilidades más valiosas para disminuir el impacto de la ansiedad y responder con mayor claridad ante la incertidumbre."
             ]
           },
-          "audio": {
-            "titulo": "Observando mis pensamientos con distancia",
-            "duracion": "Audio Guiado"
-          },
           "hoja_trabajo": {
             "titulo": "Cuestionando mis pensamientos",
             "contenido": [
@@ -6274,10 +6111,6 @@ ARCHIVO: premium_data.json
               "Reflexión: La ansiedad suele convencernos de que el futuro necesita toda nuestra atención. Pero la calma comienza cuando recordamos que la vida solo puede experimentarse en el presente. Cada vez que eliges regresar al aquí y ahora, fortaleces una capacidad que puedes practicar durante toda tu vida."
             ]
           },
-          "audio": {
-            "titulo": "Regresando a este momento",
-            "duracion": "Audio Guiado"
-          },
           "hoja_trabajo": {
             "titulo": "Recuperando momentos de vida",
             "contenido": [
@@ -6347,10 +6180,6 @@ ARCHIVO: premium_data.json
               "¿Qué decisión puedo tomar hoy, aun sin tener todas las respuestas?",
               "Reflexión: La incertidumbre no desaparece cuando intentamos controlarla. Muchas veces disminuye cuando descubrimos que somos capaces de avanzar incluso sin conocer el desenlace. Confiar no siempre significa tener certeza. A veces significa recordar que ya has superado muchas situaciones antes y que también podrás afrontar las que vengan."
             ]
-          },
-          "audio": {
-            "titulo": "Confiar incluso cuando no tengo todas las respuestas",
-            "duracion": "Audio Guiado"
           },
           "hoja_trabajo": {
             "titulo": "Lo que puedo controlar y lo que necesito soltar",
@@ -6432,10 +6261,6 @@ ARCHIVO: premium_data.json
               "Reflexión: Nuestro cuerpo suele enviarnos señales mucho antes de llegar al agotamiento extremo. Aprender a escucharlas es una forma de autocuidado. Quizá no puedas cambiar todas las exigencias de tu vida de un día para otro. Pero sí puedes comenzar a prestar atención a la persona que ha sostenido todas esas exigencias: tú."
             ]
           },
-          "audio": {
-            "titulo": "Darme permiso para descansar",
-            "duracion": "Audio Guiado"
-          },
           "hoja_trabajo": {
             "titulo": "Mi balance de energía",
             "contenido": [
@@ -6505,10 +6330,6 @@ ARCHIVO: premium_data.json
               "¿Por qué me cuesta ofrecerme esa misma comprensión?",
               "Reflexión: Muchas veces tratamos a nuestro cuerpo con una exigencia que jamás tendríamos hacia alguien que amamos. Quizá hoy puedas comenzar a ofrecerte el mismo cuidado que darías a otra persona. Ese también es un acto de fortaleza."
             ]
-          },
-          "audio": {
-            "titulo": "Escuchar lo que mi energía necesita",
-            "duracion": "Audio Guiado"
           },
           "hoja_trabajo": {
             "titulo": "Lo que hoy necesita mi energía",
@@ -6580,10 +6401,6 @@ ARCHIVO: premium_data.json
               "Reflexión: Escuchar las señales tempranas no evita que existan momentos difíciles. Pero sí permite responder antes de que el agotamiento ocupe todo tu espacio. Cada vez que eliges escucharte, estás fortaleciendo una relación más amable y respetuosa contigo mismo."
             ]
           },
-          "audio": {
-            "titulo": "Escuchando las señales de mi cuerpo",
-            "duracion": "Audio Guiado"
-          },
           "hoja_trabajo": {
             "titulo": "Mi semáforo de energía",
             "contenido": [
@@ -6652,10 +6469,6 @@ ARCHIVO: premium_data.json
               "Reflexión: Las grandes transformaciones rara vez comienzan con cambios radicales. La mayoría empiezan con pequeñas decisiones que repetimos hasta convertirlas en una nueva forma de vivir."
             ]
           },
-          "audio": {
-            "titulo": "Imaginando una vida con más equilibrio",
-            "duracion": "Audio Guiado"
-          },
           "hoja_trabajo": {
             "titulo": "Mi plan de bienestar sostenible",
             "contenido": [
@@ -6695,1300 +6508,8 @@ ARCHIVO: premium_data.json
           ]
         }
       ]
-    },
-    {
-      "id": "ruta5",
-      "titulo": "Ruta 5. Reconectar con mis emociones y recuperar la esperanza",
-      "descripcion": "Aprende a comprender, expresar e integrar tus emociones para avanzar con mayor tranquilidad.",
-      "modulos": [
-        {
-          "titulo": "Módulo 1. Comprender que sentir también es sanar",
-          "psicoeducacion": {
-            "titulo": "¿Por qué a veces dejamos de sentir?",
-            "parrafos": [
-              "Las emociones forman parte de nuestra manera natural de responder a lo que vivimos. Nos ayudan a adaptarnos, comprender nuestras experiencias y conectar con nuestras necesidades.",
-              "Sin embargo, cuando atravesamos pérdidas, situaciones muy dolorosas o largos periodos de estrés, es posible que aparezca una sensación diferente. Algunas personas sienten una tristeza profunda. Otras experimentan enojo, culpa o miedo. Y muchas describen algo distinto: Como si ya no sintieran casi nada. Como si estuvieran viviendo en piloto automático.",
-              "Este distanciamiento emocional no significa que seas una persona fría o que hayas dejado de sentir para siempre. Con frecuencia es una forma en que nuestro sistema psicológico intenta protegernos cuando el dolor resulta demasiado intenso o se ha mantenido durante mucho tiempo.",
-              "Pero aquello que nos protege temporalmente también puede alejarnos de la alegría, del entusiasmo, de la calma y de la conexión con los demás.",
-              "Sanar no significa obligarte a sentir todo de golpe. Significa crear un espacio seguro para volver a acercarte, poco a poco, a tu mundo emocional. Cada emoción, incluso las más difíciles, contiene información valiosa sobre lo que estás viviendo y sobre aquello que necesitas. Reconectar con ellas es un paso importante para recuperar también la esperanza."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Sientes que últimamente todo te da igual?",
-            "¿Te cuesta disfrutar actividades que antes te hacían sentir bien?",
-            "¿Has pensado que llorar sería una señal de debilidad?",
-            "¿Evitas hablar de lo que sientes porque temes desbordarte?",
-            "¿Te has acostumbrado tanto a seguir adelante que ya no sabes cómo te sientes realmente?",
-            "¿Extrañas la versión de ti que antes disfrutaba, soñaba o se emocionaba con facilidad?"
-          ],
-          "ejercicio": {
-            "titulo": "Volviendo a escuchar mi mundo emocional",
-            "instrucciones": "Durante unos minutos, deja de preguntarte qué deberías sentir. Solo observa lo que realmente está presente hoy. Completa las siguientes frases sin juzgar tus respuestas.",
-            "pasos": [
-              "En este momento, la emoción que más reconozco en mí es...",
-              "Lo que esa emoción podría estar intentando decirme es...",
-              "Cuando intento evitar esa emoción, normalmente hago...",
-              "¿Qué cambiaría si en lugar de luchar contra ella decidiera escucharla durante unos minutos?",
-              "¿Qué necesito hoy para sentirme un poco más acompañado(a) por mí mismo(a)?",
-              "Reflexión: Las emociones no aparecen para castigarte. Aparecen para contarte algo sobre tu experiencia. Escucharlas con curiosidad y respeto es el primer paso para volver a construir una relación cercana contigo mismo."
-            ]
-          },
-          "audio": {
-            "titulo": "Haciendo espacio para lo que siento",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "Conociendo mis emociones con curiosidad",
-            "contenido": [
-              "Piensa en una emoción que haya estado muy presente durante los últimos días. No intentes cambiarla. Solo obsérvala.",
-              "La emoción que hoy quiero conocer mejor es:",
-              "¿Cuándo suele aparecer?",
-              "¿Qué pensamientos suelen acompañarla?",
-              "¿Qué sensaciones noto en mi cuerpo cuando aparece?",
-              "¿Qué suelo hacer para evitar sentirla?",
-              "Si esa emoción pudiera hablar, ¿qué crees que intentaría decirme?",
-              "Reflexión: Las emociones no necesitan ser combatidas para disminuir. Muchas veces necesitan ser escuchadas con respeto antes de transformarse."
-            ]
-          },
-          "reto": {
-            "titulo": "Un minuto para escucharme",
-            "contenido": [
-              "Durante los próximos siete días, dedica un minuto al día para hacer una pausa y responder estas tres preguntas:",
-              "¿Qué estoy sintiendo? ¿Dónde lo noto en mi cuerpo? ¿Qué podría necesitar en este momento?",
-              "No busques respuestas perfectas. Solo practica observarte. Si lo deseas, anota cada día una palabra que describa tu emoción principal.",
-              "Al finalizar la semana, observa si hubo cambios. Quizá descubras que las emociones cambian con más frecuencia de la que imaginabas. O que algunas necesitaban ser reconocidas antes de comenzar a perder intensidad.",
-              "Recuerda: Escucharte cada día fortalece una relación más cercana, amable y honesta contigo mismo."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige un compromiso para acompañarte durante las próximas 24 horas.",
-            "☐ Hoy me permitiré sentir sin juzgarme.",
-            "☐ Recordaré que todas las emociones cumplen una función, incluso las más difíciles.",
-            "☐ Haré una pausa para escuchar lo que mis emociones intentan comunicarme.",
-            "☐ Me trataré con paciencia mientras atravieso este proceso.",
-            "Recuerda: No necesitas sentirte bien todo el tiempo para estar avanzando. Cada vez que eliges escucharte en lugar de luchar contra lo que sientes, estás fortaleciendo una relación más amable contigo mismo.",
-            "💜 CIERRE DEL MÓDULO 1",
-            "Hoy comenzaste un camino diferente. Durante mucho tiempo quizá aprendiste a ocultar, minimizar o evitar algunas emociones porque parecían demasiado intensas o dolorosas.",
-            "Sin darte cuenta, esa forma de protegerte pudo alejarte también de la posibilidad de sentir calma, alegría, ilusión o conexión.",
-            "Hoy descubriste que las emociones no aparecen para hacerte daño. Aparecen para mostrarte que algo importante está ocurriendo dentro de ti. No necesitas resolverlas todas inmediatamente. Tampoco necesitas comprenderlas por completo.",
-            "Por ahora, basta con aprender a escucharlas. Con curiosidad. Con paciencia. Y con la confianza de que ninguna emoción define quién eres. Continúa."
-          ]
-        },
-        {
-          "titulo": "Módulo 2. Las emociones cambian cuando dejamos de pelear con ellas",
-          "psicoeducacion": {
-            "titulo": "¿Por qué algunas emociones parecen durar tanto?",
-            "parrafos": [
-              "Cuando una emoción aparece, nuestro primer impulso suele ser intentar que desaparezca. Queremos dejar de sentir tristeza. Queremos dejar de sentir miedo. Queremos dejar de sentir enojo. Y eso es completamente comprensible.",
-              "Sin embargo, muchas investigaciones en regulación emocional muestran que luchar constantemente contra una emoción suele consumir mucha energía y, en algunos casos, puede hacer que permanezca con mayor intensidad.",
-              "Esto no significa que debamos resignarnos al sufrimiento. Significa que existe otra forma de relacionarnos con nuestras emociones. Podemos observarlas. Nombrarlas. Escucharlas. Y permitir que sigan su curso natural.",
-              "Las emociones son dinámicas. Cambian con el tiempo, con nuestras experiencias y con la manera en que respondemos a ellas. Algunas permanecen unos minutos. Otras necesitan días o semanas. Y algunas, especialmente cuando están relacionadas con pérdidas importantes, pueden regresar en diferentes momentos de la vida.",
-              "Eso no significa que estés retrocediendo. Significa que eres humano. Aceptar una emoción no implica que nos guste o que queramos quedarnos en ella. Implica dejar de gastar tanta energía intentando expulsarla y comenzar a utilizar esa energía para cuidarnos mientras atraviesa nuestro mundo interno.",
-              "Las emociones no son permanentes. Son parte del movimiento natural de la vida."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Has sentido que una emoción nunca iba a terminar?",
-            "¿Te has enojado contigo por seguir sintiendo tristeza después de mucho tiempo?",
-            "¿Has pensado que deberías 'superar' lo que te ocurrió más rápido?",
-            "¿Te frustras cuando una emoción vuelve después de creer que ya había pasado?",
-            "¿Has sentido culpa por no poder controlar lo que sientes?",
-            "¿Te cuesta confiar en que este momento también cambiará?"
-          ],
-          "ejercicio": {
-            "titulo": "Observando el movimiento de mis emociones",
-            "instrucciones": "Piensa en una emoción que haya estado presente recientemente. No la analices. Solo recuerda cómo ha cambiado.",
-            "pasos": [
-              "¿Qué emoción quiero observar?",
-              "¿Cuándo apareció por primera vez?",
-              "¿Ha permanecido exactamente igual o ha cambiado con el paso de los días?",
-              "¿Hubo algún momento en el que disminuyó, aunque fuera un poco?",
-              "¿Qué situaciones parecen intensificarla?",
-              "¿Qué cosas, personas o actividades parecen hacerla más llevadera?",
-              "Reflexión: Las emociones no son una fotografía. Se parecen más a un río. A veces el agua fluye con calma. A veces aumenta su intensidad. Pero nunca permanece exactamente igual. Recordar que las emociones cambian también nos ayuda a recordar que los momentos difíciles no definen toda nuestra historia."
-            ]
-          },
-          "audio": {
-            "titulo": "Dejando que la emoción siga su curso",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "El río de mis emociones",
-            "contenido": [
-              "Piensa en una emoción que hayas experimentado esta semana. Imagina que es un río. Observa cómo se ha movido.",
-              "¿Qué emoción quiero explorar?",
-              "¿En qué momentos del día suele aumentar?",
-              "¿En qué momentos parece disminuir?",
-              "¿Qué pensamientos aparecen cuando la emoción es más intensa?",
-              "¿Qué acciones me ayudan a acompañarla sin rechazarla?",
-              "¿Qué aprendí hoy sobre la forma en que cambian mis emociones?",
-              "Reflexión: Así como un río nunca permanece exactamente igual, tus emociones también cambian. Recordarlo puede ayudarte a vivir los momentos difíciles con un poco más de paciencia y esperanza."
-            ]
-          },
-          "reto": {
-            "titulo": "Observar sin apresurar",
-            "contenido": [
-              "Durante los próximos siete días, cuando notes una emoción intensa, practica esta secuencia:",
-              "Detente unos segundos. Ponle un nombre a la emoción. Respira profundamente tres veces.",
-              "Pregúntate: ¿Qué necesita esta emoción de mí en este momento?",
-              "Elige una acción amable contigo. Puede ser: Hablar con alguien de confianza. Escribir lo que sientes. Salir a caminar. Escuchar música. Descansar unos minutos. Llorar si lo necesitas.",
-              "Al finalizar el día escribe: ¿Qué descubrí cuando dejé de apresurar que la emoción desapareciera?",
-              "Recuerda: Sanar no siempre significa sentir menos. Muchas veces significa aprender a acompañarte mejor mientras las emociones hacen su trabajo."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige el compromiso que deseas llevar contigo durante las próximas 24 horas.",
-            "☐ Hoy permitiré que mis emociones tengan su propio ritmo.",
-            "☐ Dejaré de exigirme sentirme mejor de inmediato.",
-            "☐ Me recordaré que sanar también implica tener paciencia conmigo.",
-            "☐ Acompañaré mis emociones con la misma comprensión que ofrecería a alguien que amo.",
-            "Recuerda: Las emociones no siguen un calendario. Cada proceso tiene su propio tiempo. Respetar ese ritmo también es una forma de cuidar de ti.",
-            "💜 CIERRE DEL MÓDULO 2",
-            "Hoy descubriste que las emociones no permanecen exactamente iguales para siempre. Aunque algunas puedan sentirse muy intensas, todas forman parte de un proceso que cambia con el tiempo.",
-            "Quizá también reconociste que gran parte de tu sufrimiento no provenía únicamente de la emoción. Sino de la lucha constante por intentar hacer que desapareciera.",
-            "Hoy comenzaste a practicar algo diferente. Escuchar. Respirar. Esperar. Acompañarte. Eso no elimina el dolor de inmediato. Pero sí transforma la manera en que lo atraviesas.",
-            "Poco a poco comenzarás a notar que las emociones dejan de sentirse como una amenaza permanente. Y empiezan a convertirse en mensajes que puedes comprender con mayor calma y compasión. Continúa."
-          ]
-        },
-        {
-          "titulo": "Módulo 3. Expresar mis emociones de una manera saludable",
-          "psicoeducacion": {
-            "titulo": "¿Qué pasa cuando guardamos todo lo que sentimos?",
-            "parrafos": [
-              "Desde pequeños, muchas personas aprendimos que algunas emociones eran 'incorrectas'. Quizá escuchamos frases como: 'No llores.' 'No te enojes.' 'Sé fuerte.' 'No hagas un drama.'",
-              "Con el tiempo, es posible que hayamos aprendido a esconder lo que sentíamos para evitar críticas, conflictos o rechazo. Aunque esa estrategia pudo ayudarnos en determinados momentos, también pudo alejarnos de una parte importante de nosotros mismos.",
-              "Las emociones necesitan encontrar una forma de expresarse. Cuando no encuentran un espacio saludable, pueden aparecer de otras maneras. A veces como tensión constante. Como irritabilidad. Como cansancio. Como dificultad para dormir. O como una sensación de desconexión con uno mismo.",
-              "Expresar una emoción no significa reaccionar impulsivamente ni decir todo lo que pensamos sin considerar a los demás. Significa reconocer lo que sentimos y encontrar maneras respetuosas de darle un lugar.",
-              "Hablar con alguien de confianza. Escribir. Llorar. Crear. Mover el cuerpo. Pedir ayuda. Todas estas pueden ser formas saludables de expresión emocional.",
-              "Cada vez que expresas una emoción de manera consciente, le recuerdas a tu mundo interno que ya no necesita cargar solo con aquello que siente."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Te cuesta decir cómo te sientes por miedo a incomodar a los demás?",
-            "¿Sueles responder 'estoy bien' aunque por dentro no sea cierto?",
-            "¿Has guardado tanto una emoción que, cuando sale, lo hace con mucha intensidad?",
-            "¿Te resulta más fácil escuchar las emociones de otras personas que expresar las tuyas?",
-            "¿Has sentido un alivio inesperado después de llorar, escribir o hablar con alguien de confianza?",
-            "¿Te gustaría expresar lo que sientes con mayor tranquilidad y claridad?"
-          ],
-          "ejercicio": {
-            "titulo": "Dándole voz a lo que siento",
-            "instrucciones": "Piensa en una emoción que hayas guardado durante algún tiempo. No es necesario compartirla con nadie por ahora. Solo permítete reconocerla.",
-            "pasos": [
-              "La emoción que hoy necesita ser escuchada es...",
-              "Si esa emoción pudiera hablar libremente, ¿qué diría?",
-              "¿Qué me ha impedido expresarla hasta ahora?",
-              "¿Qué forma de expresión se sentiría más segura para mí en este momento? (Escribir, Hablar con alguien, Llorar, Dibujar o crear, Mover mi cuerpo, Otra...)",
-              "¿Cómo creo que me sentiría después de darle un espacio a esa emoción?",
-              "Reflexión: Expresar una emoción no significa perder el control. Significa dejar de cargarla completamente en silencio. Cada emoción que encuentra un espacio seguro para ser expresada puede transformarse en una oportunidad para comprenderte y cuidarte mejor."
-            ]
-          },
-          "audio": {
-            "titulo": "Dándole voz a mi mundo interior",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "Una carta para mi emoción",
-            "contenido": [
-              "Elige una emoción que hayas estado guardando. Escríbele una carta. No necesitas hacerlo perfecto. Solo sé honesto contigo.",
-              "Querida emoción...",
-              "Lo que más me cuesta de ti es...",
-              "Lo que creo que intentas enseñarme es...",
-              "A partir de hoy quiero relacionarme contigo de esta manera...",
-              "Reflexión: No todas las emociones necesitan una solución inmediata. Algunas necesitan ser reconocidas antes de comenzar a transformarse."
-            ]
-          },
-          "reto": {
-            "titulo": "Expresar sin acumular",
-            "contenido": [
-              "Durante los próximos siete días, dedica unos minutos al final del día para preguntarte: ¿Hubo alguna emoción que guardé hoy?",
-              "Si la respuesta es sí, elige una forma saludable de expresarla. Puedes: Escribir durante cinco minutos. Hablar con alguien de confianza. Dibujar. Llorar si aparece la necesidad. Salir a caminar.",
-              "Después responde: ¿Cómo me siento después de haberle dado un espacio a esa emoción?",
-              "Recuerda: Las emociones que encuentran un lugar para expresarse suelen pesar menos que aquellas que permanecen guardadas durante mucho tiempo."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige el compromiso que deseas hacer contigo durante las próximas 24 horas.",
-            "☐ Hoy reconoceré lo que siento antes de intentar ocultarlo.",
-            "☐ Buscaré una forma saludable de expresar una emoción importante para mí.",
-            "☐ Recordaré que expresar mis emociones con respeto también es una forma de autocuidado.",
-            "☐ Me permitiré pedir apoyo si siento que lo necesito.",
-            "Recuerda: No tienes que cargar solo con todo lo que sientes. Cada emoción que encuentra un espacio seguro para expresarse deja de convertirse en un peso que llevas en silencio.",
-            "💜 CIERRE DEL MÓDULO 3",
-            "Durante mucho tiempo quizá creíste que ser fuerte significaba guardar silencio. Que mostrar tus emociones podía hacerte parecer vulnerable. O que era mejor seguir adelante sin detenerte a mirar lo que ocurría dentro de ti.",
-            "Hoy comenzaste a descubrir otra posibilidad. La verdadera fortaleza no consiste en esconder lo que sientes. Consiste en darte el permiso de reconocerlo y expresarlo de una manera que cuide de ti y de quienes te rodean.",
-            "Cada vez que eliges hablar, escribir, llorar o compartir aquello que llevas dentro, estás creando un espacio donde tus emociones ya no necesitan permanecer ocultas. Y cuando las emociones dejan de esconderse, también dejan de cargar todo su peso sobre ti.",
-            "En el siguiente módulo aprenderás que todas las emociones, incluso las más difíciles, pueden formar parte de una vida con sentido. Continúa."
-          ]
-        },
-        {
-          "titulo": "Módulo 4. Integrar mis emociones para seguir construyendo mi vida",
-          "psicoeducacion": {
-            "titulo": "¿Es posible seguir adelante sin olvidar lo vivido?",
-            "parrafos": [
-              "Muchas personas creen que sanar significa dejar de sentir por completo aquello que les dolió. Esperan el día en que una pérdida, una decepción o una experiencia difícil desaparezca por completo de su memoria.",
-              "Sin embargo, sanar no siempre consiste en olvidar. Con frecuencia significa recordar sin que ese recuerdo gobierne toda nuestra vida. Las experiencias difíciles forman parte de nuestra historia. No podemos cambiar lo que ocurrió. Pero sí podemos transformar la manera en que nos relacionamos con ello.",
-              "Con el tiempo, algunas heridas dejan de ser una herida abierta y se convierten en una cicatriz. La cicatriz permanece. Nos recuerda que algo importante sucedió. Pero también nos recuerda que nuestro cuerpo y nuestra mente tienen una enorme capacidad para recuperarse.",
-              "Integrar una emoción significa reconocer que aquello que vivimos forma parte de nuestra historia, sin permitir que se convierta en la única historia que contamos sobre nosotros mismos. No eres únicamente aquello que te lastimó. También eres todo lo que has aprendido. Todo lo que has resistido. Y todo lo que aún puedes construir.",
-              "La esperanza no nace porque el pasado desaparezca. Nace cuando descubrimos que todavía existe espacio para el presente y para el futuro."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Sientes que una experiencia difícil sigue definiendo la manera en que te ves a ti mismo(a)?",
-            "¿Has pensado que nunca volverás a ser la persona que eras antes?",
-            "¿Te cuesta imaginar un futuro diferente porque el pasado sigue ocupando mucho espacio?",
-            "¿Has sentido culpa por empezar a sentirte mejor?",
-            "¿Crees que sanar significa olvidar lo que viviste?",
-            "¿Te gustaría recordar sin que el dolor controle tu presente?"
-          ],
-          "ejercicio": {
-            "titulo": "Mi historia continúa",
-            "instrucciones": "Piensa en una experiencia difícil que haya marcado tu vida. No necesitas revivir cada detalle. Solo obsérvala con la perspectiva que hoy tienes.",
-            "pasos": [
-              "Lo que esta experiencia cambió en mí fue...",
-              "Lo que también descubrí sobre mí gracias a ella fue...",
-              "Hoy reconozco que sigo siendo una persona capaz de...",
-              "¿Qué parte de mi vida quiero seguir construyendo a partir de este momento?",
-              "Si pudiera escribir el siguiente capítulo de mi historia, me gustaría que incluyera...",
-              "Reflexión: Tu historia no termina en el momento más doloroso que has vivido. Cada día tienes la oportunidad de escribir un nuevo capítulo. Y aunque el pasado siempre forme parte del libro, no tiene por qué escribir el final."
-            ]
-          },
-          "audio": {
-            "titulo": "Abrazando mi historia con esperanza",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "Los capítulos de mi historia",
-            "contenido": [
-              "Imagina tu vida como un libro. Cada etapa representa un capítulo. Completa las siguientes frases.",
-              "Un capítulo que me transformó fue...",
-              "Un capítulo que me gustaría cerrar con compasión es...",
-              "Un capítulo del que hoy me siento orgulloso(a) es...",
-              "El próximo capítulo que deseo comenzar habla de...",
-              "¿Qué quiero llevar conmigo hacia ese nuevo capítulo?",
-              "¿Qué estoy dispuesto(a) a dejar atrás?",
-              "Reflexión: Cada capítulo ha contribuido a formar la persona que eres hoy. Pero ninguno de ellos, por sí solo, define el final de tu historia."
-            ]
-          },
-          "reto": {
-            "titulo": "Escribir un nuevo capítulo",
-            "contenido": [
-              "Durante los próximos siete días, dedica unos minutos al final del día para responder una sola pregunta: ¿Qué hice hoy que pertenece a la vida que quiero seguir construyendo?",
-              "No tienen que ser grandes logros. Pueden ser acciones pequeñas: Pedí ayuda. Descansé. Sonreí. Lloré sin juzgarme. Me permití disfrutar un momento. Elegí seguir adelante.",
-              "Al finalizar la semana, lee todas tus respuestas. Observa cómo, poco a poco, ya estás escribiendo un capítulo diferente.",
-              "Recuerda: La esperanza no aparece de un día para otro. Se construye cada vez que eliges dar un pequeño paso hacia la vida que deseas vivir."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de cerrar esta ruta, elige el compromiso que deseas llevar contigo.",
-            "☐ Hoy recordaré que todas mis emociones tienen un lugar en mi historia.",
-            "☐ Me permitiré seguir adelante sin sentir culpa por hacerlo.",
-            "☐ Elegiré tratar mi pasado con compasión y mi futuro con esperanza.",
-            "☐ Confiaré en que todavía puedo escribir nuevos capítulos en mi vida.",
-            "Respira profundamente. No necesitas tener todas las respuestas hoy. Solo necesitas dar permiso a tu historia para seguir creciendo.",
-            "🌧️ CIERRE DE LA RUTA",
-            "La esperanza también se construye.",
-            "A lo largo de esta ruta descubriste que sentir no es una señal de debilidad. Es una expresión de tu humanidad. Aprendiste a escuchar tus emociones en lugar de ignorarlas. A acompañarlas sin pelear con ellas. A expresar aquello que durante mucho tiempo permaneció en silencio. Y, finalmente, a integrar esas experiencias como parte de tu historia, sin permitir que definan por completo quién eres.",
-            "Quizá algunas emociones continúen visitándote. Eso no significa que hayas retrocedido. Significa que sigues siendo una persona que ama, que recuerda, que aprende y que continúa creciendo.",
-            "La esperanza no consiste en esperar que nunca más existan momentos difíciles. Consiste en descubrir que, incluso en medio de ellos, todavía puedes encontrar razones para seguir caminando.",
-            "Cada emoción escuchada. Cada lágrima permitida. Cada palabra expresada. Cada pequeño paso hacia adelante. Ha sido una forma de decirte: 'Mi historia continúa.'",
-            "Gracias por recorrer esta ruta. Deseamos que, cuando vuelvas a mirar tu historia dentro de algún tiempo, puedas reconocer no solo aquello que te dolió, sino también todo lo que fuiste capaz de construir después. Porque el pasado forma parte de ti. Pero el futuro todavía está escribiéndose. Y tú también eres autor de esas páginas."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "ruta6",
-      "titulo": "Ruta 6. Relacionarme con los demás sin dejar de ser yo",
-      "descripcion": "Fortalece tus relaciones desde la autenticidad, los límites saludables y una comunicación más consciente.",
-      "modulos": [
-        {
-          "titulo": "Módulo 1. Comprender que una relación sana también comienza conmigo",
-          "psicoeducacion": {
-            "titulo": "¿Por qué a veces olvidamos quiénes somos cuando nos relacionamos?",
-            "parrafos": [
-              "Las relaciones son una parte fundamental de nuestra vida. Necesitamos sentirnos queridos, aceptados y comprendidos.",
-              "Sin embargo, en ocasiones, el deseo de mantener una relación puede llevarnos a hacer algo que ocurre casi sin darnos cuenta: Comenzamos a dejar de lado nuestras propias necesidades. Decimos 'sí' cuando en realidad queremos decir 'no'. Callamos lo que sentimos para evitar conflictos. Intentamos agradar constantemente por miedo al rechazo.",
-              "Poco a poco, podemos empezar a construir relaciones donde estamos muy presentes para los demás, pero cada vez más ausentes para nosotros mismos.",
-              "Esto no ocurre porque seamos débiles. Muchas veces aprendimos desde pequeños que ser queridos dependía de adaptarnos, cumplir expectativas o evitar incomodar a los demás. Con el tiempo, esas estrategias pueden convertirse en hábitos automáticos.",
-              "Sin embargo, una relación saludable no requiere que desaparezcas para que el otro tenga un lugar. Las relaciones más sanas son aquellas donde ambas personas pueden existir con autenticidad, respeto y cuidado mutuo.",
-              "Aprender a permanecer conectado contigo mientras te conectas con los demás es una habilidad que puede desarrollarse. Y quizá sea una de las formas más profundas de cuidar tanto tus relaciones como tu bienestar."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Te cuesta decir que no por miedo a decepcionar a alguien?",
-            "¿Con frecuencia haces a un lado tus necesidades para priorizar las de los demás?",
-            "¿Te preocupa demasiado lo que otras personas puedan pensar de ti?",
-            "¿Has sentido que das mucho en una relación y, aun así, terminas sintiéndote vacío(a)?",
-            "¿Evitas expresar desacuerdos para que no exista conflicto?",
-            "¿Extrañas sentir que puedes ser completamente tú cuando estás con otras personas?"
-          ],
-          "ejercicio": {
-            "titulo": "Volviendo a encontrarme dentro de mis relaciones",
-            "instrucciones": "Piensa en una relación importante para ti. Puede ser de pareja, familiar, amistad o trabajo. Reflexiona con honestidad.",
-            "pasos": [
-              "En esta relación siento que puedo ser yo cuando...",
-              "Hay momentos en los que dejo de ser auténtico(a) porque...",
-              "¿Qué necesito para sentirme más libre de expresar quién soy?",
-              "¿Qué parte de mí quiero volver a escuchar dentro de esta relación?",
-              "¿Qué pequeño cambio podría comenzar a hacer esta semana para cuidar también de mí?",
-              "Reflexión: Una relación sana no te pide que renuncies a quien eres. Te ofrece un espacio donde puedes crecer junto a otra persona sin perder tu propia voz."
-            ]
-          },
-          "audio": {
-            "titulo": "Permanecer conmigo mientras me relaciono",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "Mi lugar dentro de mis relaciones",
-            "contenido": [
-              "Piensa en una relación significativa. Después responde con honestidad.",
-              "En esta relación me siento libre de...",
-              "Hay cosas que dejo de hacer o decir porque...",
-              "¿Qué parte de mí siento que necesita más espacio?",
-              "¿Qué necesito expresar con mayor claridad?",
-              "¿Qué me gustaría que esta persona conociera mejor de mí?",
-              "Reflexión: Las relaciones saludables permiten que ambas personas tengan un lugar. Cuidar el vínculo también implica cuidar el espacio que ocupas dentro de él."
-            ]
-          },
-          "reto": {
-            "titulo": "Escucharme antes de responder",
-            "contenido": [
-              "Durante los próximos siete días, antes de aceptar una petición, responder automáticamente o decir 'sí', haz una pausa de unos segundos y pregúntate:",
-              "¿Qué necesito yo en este momento?",
-              "Después responde con conciencia. Tal vez la respuesta siga siendo 'sí'. Tal vez sea 'no'. O quizá necesites más tiempo para decidir.",
-              "Al finalizar el día escribe: ¿Cómo cambió mi manera de relacionarme cuando primero me escuché a mí?",
-              "Recuerda: Escucharte antes de responder no es egoísmo. Es una forma de construir relaciones donde tú también tienes un lugar."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige el compromiso que deseas hacer contigo durante las próximas 24 horas.",
-            "☐ Hoy escucharé mis necesidades antes de responder automáticamente a las de los demás.",
-            "☐ Recordaré que puedo cuidar de otras personas sin dejar de cuidarme a mí.",
-            "☐ Me permitiré expresar quién soy con mayor autenticidad.",
-            "☐ Elegiré construir relaciones donde también exista espacio para mí.",
-            "Recuerda: No necesitas desaparecer para ser querido. Las relaciones más sanas son aquellas donde ambas personas pueden existir con respeto, libertad y autenticidad.",
-            "💜 CIERRE DEL MÓDULO 1",
-            "Hoy comenzaste a mirar tus relaciones desde una perspectiva diferente. Quizá durante mucho tiempo pensaste que una buena relación consistía en adaptarte, complacer o evitar conflictos a cualquier costo.",
-            "Sin embargo, descubriste que también es posible construir vínculos donde tus necesidades, opiniones y emociones tengan un lugar. Aprendiste que permanecer conectado contigo mismo no te aleja de los demás. Por el contrario, te permite relacionarte desde un lugar más honesto, consciente y auténtico.",
-            "Cada vez que haces una pausa para escucharte antes de responder, estás fortaleciendo una relación muy importante: La que tienes contigo. Y esa relación será el punto de partida para todas las demás.",
-            "En el siguiente módulo descubrirás que poner límites no significa levantar muros. Significa cuidar el espacio donde tú y los demás pueden relacionarse con mayor respeto. Continúa."
-          ]
-        },
-        {
-          "titulo": "Módulo 2. Poner límites también es una forma de cuidar las relaciones",
-          "psicoeducacion": {
-            "titulo": "¿Por qué los límites suelen generar tanta culpa?",
-            "parrafos": [
-              "Cuando escuchamos la palabra 'límite', muchas personas imaginan rechazo, distancia o conflicto. Sin embargo, un límite saludable tiene un propósito muy diferente. No busca alejar a las personas. Busca proteger el bienestar de quienes forman parte de la relación.",
-              "Los límites nos ayudan a expresar hasta dónde podemos llegar sin dejar de respetarnos. Nos permiten reconocer nuestro tiempo, nuestra energía, nuestras necesidades y nuestros valores.",
-              "Muchas personas sienten culpa al poner límites porque aprendieron que decir 'no' era una forma de ser egoístas, desobedientes o poco amables. Pero cuidar de ti no significa dejar de cuidar a los demás. Significa recordar que una relación sana necesita que ambas personas puedan expresar sus necesidades con libertad y respeto.",
-              "Un límite saludable no pretende controlar a la otra persona. Solo comunica aquello que tú necesitas para sentirte seguro, respetado y en equilibrio.",
-              "Poner límites puede generar incomodidad al principio. Especialmente si durante mucho tiempo te acostumbraste a decir siempre que sí. Sin embargo, esa incomodidad suele ser temporal. Lo que permanece es la posibilidad de construir relaciones más honestas, más claras y más saludables.",
-              "Los límites no destruyen las relaciones. Con frecuencia son aquello que permite que duren de una manera más sana."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Dices 'sí' cuando en realidad querías decir 'no'?",
-            "¿Sientes culpa cuando decides priorizar tus propias necesidades?",
-            "¿Te preocupa que las personas se molesten si estableces un límite?",
-            "¿Has terminado agotado(a) por intentar cumplir con todo lo que otros esperan de ti?",
-            "¿Te cuesta identificar dónde termina tu responsabilidad y dónde comienza la de la otra persona?",
-            "¿Te gustaría aprender a poner límites sin dejar de ser una persona amable?"
-          ],
-          "ejercicio": {
-            "titulo": "Mis puertas de cuidado",
-            "instrucciones": "Piensa en una situación reciente en la que sentiste que cruzaron un límite importante para ti. Reflexiona con calma.",
-            "pasos": [
-              "¿Qué ocurrió?",
-              "¿Qué necesidad mía no fue respetada?",
-              "¿Qué habría querido expresar en ese momento?",
-              "Si pudiera volver a vivir esa situación, ¿qué límite comunicaría de manera respetuosa?",
-              "¿Qué temo que ocurra cuando pongo un límite?",
-              "¿Qué podría ganar si comienzo a expresar mis límites con mayor claridad?",
-              "Reflexión: Los límites no existen para separar a las personas. Existen para crear relaciones donde el respeto, la confianza y el cuidado puedan crecer de manera mutua."
-            ]
-          },
-          "audio": {
-            "titulo": "Decir 'no' también puede ser un acto de amor",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "Mi puerta de cuidado",
-            "contenido": [
-              "Piensa en una situación donde te gustaría poner un límite diferente. Completa las siguientes frases.",
-              "Hoy necesito cuidar...",
-              "El límite que me gustaría expresar es...",
-              "¿Qué emoción aparece cuando imagino decirlo?",
-              "¿Qué miedo hay detrás de esa emoción?",
-              "¿Qué podría ocurrir si esa conversación sale mejor de lo que imagino?",
-              "¿Qué frase respetuosa podría utilizar?",
-              "Reflexión: Poner un límite no significa rechazar a una persona. Significa cuidar el espacio donde esa relación puede seguir creciendo con mayor respeto y honestidad."
-            ]
-          },
-          "reto": {
-            "titulo": "Un límite pequeño, una relación más auténtica",
-            "contenido": [
-              "Durante los próximos siete días, identifica una situación sencilla donde normalmente responderías de manera automática. Antes de hacerlo, detente unos segundos. Pregúntate: ¿Qué necesito realmente?",
-              "Si es necesario, practica expresar un límite pequeño. Por ejemplo: Pedir unos minutos antes de responder. Decir que hoy no puedes ayudar. Solicitar un momento para descansar. Expresar una opinión diferente con respeto.",
-              "Al finalizar el día escribe: ¿Qué descubrí después de expresar ese pequeño límite?",
-              "Recuerda: Los límites saludables no alejan a las personas adecuadas. Ayudan a construir relaciones donde ambas personas pueden sentirse respetadas."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige el compromiso que deseas hacer contigo durante las próximas 24 horas.",
-            "☐ Hoy recordaré que mis límites también protegen mis relaciones.",
-            "☐ Me permitiré decir 'no' cuando sea necesario, sin sentir que estoy siendo una mala persona.",
-            "☐ Elegiré expresar mis necesidades con respeto y claridad.",
-            "☐ Recordaré que cuidarme también es una forma de cuidar a quienes amo.",
-            "Recuerda: Cada límite que expresas con respeto fortalece la confianza, la claridad y el cuidado dentro de una relación.",
-            "💜 CIERRE DEL MÓDULO 2",
-            "Hoy descubriste que un límite no es un muro. Es una puerta. Una puerta que protege tu bienestar y, al mismo tiempo, permite que las relaciones se construyan desde el respeto mutuo.",
-            "Quizá durante mucho tiempo pensaste que decir 'sí' era la mejor manera de demostrar amor, compromiso o generosidad. Sin embargo, también descubriste que cuando constantemente dejas tus propias necesidades en segundo lugar, la relación puede perder algo muy importante: Tu autenticidad.",
-            "Poner límites no significa dejar de amar. Significa aprender a amar sin dejar de existir. Es posible que al principio aparezca culpa. Es normal. Los nuevos hábitos suelen sentirse extraños cuando durante muchos años aprendimos otra forma de relacionarnos.",
-            "Con el tiempo, esa culpa puede transformarse en tranquilidad. Porque comenzarás a experimentar relaciones más claras, más honestas y más equilibradas. Continúa."
-          ]
-        },
-        {
-          "titulo": "Módulo 3. Comunicarme con honestidad sin dejar de ser amable",
-          "psicoeducacion": {
-            "titulo": "¿Por qué expresar lo que siento puede resultar tan difícil?",
-            "parrafos": [
-              "Comunicarnos parece algo cotidiano. Sin embargo, expresar lo que realmente pensamos, sentimos o necesitamos puede convertirse en uno de los mayores desafíos dentro de una relación.",
-              "Muchas personas crecieron aprendiendo que era mejor guardar silencio para evitar conflictos. Otras aprendieron que solo serían escuchadas si hablaban desde el enojo. Algunas más nunca tuvieron un modelo de comunicación donde las emociones pudieran expresarse con calma y respeto.",
-              "Por eso, cuando llega el momento de decir algo importante, es común que aparezcan dos extremos. Callar por miedo. O explotar después de haber guardado demasiado durante mucho tiempo. Ninguna de estas formas suele ayudarnos a construir relaciones saludables.",
-              "La comunicación auténtica busca un camino diferente. No consiste en ganar una discusión. Tampoco en convencer a la otra persona. Consiste en expresar con claridad aquello que sentimos, pensamos o necesitamos, respetando al mismo tiempo la dignidad de quien nos escucha.",
-              "Hablar con honestidad no garantiza que siempre estaremos de acuerdo. Pero sí aumenta la posibilidad de comprendernos mejor. Y las relaciones que se construyen desde la claridad suelen fortalecerse con el tiempo."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Ensayas muchas veces una conversación importante antes de atreverte a tenerla?",
-            "¿Guardas lo que sientes hasta que un día explotas?",
-            "¿Te preocupa tanto herir a alguien que terminas callando tus propias necesidades?",
-            "¿Sientes que a veces las personas no comprenden lo que realmente intentas decir?",
-            "¿Te cuesta pedir lo que necesitas por miedo a ser rechazado(a)?"
-          ],
-          "ejercicio": {
-            "titulo": "Encontrando mi propia voz",
-            "instrucciones": "Piensa en una conversación que has estado posponiendo. No necesitas tenerla ahora. Solo comienza a prepararte para ella.",
-            "pasos": [
-              "Lo que realmente necesito expresar es...",
-              "Lo que me gustaría que la otra persona pudiera comprender es...",
-              "¿Qué emoción aparece cuando imagino esta conversación?",
-              "¿Qué me ayudaría a comunicarme con mayor calma y respeto?",
-              "Si pudiera resumir mi mensaje en una sola frase, diría...",
-              "Reflexión: Tu voz merece ser escuchada. Expresar lo que sientes con honestidad no debilita una relación. Puede convertirse en el comienzo de una conexión más auténtica y respetuosa."
-            ]
-          },
-          "audio": {
-            "titulo": "Darle espacio a mi propia voz",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "Preparando una conversación importante",
-            "contenido": [
-              "Piensa en una conversación que te gustaría tener en los próximos días. Escribe con calma.",
-              "¿Qué necesito expresar?",
-              "¿Qué emoción quiero comunicar?",
-              "¿Qué necesito pedir?",
-              "¿Qué me gustaría que la otra persona comprendiera sobre mí?",
-              "¿Cómo puedo expresar mi mensaje con respeto?",
-              "¿Qué cualidad quiero recordar durante esa conversación? (Calma, Honestidad, Empatía, Paciencia, Claridad...)",
-              "Reflexión: No puedes controlar cómo responderá la otra persona. Pero sí puedes elegir comunicarte desde la autenticidad, el respeto y la coherencia con tus valores."
-            ]
-          },
-          "reto": {
-            "titulo": "Una conversación más consciente cada día",
-            "contenido": [
-              "Durante los próximos siete días, antes de una conversación importante, haz una pausa de un minuto.",
-              "Respira profundamente y pregúntate: ¿Qué quiero que esta persona comprenda de mí?",
-              "Después pregúntate: ¿Cómo puedo expresarlo sin dejar de respetarme ni dejar de respetar al otro?",
-              "No busques decir las palabras perfectas. Busca estar presente.",
-              "Al finalizar el día escribe: ¿Qué cambió cuando me comuniqué con mayor conciencia? ¿Qué aprendí sobre mí?",
-              "Recuerda: La comunicación auténtica no consiste en hablar más. Consiste en permitir que tu verdadero mensaje pueda llegar al otro sin dejar de cuidar la relación."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige el compromiso que deseas hacer contigo durante las próximas 24 horas.",
-            "☐ Hoy permitiré que mi voz también tenga un lugar en mis relaciones.",
-            "☐ Expresaré una necesidad importante con honestidad y respeto.",
-            "☐ Recordaré que comunicarme con claridad no significa dejar de ser amable.",
-            "☐ Antes de hablar, me tomaré un momento para conectar con lo que realmente quiero expresar.",
-            "Recuerda: Cuando tu voz nace de la autenticidad y del respeto, puede convertirse en un puente hacia una relación más consciente.",
-            "💜 CIERRE DEL MÓDULO 3",
-            "Hoy descubriste que comunicarte de manera auténtica va mucho más allá de encontrar las palabras correctas. Comienza cuando te permites escuchar lo que realmente sucede dentro de ti.",
-            "Expresar tus emociones, necesidades e ideas con honestidad puede dar miedo. Especialmente si durante mucho tiempo aprendiste que era más seguro callar, agradar o evitar los conflictos.",
-            "Sin embargo, cada vez que eliges hablar desde la calma y el respeto, fortaleces una habilidad que transforma las relaciones: La capacidad de mostrarte tal como eres.",
-            "Quizá no siempre encuentres la respuesta que esperabas. Y eso está bien. El verdadero cambio ocurre cuando dejas de esconder tu voz por miedo a perder el vínculo. Porque una relación donde no puedes ser tú termina alejándote poco a poco de ti mismo. Continúa."
-          ]
-        },
-        {
-          "titulo": "Módulo 4. Construir relaciones donde ambos podamos crecer",
-          "psicoeducacion": {
-            "titulo": "Las relaciones sanas se construyen entre dos personas",
-            "parrafos": [
-              "Después de aprender a escucharte, poner límites y expresar lo que necesitas, quizá surja una nueva pregunta: ¿Cómo se construye una relación realmente saludable?",
-              "La respuesta no está en encontrar personas perfectas. Tampoco en convertirte en alguien que nunca se equivoca.",
-              "Las relaciones sanas se construyen cuando ambas personas están dispuestas a cuidar el vínculo. Eso implica escuchar, expresar, respetar, reparar cuando es necesario y reconocer que ambos siguen aprendiendo.",
-              "En una relación saludable no siempre habrá acuerdos. Habrá diferencias, errores y momentos difíciles. Pero también existirá la disposición para conversar, comprender y buscar soluciones sin perder el respeto.",
-              "Una relación comienza a crecer cuando deja de ser una lucha por tener la razón y se convierte en un espacio donde ambas personas pueden sentirse seguras para ser quienes son.",
-              "También es importante recordar que ninguna relación puede satisfacer todas nuestras necesidades. Esperar que otra persona llene todos nuestros vacíos suele generar frustración para ambos. Las relaciones enriquecen nuestra vida, pero no sustituyen el vínculo que cada uno necesita construir consigo mismo."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Has sentido que eres la única persona que intenta cuidar una relación?",
-            "¿Te cuesta aceptar que una relación sana también incluye desacuerdos?",
-            "¿Has esperado que otra persona adivine lo que necesitas sin expresarlo?",
-            "¿Te resulta difícil reconocer tus propios errores durante un conflicto?",
-            "¿Has permanecido en relaciones donde solo una persona hacía el esfuerzo por sostener el vínculo?",
-            "¿Te gustaría construir relaciones donde ambas personas puedan crecer juntas?"
-          ],
-          "ejercicio": {
-            "titulo": "El jardín de mis relaciones",
-            "instrucciones": "Imagina que una relación es como un jardín. Ninguna planta florece si solo una persona la riega. Reflexiona sobre una relación importante para ti.",
-            "pasos": [
-              "¿Qué aspectos fortalecen actualmente este vínculo?",
-              "¿Qué necesita más cuidado?",
-              "¿Qué estoy aportando yo para que esta relación crezca?",
-              "¿Qué me gustaría recibir con mayor frecuencia?",
-              "¿Qué conversación podría ayudar a fortalecer este vínculo?",
-              "¿Qué tipo de relaciones deseo cultivar en esta nueva etapa de mi vida?",
-              "Reflexión: Las relaciones florecen cuando ambas personas participan en su cuidado. No se trata de encontrar vínculos perfectos. Se trata de construir espacios donde el respeto, la confianza y el crecimiento puedan compartirse."
-            ]
-          },
-          "audio": {
-            "titulo": "Cuidar el jardín de mis relaciones",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "Mi jardín relacional",
-            "contenido": [
-              "Observa las relaciones que hoy forman parte de tu vida. No se trata de juzgarlas. Solo de conocerlas mejor.",
-              "¿Qué relaciones hoy me hacen sentir en paz?",
-              "¿Qué relaciones me ayudan a crecer?",
-              "¿Cuáles necesitan una conversación pendiente?",
-              "¿Hay alguna relación donde solo una persona sostiene el vínculo?",
-              "¿Qué puedo hacer esta semana para cuidar una relación importante?",
-              "¿Qué necesito dejar de hacer para que mis relaciones sean más saludables?",
-              "Reflexión: Las relaciones más significativas no se sostienen únicamente por el cariño. También necesitan presencia, comunicación, respeto y disposición para seguir creciendo juntos."
-            ]
-          },
-          "reto": {
-            "titulo": "Un pequeño gesto puede fortalecer un vínculo",
-            "contenido": [
-              "Durante los próximos siete días, elige una relación importante para ti. Cada día realiza un pequeño gesto consciente para cuidar ese vínculo.",
-              "Puede ser: Escuchar sin interrumpir. Agradecer algo que normalmente das por hecho. Preguntar cómo se siente la otra persona. Compartir una emoción de forma honesta. Pedir disculpas si es necesario.",
-              "Al finalizar el día escribe: ¿Qué efecto tuvo este pequeño gesto en nuestra relación? ¿Qué descubrí sobre la manera en que me relaciono con los demás?",
-              "Recuerda: Las grandes relaciones suelen construirse a partir de pequeños actos repetidos de cuidado y respeto."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige el compromiso que deseas hacer contigo durante las próximas 24 horas.",
-            "☐ Hoy elegiré cuidar mis relaciones sin dejar de cuidarme a mí.",
-            "☐ Recordaré que una relación sana se construye con pequeños actos de respeto y presencia.",
-            "☐ Me permitiré pedir, escuchar, agradecer y reparar cuando sea necesario.",
-            "☐ Elegiré participar en relaciones donde ambos podamos crecer.",
-            "Recuerda: Cada pequeño gesto de respeto, escucha y autenticidad puede convertirse en una semilla para una relación más saludable.",
-            "💜 CIERRE DEL MÓDULO 4",
-            "Has llegado al final de este recorrido sobre las relaciones. A lo largo de esta ruta aprendiste que una relación saludable comienza mucho antes del encuentro con otra persona.",
-            "Comienza cuando eres capaz de escucharte. Cuando reconoces tus necesidades. Cuando expresas tus límites con respeto. Cuando permites que tu voz también tenga un lugar. Y finalmente, cuando decides construir vínculos donde el cuidado sea una responsabilidad compartida.",
-            "Quizá las relaciones de tu vida no cambien de un día para otro. Pero tú sí has comenzado a cambiar la forma en que te relacionas. Y ese cambio tiene el poder de transformar poco a poco cada uno de tus vínculos.",
-            "Recuerda que ninguna relación es perfecta. Todas atraviesan momentos de cercanía, diferencias, reparaciones y nuevos aprendizajes. Lo importante no es evitar los conflictos. Lo importante es que ambas personas puedan seguir encontrándose desde el respeto, la honestidad y el deseo de crecer.",
-            "Hoy terminas este módulo con una nueva mirada. Una mirada que reconoce que pertenecer nunca debería significar dejar de ser quien eres. Y que el amor más sano siempre deja espacio para que ambas personas puedan existir con libertad y autenticidad. Continúa."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "ruta7",
-      "titulo": "Ruta 7. Construir una vida con propósito y bienestar",
-      "descripcion": "Integra todo lo aprendido para vivir de una forma más coherente con tus valores y construir sentido.",
-      "modulos": [
-        {
-          "titulo": "Módulo 1. Descubrir la vida que realmente quiero construir",
-          "psicoeducacion": {
-            "titulo": "Vivir con propósito no significa tener toda la vida resuelta",
-            "parrafos": [
-              "Muchas personas creen que encontrar un propósito significa descubrir una única misión extraordinaria que dará sentido a toda su existencia. Sin embargo, el propósito suele construirse de una manera mucho más sencilla y cotidiana.",
-              "Nace de las pequeñas decisiones que tomamos cada día. De aquello que elegimos cuidar. De los valores que guían nuestras acciones. Y de la dirección que decidimos seguir, incluso cuando todavía no conocemos todo el camino.",
-              "Después de haber aprendido a regular tu sistema nervioso, reconocer tu valor, confiar más en ti, cuidar tu energía, relacionarte con tus emociones y construir vínculos más saludables, quizá aparezca una nueva pregunta: ¿Qué quiero hacer con todo lo que he aprendido sobre mí?",
-              "No necesitas tener todas las respuestas hoy. Basta con comenzar a caminar hacia una vida que se sienta coherente con quien eres. Una vida con propósito no está libre de dificultades. Pero incluso en los momentos difíciles conserva una dirección.",
-              "El propósito no elimina los obstáculos. Les da un significado. Y cuando nuestras acciones se alinean con nuestros valores, es más probable que experimentemos bienestar, satisfacción y una sensación de coherencia con nuestra propia historia."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Has sentido que sobrevives más de lo que realmente disfrutas vivir?",
-            "¿Te preguntas hacia dónde quieres dirigir esta nueva etapa de tu vida?",
-            "¿Has logrado muchas cosas y, aun así, sientes que algo importante falta?",
-            "¿Te gustaría tomar decisiones más alineadas con lo que realmente valoras?",
-            "¿Sientes que es momento de construir una vida que refleje quién eres hoy?",
-            "¿Te emociona descubrir una dirección más clara para tu futuro?"
-          ],
-          "ejercicio": {
-            "titulo": "Mi brújula interior",
-            "instrucciones": "Imagina que estás comenzando una nueva etapa. No necesitas decidir todo tu futuro. Solo identificar la dirección hacia la que deseas caminar.",
-            "pasos": [
-              "¿Qué es lo que más deseo cultivar en mi vida durante los próximos años?",
-              "¿Qué valores quiero que guíen mis decisiones?",
-              "¿Qué aspectos de mi vida me hacen sentir verdaderamente vivo(a)?",
-              "¿Qué quiero dejar atrás para poder avanzar?",
-              "Si dentro de cinco años miro hacia atrás, ¿de qué me gustaría sentirme orgulloso(a)?",
-              "Escribe una frase que describa la vida que deseas construir.",
-              "Reflexión: El propósito no siempre aparece como una respuesta inmediata. Muchas veces se descubre mientras damos pequeños pasos en la dirección de la vida que realmente queremos vivir."
-            ]
-          },
-          "audio": {
-            "titulo": "Dar el primer paso hacia la vida que deseo",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "Mi brújula para esta nueva etapa",
-            "contenido": [
-              "Imagina que esta hoja será el inicio del próximo capítulo de tu vida.",
-              "¿Qué quiero conservar de la persona en la que me he convertido?",
-              "¿Qué hábitos deseo fortalecer?",
-              "¿Qué sueños quiero volver a mirar con esperanza?",
-              "¿Qué decisiones reflejarían mejor mis valores?",
-              "¿Cuál será el primer paso que puedo dar esta semana?",
-              "Escribe una frase que quieras recordar durante esta nueva etapa.",
-              "Reflexión: No necesitas conocer todo el camino. Solo seguir avanzando hacia una vida que se parezca cada vez más a quien realmente eres."
-            ]
-          },
-          "reto": {
-            "titulo": "Un paso con intención cada día",
-            "contenido": [
-              "Durante los próximos siete días, realiza una acción pequeña que acerque tu vida a la dirección que deseas construir.",
-              "Puede ser: Dedicar tiempo a un proyecto importante. Aprender algo nuevo. Cuidar tu salud. Fortalecer una relación significativa. Descansar cuando sea necesario. Dar un paso que has estado posponiendo.",
-              "Al finalizar el día escribe: ¿Qué pequeño paso di hoy? ¿Cómo me acercó a la vida que deseo construir? ¿Qué aprendí sobre mí durante este proceso?",
-              "Recuerda: La vida cambia menos por las grandes decisiones ocasionales y más por los pequeños pasos que elegimos sostener cada día."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige el compromiso que deseas hacer contigo durante las próximas 24 horas.",
-            "☐ Hoy daré un pequeño paso hacia la vida que deseo construir.",
-            "☐ Recordaré que no necesito tener todo resuelto para comenzar.",
-            "☐ Elegiré tomar decisiones más alineadas con mis valores.",
-            "☐ Confiaré en que cada pequeño avance también forma parte del camino.",
-            "Recuerda: No es la velocidad la que transforma una vida. Es la dirección que eliges sostener cada día.",
-            "💜 CIERRE DEL MÓDULO 1",
-            "Hoy comenzaste una de las conversaciones más importantes que una persona puede tener consigo misma. No preguntaste únicamente qué quieres lograr. Preguntaste quién deseas ser y hacia dónde quieres dirigir tu vida.",
-            "Quizá todavía existan dudas. Es normal. Las personas no descubren su propósito de un solo momento. Lo construyen poco a poco, decisión tras decisión.",
-            "A lo largo de este recorrido has aprendido a escucharte, reconocer tu valor, cuidar tu energía, acompañar tus emociones y construir relaciones más saludables. Ahora todo ese aprendizaje comienza a convertirse en una dirección. Ya no caminas únicamente para sanar. También caminas para crear.",
-            "Cada paso que das alineado con tus valores fortalece la vida que deseas construir. En el siguiente módulo descubrirás que los valores pueden convertirse en una brújula que te acompaña incluso cuando el camino parece incierto. Continúa."
-          ]
-        },
-        {
-          "titulo": "Módulo 2. Elegir desde mis valores, no desde el miedo",
-          "psicoeducacion": {
-            "titulo": "Los valores son la brújula que orienta nuestras decisiones",
-            "parrafos": [
-              "A lo largo de la vida tomamos cientos de decisiones. Algunas parecen pequeñas. Otras cambian profundamente nuestro camino.",
-              "Cuando decidimos únicamente desde el miedo, la presión o las expectativas de otras personas, es fácil sentir que nos alejamos poco a poco de quienes realmente somos.",
-              "Los valores funcionan como una brújula. No nos dicen exactamente qué camino elegir. Pero sí nos ayudan a reconocer cuál de las opciones se parece más a la persona que queremos ser.",
-              "Un valor no es una meta. Por ejemplo, 'tener un buen trabajo' puede ser una meta. Pero 'aprender', 'contribuir', 'crecer' o 'actuar con honestidad' son valores que pueden acompañarte en cualquier etapa de tu vida.",
-              "Los valores permanecen incluso cuando las circunstancias cambian. Por eso, cuando nuestras decisiones están alineadas con ellos, solemos experimentar una mayor sensación de coherencia y bienestar.",
-              "Vivir de acuerdo con nuestros valores no significa que nunca sentiremos miedo. Significa que elegimos avanzar aunque el miedo esté presente, porque sabemos que la dirección es importante para nosotros. Cada decisión puede convertirse en una oportunidad para acercarte un poco más a la vida que deseas construir."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Has tomado decisiones pensando más en lo que otros esperaban que en lo que tú realmente querías?",
-            "¿Alguna vez lograste una meta y aun así sentiste que algo faltaba?",
-            "¿Te cuesta decidir porque tienes miedo de equivocarte?",
-            "¿Sientes que algunas de tus decisiones ya no representan a la persona que eres hoy?",
-            "¿Te gustaría vivir con mayor coherencia entre lo que piensas, sientes y haces?"
-          ],
-          "ejercicio": {
-            "titulo": "Mi brújula de valores",
-            "instrucciones": "Lee la lista mental de valores que conoces (Amor, Salud, Libertad, Honestidad, Creatividad, Paz, Valentía, Responsabilidad...) y marca los que hoy sientes más importantes para tu vida.",
-            "pasos": [
-              "¿Cuáles son los cinco valores que más deseo vivir en esta etapa?",
-              "¿Qué decisión reciente estuvo alineada con esos valores?",
-              "¿Hay alguna decisión que hoy tomaría de manera diferente?",
-              "¿Qué pequeño cambio puedo hacer esta semana para vivir con mayor coherencia?",
-              "Reflexión: No siempre podemos elegir las circunstancias. Pero sí podemos elegir la manera en que respondemos a ellas y los valores que guían nuestro camino."
-            ]
-          },
-          "audio": {
-            "titulo": "Mi brújula interior",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "Viviendo mis valores",
-            "contenido": [
-              "Elige tres de los valores que consideras más importantes en esta etapa de tu vida.",
-              "¿Cómo puedo vivir el primer valor en mi vida personal?",
-              "¿Cómo puedo vivir el segundo valor en mis relaciones?",
-              "¿Cómo puedo vivir el tercer valor en mi trabajo, estudios o proyectos?",
-              "¿Qué hábito pequeño podría ayudarme a vivir estos valores todos los días?",
-              "¿Qué obstáculo suele alejarme de ellos? ¿Qué puedo hacer cuando aparezca ese obstáculo?",
-              "Reflexión: Los valores no cambian únicamente lo que hacemos. Transforman la manera en que elegimos vivir cada día."
-            ]
-          },
-          "reto": {
-            "titulo": "Una decisión con coherencia cada día",
-            "contenido": [
-              "Durante los próximos siete días, antes de tomar una decisión importante o responder automáticamente, haz una pausa. Pregúntate: ¿Esta decisión refleja la persona que quiero ser?",
-              "Después actúa de la manera que mejor represente tus valores.",
-              "Al finalizar el día escribe: ¿Qué decisión tomé hoy desde mis valores? ¿Cómo me hizo sentir actuar con mayor coherencia? ¿Qué aprendí sobre mí?",
-              "Recuerda: La coherencia no consiste en hacerlo todo perfecto. Consiste en volver una y otra vez a la dirección que has elegido para tu vida."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige el compromiso que deseas hacer contigo durante las próximas 24 horas.",
-            "☐ Hoy tomaré al menos una decisión alineada con mis valores.",
-            "☐ Recordaré que actuar con coherencia es más importante que hacerlo perfecto.",
-            "☐ Antes de decidir, me preguntaré si esa elección refleja la persona que deseo ser.",
-            "☐ Confiaré en que los pequeños actos repetidos construyen una vida con propósito.",
-            "Recuerda: Cada decisión coherente fortalece la vida que deseas construir.",
-            "💜 CIERRE DEL MÓDULO 2",
-            "Hoy descubriste que el propósito no comienza con una gran meta. Comienza con una elección.",
-            "Aprendiste que los valores pueden convertirse en una brújula que orienta tus decisiones, incluso cuando el camino parece incierto.",
-            "Quizá no siempre sepas cuál será el siguiente gran paso. Y eso está bien. No necesitas controlar todo el futuro para avanzar con dirección. Cada vez que eliges actuar de acuerdo con aquello que verdaderamente importa para ti, fortaleces la confianza en la persona que estás llegando a ser.",
-            "Con el tiempo, esas pequeñas decisiones dejan de sentirse como esfuerzos aislados. Se convierten en una forma de vivir. En el siguiente módulo descubrirás que el tiempo y la atención son algunos de los recursos más valiosos que posees. Continúa."
-          ]
-        },
-        {
-          "titulo": "Módulo 3. Invertir mi tiempo y mi energía en lo que realmente importa",
-          "psicoeducacion": {
-            "titulo": "Tu tiempo refleja aquello que estás construyendo",
-            "parrafos": [
-              "Todos tenemos las mismas veinticuatro horas cada día. Sin embargo, la manera en que utilizamos ese tiempo puede acercarnos o alejarnos de la vida que deseamos construir.",
-              "Con frecuencia pensamos que el problema es la falta de tiempo. Pero muchas veces el verdadero desafío consiste en decidir dónde queremos invertir nuestra atención, nuestra energía y nuestros esfuerzos.",
-              "Cada 'sí' que damos también implica un 'no' a otra posibilidad. Por eso aprender a elegir conscientemente en qué invertimos nuestro tiempo es una forma de cuidar nuestro propósito.",
-              "No se trata de ser productivos todo el tiempo. El descanso, el juego, el afecto y el autocuidado también forman parte de una vida con sentido. La pregunta no es cuántas cosas haces durante el día. La pregunta es si aquello a lo que dedicas tu tiempo refleja los valores que elegiste para tu vida.",
-              "Cuando existe coherencia entre nuestros valores y nuestras acciones cotidianas, comenzamos a experimentar una sensación más profunda de satisfacción y bienestar. Cada pequeño momento invertido con intención contribuye a construir la vida que deseas."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Terminas el día sintiendo que estuviste muy ocupado(a), pero no necesariamente satisfecho(a)?",
-            "¿Sientes que dedicas poco tiempo a aquello que realmente es importante para ti?",
-            "¿Te cuesta decir 'no' a actividades que consumen tu energía?",
-            "¿Pospones constantemente proyectos o sueños que te ilusionan?",
-            "¿Sientes que ha llegado el momento de decidir con mayor conciencia dónde invertir tu tiempo?"
-          ],
-          "ejercicio": {
-            "titulo": "Mi mapa de inversión de vida",
-            "instrucciones": "Observa cómo has utilizado tu tiempo durante la última semana. Sin juzgarte. Solo con curiosidad.",
-            "pasos": [
-              "¿Qué actividades ocuparon la mayor parte de mi tiempo?",
-              "¿Cuáles de ellas estuvieron alineadas con mis valores?",
-              "¿Qué actividades consumieron mucha energía sin aportar bienestar?",
-              "¿Qué me gustaría comenzar a priorizar?",
-              "Si pudiera regalarme una hora adicional cada día, ¿en qué la invertiría?",
-              "¿Qué pequeño cambio puedo hacer esta semana para acercar mi tiempo a mis prioridades?",
-              "Reflexión: La vida no se transforma únicamente cuando cambian las circunstancias. También cambia cuando elegimos invertir nuestro tiempo en aquello que realmente alimenta nuestro bienestar y nuestro propósito."
-            ]
-          },
-          "audio": {
-            "titulo": "Elegir dónde pongo mi vida",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "¿Dónde estoy sembrando mi vida?",
-            "contenido": [
-              "Observa con honestidad cómo distribuyes actualmente tu tiempo, tu energía y tu atención.",
-              "¿Qué ocupa hoy la mayor parte de mis pensamientos?",
-              "¿Qué ocupa la mayor parte de mi tiempo?",
-              "¿Eso refleja lo que realmente considero importante?",
-              "¿Qué área de mi vida necesita más atención en este momento?",
-              "¿Qué actividad me acerca más a la persona que quiero ser?",
-              "¿Qué compromiso pequeño puedo asumir esta semana para cuidar mejor mis prioridades?",
-              "Reflexión: Aquello que alimentas con tu tiempo, tu energía y tu atención suele crecer. Elegir conscientemente dónde sembrar tu vida también es una forma de construir tu futuro."
-            ]
-          },
-          "reto": {
-            "titulo": "Sembrar con intención",
-            "contenido": [
-              "Durante los próximos siete días, dedica al menos quince minutos diarios a una actividad que represente uno de tus valores más importantes.",
-              "Puede ser: Aprender algo nuevo. Cuidar tu salud. Compartir tiempo de calidad con alguien importante. Avanzar en un proyecto significativo. Descansar para recuperar tu energía. Practicar un hobby que nutra tu bienestar.",
-              "Al finalizar el día escribe: ¿En qué decidí invertir mi tiempo hoy? ¿Cómo me hizo sentir esa decisión? ¿Qué quiero seguir cultivando en mi vida?",
-              "Recuerda: No siempre puedes controlar cuánto tiempo tienes. Pero sí puedes decidir qué significado tendrá el tiempo que hoy te fue regalado."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO DE HOY",
-            "Antes de continuar, elige el compromiso que deseas hacer contigo durante las próximas 24 horas.",
-            "☐ Hoy invertiré parte de mi tiempo en aquello que realmente alimenta mi bienestar.",
-            "☐ Recordaré que mi atención es uno de los recursos más valiosos que tengo.",
-            "☐ Elegiré decir 'sí' a aquello que se alinea con mis valores y 'no' a lo que me aleja de ellos.",
-            "☐ Daré un pequeño paso para cuidar la vida que deseo construir.",
-            "Recuerda: Cada minuto vivido con intención también es una forma de construir tu futuro.",
-            "💜 CIERRE DEL MÓDULO 3",
-            "Hoy hiciste una pausa para observar algo que muchas veces pasa desapercibido. La manera en que utilizas tu tiempo.",
-            "Descubriste que tu agenda no solo organiza tus actividades. También cuenta una historia sobre aquello que hoy ocupa un lugar importante en tu vida.",
-            "Quizá encontraste espacios donde deseas permanecer. Y quizá descubriste otros que ya no representan a la persona que estás llegando a ser.",
-            "Eso no significa que debas cambiarlo todo de inmediato. Significa que ahora puedes elegir con mayor conciencia. Cada pequeño momento dedicado a tus valores, a tus relaciones, a tu bienestar o a tus sueños fortalece la dirección que has decidido seguir.",
-            "En el siguiente módulo descubrirás que una vida con propósito también se construye dejando una huella positiva en el mundo que te rodea. Continúa."
-          ]
-        },
-        {
-          "titulo": "Módulo 4. Vivir de una manera que deje huellas positivas",
-          "psicoeducacion": {
-            "titulo": "Toda vida deja una huella",
-            "parrafos": [
-              "A veces pensamos que dejar una huella positiva significa realizar algo extraordinario. Cambiar el mundo. Ser reconocido. Lograr grandes éxitos.",
-              "Sin embargo, la mayoría de las huellas importantes nacen en los gestos más sencillos. En la forma en que escuchamos a alguien. En la paciencia con la que acompañamos a nuestros seres queridos. En el respeto con el que tratamos a quienes nos rodean. En la honestidad con la que vivimos nuestros valores.",
-              "Cada persona influye en el mundo mucho más de lo que imagina. Nuestras palabras, nuestras decisiones y nuestras acciones tienen la capacidad de inspirar, cuidar, enseñar y acompañar a otras personas.",
-              "Por eso, una vida con propósito no se mide únicamente por aquello que conseguimos. También se refleja en la manera en que hacemos sentir a quienes comparten el camino con nosotros.",
-              "Dejar una huella positiva no significa ser perfecto. Significa vivir de una forma coherente con aquello que consideramos valioso. Cada día tenemos una nueva oportunidad para elegir qué tipo de impacto queremos generar. Las huellas más profundas muchas veces comienzan con un acto cotidiano de bondad, respeto o generosidad."
-            ]
-          },
-          "te_ha_pasado": [
-            "¿Alguna vez una pequeña acción de otra persona cambió tu día?",
-            "¿Has pensado en el impacto que tus palabras pueden tener en quienes te rodean?",
-            "¿Te gustaría que las personas recordaran cómo las hiciste sentir?",
-            "¿Sientes que vivir con propósito también implica contribuir al bienestar de otros?",
-            "¿Qué tipo de huella te gustaría dejar en tu familia, amistades o comunidad?"
-          ],
-          "ejercicio": {
-            "titulo": "Las huellas que quiero dejar",
-            "instrucciones": "Imagina que alguien muy importante para ti describe la manera en que te recuerda dentro de muchos años. No pienses en tus logros. Piensa en tu forma de ser.",
-            "pasos": [
-              "¿Qué te gustaría que dijera sobre ti?",
-              "¿Cómo deseas que las personas se sientan después de convivir contigo?",
-              "¿Qué valores quieres transmitir con tu manera de vivir?",
-              "¿Qué pequeños gestos podrían reflejar esos valores todos los días?",
-              "¿Qué huella comenzarás a construir desde hoy?",
-              "Escribe una frase que represente la persona que eliges ser.",
-              "Reflexión: Las huellas más profundas no siempre nacen de los grandes acontecimientos. Muchas veces se construyen a través de los pequeños actos de amor, respeto, coherencia y presencia que elegimos repetir cada día."
-            ]
-          },
-          "audio": {
-            "titulo": "La huella que elijo dejar",
-            "duracion": "Audio Guiado"
-          },
-          "hoja_trabajo": {
-            "titulo": "La vida que quiero dejar detrás de mis pasos",
-            "contenido": [
-              "Observa todo el camino recorrido durante este programa. Después responde.",
-              "¿Qué transformación reconozco hoy en mí?",
-              "¿Qué aprendizaje deseo conservar durante toda mi vida?",
-              "¿Cómo quiero que las personas se sientan cuando compartan tiempo conmigo?",
-              "¿Qué acciones reflejarán mejor los valores que elegí?",
-              "¿Qué compromiso quiero mantener conmigo incluso después de terminar este programa?",
-              "Completa la siguiente frase: A partir de hoy elijo vivir una vida que...",
-              "Reflexión: Las huellas más valiosas no son aquellas que impresionan al mundo. Son aquellas que ayudan a que alguien más se sienta visto, respetado, acompañado o inspirado."
-            ]
-          },
-          "reto": {
-            "titulo": "Una huella positiva cada día",
-            "contenido": [
-              "Durante los próximos siete días, realiza de manera consciente una acción que refleje los valores que deseas compartir con el mundo.",
-              "Puede ser: Escuchar con atención a alguien. Agradecer sinceramente. Ayudar sin esperar reconocimiento. Compartir una palabra de aliento. Dedicar tiempo de calidad a quien amas. Cuidarte para poder cuidar también de los demás.",
-              "Al finalizar el día escribe: ¿Qué huella positiva elegí dejar hoy? ¿Cómo impactó esa acción en mí o en otra persona? ¿Qué descubrí sobre la persona que estoy llegando a ser?",
-              "Recuerda: Las vidas que más inspiran no siempre son las más extraordinarias. Muchas veces son aquellas que eligieron vivir con coherencia, presencia y bondad cada día."
-            ]
-          },
-          "cierre": [
-            "🤍 MI COMPROMISO PARA CONTINUAR EL CAMINO",
-            "Este programa termina aquí. Pero tu historia continúa. Antes de seguir adelante, elige el compromiso que deseas llevar contigo a partir de hoy.",
-            "☐ Elegiré vivir de acuerdo con los valores que he descubierto en este recorrido.",
-            "☐ Recordaré que cada pequeño paso también construye una vida con propósito.",
-            "☐ Cuidaré de mí para poder cuidar también de quienes me rodean.",
-            "☐ Buscaré dejar una huella de respeto, esperanza y bondad en los lugares donde esté.",
-            "Recuerda: La transformación no depende de hacer algo extraordinario. Depende de elegir, una y otra vez, la persona que deseas seguir siendo.",
-            "💜 CIERRE DEL MÓDULO 4",
-            "Has llegado al final de este recorrido.",
-            "Quizá cuando comenzaste no imaginabas todo lo que descubrirías sobre ti. A lo largo de estas siete rutas aprendiste a reconocer la seguridad que vive dentro de ti. Descubriste que tu valor no depende de la aprobación de otras personas. Aprendiste a confiar incluso cuando no tienes todas las respuestas.",
-            "Comprendiste la importancia de cuidar tu energía. Permitiste que tus emociones dejaran de ser enemigas para convertirse en mensajeras. Construiste relaciones donde puedes permanecer siendo tú. Y finalmente comenzaste a orientar tu vida hacia aquello que realmente tiene sentido para ti.",
-            "Nada de esto significa que ya no enfrentarás dificultades. La vida seguirá presentando retos, cambios e incertidumbre. Pero ahora cuentas con algo que quizá antes no tenías. Una forma diferente de habitar esos momentos.",
-            "Este programa nunca buscó convertirte en una persona perfecta. Buscó recordarte que dentro de ti existen recursos que pueden seguir fortaleciéndose a lo largo de toda la vida. Cada respiración consciente. Cada límite sano. Cada decisión alineada con tus valores. Cada pequeño paso. Todo forma parte de la vida que estás construyendo.",
-            "Cuando en algún momento vuelvas a sentirte perdido, recuerda algo muy importante. No necesitas recorrer todo el camino de una vez. Solo necesitas volver a hacerte una pregunta: ¿Cuál es el siguiente paso que hoy puedo dar con amor, coherencia y esperanza? Confía en que la respuesta llegará.",
-            "Gracias por permitirte recorrer este camino. Y gracias, sobre todo, por elegir seguir construyendo una vida que también pueda convertirse en esperanza para alguien más."
-          ]
-        }
-      ]
     }
-  ],
-  "reto_premium": {
-    "titulo": "La Última Página",
-    "intro": [
-      "Hay una razón por la que esta experiencia está al final.",
-      "No habría tenido sentido el primer día.",
-      "Necesitabas vivir este mes.",
-      "Responderte algunas preguntas.",
-      "Escuchar cosas que quizá habías olvidado.",
-      "Solo entonces podíamos hacerte la pregunta correcta.",
-      "Porque una buena pregunta, en el momento equivocado, solo genera confusión.",
-      "Pero en el momento adecuado...",
-      "Puede cambiar la forma en la que entiendes toda tu historia.",
-      "Respira profundo.",
-      "Apaga el ruido.",
-      "Y continúa."
-    ],
-    "desarrollo": [
-      "Lo primero que queremos decirte...",
-      "Si llegaste hasta aquí, probablemente eres una persona que lleva mucho tiempo intentando entenderse.",
-      "Has leído. Has reflexionado. Has buscado respuestas.",
-      "Y, aun así, es posible que haya algo que siga repitiéndose.",
-      "No porque te falte fuerza de voluntad. No porque no quieras cambiar. Sino porque hay preguntas que nunca nos enseñaron a hacernos.",
-      "Y mientras no aparezcan esas preguntas... Las respuestas siempre parecen incompletas.",
-      "Hoy no vamos a darte una respuesta. Vamos a regalarte una pregunta.",
-      "Pero antes... Queremos pedirte algo.",
-      "No respondas pensando en quién te gustaría ser. Responde pensando en quién eres cuando nadie te está mirando.",
-      "¿Listo?"
-    ],
-    "pregunta_1": "¿Qué parte de tu vida seguiría exactamente igual si dentro de un año no cambiaras nada?",
-    "reflexion_1": [
-      "Léelo otra vez. No para corregirlo. Solo para observarlo.",
-      "Ahora queremos pedirte algo un poco diferente.",
-      "Subraya mentalmente la palabra que más peso tenga para ti. No la más bonita. La que más incomode.",
-      "¿Ya la tienes?"
-    ],
-    "transicion": [
-      "Esa palabra probablemente no apareció por casualidad.",
-      "Muchas veces creemos que nuestro problema es el estrés. O la ansiedad. O el miedo.",
-      "Pero debajo de todo eso suele haber una historia. Y esa historia casi siempre empieza mucho antes de que nos diéramos cuenta.",
-      "Por eso queremos hacerte una segunda pregunta. No para responderla rápido. Sino para escucharla de verdad."
-    ],
-    "pregunta_2": "¿Recuerdas cuándo fue la primera vez que empezaste a sentir eso?",
-    "cierre": [
-      "No vamos a hacerte más preguntas. Porque ya tienes suficiente para empezar.",
-      "La mayoría de las personas creen que el cambio ocurre cuando encuentran respuestas.",
-      "Nosotros creemos que comienza cuando, por primera vez, se atreven a formular la pregunta correcta.",
-      "Guarda esta página. Vuelve a leerla dentro de seis meses.",
-      "Quizá descubras que las respuestas cambiaron.",
-      "O quizá descubras algo todavía más importante. Que quien cambió fuiste tú."
-    ],
-    "despedida": [
-      "🌸 Antes de irte...",
-      "Este mes aprendiste a detenerte. A escucharte. A hacerte preguntas que quizá llevabas mucho tiempo evitando.",
-      "Y eso ya es un paso enorme. Pero antes de cerrar este recorrido, queremos dejarte con una última reflexión.",
-      "Hay algo curioso sobre los seres humanos. Aunque cambiemos de trabajo... De pareja... De ciudad... O incluso de metas... Muchas veces terminamos sintiendo lo mismo.",
-      "No porque la vida siempre sea igual. Sino porque, sin darnos cuenta, repetimos formas de pensar, sentir y actuar que se vuelven familiares.",
-      "A eso, en psicología, solemos llamarlo patrones.",
-      "Patrones en la manera en que nos hablamos. Patrones en aquello que esperamos de nosotros mismos. Patrones en la forma en que ponemos límites. Patrones en las relaciones que elegimos. Patrones en lo que toleramos. Y también en aquello que evitamos.",
-      "La mayoría de las personas pasa años intentando cambiar sus resultados. Muy pocas se detienen a comprender los patrones que los producen.",
-      "Porque aquello que no comprendemos, suele repetirse. Y aquello que comprendemos... empieza a transformarse."
-    ],
-    "teaser_proximo": "🔒 La siguiente conversación...\n\nCuando sentir que nunca es suficiente se convierte en un patrón.\n\nLa autoexigencia y el perfeccionismo no siempre nacen del deseo de hacer las cosas bien. A veces nacen del miedo a equivocarnos. Del miedo a decepcionar. O de la sensación de que nuestro valor depende de lo que logramos.\n\nEn el próximo recorrido exploraremos cómo reconocer este patrón, comprender de dónde viene y comenzar a construir una relación más amable contigo. Porque hacer las cosas con amor no es lo mismo que vivir exigiéndote constantemente."
-  },
-  "maternidad": {
-    "titulo": "Maternidad con Ciencia",
-    "descripcion": "Entiende el cerebro de mamá, el cerebro infantil y descubre herramientas de crianza basadas en la evidencia.",
-    "modulos": [
-      {
-        "titulo": "🧠 El cerebro de mamá",
-        "articulos": [
-          {
-            "titulo": "Introducción",
-            "parrafos": [
-              "Convertirte en mamá no solo cambió tu vida; también cambió tu cerebro.",
-              "Es posible que desde que nació tu hijo sientas que olvidas cosas con más frecuencia, que te cueste concentrarte, que estés más sensible o que vivas con la sensación de estar pensando en mil cosas al mismo tiempo. Muchas mujeres llegan a preguntarse si \"algo está mal\" con ellas.",
-              "La buena noticia es que, en la mayoría de los casos, no es así.",
-              "La investigación en neurociencia ha demostrado que durante el embarazo, el posparto y los primeros años de crianza ocurren importantes cambios en el cerebro materno. Estos cambios buscan ayudarte a responder a las necesidades de tu hijo, fortalecer el vínculo afectivo y mantenerlo a salvo. Sin embargo, también pueden hacer que experimentes una mayor carga emocional y cognitiva.",
-              "En esta sección descubrirás qué dice la ciencia sobre estos cambios para comprenderte con más amabilidad, dejar de culparte por aquello que estás viviendo y reconocer que muchas de tus experiencias tienen una explicación biológica, psicológica y emocional."
-            ]
-          },
-          {
-            "titulo": "¿Por qué desde que fui mamá siento que olvido todo?",
-            "parrafos": [
-              "\"Entré a la cocina y olvidé qué iba a hacer.\"",
-              "\"No recuerdo dónde dejé las llaves.\"",
-              "\"Siento que mi memoria ya no es la misma.\"",
-              "Si alguna vez has pensado algo parecido, no estás sola.",
-              "Muchas madres experimentan lo que popularmente se conoce como \"mom brain\" o \"cerebro de mamá\". Aunque durante mucho tiempo se creyó que era un mito, hoy sabemos que existen cambios reales relacionados con la atención, la memoria y la forma en que el cerebro prioriza la información.",
-              "Pero hay algo importante: esto no significa que seas menos inteligente.",
-              "Tu cerebro está administrando una enorme cantidad de información nueva: horarios, vacunas, alimentación, emociones, seguridad, necesidades de tu hijo y cientos de pequeñas decisiones que antes no existían. A esto se suman factores como la falta de sueño, el estrés y los cambios hormonales, que también influyen en el funcionamiento cognitivo.",
-              "En este apartado entenderás por qué sucede, qué cambios han observado las investigaciones y qué puedes hacer para cuidar tu memoria sin exigirte perfección."
-            ]
-          },
-          {
-            "titulo": "¿Qué pasa en el cerebro durante el posparto?",
-            "parrafos": [
-              "El posparto no solo representa una recuperación física; también es una etapa de profunda reorganización cerebral.",
-              "Durante estos meses cambian los niveles hormonales, aumenta la sensibilidad hacia las señales del bebé y el cerebro comienza a fortalecer circuitos relacionados con el cuidado, la protección y el vínculo afectivo. Al mismo tiempo, muchas mujeres experimentan emociones intensas, cambios de humor, mayor vulnerabilidad al estrés o una sensación de estar constantemente en estado de alerta.",
-              "Estos cambios forman parte de un proceso de adaptación y, aunque pueden resultar abrumadores, ayudan a comprender por qué el posparto puede sentirse tan diferente para cada mujer.",
-              "Aquí exploraremos qué ocurre en el cerebro durante esta etapa y cómo distinguir los cambios esperables de aquellas señales que merecen mayor atención y acompañamiento profesional."
-            ]
-          },
-          {
-            "titulo": "La carga mental sí existe… y así funciona",
-            "parrafos": [
-              "Hay un tipo de cansancio que no desaparece después de dormir unas horas.",
-              "Es el cansancio de recordar todo.",
-              "La cita con el pediatra, la leche que está por terminarse, la tarea escolar, la ropa que ya no le queda, las vacunas pendientes, el cumpleaños del fin de semana, la comida, el trabajo, la casa…",
-              "Aunque muchas de estas tareas parezcan pequeñas, mantenerlas activas de forma constante consume recursos mentales. A esto se le conoce como carga mental: el esfuerzo invisible de planificar, anticipar, organizar y tomar decisiones una y otra vez.",
-              "No siempre es la cantidad de cosas que haces lo que te agota, sino la cantidad de cosas que tu cerebro intenta sostener al mismo tiempo.",
-              "Comprender este fenómeno puede ayudarte a dejar de interpretar el agotamiento como una falta de capacidad y empezar a reconocerlo como una consecuencia natural de una mente que lleva demasiado tiempo funcionando sin descanso."
-            ]
-          },
-          {
-            "titulo": "¿Por qué el llanto de tu bebé es casi imposible de ignorar?",
-            "parrafos": [
-              "Pocas cosas captan tanto la atención como el llanto de un bebé.",
-              "No es casualidad.",
-              "El cerebro humano está preparado para responder rápidamente a este tipo de señales, especialmente durante la maternidad. Diversas regiones cerebrales aumentan su sensibilidad al llanto, favoreciendo que puedas identificar cuándo tu bebé necesita alimento, consuelo, protección o contacto.",
-              "Por eso muchas madres logran despertarse con un pequeño quejido de su hijo mientras otros sonidos pasan desapercibidos, o sienten una respuesta física inmediata cuando escuchan llorar a un bebé, incluso si no es el suyo.",
-              "Entender cómo funciona esta respuesta ayuda a comprender por qué a veces resulta tan difícil \"desconectarse\" y por qué el descanso mental puede convertirse en un verdadero desafío durante la crianza."
-            ]
-          },
-          {
-            "titulo": "El cerebro materno cambia… y eso tiene una explicación",
-            "parrafos": [
-              "Durante muchos años se pensó que la maternidad solo implicaba cambios emocionales. Hoy sabemos que también transforma la estructura y el funcionamiento del cerebro.",
-              "Lejos de representar una pérdida, estos cambios reflejan la extraordinaria capacidad del cerebro para adaptarse a una nueva etapa de la vida. Algunas áreas se especializan en reconocer mejor las necesidades del bebé, interpretar sus expresiones, responder con mayor rapidez a posibles amenazas y fortalecer el vínculo afectivo.",
-              "Al mismo tiempo, esta reorganización puede hacer que ciertas experiencias, como la preocupación constante, la hipervigilancia o la sensibilidad emocional, sean más frecuentes.",
-              "Conocer estos cambios no busca justificar el agotamiento ni normalizar el sufrimiento, sino ofrecer una mirada más compasiva y basada en evidencia sobre una etapa que transforma profundamente a quien la vive."
-            ]
-          }
-        ]
-      },
-      {
-        "titulo": "👶 El cerebro infantil",
-        "articulos": [
-          {
-            "titulo": "Introducción",
-            "parrafos": [
-              "Comprender el comportamiento de un niño va mucho más allá de saber qué hacer cuando llora, hace una rabieta o parece no escuchar. Durante los primeros años de vida, el cerebro se encuentra en pleno desarrollo y muchas conductas que los adultos interpretamos como desobediencia, manipulación o falta de interés tienen una explicación mucho más compleja.",
-              "En esta sección descubrirás cómo madura el cerebro infantil, qué puede esperar realmente de un niño según su etapa de desarrollo y por qué comprender estos procesos puede transformar la manera en que acompañas su crecimiento."
-            ]
-          },
-          {
-            "titulo": "¿Por qué una rabieta no es manipulación?",
-            "parrafos": [
-              "Las rabietas suelen ser uno de los mayores desafíos de la crianza. Cuando un niño grita, llora o parece perder el control, es fácil pensar que lo hace para conseguir lo que quiere. Sin embargo, la evidencia científica muestra que, especialmente durante los primeros años de vida, una rabieta rara vez es una estrategia consciente para manipular.",
-              "En realidad, muchas rabietas ocurren porque el cerebro infantil aún no cuenta con las herramientas necesarias para regular emociones intensas como la frustración, el enojo o la tristeza. En esos momentos, el niño necesita más que una corrección: necesita un adulto que comprenda lo que está ocurriendo y pueda acompañarlo mientras recupera la calma.",
-              "Entender este proceso no significa permitir cualquier conducta, sino aprender a distinguir entre establecer límites y esperar capacidades que el cerebro infantil todavía está desarrollando."
-            ]
-          },
-          {
-            "titulo": "¿Cuándo un niño realmente desarrolla autocontrol?",
-            "parrafos": [
-              "Con frecuencia esperamos que los niños controlen sus impulsos, esperen su turno, regulen su enojo o dejen de llorar \"porque ya están grandes\". Sin embargo, el autocontrol no aparece de un día para otro ni depende únicamente de la educación que reciben.",
-              "Esta capacidad se desarrolla poco a poco conforme madura la corteza prefrontal, una región del cerebro encargada de funciones como la planificación, la atención y el control de los impulsos. Ese proceso continúa durante la infancia, la adolescencia e incluso los primeros años de la adultez.",
-              "Conocer cómo evoluciona el autocontrol permite establecer expectativas más realistas y ofrecer el acompañamiento que cada etapa necesita, en lugar de interpretar ciertas conductas como falta de voluntad o mala educación."
-            ]
-          },
-          {
-            "titulo": "Lo que un niño entiende cuando le gritas",
-            "parrafos": [
-              "Muchas veces un grito surge del cansancio, la desesperación o la sensación de haber agotado todos los recursos. Sin embargo, el cerebro infantil no procesa un grito de la misma manera que un adulto.",
-              "Cuando un niño percibe una amenaza, su sistema de alerta se activa rápidamente. En ese momento le resulta mucho más difícil prestar atención al contenido del mensaje, reflexionar sobre lo ocurrido o aprender de la experiencia. Con frecuencia recuerda el miedo que sintió antes que las palabras que escuchó.",
-              "Esto no significa que los padres deban ser perfectos o que nunca puedan perder la paciencia. Significa que comprender cómo responde el cerebro infantil puede ayudar a encontrar formas de corregir que favorezcan el aprendizaje sin deteriorar el vínculo."
-            ]
-          },
-          {
-            "titulo": "¿Por qué jugar desarrolla más que muchas fichas de trabajo?",
-            "parrafos": [
-              "Para un niño, jugar no es perder el tiempo: es una de las principales formas de aprender.",
-              "Mientras juega, su cerebro desarrolla habilidades relacionadas con el lenguaje, la creatividad, la atención, la resolución de problemas, la regulación emocional y las relaciones sociales. Muchas de estas capacidades son difíciles de estimular únicamente mediante actividades repetitivas o académicas.",
-              "Esto no quiere decir que las fichas o ejercicios no tengan lugar, sino que el juego ofrece oportunidades de aprendizaje que difícilmente pueden sustituirse. Comprender su importancia ayuda a valorar esos momentos cotidianos como una parte esencial del desarrollo infantil."
-            ]
-          },
-          {
-            "titulo": "¿Qué significa \"corregulación\" y por qué importa?",
-            "parrafos": [
-              "Antes de aprender a calmarse por sí mismo, un niño necesita vivir muchas experiencias en las que otro adulto lo ayude a recuperar la calma. A este proceso se le conoce como corregulación.",
-              "Cuando un adulto acompaña con presencia, contención y seguridad a un niño que está desbordado emocionalmente, no solo está resolviendo una situación difícil del momento. También está enseñando, poco a poco, cómo reconocer las emociones y regularlas en el futuro.",
-              "La autorregulación no aparece de manera espontánea; primero se construye a través de la relación con quienes cuidan al niño. Comprender este proceso permite mirar muchas conductas desde una perspectiva más compasiva y entender que acompañar una emoción también es una forma de educar."
-            ]
-          }
-        ]
-      },
-      {
-        "titulo": "❤️ Mamá importa",
-        "articulos": [
-          {
-            "titulo": "Introducción",
-            "parrafos": [
-              "Durante mucho tiempo, la conversación sobre crianza se ha centrado casi exclusivamente en los hijos: qué necesitan, cómo educarlos o cómo favorecer su desarrollo. Sin embargo, pocas veces nos detenemos a mirar a quien sostiene gran parte de ese proceso: la madre.",
-              "La maternidad no ocurre en un vacío. Llega acompañada de una historia personal, experiencias de la infancia, expectativas, miedos, cansancio y emociones que muchas veces pasan desapercibidas. Comprender lo que sucede dentro de ti no significa dejar de cuidar a tus hijos; significa reconocer que tu bienestar también forma parte de una crianza saludable.",
-              "En esta sección exploraremos algunas de las experiencias emocionales más comunes de la maternidad desde una mirada basada en la psicología, con el propósito de acompañarte con información, comprensión y herramientas para cuidar también de ti."
-            ]
-          },
-          {
-            "titulo": "La culpa materna tiene una explicación psicológica",
-            "parrafos": [
-              "Muchas madres viven con la sensación de que nunca hacen lo suficiente. Si trabajan, sienten culpa por el tiempo que no pasan con sus hijos. Si permanecen en casa, pueden sentir culpa por haber dejado de lado otros proyectos. Si un día pierden la paciencia, aparece la idea de haber fallado.",
-              "La culpa materna no siempre nace de lo que haces; muchas veces surge de las expectativas imposibles que has aprendido sobre cómo \"debería\" ser una buena madre. La cultura, las redes sociales, la historia familiar e incluso las propias exigencias personales pueden alimentar esa sensación de estar siempre en deuda.",
-              "Comprender de dónde proviene esa culpa es el primer paso para diferenciar entre una responsabilidad saludable y una autoexigencia que termina desgastándote."
-            ]
-          },
-          {
-            "titulo": "Cuando la maternidad despierta heridas de tu infancia",
-            "parrafos": [
-              "Hay momentos en los que tu hijo parece tocar una parte de ti que creías olvidada. Una rabieta, una palabra o una situación cotidiana pueden despertar emociones mucho más intensas de lo que esperabas.",
-              "Esto ocurre porque la maternidad no solo implica cuidar a un niño; también puede traer de vuelta recuerdos, necesidades o experiencias que marcaron tu propia infancia. A veces reaccionamos desde la madre que somos, pero otras veces responde la niña que una vez necesitó ser comprendida, protegida o escuchada.",
-              "Reconocer estas heridas no significa culpar a quienes nos criaron. Significa entender cómo nuestra historia influye en la manera en que vivimos la maternidad y descubrir que siempre es posible construir nuevas formas de relacionarnos."
-            ]
-          },
-          {
-            "titulo": "¿Por qué reacciono tan fuerte con mi hijo?",
-            "parrafos": [
-              "¿Alguna vez te has sorprendido reaccionando con más intensidad de la que la situación parecía justificar? Después llega la culpa y la pregunta: \"¿Por qué me pasa esto?\"",
-              "Las reacciones intensas rara vez tienen una sola causa. El estrés acumulado, la falta de descanso, la sobrecarga emocional y las experiencias personales pueden hacer que el cerebro responda de forma automática antes de que tengamos oportunidad de pensar con calma.",
-              "Comprender qué activa esas respuestas no busca justificar aquello que queremos cambiar, sino ayudarte a desarrollar mayor conciencia sobre tus propios desencadenantes y construir estrategias para responder de una manera más acorde con la madre que deseas ser."
-            ]
-          },
-          {
-            "titulo": "El perfeccionismo también se cría",
-            "parrafos": [
-              "Muchas mujeres crecieron creyendo que equivocarse era sinónimo de fracasar, que pedir ayuda era un signo de debilidad o que siempre debían hacerlo todo bien para ser valoradas.",
-              "Cuando llega la maternidad, esas creencias suelen intensificarse. Aparece la presión por ser paciente todo el tiempo, disfrutar cada momento, mantener la casa en orden, responder en el trabajo y ofrecer a los hijos una infancia perfecta.",
-              "Pero criar no requiere perfección; requiere presencia, flexibilidad y capacidad para reparar cuando las cosas no salen como esperábamos.",
-              "Reconocer el perfeccionismo permite empezar a soltar expectativas imposibles y construir una maternidad más amable contigo misma."
-            ]
-          },
-          {
-            "titulo": "No siempre estás enojada con tu hijo; a veces estás agotada",
-            "parrafos": [
-              "Hay días en los que una pequeña travesura parece suficiente para desbordarte. No porque tu hijo haya hecho algo extraordinario, sino porque llevas demasiado tiempo sosteniendo responsabilidades, preocupaciones y cansancio sin darte espacio para recuperarte.",
-              "El agotamiento físico y emocional puede disminuir nuestra capacidad para regular las emociones, aumentar la irritabilidad y hacer que reaccionemos con mayor intensidad ante situaciones cotidianas.",
-              "Esto no significa que seas una mala madre. Significa que tú también tienes límites.",
-              "Aprender a reconocer las señales de agotamiento, diferenciarlo del enojo y atender tus propias necesidades no es un acto egoísta; es una forma de cuidar tu bienestar y, al mismo tiempo, fortalecer el vínculo con tus hijos."
-            ]
-          }
-        ]
-      },
-      {
-        "titulo": "🏡 Crianza basada en evidencia",
-        "articulos": [
-          {
-            "titulo": "Introducción",
-            "parrafos": [
-              "Criar nunca había sido tan complejo como ahora. Hoy tenemos acceso a miles de consejos sobre cómo educar a nuestros hijos, pero también estamos expuestos a una enorme cantidad de información contradictoria. Un día escuchamos que debemos ignorar los berrinches; al siguiente, que debemos acompañarlos. Algunas personas recomiendan premios para motivar, mientras otras aseguran que solo generan dependencia. Entre opiniones familiares, redes sociales y experiencias personales, es fácil sentirse confundida.",
-              "La crianza basada en evidencia busca ofrecer un punto de apoyo en medio de ese ruido. No pretende decirte que existe una única forma correcta de criar, ni juzgar las decisiones que has tomado como madre o padre. Su objetivo es acercarte el conocimiento que la psicología del desarrollo, la neurociencia y décadas de investigación han construido sobre cómo aprenden, sienten y crecen los niños.",
-              "La evidencia científica no reemplaza el amor, la intuición ni la realidad de cada familia. Sin embargo, nos permite comprender qué estrategias favorecen el desarrollo emocional, cognitivo y social de los niños, cuáles pueden resultar poco efectivas y por qué algunas prácticas, aunque fueron muy comunes durante generaciones, hoy sabemos que pueden tener consecuencias diferentes a las que se buscaban.",
-              "Conocer la ciencia detrás de la crianza no significa hacerlo todo perfecto. Significa tomar decisiones con mayor información, comprender mejor el comportamiento infantil y recordar que educar no consiste únicamente en corregir conductas, sino en acompañar el desarrollo de un ser humano que todavía está aprendiendo a entender el mundo y a entenderse a sí mismo.",
-              "En esta sección encontrarás algunos de los temas que generan más dudas entre las familias. Cada uno está explicado desde un lenguaje claro, cercano y sustentado en la evidencia científica disponible hasta el momento. Nuestro propósito no es darte respuestas absolutas, sino ayudarte a criar con más comprensión, menos culpa y mayor confianza en el camino que estás construyendo junto a tus hijos."
-            ]
-          },
-          {
-            "titulo": "Lo que realmente dice la psicología sobre los límites",
-            "parrafos": [
-              "Pocas palabras generan tantas emociones en la crianza como la palabra límite. Para algunas personas significa autoridad; para otras, control. Hay quienes temen poner límites porque no quieren repetir la educación rígida que recibieron, mientras que otros sienten que, si no son estrictos, sus hijos crecerán sin respeto por los demás.",
-              "La realidad es que los límites no son un castigo ni una demostración de poder. Desde la psicología del desarrollo, los límites representan una forma de ofrecer seguridad. Ayudan a los niños a comprender cómo funciona el mundo, qué conductas son aceptables y qué pueden esperar de los adultos que los cuidan. Un niño que conoce los límites de su entorno puede explorar con mayor tranquilidad porque sabe que existe una base segura que lo sostiene.",
-              "Es importante recordar que los niños no nacen con la capacidad de autorregularse. Las áreas del cerebro responsables del control de impulsos, la planificación y la toma de decisiones continúan desarrollándose durante muchos años. Por eso, esperar que un niño pequeño controle siempre sus emociones o tome decisiones maduras no corresponde con la realidad de su desarrollo. Los límites funcionan precisamente porque el cerebro infantil todavía necesita de un adulto que le ayude a organizar ese mundo que aún está aprendiendo a comprender.",
-              "Sin embargo, poner límites no significa imponer reglas de manera autoritaria. La investigación ha mostrado que los límites son más efectivos cuando son claros, consistentes y respetuosos. Un niño necesita saber qué se espera de él, pero también necesita sentirse seguro de que el cariño de sus cuidadores no depende de su comportamiento. La firmeza y el afecto no son opuestos; de hecho, juntos forman una de las bases más importantes para un desarrollo emocional saludable.",
-              "También es normal que los límites provoquen frustración. Cuando un niño llora porque no puede hacer algo que desea, no significa que el límite haya sido un error. La frustración forma parte del aprendizaje. Lo que marca la diferencia es que un adulto pueda sostener esa emoción sin ceder por culpa ni responder con enojo. Con el tiempo, esas experiencias ayudan al niño a desarrollar tolerancia a la frustración, autocontrol y habilidades para convivir con otras personas.",
-              "Poner límites no consiste en ganar una batalla contra los hijos. Consiste en acompañarlos mientras desarrollan capacidades que todavía no poseen. Cada límite bien establecido transmite un mensaje profundo: hay alguien cuidando de mí, incluso cuando no me gusta lo que me dicen."
-            ]
-          },
-          {
-            "titulo": "¿Los premios funcionan?",
-            "parrafos": [
-              "Es común escuchar frases como: \"Si recoges tus juguetes, te compro un helado.\" O \"Si sacas buenas calificaciones, te doy un regalo.\" Para muchas familias, los premios parecen una forma sencilla y efectiva de lograr que los niños colaboren o adopten determinados hábitos. Y, en realidad, muchas veces sí funcionan... al menos a corto plazo.",
-              "La psicología ha estudiado durante décadas el efecto de las recompensas sobre el comportamiento humano. Sabemos que los premios pueden aumentar la probabilidad de que una conducta vuelva a ocurrir, especialmente cuando se está formando un hábito nuevo o cuando una tarea resulta especialmente difícil. Sin embargo, también sabemos que no todas las conductas deberían depender de una recompensa externa.",
-              "Cuando un niño hace algo únicamente porque espera recibir un premio, su motivación comienza a depender menos del valor de la actividad y más del beneficio que obtendrá al final. A esto se le conoce como motivación extrínseca. En cambio, cuando una conducta nace del interés, la satisfacción personal o el deseo de contribuir, hablamos de motivación intrínseca, y esta suele mantenerse con mayor facilidad a lo largo del tiempo.",
-              "Esto no significa que los premios sean siempre negativos. En determinadas circunstancias pueden ser una herramienta útil, especialmente para iniciar rutinas o reforzar esfuerzos importantes. El problema aparece cuando cualquier comportamiento cotidiano necesita una recompensa para ocurrir. Si un niño espera recibir algo por lavarse los dientes, hacer la tarea o ayudar en casa, poco a poco puede interpretar que esas acciones solo tienen sentido cuando existe un beneficio inmediato.",
-              "La investigación también muestra que el reconocimiento no tiene por qué ser material. Una conversación, una sonrisa, un comentario específico sobre el esfuerzo realizado o el simple hecho de compartir un momento agradable suelen fortalecer mucho más la autoestima que un premio constante. Lo que realmente favorece el desarrollo es que el niño comprenda por qué aquello que hace tiene valor.",
-              "El objetivo de la crianza no es que los niños hagan las cosas para obtener algo a cambio, sino que desarrollen criterios internos que les permitan actuar con responsabilidad, empatía y autonomía. Los premios pueden formar parte del camino, pero nunca deberían convertirse en el motor principal que dirige su comportamiento."
-            ]
-          },
-          {
-            "titulo": "¿Los castigos enseñan?",
-            "parrafos": [
-              "Cuando un niño hace algo que no debería, es natural sentir la necesidad de corregir esa conducta. Muchas personas crecieron escuchando frases como \"una nalgada a tiempo\", \"que aprenda por las malas\" o \"si no hay consecuencias, nunca va a entender\". Durante generaciones, el castigo fue considerado una herramienta indispensable para educar. Sin embargo, hoy contamos con mucha más información sobre cómo aprenden realmente los niños y qué efectos tienen las distintas formas de disciplina.",
-              "La investigación ha encontrado que muchos castigos logran detener una conducta en el momento, pero eso no significa que el niño haya aprendido la habilidad que necesitaba desarrollar. En muchas ocasiones deja de hacer algo por miedo a la consecuencia, no porque haya comprendido por qué esa conducta afecta a otras personas o qué podría hacer diferente la próxima vez.",
-              "Cuando un niño siente miedo, vergüenza o humillación, su cerebro activa mecanismos de defensa que dificultan el aprendizaje. En lugar de reflexionar sobre lo ocurrido, gran parte de su energía se dirige a manejar el malestar emocional que está experimentando. Esto explica por qué algunos niños vuelven a repetir la misma conducta una y otra vez, incluso después de haber sido castigados.",
-              "Esto no significa que los niños deban crecer sin consecuencias. Las consecuencias forman parte del aprendizaje, pero son más efectivas cuando están relacionadas con la conducta, son proporcionales y se presentan como una oportunidad para reparar el daño o encontrar una mejor forma de actuar. El objetivo de la disciplina no es provocar sufrimiento, sino enseñar habilidades que el niño todavía está desarrollando.",
-              "Educar implica mucho más que detener comportamientos indeseables. Significa ayudar a los niños a comprender sus emociones, desarrollar autocontrol y aprender a convivir con los demás. Cuando la disciplina se centra en enseñar y no únicamente en castigar, los aprendizajes suelen ser más profundos y duraderos."
-            ]
-          },
-          {
-            "titulo": "¿Es bueno obligar a compartir?",
-            "parrafos": [
-              "Pocas situaciones generan tanta incomodidad como ver a un niño decir: \"Es mío y no te lo presto.\" Muchas veces, los adultos intervienen de inmediato obligándolo a compartir, convencidos de que así aprenderá a ser generoso. Sin embargo, el desarrollo infantil nos muestra que compartir es una habilidad mucho más compleja de lo que parece.",
-              "Durante los primeros años de vida, los niños todavía están construyendo el sentido de pertenencia. Comprender que un objeto les pertenece y que pueden decidir qué hacer con él forma parte de su desarrollo. Antes de poder compartir libremente, necesitan sentirse seguros de que aquello que consideran suyo no les será arrebatado constantemente.",
-              "La empatía también se desarrolla poco a poco. Aunque desde muy pequeños pueden mostrar conductas de ayuda, comprender profundamente las necesidades y deseos de otras personas requiere un cerebro más maduro. Esperar que un niño pequeño comparta siempre de manera espontánea puede generar frustración tanto en él como en los adultos.",
-              "Obligar a compartir no siempre enseña generosidad. En ocasiones solo enseña que otros decidirán por él lo que puede hacer con sus pertenencias. En cambio, cuando los adultos modelan la cooperación, respetan sus tiempos y lo ayudan a identificar cómo se sienten los demás, aumentan las probabilidades de que la generosidad aparezca de forma genuina.",
-              "Compartir es una conducta valiosa, pero también voluntaria. Nuestro objetivo no es que los niños cedan por obligación, sino que poco a poco desarrollen el deseo de colaborar, ayudar y disfrutar las relaciones con los demás desde la empatía y no desde la imposición."
-            ]
-          },
-          {
-            "titulo": "¿Debemos pedir que pidan perdón?",
-            "parrafos": [
-              "Después de una pelea entre hermanos o de un conflicto en el parque, es frecuente escuchar la frase: \"Ahora pídele perdón.\" Muchas veces el niño responde con un rápido \"perdón\" mientras sigue molesto, sin comprender realmente lo que ocurrió. Entonces surge una pregunta importante: ¿ese perdón realmente enseñó algo?",
-              "Pedir perdón es una habilidad social valiosa, pero solo tiene sentido cuando nace de la comprensión y de la intención de reparar una relación. Si el niño únicamente repite una palabra para satisfacer al adulto, es probable que el aprendizaje sea superficial y que no logre desarrollar verdadera empatía.",
-              "Antes de esperar una disculpa, los niños necesitan entender qué ocurrió, cómo pudo sentirse la otra persona y qué podrían hacer para reparar el daño. En ocasiones, reparar significa ayudar a reconstruir un juguete, acompañar a quien lastimaron, ofrecer otra alternativa o simplemente reconocer el error cuando están preparados para hacerlo.",
-              "Forzar una disculpa inmediata puede transmitir la idea de que lo importante es terminar rápido el conflicto. En cambio, acompañar el proceso ayuda a que los niños comprendan que sus acciones tienen consecuencias sobre los demás y que siempre existe la posibilidad de reparar cuando cometemos un error.",
-              "Más que enseñar a decir \"perdón\", buscamos enseñar responsabilidad, empatía y reparación. Son estas habilidades las que verdaderamente fortalecen las relaciones humanas a lo largo de la vida."
-            ]
-          },
-          {
-            "titulo": "¿Qué dice la evidencia sobre las pantallas?",
-            "parrafos": [
-              "Las pantallas forman parte de la vida cotidiana. Están presentes en el trabajo, la escuela, el entretenimiento y la comunicación con otras personas. Por eso, la pregunta ya no es si los niños tendrán contacto con ellas, sino cómo podemos acompañarlos para que ese uso sea saludable.",
-              "Durante muchos años la conversación se centró únicamente en el tiempo frente a las pantallas. Hoy sabemos que esa es solo una parte de la historia. La edad del niño, el tipo de contenido, el momento del día, la presencia de un adulto y el equilibrio con otras actividades influyen tanto o más que el número de horas utilizadas.",
-              "La evidencia muestra que los contenidos educativos, vistos junto a un adulto que conversa sobre ellos, tienen efectos muy diferentes a los contenidos rápidos, repetitivos o consumidos en soledad durante largos periodos. Del mismo modo, el uso excesivo antes de dormir puede interferir con el descanso y afectar procesos importantes para el desarrollo cerebral.",
-              "También es importante recordar que los niños aprenden observando. Si los adultos consultan constantemente el teléfono durante las comidas, las conversaciones o el tiempo de juego, ese modelo también forma parte de la educación que reciben. Hablar sobre pantallas implica mirar no solo los hábitos infantiles, sino también los nuestros.",
-              "Las pantallas no son enemigas de la crianza, pero tampoco sustituyen el juego libre, la interacción cara a cara, el movimiento, la lectura compartida ni las experiencias que permiten explorar el mundo con todos los sentidos. El objetivo no es eliminarlas por completo, sino encontrar un equilibrio que favorezca un desarrollo saludable."
-            ]
-          },
-          {
-            "titulo": "¿Qué necesita un niño para desarrollar autoestima?",
-            "parrafos": [
-              "Muchas personas creen que la autoestima se construye diciendo constantemente a los niños que son inteligentes, especiales o capaces de lograr cualquier cosa. Aunque las palabras de aliento son importantes, la autoestima va mucho más allá de recibir elogios.",
-              "La autoestima se desarrolla a partir de las experiencias que un niño vive consigo mismo y con las personas que lo rodean. Crece cuando descubre que puede intentar algo difícil, equivocarse, volver a intentarlo y sentirse acompañado durante ese proceso. No nace de hacerlo todo perfecto, sino de sentirse valioso incluso cuando las cosas no salen como esperaba.",
-              "La investigación muestra que los elogios centrados únicamente en el resultado pueden generar miedo al error o necesidad constante de aprobación. En cambio, reconocer el esfuerzo, la perseverancia, las estrategias utilizadas y el proceso de aprendizaje favorece una confianza más estable y menos dependiente de la opinión de los demás.",
-              "También influye profundamente la relación con los adultos significativos. Un niño que se siente escuchado, respetado y aceptado desarrolla una imagen más segura de sí mismo. Esto no significa evitar toda frustración o decir que todo está bien; significa transmitirle que su valor como persona nunca depende de un error, una calificación o un mal día.",
-              "La autoestima saludable no consiste en creer que uno puede hacerlo todo. Consiste en confiar en que, incluso frente a las dificultades, existen recursos para aprender, pedir ayuda y seguir creciendo. Ese es uno de los regalos más importantes que la crianza puede ofrecer a un niño. 💜"
-            ]
-          }
-        ]
-      },
-      {
-        "titulo": "🔬 Mitos de la crianza",
-        "articulos": [
-          {
-            "titulo": "Introducción",
-            "parrafos": [
-              "Existen ideas muy arraigadas sobre la crianza que han pasado de generación en generación. A continuación, desmentimos algunos de los mitos más comunes a la luz de la psicología del desarrollo."
-            ]
-          },
-          {
-            "titulo": "Mito: \"Si lo cargas mucho, se va a malacostumbrar.\"",
-            "parrafos": [
-              "Es una de las frases que más generaciones han escuchado. La intención suele ser buena: enseñar independencia desde pequeños. Sin embargo, hoy sabemos que un bebé no busca brazos para volverse dependiente, sino porque el contacto físico forma parte de una necesidad biológica.",
-              "Durante los primeros años de vida, el cerebro todavía está aprendiendo a regular el estrés. Cuando un bebé llora y un adulto lo carga, lo abraza o le habla con calma, no solo está resolviendo una necesidad inmediata: también está ayudando a que su sistema nervioso aprenda, poco a poco, a recuperar la calma. Es un proceso conocido como corregulación, y constituye la base sobre la que más adelante aparecerá la autorregulación.",
-              "Curiosamente, la investigación ha encontrado que los niños que crecieron sintiéndose seguros y atendidos suelen desarrollar mayor autonomía con el tiempo. La independencia no nace de aprender que nadie acudirá cuando lo necesiten, sino de haber experimentado una base segura desde la cual explorar el mundo.",
-              "Cargar a un bebé no lo malacostumbra. Lo ayuda a construir la seguridad emocional que algún día le permitirá alejarse con confianza."
-            ]
-          },
-          {
-            "titulo": "Mito: \"Los niños manipulan.\"",
-            "parrafos": [
-              "Cuando un niño insiste, llora, grita o parece encontrar exactamente la forma de conseguir lo que quiere, es fácil pensar que está manipulando. Sin embargo, esa palabra implica una intención muy específica: comprender cómo piensa otra persona y utilizar ese conocimiento para obtener un beneficio de manera deliberada.",
-              "En los primeros años de vida, el cerebro infantil todavía está desarrollando esas capacidades. Lo que solemos interpretar como manipulación suele ser, en realidad, una forma de comunicar una necesidad, expresar frustración o repetir una conducta que anteriormente le ayudó a conseguir atención, consuelo o ayuda.",
-              "Esto no significa que debamos acceder a todas sus peticiones. Los niños necesitan límites claros y consistentes. La diferencia está en cómo interpretamos su comportamiento. Si creemos que intenta controlarnos, probablemente responderemos desde el enojo. Si entendemos que aún está aprendiendo a expresar lo que siente, podremos acompañarlo con firmeza, pero también con mayor comprensión.",
-              "La próxima vez que aparezca esa idea, quizá valga la pena cambiar la pregunta. En lugar de pensar \"¿Cómo hago para que deje de manipularme?\", podríamos preguntarnos: \"¿Qué necesidad está intentando expresar con las herramientas que hoy tiene disponibles?\""
-            ]
-          },
-          {
-            "titulo": "Mito: \"Ignora el berrinche y aprenderá.\"",
-            "parrafos": [
-              "Durante mucho tiempo se recomendó ignorar cualquier berrinche para evitar \"reforzar\" esa conducta. Sin embargo, hoy sabemos que no todos los berrinches tienen el mismo origen ni requieren la misma respuesta.",
-              "Cuando un niño está completamente desbordado por una emoción intensa, las regiones del cerebro encargadas del razonamiento y el autocontrol funcionan con mucha menor eficacia. En ese momento no está eligiendo conscientemente perder el control; simplemente aún no cuenta con las herramientas necesarias para regular una emoción tan intensa.",
-              "Esto no significa que debamos conceder todo para detener el llanto. Acompañar un berrinche no es lo mismo que ceder. Significa ayudar al niño a recuperar la calma sin dejar de sostener el límite que originó la frustración. Una vez que el sistema nervioso vuelve a sentirse seguro, entonces sí existe espacio para aprender, reflexionar y buscar otras maneras de afrontar situaciones similares.",
-              "Los berrinches no desaparecen porque un niño se sienta solo con su emoción. Disminuyen conforme su cerebro desarrolla habilidades de autorregulación y encuentra adultos que le enseñan, con paciencia y consistencia, cómo transitar esos momentos difíciles."
-            ]
-          },
-          {
-            "titulo": "¿Qué puedes hacer?",
-            "parrafos": [
-              "Cuando tu hijo haga un berrinche, intenta recordar que primero necesita recuperar la calma antes de poder aprender. Durante ese momento puedes:",
-              "Mantener el límite si es necesario, sin recurrir a gritos o amenazas.",
-              "Hablar con una voz tranquila y permanecer cerca si acepta tu compañía.",
-              "Ayudarle a poner nombre a lo que siente cuando la intensidad haya disminuido: \"Veo que estabas muy enojado porque querías seguir jugando.\"",
-              "Esperar a que ambos estén calmados para hablar de lo ocurrido y pensar juntos qué podrían hacer diferente la próxima vez.",
-              "No todos los berrinches pueden evitarse, y eso no significa que estés criando mal. En realidad, son parte del proceso mediante el cual los niños aprenden, poco a poco, a regular emociones que todavía les resultan demasiado grandes."
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  ]
 }
 
 =================================================================
