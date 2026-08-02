@@ -45,19 +45,12 @@
             }
         }
     </script>
-    <style>
-        .animate-fadeIn { animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        body { background-color: #faf9fa; }
-    </style>
 </head>
 <body>
     <div id="root">
-        <div class="loading-screen text-center mt-20">
-            <h2 class="text-2xl text-stone-600 font-serif">Cargando Neuro Bloom...</h2>
-            <p class="text-stone-400 mt-4">Si este mensaje no desaparece, revisa tu conexión a internet.</p>
+        <div class="loading-screen">
+            <h2 class="loading-title">Cargando Neuro Bloom...</h2>
+            <p>Si este mensaje no desaparece en unos segundos, revisa tu conexión a internet.</p>
         </div>
     </div>
 
@@ -116,6 +109,7 @@
             const Compass = (props) => <IconWrapper name="compass" {...props} />;
             const Lock = (props) => <IconWrapper name="lock" {...props} />;
             const CheckCircle = (props) => <IconWrapper name="check-circle" {...props} />;
+            
             const MessageCircle = (props) => <IconWrapper name="message-circle" {...props} />;
             const PenTool = (props) => <IconWrapper name="pen-tool" {...props} />;
             const Headphones = (props) => <IconWrapper name="headphones" {...props} />;
@@ -155,9 +149,7 @@
 
             const Logo = ({ className }) => (
                 <div className={`flex items-center gap-3 ${className}`}>
-                    <div className="bg-white rounded-xl p-2 inline-block">
-                        <img src={logoUrl} alt="Neuro Bloom Logo" className="h-full w-auto object-contain drop-shadow-sm" />
-                    </div>
+                    <img src={logoUrl} alt="Neuro Bloom Logo" className="h-full w-auto object-contain drop-shadow-sm" />
                 </div>
             );
 
@@ -194,6 +186,12 @@
 
                 const obtenerInterpretacion = (puntaje) => {
                     let textoResultado = "";
+                    let advertenciaExtra = "";
+
+                    if (data.id === 'depresion-test' && respuestas[12] >= 2) {
+                        advertenciaExtra = "Importante: Si en la pregunta 13 respondiste 'Frecuentemente' o 'Casi todo el tiempo', es recomendable buscar apoyo profesional lo antes posible, incluso si tu puntaje total no es elevado.";
+                    }
+
                     for (let int of data.interpretacion) {
                         const partes = int.rango.match(/(\d+)\s*[-–]\s*(\d+)/);
                         if (partes) {
@@ -206,7 +204,18 @@
                         }
                     }
                     if (!textoResultado) textoResultado = "Te sugerimos buscar orientación profesional para analizar tus resultados a detalle.";
-                    return <p className="text-xl text-stone-700 font-medium leading-relaxed">{textoResultado}</p>;
+
+                    return (
+                        <div className="space-y-4">
+                            <p className="text-xl text-stone-700 font-medium leading-relaxed">{textoResultado}</p>
+                            {advertenciaExtra && (
+                                <div className="mt-4 p-4 bg-orange-100 border-l-4 border-orange-500 text-orange-800 rounded-lg text-left">
+                                    <strong className="block mb-1 text-orange-900">Atención:</strong>
+                                    {advertenciaExtra}
+                                </div>
+                            )}
+                        </div>
+                    );
                 };
 
                 return (
@@ -217,17 +226,17 @@
                                 {getIconComponent(data.icon)}
                             </div>
                             <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>
-                                {data.title}
+                                <span className="brush-highlight">{data.title}</span>
                             </h2>
                         </div>
-                        {data.intro && <p className="text-lg text-stone-600 mb-8 leading-relaxed">{data.intro}</p>}
+                        {data.intro && <p className="text-lg text-stone-600 mb-8 leading-relaxed whitespace-pre-line">{data.intro}</p>}
                         <div className="space-y-6">
                             {data.preguntas.map((pregunta, idx) => (
                                 <div key={idx} className="bg-white/80 p-6 rounded-2xl border border-white shadow-sm hover:shadow-md transition-shadow">
                                     <p className="font-semibold text-stone-800 mb-4 text-lg">{idx + 1}. {pregunta}</p>
                                     <div className="flex flex-wrap gap-3">
                                         {data.opciones.map((opc, oIdx) => (
-                                            <button key={oIdx} onClick={() => setRespuestas({...respuestas, [idx]: opc.v})} className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all border ${respuestas[idx] === opc.v ? 'bg-white shadow-md scale-105' : 'bg-stone-50/50 border-stone-200 hover:bg-white text-stone-500'}`} style={{ borderColor: respuestas[idx] === opc.v ? (data.color || colors.primary) : '', color: respuestas[idx] === opc.v ? (data.color || colors.primary) : '' }}>
+                                            <button key={oIdx} onClick={() => setRespuestas({...respuestas, [idx]: opc.v})} className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all border ${respuestas[idx] === opc.v ? 'bg-white shadow-md scale-105' : 'bg-stone-50/50 border-stone-200 hover:border-stone-300 text-stone-500 hover:bg-white'}`} style={{ borderColor: respuestas[idx] === opc.v ? (data.color || colors.primary) : '', color: respuestas[idx] === opc.v ? (data.color || colors.primary) : '' }}>
                                                 {opc.l}
                                             </button>
                                         ))}
@@ -236,15 +245,23 @@
                             ))}
                         </div>
                         <div className="mt-12 text-center">
-                            <button onClick={calcularPuntaje} disabled={Object.keys(respuestas).length < data.preguntas.length} className="px-10 py-4 rounded-full text-white font-bold text-lg shadow-lg disabled:opacity-50 transition-all" style={{ backgroundColor: colors.primary }}>
+                            <button onClick={calcularPuntaje} disabled={Object.keys(respuestas).length < data.preguntas.length} className="px-10 py-4 rounded-full text-white font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:-translate-y-1" style={{ backgroundColor: colors.primary }}>
                                 Ver Resultado
                             </button>
+                            {Object.keys(respuestas).length < data.preguntas.length && (
+                                <p className="text-stone-400 text-sm mt-3">Responde todas las preguntas para ver tu resultado.</p>
+                            )}
                         </div>
                         {resultado !== null && (
-                            <div className="mt-12 p-8 lg:p-10 rounded-3xl bg-indigo-50/80 text-center shadow-inner">
-                                <h3 className="text-3xl font-serif font-bold mb-6" style={{ color: colors.primary }}>Tu puntuación: {resultado}</h3>
-                                <div className="mb-8 text-left max-w-2xl mx-auto p-6 bg-white/90 rounded-2xl shadow-sm">
+                            <div className="mt-12 p-8 lg:p-10 rounded-3xl bg-indigo-50/80 backdrop-blur-sm border border-indigo-100 animate-slideIn text-center shadow-inner">
+                                <h3 className="text-3xl font-serif font-bold mb-6" style={{ color: colors.primary }}>Tu puntuación total: {resultado}</h3>
+                                <div className="mb-8 text-left max-w-2xl mx-auto p-6 bg-white/90 rounded-2xl border border-white shadow-sm">
                                     {obtenerInterpretacion(resultado)}
+                                </div>
+                                <div className="p-6 bg-white/60 rounded-3xl text-stone-600 text-sm shadow-sm border border-white text-left">
+                                    <p className="font-bold mb-2">Recuerda:</p>
+                                    <p>Reconocer cómo nos sentimos es el primer paso para cuidar nuestra salud mental. Pedir ayuda profesional también es una forma de autocuidado.</p>
+                                    <p className="mt-2 italic">Este cuestionario no sustituye una evaluación clínica ni constituye un diagnóstico.</p>
                                 </div>
                             </div>
                         )}
@@ -252,8 +269,380 @@
                 );
             };
 
+            const PerfilEmocional = ({ premiumData, onBack, onHome }) => {
+                const perfil = premiumData.perfil_emocional;
+                const [dimActual, setDimActual] = useState(-1);
+                const [respuestas, setRespuestas] = useState({});
+
+                const iniciarTest = () => { setDimActual(0); setRespuestas({}); };
+                const handleRespuesta = (dimId, qIdx, valor) => {
+                    setRespuestas(prev => ({ ...prev, [dimId]: { ...prev[dimId], [qIdx]: valor } }));
+                };
+                const avanzarDimension = () => {
+                    setDimActual(prev => prev + 1);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+
+                const calcularResultadosFinales = () => {
+                    let resultados = [];
+                    perfil.dimensiones.forEach(dim => {
+                        let puntaje = 0;
+                        dim.preguntas.forEach((q, idx) => {
+                            let valor = respuestas[dim.id]?.[idx] || 0;
+                            if (q.invertida) valor = 4 - valor;
+                            puntaje += valor;
+                        });
+                        const nivelObj = dim.resultados.find(r => puntaje >= r.rango[0] && puntaje <= r.rango[1]);
+                        resultados.push({ titulo: dim.titulo, descripcion: dim.descripcion, puntaje, ...nivelObj });
+                    });
+                    return resultados;
+                };
+
+                if (dimActual === -1) {
+                    return (
+                        <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
+                            <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-16 rounded-[3rem] border border-white shadow-glass text-center">
+                                <Brain size={80} className="mx-auto text-brand-purple mb-8 animate-pulse" />
+                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-8"><span className="brush-highlight">Conoce tu Perfil Emocional</span></h2>
+                                <p className="text-xl text-stone-600 mb-10 leading-relaxed max-w-2xl mx-auto whitespace-pre-line font-light">{perfil.intro}</p>
+                                <button onClick={iniciarTest} className="px-10 py-5 bg-brand-purple text-white rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all">
+                                    🌸 Comenzar evaluación
+                                </button>
+                            </div>
+                        </div>
+                    );
+                }
+
+                if (dimActual >= 0 && dimActual < perfil.dimensiones.length) {
+                    const dim = perfil.dimensiones[dimActual];
+                    const numPreguntas = dim.preguntas.length;
+                    const respondidas = Object.keys(respuestas[dim.id] || {}).length;
+                    const progreso = ((dimActual) / perfil.dimensiones.length) * 100;
+
+                    return (
+                        <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
+                            <div className="w-full bg-white/50 rounded-full h-3 mb-8 shadow-inner overflow-hidden border border-white">
+                                <div className="bg-brand-purple h-3 rounded-full transition-all duration-500" style={{ width: `${progreso}%` }}></div>
+                            </div>
+                            <div className="bg-white/90 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] border border-white shadow-glass">
+                                <div className="mb-10 text-center border-b border-stone-100 pb-8">
+                                    <h2 className="text-3xl lg:text-4xl font-serif font-bold text-brand-purple mb-4">{dim.titulo}</h2>
+                                    <p className="text-lg text-stone-500 font-light max-w-2xl mx-auto">{dim.descripcion}</p>
+                                </div>
+                                <div className="space-y-8">
+                                    {dim.preguntas.map((q, idx) => (
+                                        <div key={idx} className="bg-stone-50/50 p-6 lg:p-8 rounded-3xl border border-white hover:shadow-md transition-shadow">
+                                            <p className="font-bold text-stone-800 mb-6 text-lg lg:text-xl">{q.texto}</p>
+                                            <div className="flex flex-wrap gap-3 lg:gap-4">
+                                                {perfil.escala.map((opc, oIdx) => {
+                                                    const isSelected = respuestas[dim.id]?.[idx] === opc.v;
+                                                    return (
+                                                        <button key={oIdx} onClick={() => handleRespuesta(dim.id, idx, opc.v)} className={`flex-grow sm:flex-grow-0 px-6 py-3 rounded-2xl text-sm font-bold transition-all border ${isSelected ? 'bg-brand-purple text-white shadow-lg border-brand-purple scale-105' : 'bg-white border-stone-200 text-stone-500 hover:border-brand-purple hover:text-brand-purple'}`}>
+                                                            {opc.l}
+                                                        </button>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="mt-12 pt-8 border-t border-stone-100 flex items-center justify-between">
+                                    <p className="text-stone-400 font-bold">{respondidas} de {numPreguntas} respondidas</p>
+                                    <button onClick={avanzarDimension} disabled={respondidas < numPreguntas} className="px-8 py-4 bg-brand-purple text-white rounded-full font-bold text-lg shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-1 transition-transform flex items-center gap-2">
+                                        {dimActual === perfil.dimensiones.length - 1 ? 'Ver Resultados' : 'Siguiente Dimensión'} &rarr;
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }
+
+                if (dimActual === perfil.dimensiones.length) {
+                    const resultados = calcularResultadosFinales();
+                    return (
+                        <div className="animate-fadeIn max-w-5xl mx-auto py-12 relative z-10">
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
+                            <div className="text-center mb-16">
+                                <CheckCircle size={64} className="mx-auto text-brand-green mb-6 animate-bounce" style={{animationDuration: '2s'}}/>
+                                <h2 className="text-5xl font-serif font-bold text-stone-800 mb-4"><span className="brush-highlight">Tu Perfil Emocional</span></h2>
+                                <p className="text-xl text-stone-600 font-light">Este es el análisis de tus 7 dimensiones y nuestras rutas sugeridas para ti.</p>
+                            </div>
+                            <div className="space-y-10">
+                                {resultados.map((res, idx) => (
+                                    <div key={idx} className="bg-white/90 backdrop-blur-xl rounded-[2.5rem] border border-white shadow-glass overflow-hidden">
+                                        <div className={`p-8 border-b border-white flex flex-col sm:flex-row sm:items-center justify-between gap-6 ${res.bg}`}>
+                                            <div>
+                                                <h3 className="text-2xl font-serif font-bold text-stone-800">{res.titulo}</h3>
+                                                <p className="text-stone-600 font-light mt-1">{res.descripcion}</p>
+                                            </div>
+                                            <div className="bg-white px-6 py-3 rounded-2xl shadow-sm border border-white text-center min-w-[120px]">
+                                                <p className={`text-xl font-black ${res.color}`}>{res.nivel}</p>
+                                            </div>
+                                        </div>
+                                        <div className="p-8 lg:p-10">
+                                            <div className="mb-8">
+                                                <h4 className="font-bold text-brand-purple uppercase tracking-wider mb-3 text-sm">¿Qué significa tu resultado?</h4>
+                                                <p className="text-stone-700 leading-relaxed">{res.desc}</p>
+                                            </div>
+                                            <div className="mb-8">
+                                                <h4 className="font-bold text-stone-800 uppercase tracking-wider mb-3 text-sm">Esto podría reflejarse en tu día a día:</h4>
+                                                <p className="text-stone-600 italic border-l-4 border-stone-200 pl-4 py-1">{res.reflejo}</p>
+                                            </div>
+                                            <div className="bg-stone-50/80 p-6 rounded-2xl border border-stone-100">
+                                                <h4 className="font-bold text-brand-green uppercase tracking-wider mb-4 text-sm flex items-center gap-2">
+                                                    <Sprout size={16} /> Rutas Sugeridas
+                                                </h4>
+                                                <ul className="space-y-3">
+                                                    <li className="flex items-start gap-3"><span className="text-brand-purple font-black">•</span><span><strong className="text-stone-700">Ruta principal:</strong> <span className="text-stone-600">{res.ruta_prin}</span></span></li>
+                                                    <li className="flex items-start gap-3"><span className="text-brand-lilac font-black">•</span><span><strong className="text-stone-700">Ruta complementaria:</strong> <span className="text-stone-600">{res.ruta_comp}</span></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="mt-16 text-center">
+                                <button onClick={onBack} className="px-10 py-5 bg-stone-800 text-white rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all">
+                                    Ir a Mis Rutas
+                                </button>
+                            </div>
+                        </div>
+                    );
+                }
+                return null;
+            };
+
+            const RutasBienestar = ({ premiumData, onBack, onHome }) => {
+                const [activeRuta, setActiveRuta] = useState(null);
+                const [activeModulo, setActiveModulo] = useState(0);
+
+                if (!activeRuta) {
+                    return (
+                        <div className="animate-fadeIn max-w-6xl mx-auto py-12 relative z-10">
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
+                            <div className="text-center mb-16">
+                                <Compass size={64} className="mx-auto text-brand-green mb-6" />
+                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800 mb-4"><span className="brush-highlight-green">Mis Rutas de Bienestar</span></h2>
+                                <p className="text-xl text-stone-600 font-light">Explora los programas guiados para acompañar tu proceso emocional.</p>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+                                {premiumData.rutas.map((ruta, idx) => (
+                                    <button 
+                                        key={idx} 
+                                        onClick={() => {setActiveRuta(ruta); setActiveModulo(0);}} 
+                                        className="text-left bg-white/80 backdrop-blur-xl p-8 rounded-[2rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col group premium-card-border"
+                                    >
+                                        <div className="mb-4 text-brand-green group-hover:scale-110 transition-transform"><Leaf size={32} /></div>
+                                        <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">{ruta.titulo}</h3>
+                                        <p className="text-stone-500 font-light line-clamp-3 leading-relaxed">{ruta.descripcion}</p>
+                                        <div className="mt-6 text-brand-green font-bold text-sm uppercase tracking-widest">Ingresar &rarr;</div>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    );
+                }
+
+                const modulo = activeRuta.modulos[activeModulo];
+
+                return (
+                    <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                        <BackButton onClick={() => setActiveRuta(null)} text="Volver a Rutas" onHome={onHome} />
+                        <div className="bg-white/90 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass overflow-hidden">
+                            <div className="p-8 lg:p-10 border-b border-stone-100 bg-gradient-to-r from-stone-50 to-white">
+                                <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800 mb-2">{activeRuta.titulo}</h2>
+                            </div>
+                            
+                            <div className="flex overflow-x-auto border-b border-stone-100 bg-white/50 no-scrollbar">
+                                {activeRuta.modulos.map((m, idx) => (
+                                    <button 
+                                        key={idx} 
+                                        onClick={() => setActiveModulo(idx)} 
+                                        className={`px-8 py-5 font-bold whitespace-nowrap transition-colors ${activeModulo === idx ? 'text-brand-purple border-b-4 border-brand-purple bg-stone-50/50' : 'text-stone-400 hover:text-stone-600'}`}
+                                    >
+                                        Módulo {idx + 1}
+                                    </button>
+                                ))}
+                            </div>
+                            
+                            <div className="p-8 lg:p-14 space-y-12">
+                                <h3 className="text-3xl font-serif font-bold text-stone-800 mb-8">{modulo.titulo}</h3>
+                                
+                                {modulo.psicoeducacion && (
+                                    <div className="space-y-6">
+                                        <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">
+                                            <Brain size={20} /> Psicoeducación
+                                        </div>
+                                        <h4 className="text-2xl font-serif font-bold text-stone-800">{modulo.psicoeducacion.titulo}</h4>
+                                        <div className="space-y-4 text-stone-600 font-light leading-relaxed text-lg text-justify">
+                                            {modulo.psicoeducacion.parrafos.map((p, i) => <p key={i}>{p}</p>)}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {modulo.te_ha_pasado && modulo.te_ha_pasado.length > 0 && (
+                                    <div className="bg-brand-purple/5 p-8 rounded-3xl border border-brand-purple/10">
+                                        <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm mb-6">
+                                            <MessageCircle size={20} /> ¿Te ha pasado que...?
+                                        </div>
+                                        <ul className="space-y-4">
+                                            {modulo.te_ha_pasado.map((item, i) => (
+                                                <li key={i} className="flex gap-3 text-stone-700 font-light text-lg">
+                                                    <span className="text-brand-purple mt-1">•</span> {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                {modulo.ejercicio && (
+                                    <div className="bg-stone-50 p-8 rounded-3xl border border-stone-100">
+                                        <div className="flex items-center gap-3 text-stone-500 font-bold uppercase tracking-widest text-sm mb-6">
+                                            <PenTool size={20} /> Ejercicio NeuroBloom
+                                        </div>
+                                        <h4 className="text-2xl font-serif font-bold text-stone-800 mb-4">{modulo.ejercicio.titulo}</h4>
+                                        <p className="text-stone-600 font-light mb-6 text-lg">{modulo.ejercicio.instrucciones}</p>
+                                        <div className="space-y-4">
+                                            {modulo.ejercicio.pasos.map((paso, i) => (
+                                                <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 text-stone-700 font-light">{paso}</div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* REPRODUCTOR HÍBRIDO (YOUTUBE O AUDIO DIRECTO .MP3) */}
+                                {modulo.audio && (
+                                    <div className="bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-8 rounded-3xl border border-brand-purple/20 flex flex-col gap-4 shadow-sm">
+                                        <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">
+                                            {modulo.audio.youtube_id ? <PlayCircle size={20} /> : <Headphones size={20} />} 
+                                            {modulo.audio.duracion || "Contenido de Audio / Video"}
+                                        </div>
+                                        <h4 className="text-xl font-serif font-bold text-stone-800">{modulo.audio.titulo}</h4>
+                                        
+                                        {modulo.audio.youtube_id ? (
+                                            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md mt-2">
+                                                <iframe 
+                                                    className="absolute top-0 left-0 w-full h-full"
+                                                    src={`https://www.youtube.com/embed/${modulo.audio.youtube_id}`} 
+                                                    title="YouTube video player" 
+                                                    frameBorder="0" 
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                    allowFullScreen>
+                                                </iframe>
+                                            </div>
+                                        ) : modulo.audio.url ? (
+                                            <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                <audio controls className="w-full outline-none">
+                                                    <source src={modulo.audio.url} type="audio/mpeg" />
+                                                    Tu navegador no soporta el elemento de audio.
+                                                </audio>
+                                            </div>
+                                        ) : (
+                                            <div className="flex items-center gap-3 text-stone-500 italic text-sm mt-2">
+                                                <PlayCircle size={24} className="text-brand-purple" />
+                                                <span>El archivo estará disponible muy pronto.</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                {modulo.hoja_trabajo && (
+                                    <div className="space-y-6">
+                                        <div className="flex items-center gap-3 text-actionBlue font-bold uppercase tracking-widest text-sm">
+                                            <FileText size={20} /> Hoja de Trabajo
+                                        </div>
+                                        <h4 className="text-2xl font-serif font-bold text-stone-800">{modulo.hoja_trabajo.titulo}</h4>
+                                        <div className="bg-white border-2 border-dashed border-stone-200 p-8 rounded-3xl space-y-4 text-stone-600 font-light text-lg">
+                                            {modulo.hoja_trabajo.contenido.map((c, i) => <p key={i}>{c}</p>)}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {modulo.reto && (
+                                    <div className="bg-brand-green/10 p-8 rounded-3xl border border-brand-green/20">
+                                        <div className="flex items-center gap-3 text-brand-green font-bold uppercase tracking-widest text-sm mb-6">
+                                            <Leaf size={20} /> Práctica de la Semana
+                                        </div>
+                                        <h4 className="text-2xl font-serif font-bold text-stone-800 mb-4">{modulo.reto.titulo}</h4>
+                                        <div className="space-y-4 text-stone-700 font-light text-lg">
+                                            {modulo.reto.contenido.map((c, i) => <p key={i}>{c}</p>)}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {modulo.cierre && modulo.cierre.length > 0 && (
+                                    <div className="border-t border-stone-100 pt-12 space-y-6 text-center">
+                                        <HeartHandshake size={48} className="mx-auto text-brand-lilac mb-6" />
+                                        <div className="space-y-4 text-stone-600 font-light text-lg max-w-2xl mx-auto">
+                                            {modulo.cierre.map((c, i) => <p key={i}>{c}</p>)}
+                                        </div>
+                                    </div>
+                                )}
+
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+            
+            const MaternidadView = ({ premiumData, onBack, onHome }) => {
+                const [activeModulo, setActiveModulo] = useState(0);
+                const maternidad = premiumData.maternidad;
+
+                if (!maternidad) return null;
+                const modulo = maternidad.modulos[activeModulo];
+
+                return (
+                    <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                        <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
+                        <div className="bg-white/90 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass overflow-hidden">
+                            <div className="p-8 lg:p-10 border-b border-stone-100 bg-gradient-to-r from-pink-50 to-white flex items-center gap-6">
+                                <div className="p-4 bg-pink-100 text-pink-500 rounded-2xl shadow-sm"><Sprout size={40} /></div>
+                                <div>
+                                    <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800 mb-2"><span className="brush-highlight-pink">{maternidad.titulo}</span></h2>
+                                    <p className="text-stone-500 font-light">{maternidad.descripcion}</p>
+                                </div>
+                            </div>
+                            
+                            <div className="flex overflow-x-auto border-b border-stone-100 bg-white/50 no-scrollbar">
+                                {maternidad.modulos.map((m, idx) => (
+                                    <button 
+                                        key={idx} 
+                                        onClick={() => setActiveModulo(idx)} 
+                                        className={`px-6 py-5 font-bold whitespace-nowrap transition-colors ${activeModulo === idx ? 'text-pink-500 border-b-4 border-pink-400 bg-white shadow-sm' : 'text-stone-400 hover:text-stone-600'}`}
+                                    >
+                                        {m.titulo}
+                                    </button>
+                                ))}
+                            </div>
+                            
+                            <div className="p-8 lg:p-14 space-y-12">
+                                {modulo.articulos && modulo.articulos.map((articulo, i) => (
+                                    <div key={i} className="space-y-6">
+                                        {articulo.titulo !== "Introducción" && (
+                                            <h4 className="text-2xl font-serif font-bold text-pink-600">{articulo.titulo}</h4>
+                                        )}
+                                        <div className="space-y-4 text-stone-600 font-light leading-relaxed text-lg text-justify">
+                                            {articulo.parrafos.map((p, j) => {
+                                                if (p.startsWith('"') && p.endsWith('"')) {
+                                                    return <p key={j} className="italic font-medium text-pink-500/90 text-center my-6 text-xl">"{p.replace(/"/g, '')}"</p>;
+                                                }
+                                                return <p key={j}>{p}</p>;
+                                            })}
+                                        </div>
+                                        {i < modulo.articulos.length - 1 && <hr className="border-pink-100/50 my-10" />}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
             const RetoPremium = ({ premiumData, onBack, onHome }) => {
-                const reto = premiumData.reto_premium || premiumData.reto_del_mes;
+                const reto = premiumData.reto_premium;
                 const [step, setStep] = useState(0); 
 
                 if (!reto) return null;
@@ -263,46 +652,226 @@
                         <div className="text-left">
                             <BackButton onClick={onBack} text="Volver al Balance" onHome={onHome} />
                         </div>
+
                         <div className="bg-white/90 backdrop-blur-xl p-10 lg:p-16 rounded-[3rem] border border-white shadow-glass">
                             <Star size={48} className="mx-auto text-yellow-500 mb-6" fill="currentColor" />
                             
-                            <div className="animate-fadeIn space-y-6">
-                                <h2 className="text-4xl font-serif font-bold text-stone-800 mb-8">{reto.titulo || "Reto del Mes"}</h2>
-                                
-                                {/* REPRODUCTOR DE AUDIO PRINCIPAL DEL RETO */}
-                                {reto.url && (
-                                    <div className="my-8 bg-brand-purple/5 p-6 rounded-3xl border border-brand-purple/20">
-                                        <h3 className="text-lg font-bold text-brand-purple mb-4 flex items-center justify-center gap-2">
-                                            <Headphones size={20}/> Escucha el audio introductorio
-                                        </h3>
-                                        <audio controls className="w-full rounded-full outline-none shadow-sm">
-                                            <source src={reto.url} type="audio/mpeg" />
-                                            Tu navegador no soporta la reproducción de audio.
-                                        </audio>
-                                    </div>
-                                )}
+                            {step === 0 && (
+                                <div className="animate-fadeIn space-y-6">
+                                    <h2 className="text-4xl font-serif font-bold text-stone-800 mb-8"><span className="brush-highlight-yellow">{reto.titulo || "Reto del Mes"}</span></h2>
+                                    
+                                    {/* SECCIÓN DEL AUDIO AÑADIDA */}
+                                    {reto.url && (
+                                        <div className="bg-brand-purple/5 p-6 rounded-3xl border border-brand-purple/20 my-6 flex flex-col items-center">
+                                            <div className="flex items-center gap-2 text-brand-purple font-bold uppercase tracking-widest text-sm mb-4">
+                                                <Headphones size={20} /> Escucha el audio introductorio
+                                            </div>
+                                            <audio controls className="w-full max-w-md rounded-full shadow-sm outline-none">
+                                                <source src={reto.url} type="audio/mpeg" />
+                                                <source src={reto.url.replace('.mpeg', '.mp3')} type="audio/mp3" />
+                                                Tu navegador no soporta el elemento de audio.
+                                            </audio>
+                                        </div>
+                                    )}
 
-                                {(reto.intro || []).map((p, i) => <p key={i} className="text-xl text-stone-600 font-light leading-relaxed">{p}</p>)}
-                                
-                                <div className="text-center mt-12">
-                                    <button onClick={onBack} className="px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Volver</button>
+                                    {reto.intro?.map((p, i) => <p key={i} className="text-xl text-stone-600 font-light leading-relaxed">{p}</p>)}
+                                    <button onClick={() => setStep(1)} className="mt-8 px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Continuar</button>
                                 </div>
-                            </div>
+                            )}
+
+                            {step === 1 && (
+                                <div className="animate-fadeIn space-y-6 text-left">
+                                    {/* MAP PROTEGIDO CON OPTIONAL CHAINING "?." */}
+                                    {reto.desarrollo?.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
+                                    
+                                    {reto.pregunta_1 && (
+                                        <div className="bg-brand-purple/5 p-8 rounded-2xl border border-brand-purple/20 my-8">
+                                            <h3 className="text-2xl font-serif font-bold text-brand-purple mb-4">{reto.pregunta_1}</h3>
+                                            <textarea className="w-full bg-white border border-stone-200 rounded-xl p-4 min-h-[120px] focus:outline-none focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 resize-none" placeholder="Escribe aquí con total honestidad..."></textarea>
+                                        </div>
+                                    )}
+                                    <div className="text-center">
+                                        <button onClick={() => setStep(2)} className="px-8 py-4 bg-brand-purple text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Siguiente</button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {step === 2 && (
+                                <div className="animate-fadeIn space-y-6 text-left">
+                                    {reto.reflexion_1?.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
+                                    
+                                    {reto.transicion && (
+                                        <div className="my-8 border-t border-b border-stone-100 py-8 space-y-6">
+                                            {reto.transicion?.map((p, i) => <p key={i} className="text-lg text-stone-700 font-light leading-relaxed">{p}</p>)}
+                                        </div>
+                                    )}
+
+                                    {reto.pregunta_2 && (
+                                        <div className="bg-brand-green/10 p-8 rounded-2xl border border-brand-green/20 my-8">
+                                            <h3 className="text-2xl font-serif font-bold text-brand-green mb-4">{reto.pregunta_2}</h3>
+                                            <textarea className="w-full bg-white border border-stone-200 rounded-xl p-4 min-h-[120px] focus:outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 resize-none" placeholder="Tómate tu tiempo para recordar..."></textarea>
+                                        </div>
+                                    )}
+                                    <div className="text-center">
+                                        <button onClick={() => setStep(3)} className="px-8 py-4 bg-brand-green text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Finalizar Reflexión</button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {step === 3 && (
+                                <div className="animate-fadeIn space-y-6 text-left">
+                                    <div className="space-y-6 mb-12">
+                                        {reto.cierre?.map((p, i) => <p key={i} className="text-lg text-stone-700 font-bold leading-relaxed">{p}</p>)}
+                                    </div>
+                                    <hr className="border-stone-200 mb-12" />
+                                    <div className="space-y-6">
+                                        {reto.despedida?.map((p, i) => <p key={i} className="text-lg text-stone-600 font-light leading-relaxed">{p}</p>)}
+                                    </div>
+
+                                    {reto.teaser_proximo && (
+                                        <div className="bg-stone-50 p-8 rounded-2xl border border-stone-200 mt-12">
+                                            <p className="text-stone-500 font-light whitespace-pre-line italic">{reto.teaser_proximo}</p>
+                                        </div>
+                                    )}
+                                    <div className="text-center mt-12">
+                                        <button onClick={onBack} className="px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Cerrar Reto</button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 );
             }
 
-            // Componente Principal de la App
+            const AuthModal = ({ onClose }) => {
+                const [isLogin, setIsLogin] = useState(true);
+                const [email, setEmail] = useState('');
+                const [password, setPassword] = useState('');
+                const [error, setError] = useState('');
+                const [loading, setLoading] = useState(false);
+
+                const handleSubmit = async (e) => {
+                    e.preventDefault();
+                    setLoading(true);
+                    setError('');
+                    try {
+                        if (isLogin) {
+                            const userCredential = await auth.signInWithEmailAndPassword(email, password);
+                            const docRef = db.collection('users').doc(userCredential.user.uid);
+                            const docSnap = await docRef.get();
+                            if (!docSnap.exists) {
+                                await docRef.set({
+                                    email: userCredential.user.email,
+                                    isPremium: false,
+                                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                                });
+                            }
+                        } else {
+                            const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                            await db.collection('users').doc(userCredential.user.uid).set({
+                                email: userCredential.user.email,
+                                isPremium: false,
+                                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                            });
+                        }
+                        onClose();
+                    } catch (err) {
+                        let msg = err.message;
+                        if (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') msg = 'Correo o contraseña incorrectos.';
+                        else if (err.code === 'auth/email-already-in-use') msg = 'Este correo ya está registrado.';
+                        else if (err.code === 'auth/weak-password') msg = 'La contraseña debe tener al menos 6 caracteres.';
+                        setError(msg);
+                    }
+                    setLoading(false);
+                };
+
+                return (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-stone-900/40 backdrop-blur-sm animate-fadeIn">
+                        <div className="bg-white/95 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-white max-w-md w-full relative">
+                            <button onClick={onClose} className="absolute top-4 right-4 p-2 bg-stone-100/80 rounded-full text-stone-500 hover:bg-stone-200 hover:text-stone-800 transition-colors"><X size={20} /></button>
+                            <div className="text-center mb-8 mt-2">
+                                <h3 className="text-3xl font-serif font-bold text-brand-purple mb-2">{isLogin ? 'Iniciar Sesión' : 'Crear Cuenta'}</h3>
+                                <p className="text-stone-500 font-light text-sm">{isLogin ? 'Ingresa a tu espacio en Neuro Bloom' : 'Comienza tu proceso con nosotros'}</p>
+                            </div>
+                            <form onSubmit={handleSubmit} className="space-y-5">
+                                <div>
+                                    <label className="block text-sm font-bold text-stone-700 mb-1">Correo Electrónico</label>
+                                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50" required />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-bold text-stone-700 mb-1">Contraseña</label>
+                                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 outline-none transition-all bg-white/50" required />
+                                </div>
+                                {error && <p className="text-red-500 text-sm font-bold text-center bg-red-50 p-2 rounded-lg">{error}</p>}
+                                <button type="submit" disabled={loading} className="w-full py-4 mt-2 bg-brand-purple text-white rounded-xl font-bold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                                    {loading ? <Loader size={20} /> : (isLogin ? 'Ingresar' : 'Registrarme')}
+                                </button>
+                            </form>
+                            <div className="mt-6 text-center border-t border-stone-100 pt-6 flex flex-col gap-4">
+                                <p className="text-stone-500 text-sm">{isLogin ? '¿Aún no tienes cuenta?' : '¿Ya tienes cuenta?'} <button onClick={() => {setIsLogin(!isLogin); setError('');}} className="ml-2 text-brand-purple font-bold hover:underline">{isLogin ? 'Regístrate aquí' : 'Inicia Sesión'}</button></p>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
             function NeuroBloom() {
                 const [activeSection, setActiveSection] = useState('home');
                 const [subView, setSubView] = useState(null); 
                 const [premiumSubSection, setPremiumSubSection] = useState(null);
+                
                 const [indTab, setIndTab] = useState('info'); 
+                const [balTab, setBalTab] = useState('info'); 
+                const [retoTab, setRetoTab] = useState('intro');
+                
+                const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+                const [user, setUser] = useState(null);
+                const [isPremium, setIsPremium] = useState(false);
+                const [authLoading, setAuthLoading] = useState(true);
+                const [showAuthModal, setShowAuthModal] = useState(false);
+                
                 const [appData, setAppData] = useState(null);
+                const [premiumData, setPremiumData] = useState(null);
                 const [dataError, setDataError] = useState(false);
 
-                // Carga de datos local
+                useEffect(() => {
+                    let unsubscribeSnapshot = null;
+                    const unsubscribeAuth = auth.onAuthStateChanged(async (currentUser) => {
+                        if (currentUser) {
+                            try {
+                                await currentUser.getIdToken(true);
+                                unsubscribeSnapshot = db.collection('users').doc(currentUser.uid).onSnapshot(async (doc) => {
+                                    if (!doc.exists) {
+                                        if (unsubscribeSnapshot) unsubscribeSnapshot();
+                                        await auth.signOut();
+                                        setUser(null); setIsPremium(false); setAuthLoading(false);
+                                        return;
+                                    }
+                                    let isUserPremium = doc.data().isPremium === true;
+                                    const urlParams = new URLSearchParams(window.location.search);
+                                    if (urlParams.get('payment') === 'success' && !isUserPremium) {
+                                        await db.collection('users').doc(currentUser.uid).update({ isPremium: true });
+                                        window.history.replaceState(null, '', window.location.pathname);
+                                        alert('¡Pago completado con éxito! Ya puedes acceder a Bloom Premium. 🌟');
+                                        setActiveSection('premium_view');
+                                        return; 
+                                    }
+                                    setUser(currentUser);
+                                    setIsPremium(isUserPremium);
+                                    setAuthLoading(false);
+                                }, (error) => { console.error("Error al escuchar usuario:", error); setAuthLoading(false); });
+                            } catch (error) {
+                                console.error("Error:", error);
+                                await auth.signOut(); setUser(null); setIsPremium(false); setAuthLoading(false);
+                            }
+                        } else {
+                            if (unsubscribeSnapshot) unsubscribeSnapshot();
+                            setUser(null); setIsPremium(false); setAuthLoading(false);
+                        }
+                    });
+                    return () => { unsubscribeAuth(); if (unsubscribeSnapshot) unsubscribeSnapshot(); };
+                }, []);
+
                 useEffect(() => {
                     Promise.all([
                         fetch('./datos_indicadores.json').then(res => res.json()),
@@ -315,65 +884,108 @@
                         fetch('./datos_cuentos.json').then(res => res.json())
                     ])
                     .then(([indicadores, balance, reto_del_mes, capsulas, especialistas, detras_conducta, bloom_library, cuentos]) => {
-                        setAppData({ indicadores, balance, reto_del_mes, capsulas, especialistas, detras_conducta, bloom_library, cuentos });
+                        setAppData({
+                            indicadores,
+                            balance,
+                            reto_del_mes,
+                            capsulas,
+                            especialistas,
+                            detras_conducta,
+                            bloom_library,
+                            cuentos
+                        });
                     })
                     .catch(err => {
-                        console.error("Error al cargar los datos:", err);
+                        console.error("Error al cargar los datos modulares:", err);
                         setDataError(true);
                     });
                 }, []);
 
-                useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection, subView, premiumSubSection]);
+                useEffect(() => {
+                    if (activeSection === 'premium_view' || premiumSubSection === 'reto') {
+                        if (!premiumData) {
+                            fetch('./premium_data.json')
+                                .then(res => { if (!res.ok) throw new Error("No premium data"); return res.json(); })
+                                .then(data => setPremiumData(data))
+                                .catch(err => { console.error("Error cargando premium data", err); });
+                        }
+                    }
+                }, [activeSection, premiumSubSection, premiumData]);
+
+                useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, [activeSection, subView, premiumSubSection, retoTab]);
                 
                 useEffect(() => { 
                     setSubView(null); 
                     setPremiumSubSection(null);
                     setIndTab('info');
+                    setBalTab('info');
+                    setRetoTab('intro');
                 }, [activeSection]); 
 
-                if (dataError) return <div className="p-8 text-red-600 text-center font-bold">Error al cargar datos. Verifica los archivos JSON.</div>;
-                if (!appData) return <div className="text-center mt-20 text-stone-500">Cargando módulos...</div>;
+                const handlePremiumClick = (target = null) => {
+                    if (!user) {
+                        setShowAuthModal(true);
+                    } else if (!isPremium) {
+                        window.open('https://buy.stripe.com/5kQeVc2NH6wJ9EVfM377O00', 'PagoPremium', 'width=500,height=750,left=200,top=100');
+                    } else {
+                        if (target === 'reto') {
+                            setPremiumSubSection('reto');
+                        } else {
+                            setActiveSection('premium_view');
+                            if (target) setPremiumSubSection(target);
+                        }
+                    }
+                };
+
+                const handleLogout = async () => { await auth.signOut(); setActiveSection('home'); };
+
+                if (dataError) return <div className="loading-screen bg-red-50 text-stone-800 p-8"><h2 className="text-2xl text-red-600 font-bold mb-4 font-serif">Error al cargar datos</h2></div>;
+                if (!appData || authLoading) return <div className="loading-screen"><h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2></div>;
 
                 const renderContent = () => {
                     if (premiumSubSection === 'reto' && appData.reto_del_mes) {
-                        return <RetoPremium premiumData={{reto_premium: appData.reto_del_mes}} onBack={() => {setPremiumSubSection(null); setActiveSection('balance');}} onHome={() => setActiveSection('home')} />;
+                        // Pasamos el reto gratuito por defecto
+                        let dataToPass = { reto_premium: appData.reto_del_mes };
+                        // Si hay premiumData, usamos esa para más contenido
+                        if (premiumData && isPremium) {
+                            dataToPass = premiumData;
+                        }
+
+                        return <RetoPremium premiumData={dataToPass} onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} onHome={() => setActiveSection('home')} />;
                     }
 
                     switch (activeSection) {
                         case 'home':
                             return (
                                 <div className="animate-fadeIn flex flex-col items-center justify-center text-center py-8 lg:py-16 relative z-10">
-                                    <div className="bg-white rounded-3xl p-4 shadow-sm mb-8 inline-block animate-breathe">
-                                        <img src={logoUrl} alt="Neuro Bloom" className="w-full max-w-lg h-auto mx-auto drop-shadow-md" />
-                                    </div>
+                                    <img src={logoUrl} alt="Neuro Bloom" className="w-full max-w-lg h-auto mx-auto drop-shadow-md mb-8 animate-breathe" />
                                     <h1 className="text-2xl md:text-4xl font-serif font-bold tracking-wide mb-6 text-brand-dark" style={{ color: colors.primary }}>“Habitarte también es una forma de florecer”</h1>
                                     <p className="max-w-2xl mb-12 text-lg md:text-xl text-brand-dark/80 leading-relaxed font-light">Un espacio dedicado al bienestar emocional, la creatividad y la conexión humana, floreciendo desde el interior.</p>
+
+                                    <div className="flex justify-center mb-16 w-full animate-bounce" style={{animationDuration: '3s'}}>
+                                        <button onClick={() => handlePremiumClick()} className="px-8 py-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-white rounded-full font-bold text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center gap-3 border-2 border-yellow-300">
+                                            <Star size={28} fill="currentColor" /> Bloom Premium
+                                        </button>
+                                    </div>
                                     
                                     <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl">
-                                        {/* Tarjetas del Dashboard */}
-                                        <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/60 p-6 flex flex-col items-center">
-                                            <Activity size={48} className="text-brand-purple mb-4 group-hover:scale-110 transition-transform"/>
-                                            <h3 className="font-bold text-xl text-stone-700">Indicadores</h3>
+                                        <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+                                            <Thumbnail src="./indicadores-emocionales.jpeg" alt="Indicadores" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Activity size={64} className="text-brand-purple" /></div>} />
                                         </div>
-                                        <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/60 p-6 flex flex-col items-center">
-                                            <Sun size={48} className="text-blue-400 mb-4 group-hover:scale-110 transition-transform"/>
-                                            <h3 className="font-bold text-xl text-stone-700">Vida en Equilibrio</h3>
+                                        <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+                                            <Thumbnail src="./balance-cotidiano.jpeg" alt="Balance" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sun size={64} className="text-blue-400" /></div>} />
                                         </div>
-                                        <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/60 p-6 flex flex-col items-center">
-                                            <Library size={48} className="text-brand-lilac mb-4 group-hover:scale-110 transition-transform"/>
-                                            <h3 className="font-bold text-xl text-stone-700">Librería Bloom</h3>
+                                        <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+                                            <Thumbnail src="./bloom-library.jpeg" alt="Library" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Library size={64} className="text-brand-lilac" /></div>} />
                                         </div>
-                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/60 p-6 flex flex-col items-center">
-                                            <Sprout size={48} className="text-pink-400 mb-4 group-hover:scale-110 transition-transform"/>
-                                            <h3 className="font-bold text-xl text-stone-700">Infancias</h3>
+                                        <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+                                            <Thumbnail src="./infancias.jpeg" alt="Infancias" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sprout size={64} className="text-pink-400" /></div>} />
                                         </div>
-                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/60 p-6 flex flex-col items-center">
-                                            <PlayCircle size={48} className="text-orange-400 mb-4 group-hover:scale-110 transition-transform"/>
-                                            <h3 className="font-bold text-xl text-stone-700">Cápsulas</h3>
+                                        <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+                                            <Thumbnail src="./capsulas-en-video.jpeg" alt="Cápsulas" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><PlayCircle size={64} className="text-orange-400" /></div>} />
                                         </div>
-                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/60 p-6 flex flex-col items-center">
-                                            <Calendar size={48} className="text-brand-green mb-4 group-hover:scale-110 transition-transform"/>
-                                            <h3 className="font-bold text-xl text-stone-700">Especialistas</h3>
+                                        <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
+                                            <Thumbnail src="./conoce-y-agenda.jpeg" alt="Agenda" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Calendar size={64} className="text-brand-green" /></div>} />
                                         </div>
                                     </div>
                                 </div>
@@ -386,16 +998,27 @@
                                     return (
                                         <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
                                             <BackButton onClick={() => setSubView(null)} text="Volver a Información" />
+                                            {infoData.imagen && (
+                                                <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
+                                                    <img src={infoData.imagen} alt={infoData.title} className="max-w-full rounded-2xl object-contain max-h-[60vh]" />
+                                                </div>
+                                            )}
                                             <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
                                                 <div className="p-4 rounded-full text-white shadow-md" style={{ backgroundColor: infoData.color }}>
                                                     {getIconComponent(infoData.icon, {size: 32})}
                                                 </div>
                                                 <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>
-                                                    {infoData.title}
+                                                    <span className="brush-highlight">{infoData.title}</span>
                                                 </h2>
                                             </div>
                                             <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
-                                                {infoData.contenido.map((parrafo, idx) => <p key={idx}>{parrafo}</p>)}
+                                                {infoData.contenido.map((parrafo, idx) => {
+                                                    if(parrafo.includes(':') && parrafo.split(':')[0].length < 50) {
+                                                        const parts = parrafo.split(':');
+                                                        return <p key={idx}><strong className="text-stone-800">{parts[0]}:</strong>{parts.slice(1).join(':')}</p>;
+                                                    }
+                                                    return <p key={idx}>{parrafo}</p>;
+                                                })}
                                             </div>
                                         </div>
                                     );
@@ -405,23 +1028,32 @@
                             }
                             return (
                                 <div className="animate-fadeIn max-w-6xl mx-auto space-y-12 relative z-10">
-                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    <div className="w-full">
+                                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    </div>
                                     <div className="text-center mb-10">
-                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>Indicadores Emocionales</h2>
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>
+                                            <span className="brush-highlight">Indicadores Emocionales</span>
+                                        </h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Infórmate sobre tu salud emocional y realiza ejercicios de autoexploración.</p>
                                     </div>
+                                    
                                     <div className="flex justify-center flex-wrap gap-2 sm:gap-4 bg-white/50 backdrop-blur-md p-2 rounded-full shadow-glass border border-white w-fit mx-auto">
-                                        <button onClick={() => setIndTab('info')} className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indTab === 'info' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500'}`}>Información</button>
-                                        <button onClick={() => setIndTab('test')} className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indTab === 'test' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500'}`}>Cuestionarios</button>
+                                        <button onClick={() => setIndTab('info')} className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indTab === 'info' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500 hover:text-brand-purple'}`}>Información</button>
+                                        <button onClick={() => setIndTab('test')} className={`px-8 py-3 rounded-full font-bold transition-all text-lg ${indTab === 'test' ? 'bg-white shadow-sm text-brand-purple' : 'text-stone-500 hover:text-brand-purple'}`}>Cuestionarios</button>
                                     </div>
+
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
                                         {indTab === 'info' && appData.indicadores?.informacion?.map(item => (
-                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all text-center">
-                                                <h3 className="text-xl font-bold text-stone-800">{item.title}</h3>
+                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                                <Thumbnail src={item.imagen} alt={item.title} className="w-20 h-20 rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>{getIconComponent(item.icon)}</div>} />
+                                                <h3 className="text-xl font-bold text-stone-800 mb-2">{item.title}</h3>
                                             </div>
                                         ))}
                                         {indTab === 'test' && appData.indicadores?.cuestionarios?.map(item => (
-                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all text-center">
-                                                <h3 className="text-xl font-bold text-stone-800">{item.title}</h3>
+                                            <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>{getIconComponent(item.icon)}</div>
+                                                <h3 className="text-xl font-bold text-stone-800 mb-2">{item.title}</h3>
                                             </div>
                                         ))}
                                     </div>
@@ -432,20 +1064,81 @@
                             return (
                                 <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
                                     <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    <div className="bg-white/80 p-10 rounded-[2.5rem] shadow-glass border border-white">
-                                        <div className="flex items-center gap-4 mb-6">
-                                            <Sun size={40} className="text-blue-500" />
-                                            <h2 className="text-4xl font-serif font-bold text-stone-800">{appData.balance.title}</h2>
+                                    <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-14 rounded-[3rem] shadow-glass border border-white relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none"><Sun size={200} className="text-blue-500" /></div>
+                                        <div className="relative z-10">
+                                            {appData.balance.imagen && (
+                                                <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
+                                                    <img src={appData.balance.imagen} alt={appData.balance.title} className="max-w-full rounded-2xl object-contain max-h-[60vh]" />
+                                                </div>
+                                            )}
+                                            <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                                <div className="p-4 rounded-full text-white shadow-md" style={{ backgroundColor: appData.balance.color || colors.actionBlue }}>
+                                                    {getIconComponent(appData.balance.icon, {size: 32})}
+                                                </div>
+                                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800">
+                                                    <span className="brush-highlight-blue">{appData.balance.title}</span>
+                                                </h2>
+                                            </div>
+                                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                                {appData.balance.contenido.map((p, idx) => <p key={idx}>{p}</p>)}
+                                            </div>
+
+                                            <div className="mt-16 bg-gradient-to-br from-yellow-50 to-amber-100/50 p-8 lg:p-10 rounded-[2rem] border border-yellow-200/50 text-center shadow-sm relative overflow-hidden">
+                                                <div className="absolute -right-4 -top-4 text-yellow-200/50 transform rotate-12"><Star size={120} fill="currentColor" /></div>
+                                                <div className="relative z-10">
+                                                    <Star size={48} className="mx-auto text-yellow-500 mb-6" fill="currentColor" />
+                                                    <h3 className="text-3xl font-serif font-bold text-stone-800 mb-4">Reto del Mes</h3>
+                                                    <p className="text-stone-600 mb-8 max-w-lg mx-auto">Una experiencia guiada con actividades diseñadas para acompañarte en un objetivo específico de crecimiento personal.</p>
+                                                    <button onClick={() => setPremiumSubSection('reto')} className="px-10 py-5 bg-stone-800 text-white rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all">
+                                                        Ver Reto Actual
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify mb-10">
-                                            {appData.balance.contenido.map((p, idx) => <p key={idx}>{p}</p>)}
+                                    </div>
+                                </div>
+                            );
+
+                        case 'library':
+                            return (
+                                <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-14 rounded-[3rem] shadow-glass border border-white">
+                                        <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                            <div className="p-4 rounded-full bg-brand-lilac text-white shadow-md"><Library size={32} /></div>
+                                            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800"><span className="brush-highlight">Librería Bloom</span></h2>
                                         </div>
-                                        
-                                        {/* ACCESO AL RETO DEL MES */}
-                                        <div className="bg-gradient-to-r from-yellow-50 to-amber-100 p-8 rounded-3xl border border-yellow-200 text-center">
-                                            <Star size={40} className="mx-auto text-yellow-500 mb-4" />
-                                            <h3 className="text-2xl font-bold text-stone-800 mb-4">Reto del Mes</h3>
-                                            <button onClick={() => setPremiumSubSection('reto')} className="px-8 py-4 bg-yellow-500 text-white rounded-full font-bold shadow-md hover:-translate-y-1 transition-transform">Ver Reto</button>
+                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                            {appData.bloom_library.intro_text.map((p, idx) => {
+                                                if (p.includes(':')) {
+                                                    const [title, ...rest] = p.split(':');
+                                                    return <p key={idx}><strong className="text-brand-purple">{title}:</strong> {rest.join(':')}</p>;
+                                                }
+                                                return <p key={idx}>{p}</p>;
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+
+                        case 'infancias':
+                            return (
+                                <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                                    <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-14 rounded-[3rem] shadow-glass border border-white">
+                                        <div className="flex items-center gap-5 mb-10 border-b border-stone-200/50 pb-8">
+                                            <div className="p-4 rounded-full bg-pink-400 text-white shadow-md"><Sprout size={32} /></div>
+                                            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800"><span className="brush-highlight-pink">{appData.detras_conducta.title.replace('🪷 ', '')}</span></h2>
+                                        </div>
+                                        <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                            {appData.detras_conducta.contenido.map((p, idx) => {
+                                                if (p === "---") return <hr key={idx} className="border-stone-200 my-8" />;
+                                                if (p.startsWith('🌸') || p.startsWith('🌧️') || p.startsWith('🔥') || p.startsWith('💛') || p.startsWith('🚧') || p.startsWith('🪷')) {
+                                                    return <h3 key={idx} className="text-2xl font-bold text-stone-800 mt-8 mb-4">{p}</h3>;
+                                                }
+                                                return <p key={idx}>{p}</p>;
+                                            })}
                                         </div>
                                     </div>
                                 </div>
@@ -457,17 +1150,25 @@
                                     <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
                                     <div className="text-center mb-10">
                                         <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">Cápsulas en Video</h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Reflexiones breves para tu día a día.</p>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         {appData.capsulas.map(cap => (
-                                            <div key={cap.id} className="bg-white/80 p-6 rounded-3xl shadow-glass border border-white">
-                                                <h3 className="text-2xl font-bold text-brand-purple mb-4">{cap.title}</h3>
+                                            <div key={cap.id} className="bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white flex flex-col">
+                                                <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-3">
+                                                    <PlayCircle className="text-orange-400" /> {cap.title}
+                                                </h3>
                                                 {cap.youtube_id && (
-                                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md mb-4">
+                                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md mb-6 bg-stone-100">
                                                         <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${cap.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
                                                     </div>
                                                 )}
-                                                <div className="text-stone-600 font-light space-y-2 text-sm">{cap.guion.slice(0, 2).map((p, i) => <p key={i}>{p}</p>)}</div>
+                                                {cap.imagen && !cap.youtube_id && (
+                                                    <img src={cap.imagen} alt={cap.title} className="w-full h-48 object-cover rounded-xl mb-6 shadow-sm" />
+                                                )}
+                                                <div className="text-stone-600 font-light space-y-3 flex-grow text-justify">
+                                                    {cap.guion.slice(0, 2).map((p, i) => <p key={i}>{p}</p>)}
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
@@ -476,71 +1177,133 @@
 
                         case 'citas':
                             return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
+                                <div className="animate-fadeIn max-w-5xl mx-auto py-8 relative z-10">
                                     <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    <h2 className="text-4xl font-serif font-bold text-center mb-10 text-brand-green">Especialistas</h2>
-                                    <div className="space-y-8">
+                                    <div className="text-center mb-16">
+                                        <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800"><span className="brush-highlight-green">Especialistas</span></h2>
+                                        <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Conoce a nuestro equipo de profesionales y agenda tu cita.</p>
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         {appData.especialistas.map(esp => (
-                                            <div key={esp.id} className="bg-white/80 p-8 rounded-3xl shadow-glass border border-white flex flex-col md:flex-row gap-8">
-                                                <div className="w-full md:w-2/3">
-                                                    <h3 className="text-2xl font-bold text-stone-800">{esp.nombre}</h3>
-                                                    <p className="text-brand-green font-bold mb-2">{esp.titulo}</p>
-                                                    <p className="text-stone-500 mb-4">{esp.descripcion}</p>
-                                                    <ul className="list-disc list-inside text-stone-600">
-                                                        {esp.enfoques.map((e, i) => <li key={i}>{e}</li>)}
-                                                    </ul>
+                                            <div key={esp.id} className="bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white hover:shadow-xl transition-all group">
+                                                <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start mb-6 border-b border-stone-100 pb-6">
+                                                    <img src={esp.imagen} alt={esp.nombre} className="w-32 h-32 rounded-full object-cover shadow-md border-4 border-white" />
+                                                    <div className="text-center sm:text-left">
+                                                        <h3 className="text-2xl font-bold text-stone-800">{esp.nombre}</h3>
+                                                        <p className="text-brand-green font-bold text-lg">{esp.titulo}</p>
+                                                        <p className="text-stone-400 text-sm mt-1">Cédula: {esp.cedula}</p>
+                                                    </div>
                                                 </div>
+                                                <p className="text-stone-600 font-medium mb-4">{esp.descripcion}</p>
+                                                <div className="space-y-2 mb-8">
+                                                    {esp.enfoques.map((e, i) => (
+                                                        <div key={i} className="flex items-start gap-2 text-stone-600 font-light">
+                                                            <CheckCircle size={16} className="text-brand-green mt-1 flex-shrink-0" />
+                                                            <span>{e}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                                <button className="w-full py-4 bg-stone-800 text-white rounded-full font-bold shadow-md hover:bg-brand-green transition-colors">Agendar Cita</button>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             );
-
-                        case 'infancias':
-                            return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
-                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    <div className="bg-white/80 p-10 rounded-[2.5rem] shadow-glass border border-white">
-                                        <h2 className="text-4xl font-serif font-bold text-pink-500 mb-6">{appData.detras_conducta.title}</h2>
-                                        <div className="space-y-4 text-stone-700 text-lg">
-                                            {appData.detras_conducta.contenido.map((p, idx) => (
-                                                <p key={idx} className={p === "---" ? "border-b border-stone-200 my-4" : ""}>{p !== "---" ? p : ""}</p>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-
-                        case 'library':
-                            return (
-                                <div className="animate-fadeIn max-w-4xl mx-auto py-8 relative z-10">
-                                    <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                                    <div className="bg-white/80 p-10 rounded-[2.5rem] shadow-glass border border-white">
-                                        <h2 className="text-4xl font-serif font-bold text-brand-lilac mb-6">Librería Bloom</h2>
-                                        <div className="space-y-4 text-stone-700 text-lg">
-                                            {appData.bloom_library.intro_text.map((p, idx) => <p key={idx}>{p}</p>)}
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-
+                            
                         default:
-                            return <div className="text-center mt-20">Sección en construcción.</div>;
+                            return <div className="text-center mt-20 text-stone-500 text-xl font-light">Sección en construcción.</div>;
                     }
                 };
 
                 return (
-                    <div className="min-h-screen relative font-sans text-stone-800">
-                        {/* Fondo Decorativo */}
+                    <div className="min-h-screen relative font-sans text-stone-800 overflow-x-hidden selection:bg-brand-purple/20 selection:text-brand-purple">
+                        {/* Fondo Decorativo Base */}
+                        <div className="fixed inset-0 z-0 bg-stone-50 pointer-events-none"></div>
                         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-                            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-lilac/10 rounded-full blur-[120px]"></div>
-                            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-blue/10 rounded-full blur-[150px]"></div>
+                            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-brand-lilac/20 rounded-full blur-[150px]"></div>
+                            <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-brand-blue/10 rounded-full blur-[150px]"></div>
+                            <div className="absolute top-[40%] right-[-20%] w-[40%] h-[40%] bg-brand-green/10 rounded-full blur-[150px]"></div>
                         </div>
 
-                        {/* Contenido Principal */}
-                        <div className="relative z-10 p-4 md:p-8 lg:p-12 pb-32">
-                            {renderContent()}
-                        </div>
+                        {/* Top Bar / Header */}
+                        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-stone-200/50 shadow-sm transition-all duration-300">
+                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                                <button onClick={() => setActiveSection('home')} className="flex items-center hover:opacity-80 transition-opacity">
+                                    <Logo className="h-10" />
+                                </button>
+
+                                {/* Desktop Nav */}
+                                <div className="hidden md:flex items-center gap-3 bg-stone-100/50 p-1.5 rounded-full border border-stone-200/50">
+                                    <NavButton active={activeSection === 'home'} onClick={() => setActiveSection('home')} icon={<Heart />}>Inicio</NavButton>
+                                    <NavButton active={activeSection === 'indicadores'} onClick={() => setActiveSection('indicadores')} icon={<Activity />}>Indicadores</NavButton>
+                                    <NavButton active={activeSection === 'balance'} onClick={() => setActiveSection('balance')} icon={<Sun />}>Balance</NavButton>
+                                    <NavButton active={activeSection === 'library'} onClick={() => setActiveSection('library')} icon={<Library />}>Library</NavButton>
+                                </div>
+
+                                <div className="flex items-center gap-4">
+                                    {user ? (
+                                        <div className="flex items-center gap-3">
+                                            {isPremium && (
+                                                <button onClick={() => setActiveSection('premium_view')} className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition-all border border-yellow-300">
+                                                    <Star size={16} fill="currentColor" /> Premium
+                                                </button>
+                                            )}
+                                            <div className="group relative">
+                                                <button className="flex items-center justify-center w-10 h-10 rounded-full bg-stone-100 text-stone-600 border border-stone-200 hover:border-brand-purple hover:text-brand-purple transition-colors">
+                                                    <UserCircle size={24} />
+                                                </button>
+                                                <div className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-stone-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right">
+                                                    <div className="px-4 py-3 border-b border-stone-50 mb-1">
+                                                        <p className="text-xs text-stone-400 font-bold uppercase tracking-wider mb-1">Cuenta</p>
+                                                        <p className="text-sm text-stone-700 truncate font-medium">{user.email}</p>
+                                                    </div>
+                                                    <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-sm text-stone-600 hover:bg-stone-50 hover:text-brand-purple font-medium transition-colors">
+                                                        Cerrar Sesión
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <button onClick={() => setShowAuthModal(true)} className="flex items-center gap-2 text-stone-600 hover:text-brand-purple font-bold text-sm bg-white border border-stone-200 px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all">
+                                            <UserCircle size={18} /> <span className="hidden sm:inline">Ingresar</span>
+                                        </button>
+                                    )}
+                                    <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-stone-600 bg-stone-100 rounded-full">
+                                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                                    </button>
+                                </div>
+                            </div>
+                        </header>
+
+                        {/* Mobile Menu */}
+                        {mobileMenuOpen && (
+                            <div className="md:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl pt-24 px-6 animate-fadeIn flex flex-col items-center gap-6">
+                                <button onClick={() => { setActiveSection('home'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'home' ? 'text-brand-purple' : 'text-stone-600'}`}>Inicio</button>
+                                <button onClick={() => { setActiveSection('indicadores'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'indicadores' ? 'text-brand-purple' : 'text-stone-600'}`}>Indicadores</button>
+                                <button onClick={() => { setActiveSection('balance'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'balance' ? 'text-brand-purple' : 'text-stone-600'}`}>Balance</button>
+                                <button onClick={() => { setActiveSection('library'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'library' ? 'text-brand-purple' : 'text-stone-600'}`}>Library</button>
+                                <button onClick={() => { setActiveSection('infancias'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'infancias' ? 'text-brand-purple' : 'text-stone-600'}`}>Infancias</button>
+                                <button onClick={() => { setActiveSection('capsulas'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'capsulas' ? 'text-brand-purple' : 'text-stone-600'}`}>Cápsulas</button>
+                                <button onClick={() => { setActiveSection('citas'); setMobileMenuOpen(false); }} className={`text-2xl font-bold ${activeSection === 'citas' ? 'text-brand-purple' : 'text-stone-600'}`}>Especialistas</button>
+                                {user && isPremium && (
+                                    <button onClick={() => { setActiveSection('premium_view'); setMobileMenuOpen(false); }} className="text-2xl font-bold text-yellow-500 mt-4 flex items-center gap-2">
+                                        <Star size={24} fill="currentColor"/> Bloom Premium
+                                    </button>
+                                )}
+                            </div>
+                        )}
+
+                        {/* Modales */}
+                        {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
+
+                        {/* Main Content Area */}
+                        <main className="w-full relative min-h-[calc(100vh-80px)]">
+                            <div className="absolute inset-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 flex justify-center">
+                                <div className="w-full max-w-6xl">
+                                    {renderContent()}
+                                </div>
+                            </div>
+                        </main>
                     </div>
                 );
             }
