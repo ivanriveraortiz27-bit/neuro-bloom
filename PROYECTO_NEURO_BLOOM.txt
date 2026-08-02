@@ -1380,6 +1380,7 @@ ARCHIVO: datos_reto.json
     "Los grandes cambios casi siempre comienzan con pequeños gestos repetidos.",
     "---",
     "🎧 Cuando necesites volver a ti",
+    "[AUDIO_RETO]",
     "---",
     "💬 La conversación de la semana",
     "Cada lunes encontrarás una nueva conversación relacionada con el tema del mes.",
@@ -1892,28 +1893,6 @@ ARCHIVO: datos_reto.json
         "Una decisión que puedes volver a tomar, una y otra vez, cada vez que la vida te haga olvidar quién eres."
       ]
     }
-  ],
-  "cierre": [
-    "Antes de irte...",
-    "Si llegaste hasta aquí, queremos agradecerte.",
-    "No solo por terminar este recorrido.",
-    "Sino por haberte permitido detenerte y mirar hacia adentro.",
-    "Pero hay algo que todavía no queremos decirte.",
-    "Porque creemos que algunas preguntas solo pueden hacerse cuando una persona ya recorrió el camino que tú acabas de recorrer.",
-    "Y creemos que este es ese momento.",
-    "...",
-    "En Bloom existe una experiencia que no forma parte del recorrido gratuito.",
-    "No es una clase.",
-    "No es un video.",
-    "No es un ejercicio.",
-    "Y tampoco busca enseñarte algo nuevo.",
-    "Su único propósito es ayudarte a descubrir algo de ti que probablemente ha estado frente a tus ojos durante mucho tiempo.",
-    "Muchos usuarios dicen que, al terminarla, entendieron por qué habían repetido ciertos patrones durante años.",
-    "No porque alguien se los explicara.",
-    "Sino porque ellos mismos lograron verlo.",
-    "Se llama...",
-    "⭐ La Última Página",
-    "Esta experiencia está disponible solo para usuarios premium."
   ]
 }
 
@@ -2838,6 +2817,7 @@ const data = {
       "Los grandes cambios casi siempre comienzan con pequeños gestos repetidos.",
       "---",
       "🎧 Cuando necesites volver a ti",
+      "[AUDIO_RETO]",
       "---",
       "💬 La conversación de la semana",
       "Cada lunes encontrarás una nueva conversación relacionada con el tema del mes.",
@@ -5007,6 +4987,24 @@ ARCHIVO: index.html
                             const renderContenidoTexto = (parrafos) => {
                                 return parrafos.map((parrafo, idx) => {
                                     if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
+                                    
+                                    // LA NUEVA CONDICIÓN PARA EL MARCADOR DEL AUDIO 🎧
+                                    if (parrafo === '[AUDIO_RETO]') {
+                                        return (
+                                            <div key={idx} className="my-8 bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-6 rounded-3xl border border-brand-purple/20 shadow-sm flex flex-col gap-4">
+                                                <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">
+                                                    <Headphones size={20} /> Audio del Mes
+                                                </div>
+                                                <div className="bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                    <audio controls className="w-full outline-none">
+                                                        <source src={appData.reto_del_mes.url} type="audio/mpeg" />
+                                                        Tu navegador no soporta el elemento de audio.
+                                                    </audio>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+
                                     if (parrafo.includes('⭐') || parrafo.includes('🔒')) {
                                         const textoLimpio = parrafo.replace('⭐', '').replace('🔒', '').trim();
                                         return (
@@ -5094,14 +5092,8 @@ ARCHIVO: index.html
                                                                 <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${appData.reto_del_mes.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
                                                             </div>
                                                         )}
-                                                        {appData.reto_del_mes.url && (
-                                                            <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
-                                                                <audio controls className="w-full outline-none">
-                                                                    <source src={appData.reto_del_mes.url} type="audio/mpeg" />
-                                                                    Tu navegador no soporta el elemento de audio.
-                                                                </audio>
-                                                            </div>
-                                                        )}
+                                                        
+                                                        {/* Se ha eliminado el audio estático y ahora lo procesará renderContenidoTexto */}
                                                         {renderContenidoTexto(appData.reto_del_mes.intro)}
                                                     </div>
                                                 )}

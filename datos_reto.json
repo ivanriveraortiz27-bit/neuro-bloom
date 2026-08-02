@@ -84,7 +84,6 @@
   "semanas": [
     {
       "id": "sem1",
-      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🌱 SEMANA 1 | Volver a escucharme",
         "¿Hace cuánto no te preguntas qué necesitas tú?",
@@ -186,7 +185,6 @@
     },
     {
       "id": "sem2",
-      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🤍 SEMANA 2 | Elegirme sin culpa",
         "Lo difícil que es elegirte sin sentir culpa",
@@ -320,7 +318,6 @@
     },
     {
       "id": "sem3",
-      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🌸 SEMANA 3 | Recordar quién soy",
         "¿Quién eres además de todo lo que haces?",
@@ -453,7 +450,6 @@
     },
     {
       "id": "sem4",
-      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🪷 SEMANA 4 | Empezar desde mí",
         "¿Qué versión de ti quieres empezar a construir?",
@@ -578,5 +574,27 @@
         "Una decisión que puedes volver a tomar, una y otra vez, cada vez que la vida te haga olvidar quién eres."
       ]
     }
+  ],
+  "cierre": [
+    "Antes de irte...",
+    "Si llegaste hasta aquí, queremos agradecerte.",
+    "No solo por terminar este recorrido.",
+    "Sino por haberte permitido detenerte y mirar hacia adentro.",
+    "Pero hay algo que todavía no queremos decirte.",
+    "Porque creemos que algunas preguntas solo pueden hacerse cuando una persona ya recorrió el camino que tú acabas de recorrer.",
+    "Y creemos que este es ese momento.",
+    "...",
+    "En Bloom existe una experiencia que no forma parte del recorrido gratuito.",
+    "No es una clase.",
+    "No es un video.",
+    "No es un ejercicio.",
+    "Y tampoco busca enseñarte algo nuevo.",
+    "Su único propósito es ayudarte a descubrir algo de ti que probablemente ha estado frente a tus ojos durante mucho tiempo.",
+    "Muchos usuarios dicen que, al terminarla, entendieron por qué habían repetido ciertos patrones durante años.",
+    "No porque alguien se los explicara.",
+    "Sino porque ellos mismos lograron verlo.",
+    "Se llama...",
+    "⭐ La Última Página",
+    "Esta experiencia está disponible solo para usuarios premium."
   ]
 }
