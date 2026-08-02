@@ -1,4 +1,46 @@
 {
+  "perfil_emocional": {
+    "intro": "Bienvenido a la evaluación de tu perfil emocional. Tómate el tiempo necesario para reflexionar sobre cada punto.",
+    "escala": [
+      { "l": "Nunca", "v": 1 },
+      { "l": "A veces", "v": 2 },
+      { "l": "Frecuentemente", "v": 3 },
+      { "l": "Casi siempre", "v": 4 }
+    ],
+    "dimensiones": [
+      {
+        "id": "dim1",
+        "titulo": "Regulación Emocional",
+        "descripcion": "Evalúa tu capacidad para gestionar emociones intensas en el día a día.",
+        "preguntas": [
+          { "texto": "Me resulta fácil encontrar la calma después de un momento de tensión o estrés.", "invertida": false },
+          { "texto": "Siento que mis emociones dirigen mis acciones sin que pueda detenerlas.", "invertida": true }
+        ],
+        "resultados": [
+          {
+            "rango": [0, 4],
+            "nivel": "En Desarrollo",
+            "color": "text-brand-purple",
+            "bg": "bg-brand-purple/10",
+            "desc": "Es un excelente momento para incorporar herramientas que fortalezcan tu regulación.",
+            "reflejo": "Es probable que a menudo sientas que tus emociones te desbordan y te cueste volver a tu centro.",
+            "ruta_prin": "Ruta de Calma y Regulación",
+            "ruta_comp": "Ruta de Autoconocimiento"
+          },
+          {
+            "rango": [5, 8],
+            "nivel": "Equilibrado",
+            "color": "text-brand-green",
+            "bg": "bg-brand-green/10",
+            "desc": "Posees buenas bases para la gestión emocional, aunque siempre se puede afinar.",
+            "reflejo": "Sueles manejar bien el estrés cotidiano, pero situaciones nuevas pueden retar tu equilibrio.",
+            "ruta_prin": "Ruta de Fortalecimiento",
+            "ruta_comp": "Ruta de Expresión"
+          }
+        ]
+      }
+    ]
+  },
   "rutas": [
     {
       "id": "ruta1",
@@ -795,7 +837,7 @@
               "¿Qué actividades me ayudan a recuperarla, aunque sea un poco?",
               "¿Cuándo fue la última vez que descansé sin sentir culpa?",
               "Si mi cuerpo pudiera hablar hoy, ¿qué crees que me pediría?",
-              "Reflexión: Nuestro cuerpo suele enviarnos señales mucho antes de llegar al agotamiento extremo. Aprender a escucharlas es una forma de autocuidado. Quizá no puedas cambiar todas las exigencias de tu vida de un día para otro. Pero sí puedes comenzar a prestar atención a la persona que ha sostenido todas esas exigencias: tú."
+              "Reflexión: Nuestro cuerpo suele enviarnos señales mucho antes de llegar al agotamiento extremo. Aprender a escucharlas es una forma de autocuidado. Quizá no puedas cambiar todas las exigencias de tu vida de un día para otro. Pero sí puedes comenzar a prest atención a la persona que ha sostenido todas esas exigencias: tú."
             ]
           },
           "hoja_trabajo": {
@@ -822,7 +864,7 @@
           "cierre": [
             "🤍 MI COMPROMISO DE HOY",
             "Antes de continuar, elige un compromiso para practicar durante las próximas 24 horas.",
-            "☐ Hoy escucharé las señales de mi cuerpo antes de exigirle más.",
+            "☐ Hoy escucharé las señales de mi cuerpo antes de exigirme más.",
             "☐ Me regalaré una pausa sin sentir que necesito ganármela.",
             "☐ Hoy recordaré que cuidar mi energía también es una responsabilidad.",
             "☐ Cuando aparezca la culpa por descansar, recordaré que recuperarme también forma parte del camino.",
@@ -1046,5 +1088,51 @@
         }
       ]
     }
-  ]
+  ],
+  "maternidad": {
+    "titulo": "Maternidad con Ciencia",
+    "descripcion": "Herramientas basadas en evidencia para acompañar el desarrollo infantil mientras cuidas de ti.",
+    "modulos": [
+      {
+        "titulo": "Módulo 1: El cerebro en desarrollo",
+        "articulos": [
+          {
+            "titulo": "Introducción",
+            "parrafos": [
+              "\"La crianza es un viaje que nos transforma a nosotros tanto como a nuestros hijos.\"",
+              "Comprender el desarrollo del cerebro infantil nos permite criar desde la empatía."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "reto_premium": {
+    "titulo": "Reto: Profundizando en mí",
+    "intro": [
+      "Bienvenido a esta experiencia avanzada.",
+      "Durante este reto, te invitaremos a mirar hacia adentro con honestidad y sin juicio."
+    ],
+    "desarrollo": [
+      "Para comenzar, encuentra un espacio donde no tengas interrupciones.",
+      "Asegúrate de tener algo para escribir si lo deseas."
+    ],
+    "pregunta_1": "¿Qué emoción has estado evitando sentir últimamente y cómo se manifiesta en tu cuerpo?",
+    "reflexion_1": [
+      "Evitar nuestras emociones requiere una cantidad enorme de energía.",
+      "Al nombrarlas, comenzamos el proceso de integración."
+    ],
+    "transicion": [
+      "Ahora que has identificado esa emoción, es momento de observar qué necesitas para acompañarla."
+    ],
+    "pregunta_2": "¿Qué pequeña acción puedes realizar hoy para validar esa emoción que has estado posponiendo?",
+    "cierre": [
+      "Reconocer lo que sientes es un paso fundamental hacia el bienestar sostenido."
+    ],
+    "despedida": [
+      "Gracias por dedicar este tiempo para ti.",
+      "Recuerda que este es un proceso gradual."
+    ],
+    "teaser_proximo": "En la próxima sesión exploraremos cómo establecer límites con compasión."
+  }
 }

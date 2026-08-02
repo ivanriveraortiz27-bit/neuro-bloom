@@ -274,15 +274,16 @@
                 const [dimActual, setDimActual] = useState(-1);
                 const [respuestas, setRespuestas] = useState({});
 
-                // Escudo de seguridad (Safety Check) para prevenir la pantalla blanca
+                // --- ESCUDO DE SEGURIDAD PARA EVITAR PANTALLA BLANCA ---
                 if (!perfil) {
                     return (
                         <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10 text-center">
                             <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
                             <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-16 rounded-[3rem] border border-white shadow-glass">
-                                <Loader size={48} className="animate-spin mx-auto text-brand-purple mb-4" />
-                                <h2 className="text-2xl font-serif font-bold text-stone-800">Cargando perfil emocional...</h2>
-                                <p className="text-stone-500 mt-4">Si este mensaje no desaparece, verifica tu conexión o los datos de tu cuenta Premium.</p>
+                                <Activity size={64} className="mx-auto text-stone-300 mb-6" />
+                                <h2 className="text-3xl font-serif font-bold text-stone-600 mb-4">Sección en Construcción</h2>
+                                <p className="text-lg text-stone-500 mb-4">Los datos de tu "Perfil Emocional" no se encontraron en tu archivo premium.</p>
+                                <p className="text-stone-400 font-light text-sm italic">Verifica que tu premium_data.json tenga la propiedad "perfil_emocional".</p>
                             </div>
                         </div>
                     );
@@ -1046,27 +1047,13 @@
                             );
 
                         case 'balance':
-                            const renderContenidoTexto = (parrafos) => {
+                            // Esta función ahora dibuja mágicamente el video o el audio
+                            // en cuanto encuentra el emoji de la cámara 🎥 o los audífonos 🎧
+                            const renderContenidoTexto = (parrafos, mediaData = {}) => {
                                 return parrafos.map((parrafo, idx) => {
                                     if (parrafo === '---') return <hr key={idx} className="my-10 border-stone-200" />;
+                                    if (parrafo === '[AUDIO_RETO]') return null; // Filtro de seguridad
                                     
-                                    // LA NUEVA CONDICIÓN PARA EL MARCADOR DEL AUDIO 🎧
-                                    if (parrafo === '[AUDIO_RETO]') {
-                                        return (
-                                            <div key={idx} className="my-8 bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-6 rounded-3xl border border-brand-purple/20 shadow-sm flex flex-col gap-4">
-                                                <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">
-                                                    <Headphones size={20} /> Audio del Mes
-                                                </div>
-                                                <div className="bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
-                                                    <audio controls className="w-full outline-none">
-                                                        <source src={appData.reto_del_mes.url} type="audio/mpeg" />
-                                                        Tu navegador no soporta el elemento de audio.
-                                                    </audio>
-                                                </div>
-                                            </div>
-                                        );
-                                    }
-
                                     if (parrafo.includes('⭐') || parrafo.includes('🔒')) {
                                         const textoLimpio = parrafo.replace('⭐', '').replace('🔒', '').trim();
                                         return (
@@ -1075,8 +1062,39 @@
                                             </button>
                                         );
                                     }
+
                                     if (parrafo.match(/^[✨🌸💌☕🌿🗓️✍️🌱🎧💬🤍🧠🎥🎬🪷🌧️🔥💛🚧]/) || parrafo === parrafo.toUpperCase()) {
-                                        return <h3 key={idx} className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>;
+                                        
+                                        const isVideoHeader = parrafo.includes('🎥');
+                                        const isAudioHeader = parrafo.includes('🎧');
+
+                                        return (
+                                            <React.Fragment key={idx}>
+                                                <h3 className="text-2xl font-serif font-bold text-brand-purple mt-10 mb-4">{parrafo}</h3>
+                                                
+                                                {/* Aquí se dibuja el Video de Youtube de la Semana */}
+                                                {isVideoHeader && mediaData.youtube_id && (
+                                                    <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white mt-6">
+                                                        <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${mediaData.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                                    </div>
+                                                )}
+
+                                                {/* Aquí se dibuja el Audio de la Introducción */}
+                                                {isAudioHeader && mediaData.url && (
+                                                    <div className="my-8 bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-6 rounded-3xl border border-brand-purple/20 shadow-sm flex flex-col gap-4">
+                                                        <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">
+                                                            <Headphones size={20} /> Audio del Mes
+                                                        </div>
+                                                        <div className="bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                            <audio controls className="w-full outline-none">
+                                                                <source src={mediaData.url} type="audio/mpeg" />
+                                                                Tu navegador no soporta el elemento de audio.
+                                                            </audio>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </React.Fragment>
+                                        );
                                     }
                                     return <p key={idx}>{parrafo}</p>;
                                 });
@@ -1149,14 +1167,15 @@
                                             <div className="p-8 lg:p-14 space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
                                                 {retoTab === 'intro' && (
                                                     <div className="animate-fadeIn space-y-6">
+                                                        {/* Video general de Introducción */}
                                                         {appData.reto_del_mes.youtube_id && (
                                                             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
                                                                 <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${appData.reto_del_mes.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
                                                             </div>
                                                         )}
                                                         
-                                                        {/* Se ha eliminado el audio estático y ahora lo procesará renderContenidoTexto */}
-                                                        {renderContenidoTexto(appData.reto_del_mes.intro)}
+                                                        {/* Se manda la URL para el audio */}
+                                                        {renderContenidoTexto(appData.reto_del_mes.intro, { url: appData.reto_del_mes.url })}
                                                     </div>
                                                 )}
                                                 
@@ -1165,20 +1184,8 @@
                                                     const semanaData = appData.reto_del_mes.semanas[index];
                                                     return (
                                                         <div className="animate-fadeIn space-y-6">
-                                                            {semanaData.youtube_id && (
-                                                                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
-                                                                    <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${semanaData.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
-                                                                </div>
-                                                            )}
-                                                            {semanaData.url && (
-                                                                <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
-                                                                    <audio controls className="w-full outline-none">
-                                                                        <source src={semanaData.url} type="audio/mpeg" />
-                                                                        Tu navegador no soporta el elemento de audio.
-                                                                    </audio>
-                                                                </div>
-                                                            )}
-                                                            {renderContenidoTexto(semanaData.contenido)}
+                                                            {/* El renderContenidoTexto se encarga de ubicar el video de la semana en la cámara 🎥 */}
+                                                            {renderContenidoTexto(semanaData.contenido, { youtube_id: semanaData.youtube_id })}
                                                         </div>
                                                     );
                                                 })()}

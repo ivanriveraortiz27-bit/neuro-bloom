@@ -1399,7 +1399,6 @@ ARCHIVO: datos_reto.json
   "semanas": [
     {
       "id": "sem1",
-      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🌱 SEMANA 1 | Volver a escucharme",
         "¿Hace cuánto no te preguntas qué necesitas tú?",
@@ -1501,7 +1500,6 @@ ARCHIVO: datos_reto.json
     },
     {
       "id": "sem2",
-      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🤍 SEMANA 2 | Elegirme sin culpa",
         "Lo difícil que es elegirte sin sentir culpa",
@@ -1635,7 +1633,6 @@ ARCHIVO: datos_reto.json
     },
     {
       "id": "sem3",
-      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🌸 SEMANA 3 | Recordar quién soy",
         "¿Quién eres además de todo lo que haces?",
@@ -1768,7 +1765,6 @@ ARCHIVO: datos_reto.json
     },
     {
       "id": "sem4",
-      "url": "./audios/reto_agosto.mpeg",
       "contenido": [
         "🪷 SEMANA 4 | Empezar desde mí",
         "¿Qué versión de ti quieres empezar a construir?",
@@ -1893,6 +1889,28 @@ ARCHIVO: datos_reto.json
         "Una decisión que puedes volver a tomar, una y otra vez, cada vez que la vida te haga olvidar quién eres."
       ]
     }
+  ],
+  "cierre": [
+    "Antes de irte...",
+    "Si llegaste hasta aquí, queremos agradecerte.",
+    "No solo por terminar este recorrido.",
+    "Sino por haberte permitido detenerte y mirar hacia adentro.",
+    "Pero hay algo que todavía no queremos decirte.",
+    "Porque creemos que algunas preguntas solo pueden hacerse cuando una persona ya recorrió el camino que tú acabas de recorrer.",
+    "Y creemos que este es ese momento.",
+    "...",
+    "En Bloom existe una experiencia que no forma parte del recorrido gratuito.",
+    "No es una clase.",
+    "No es un video.",
+    "No es un ejercicio.",
+    "Y tampoco busca enseñarte algo nuevo.",
+    "Su único propósito es ayudarte a descubrir algo de ti que probablemente ha estado frente a tus ojos durante mucho tiempo.",
+    "Muchos usuarios dicen que, al terminarla, entendieron por qué habían repetido ciertos patrones durante años.",
+    "No porque alguien se los explicara.",
+    "Sino porque ellos mismos lograron verlo.",
+    "Se llama...",
+    "⭐ La Última Página",
+    "Esta experiencia está disponible solo para usuarios premium."
   ]
 }
 
@@ -4221,9 +4239,23 @@ ARCHIVO: index.html
             };
 
             const PerfilEmocional = ({ premiumData, onBack, onHome }) => {
-                const perfil = premiumData.perfil_emocional;
+                const perfil = premiumData?.perfil_emocional;
                 const [dimActual, setDimActual] = useState(-1);
                 const [respuestas, setRespuestas] = useState({});
+
+                // Escudo de seguridad (Safety Check) para prevenir la pantalla blanca
+                if (!perfil) {
+                    return (
+                        <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10 text-center">
+                            <BackButton onClick={onBack} text="Volver a Premium" onHome={onHome} />
+                            <div className="bg-white/80 backdrop-blur-xl p-10 lg:p-16 rounded-[3rem] border border-white shadow-glass">
+                                <Loader size={48} className="animate-spin mx-auto text-brand-purple mb-4" />
+                                <h2 className="text-2xl font-serif font-bold text-stone-800">Cargando perfil emocional...</h2>
+                                <p className="text-stone-500 mt-4">Si este mensaje no desaparece, verifica tu conexión o los datos de tu cuenta Premium.</p>
+                            </div>
+                        </div>
+                    );
+                }
 
                 const iniciarTest = () => { setDimActual(0); setRespuestas({}); };
                 const handleRespuesta = (dimId, qIdx, valor) => {
@@ -4463,7 +4495,6 @@ ARCHIVO: index.html
                                     </div>
                                 )}
 
-                                {/* REPRODUCTOR HÍBRIDO (YOUTUBE O AUDIO DIRECTO .MP3) */}
                                 {modulo.audio && (
                                     <div className="bg-gradient-to-r from-brand-lilac/20 to-brand-purple/20 p-8 rounded-3xl border border-brand-purple/20 flex flex-col gap-4 shadow-sm">
                                         <div className="flex items-center gap-3 text-brand-purple font-bold uppercase tracking-widest text-sm">

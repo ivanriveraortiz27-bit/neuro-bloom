@@ -1,6 +1,8 @@
 {
+  "youtube_id": "3MSohh4uBgw",
   "url": "./audios/reto_agosto.mpeg",
   "intro": [
+    "🎥 Bienvenida Agosto",
     "✨ ENFOQUE DEL MES | AGOSTO",
     "🌸 Volver a mí",
     "Hablarme con más compasión",
@@ -84,6 +86,7 @@
   "semanas": [
     {
       "id": "sem1",
+      "youtube_id": "q6LTwWarLag",
       "contenido": [
         "🌱 SEMANA 1 | Volver a escucharme",
         "¿Hace cuánto no te preguntas qué necesitas tú?",
@@ -185,6 +188,7 @@
     },
     {
       "id": "sem2",
+      "youtube_id": "xurBF4VkTtw",
       "contenido": [
         "🤍 SEMANA 2 | Elegirme sin culpa",
         "Lo difícil que es elegirte sin sentir culpa",
@@ -318,6 +322,7 @@
     },
     {
       "id": "sem3",
+      "youtube_id": "zC847SyiK_I",
       "contenido": [
         "🌸 SEMANA 3 | Recordar quién soy",
         "¿Quién eres además de todo lo que haces?",
@@ -450,6 +455,7 @@
     },
     {
       "id": "sem4",
+      "youtube_id": "aGYN_8ThCS8",
       "contenido": [
         "🪷 SEMANA 4 | Empezar desde mí",
         "¿Qué versión de ti quieres empezar a construir?",
