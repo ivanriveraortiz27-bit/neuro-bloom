@@ -1123,6 +1123,14 @@
                                                                 <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${appData.reto_del_mes.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
                                                             </div>
                                                         )}
+                                                        {appData.reto_del_mes.url && (
+                                                            <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                                <audio controls className="w-full outline-none">
+                                                                    <source src={appData.reto_del_mes.url} type="audio/mpeg" />
+                                                                    Tu navegador no soporta el elemento de audio.
+                                                                </audio>
+                                                            </div>
+                                                        )}
                                                         {renderContenidoTexto(appData.reto_del_mes.intro)}
                                                     </div>
                                                 )}
@@ -1135,6 +1143,14 @@
                                                             {semanaData.youtube_id && (
                                                                 <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 border border-white">
                                                                     <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube.com/embed/${semanaData.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+                                                                </div>
+                                                            )}
+                                                            {semanaData.url && (
+                                                                <div className="mt-2 bg-white/80 p-4 rounded-2xl border border-brand-purple/20 shadow-inner">
+                                                                    <audio controls className="w-full outline-none">
+                                                                        <source src={semanaData.url} type="audio/mpeg" />
+                                                                        Tu navegador no soporta el elemento de audio.
+                                                                    </audio>
                                                                 </div>
                                                             )}
                                                             {renderContenidoTexto(semanaData.contenido)}
