@@ -66,6 +66,23 @@ const Leaf = (props) => <IconWrapper name="leaf" {...props} />;
 const Instagram = (props) => <IconWrapper name="instagram" {...props} />;
 
 const getIconComponent = (name, props = {}) => {
+    const getEmojiForIcon = (iconName) => {
+    switch(iconName) {
+        case 'activity': return '📈';
+        case 'heart': return '💜';
+        case 'heart-handshake': return '🤝';
+        case 'sun': return '☀️';
+        case 'shield': return '🛡️';
+        case 'brain': return '🧠';
+        case 'book-heart': return '📖';
+        case 'play-circle': return '▶️';
+        case 'library': return '📚';
+        case 'sprout': return '🌱';
+        case 'star': return '⭐';
+        case 'compass': return '🧭';
+        default: return '✨';
+    }
+};
     switch(name) {
         case 'activity': return <Activity {...props} />;
         case 'heart': return <Heart {...props} />;

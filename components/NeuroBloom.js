@@ -166,6 +166,7 @@ function NeuroBloom() {
         if (activeSection === 'panel_psicologo') {
             return <PanelPsicologo onBack={() => setActiveSection('home')} psicologoId={userRole} />;
         }
+        // --- NUEVA VISTA CONÓCENOS ---
         if (activeSection === 'conocenos') {
             return <Conocenos onBack={() => setActiveSection('home')} onHome={() => setActiveSection('home')} />;
         }
@@ -281,7 +282,9 @@ function NeuroBloom() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
                             {indTab === 'info' && appData.indicadores?.informacion?.map(item => (
                                 <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col h-full group premium-card-border">
-                                    <Thumbnail src={item.imagen} alt={item.title} className="w-20 h-20 rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>{getIconComponent(item.icon)}</div>} />
+                                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform origin-left">
+                                        {getEmojiForIcon(item.icon)}
+                                    </div>
                                     <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-brand-purple transition-colors">{item.title}</h3>
                                     <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.contenido[0]}</p>
                                     <p className="text-sm font-bold text-brand-purple mt-6 tracking-wider uppercase">Leer artículo &rarr;</p>
@@ -290,8 +293,8 @@ function NeuroBloom() {
 
                             {indTab === 'test' && appData.indicadores?.cuestionarios?.map(item => (
                                 <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col h-full group premium-card-border">
-                                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color || colors.primary }}>
-                                        {getIconComponent(item.icon)}
+                                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform origin-left">
+                                        {getEmojiForIcon(item.icon)}
                                     </div>
                                     <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-brand-purple transition-colors">{item.title}</h3>
                                     <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.intro || 'Realiza esta evaluación para conocer más sobre ti.'}</p>
@@ -571,9 +574,7 @@ function NeuroBloom() {
                             <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
                                 <BackButton onClick={() => setSubView(null)} text="Volver a Cápsulas" />
                                 <div className="flex items-center gap-4 mb-8">
-                                    <div className="p-4 rounded-full text-white shadow-md bg-orange-400">
-                                        <PlayCircle size={32} />
-                                    </div>
+                                    <div className="text-4xl">▶️</div>
                                     <h2 className="text-3xl lg:text-4xl font-serif font-bold text-stone-800">
                                         <span className="brush-highlight-yellow">{capsulaData.title}</span>
                                     </h2>
@@ -615,11 +616,9 @@ function NeuroBloom() {
                             {appData.capsulas?.map(item => (
                                 <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col h-full group premium-card-border">
                                     {item.imagen ? (
-                                        <Thumbnail src={item.imagen} alt={item.title} className="w-full aspect-video rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm bg-orange-400"><PlayCircle size={32} /></div>} />
+                                        <Thumbnail src={item.imagen} alt={item.title} className="w-full aspect-video rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="text-4xl mb-4 group-hover:scale-110 transition-transform origin-left">▶️</div>} />
                                     ) : (
-                                        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm bg-orange-400">
-                                            <PlayCircle size={32} />
-                                        </div>
+                                        <div className="text-4xl mb-4 group-hover:scale-110 transition-transform origin-left">▶️</div>
                                     )}
                                     <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-orange-500 transition-colors">{item.title}</h3>
                                     <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.guion[0]}</p>
@@ -756,10 +755,15 @@ function NeuroBloom() {
             {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
             
             <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-                {/* Formas flotantes difuminadas en el fondo */}
-                <div className="absolute top-[-10%] left-[-10%] w-[50rem] h-[50rem] bg-pink-100 rounded-full animate-blob mix-blend-multiply filter blur-3xl opacity-60"></div>
-                <div className="absolute top-[20%] right-[-10%] w-[40rem] h-[40rem] bg-purple-100 rounded-full animate-blob animation-delay-2000 mix-blend-multiply filter blur-3xl opacity-60"></div>
-                <div className="absolute bottom-[-10%] left-[20%] w-[45rem] h-[45rem] bg-orange-50 rounded-full animate-blob animation-delay-4000 mix-blend-multiply filter blur-3xl opacity-60"></div>
+                {/* Formas orgánicas dinámicas en el fondo general */}
+                <div className="absolute top-[-10%] left-[-10%] w-[50rem] h-[50rem] bg-pink-200/30 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] animate-blob mix-blend-multiply filter blur-3xl"></div>
+                <div className="absolute top-[20%] right-[-10%] w-[40rem] h-[40rem] bg-brand-purple/20 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] animate-blob animation-delay-2000 mix-blend-multiply filter blur-3xl"></div>
+                <div className="absolute bottom-[-10%] left-[20%] w-[45rem] h-[45rem] bg-amber-200/30 rounded-[50%_50%_40%_60%/40%_60%_50%_40%] animate-blob animation-delay-4000 mix-blend-multiply filter blur-3xl"></div>
+                
+                {/* Formas sutiles extra */}
+                <div className="absolute top-[15%] left-[5%] w-48 h-48 bg-pink-300/10 rounded-full animate-float-slow blur-xl"></div>
+                <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-brand-green/10 rounded-full animate-float-slow animation-delay-2000 blur-xl"></div>
+                <div className="absolute top-[60%] left-[80%] w-32 h-32 bg-yellow-400/10 rounded-full animate-float-slow animation-delay-4000 blur-xl"></div>
             </div>
 
             <header className="sticky top-0 z-50 border-b border-white/40 bg-white/60 backdrop-blur-xl shadow-sm">
