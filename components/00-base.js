@@ -63,6 +63,7 @@ const PenTool = (props) => <IconWrapper name="pen-tool" {...props} />;
 const Headphones = (props) => <IconWrapper name="headphones" {...props} />;
 const FileText = (props) => <IconWrapper name="file-text" {...props} />;
 const Leaf = (props) => <IconWrapper name="leaf" {...props} />;
+const Instagram = (props) => <IconWrapper name="instagram" {...props} />;
 
 const getIconComponent = (name, props = {}) => {
     switch(name) {
