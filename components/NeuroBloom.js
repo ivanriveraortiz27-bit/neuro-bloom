@@ -204,23 +204,23 @@ function NeuroBloom() {
                         </div>
                         
                         <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl">
-                            <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                <Thumbnail src="./indicadores-emocionales.jpeg" alt="Indicadores" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Activity size={64} className="text-brand-purple" /></div>} />
+                            <div onClick={() => setActiveSection('indicadores')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/70 backdrop-blur-md">
+                                <Thumbnail src="./indicadores-emocionales.jpeg" alt="Indicadores" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 flex items-center justify-center"><Activity size={64} className="text-brand-purple" /></div>} />
                             </div>
-                            <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                <Thumbnail src="./balance-cotidiano.jpeg" alt="Balance" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sun size={64} className="text-blue-400" /></div>} />
+                            <div onClick={() => setActiveSection('balance')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/70 backdrop-blur-md">
+                                <Thumbnail src="./balance-cotidiano.jpeg" alt="Balance" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 flex items-center justify-center"><Sun size={64} className="text-blue-400" /></div>} />
                             </div>
-                            <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                <Thumbnail src="./bloom-library.jpeg" alt="Library" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Library size={64} className="text-brand-lilac" /></div>} />
+                            <div onClick={() => setActiveSection('library')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/70 backdrop-blur-md">
+                                <Thumbnail src="./bloom-library.jpeg" alt="Library" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 flex items-center justify-center"><Library size={64} className="text-brand-lilac" /></div>} />
                             </div>
-                            <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                <Thumbnail src="./infancias.jpeg" alt="Infancias" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Sprout size={64} className="text-pink-400" /></div>} />
+                            <div onClick={() => setActiveSection('infancias')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/70 backdrop-blur-md">
+                                <Thumbnail src="./infancias.jpeg" alt="Infancias" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 flex items-center justify-center"><Sprout size={64} className="text-pink-400" /></div>} />
                             </div>
-                            <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                <Thumbnail src="./capsulas-en-video.jpeg" alt="Cápsulas" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><PlayCircle size={64} className="text-orange-400" /></div>} />
+                            <div onClick={() => setActiveSection('capsulas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/70 backdrop-blur-md">
+                                <Thumbnail src="./capsulas-en-video.jpeg" alt="Cápsulas" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 flex items-center justify-center"><PlayCircle size={64} className="text-orange-400" /></div>} />
                             </div>
-                            <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group">
-                                <Thumbnail src="./conoce-y-agenda.jpeg" alt="Agenda" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 bg-white/60 flex items-center justify-center"><Calendar size={64} className="text-brand-green" /></div>} />
+                            <div onClick={() => setActiveSection('citas')} className="w-full sm:w-[45%] lg:w-[30%] cursor-pointer rounded-[2rem] shadow-lg hover:shadow-xl transition-all overflow-hidden group bg-white/70 backdrop-blur-md">
+                                <Thumbnail src="./conoce-y-agenda.jpeg" alt="Agenda" className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" fallback={<div className="w-full py-16 flex items-center justify-center"><Calendar size={64} className="text-brand-green" /></div>} />
                             </div>
                         </div>
                     </div>
@@ -280,7 +280,7 @@ function NeuroBloom() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
                             {indTab === 'info' && appData.indicadores?.informacion?.map(item => (
-                                <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col h-full group premium-card-border">
                                     <Thumbnail src={item.imagen} alt={item.title} className="w-20 h-20 rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color }}>{getIconComponent(item.icon)}</div>} />
                                     <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-brand-purple transition-colors">{item.title}</h3>
                                     <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{item.contenido[0]}</p>
@@ -289,7 +289,7 @@ function NeuroBloom() {
                             ))}
 
                             {indTab === 'test' && appData.indicadores?.cuestionarios?.map(item => (
-                                <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col h-full group premium-card-border">
                                     <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm" style={{ backgroundColor: item.color || colors.primary }}>
                                         {getIconComponent(item.icon)}
                                     </div>
@@ -521,7 +521,7 @@ function NeuroBloom() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {appData.cuentos?.map(cuento => (
-                                <div key={cuento.id} onClick={() => setSubView(cuento.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                <div key={cuento.id} onClick={() => setSubView(cuento.id)} className="cursor-pointer bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col h-full group premium-card-border">
                                     <Thumbnail src={cuento.imagen} alt={cuento.title} className="w-full h-48 rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-full h-48 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm bg-brand-lilac"><Library size={48} /></div>} />
                                     <span className="text-brand-lilac text-xs font-bold tracking-widest uppercase mb-2">{cuento.categoria}</span>
                                     <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-brand-purple transition-colors">{cuento.title}</h3>
@@ -613,7 +613,7 @@ function NeuroBloom() {
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
                             {appData.capsulas?.map(item => (
-                                <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                <div key={item.id} onClick={() => setSubView(item.id)} className="cursor-pointer bg-white/80 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-glass border border-white hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col h-full group premium-card-border">
                                     {item.imagen ? (
                                         <Thumbnail src={item.imagen} alt={item.title} className="w-full aspect-video rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm bg-orange-400"><PlayCircle size={32} /></div>} />
                                     ) : (
@@ -723,21 +723,21 @@ function NeuroBloom() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-5xl mx-auto">
                             
                             <button onClick={() => setPremiumSubSection('perfil')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full premium-card-border">
-                                <div className="w-16 h-16 rounded-2xl bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Brain size={32} /></div>
+                                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform">🧠</div>
                                 <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Conoce tu Perfil Emocional</h3>
                                 <p className="text-stone-500 font-light flex-grow leading-relaxed">Evalúa 7 dimensiones clave de tu bienestar y obtén una ruta personalizada.</p>
                                 <div className="mt-8 flex items-center text-brand-purple font-bold text-sm tracking-widest uppercase">Comenzar Test &rarr;</div>
                             </button>
 
                             <button onClick={() => setPremiumSubSection('rutas')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full premium-card-border">
-                                <div className="w-16 h-16 rounded-2xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Compass size={32} /></div>
+                                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform">🧭</div>
                                 <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Rutas de Bienestar</h3>
                                 <p className="text-stone-500 font-light flex-grow leading-relaxed">7 programas guiados por módulos. Desde regular tu sistema nervioso hasta fortalecer tu autoestima y propósito.</p>
                                 <div className="mt-8 flex items-center text-brand-green font-bold text-sm tracking-widest uppercase">Explorar Rutas &rarr;</div>
                             </button>
 
                             <button onClick={() => setPremiumSubSection('maternidad')} className="group bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white shadow-glass hover:shadow-xl transition-all transform hover:-translate-y-2 text-left flex flex-col h-full premium-card-border">
-                                <div className="w-16 h-16 rounded-2xl bg-pink-100 text-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Sprout size={32} /></div>
+                                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform">🌱</div>
                                 <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Maternidad con Ciencia</h3>
                                 <p className="text-stone-500 font-light flex-grow leading-relaxed">Entiende el cerebro de mamá, el cerebro infantil y descubre herramientas de crianza basadas en la evidencia.</p>
                                 <div className="mt-8 flex items-center text-pink-500 font-bold text-sm tracking-widest uppercase">Leer Módulos &rarr;</div>
@@ -756,15 +756,10 @@ function NeuroBloom() {
             {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
             
             <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-                {/* Manchas Orgánicas */}
-                <div className="absolute top-[-10%] left-[-10%] w-[45rem] h-[45rem] bg-[#fdf2f8] animate-organic-blob mix-blend-multiply filter blur-2xl opacity-70"></div>
-                <div className="absolute top-[20%] right-[-10%] w-[35rem] h-[35rem] bg-[#f3e8ff] animate-organic-blob animation-delay-2000 mix-blend-multiply filter blur-2xl opacity-70"></div>
-                <div className="absolute bottom-[-10%] left-[15%] w-[40rem] h-[40rem] bg-[#fff7ed] animate-organic-blob animation-delay-4000 mix-blend-multiply filter blur-2xl opacity-70"></div>
-                
-                {/* Formas sutiles flotantes */}
-                <div className="absolute top-[15%] left-[5%] w-48 h-48 bg-pink-300/10 rounded-full animate-float-slow blur-xl"></div>
-                <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-brand-green/10 rounded-full animate-float-slow animation-delay-2000 blur-xl"></div>
-                <div className="absolute top-[60%] left-[80%] w-32 h-32 bg-yellow-400/10 rounded-full animate-float-slow animation-delay-4000 blur-xl"></div>
+                {/* Formas flotantes difuminadas en el fondo */}
+                <div className="absolute top-[-10%] left-[-10%] w-[50rem] h-[50rem] bg-pink-100 rounded-full animate-blob mix-blend-multiply filter blur-3xl opacity-60"></div>
+                <div className="absolute top-[20%] right-[-10%] w-[40rem] h-[40rem] bg-purple-100 rounded-full animate-blob animation-delay-2000 mix-blend-multiply filter blur-3xl opacity-60"></div>
+                <div className="absolute bottom-[-10%] left-[20%] w-[45rem] h-[45rem] bg-orange-50 rounded-full animate-blob animation-delay-4000 mix-blend-multiply filter blur-3xl opacity-60"></div>
             </div>
 
             <header className="sticky top-0 z-50 border-b border-white/40 bg-white/60 backdrop-blur-xl shadow-sm">
