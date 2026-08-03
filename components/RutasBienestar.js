@@ -1,4 +1,4 @@
-/ components/RutasBienestar.js
+// components/RutasBienestar.js
 // Refactor: lazy loading por ruta.
 //  - Grilla de 7 rutas: renderizada desde RUTAS_INDEX (0 fetch).
 //  - Click en ruta -> fetch(`./premium_ruta_${numero}.json`).

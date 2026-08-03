@@ -37,6 +37,7 @@ const IconWrapper = ({ name, size = 24, className, color, fill = "none", ...prop
     return <i ref={iconRef} data-lucide={name} style={{ display: 'inline-flex' }}></i>;
 };
 
+// Íconos globales confirmados para el funcionamiento de toda la aplicación (incluyendo UltimaPagina.js)
 const Heart = (props) => <IconWrapper name="heart" {...props} />;
 const Activity = (props) => <IconWrapper name="activity" {...props} />;
 const HeartHandshake = (props) => <IconWrapper name="heart-handshake" {...props} />;

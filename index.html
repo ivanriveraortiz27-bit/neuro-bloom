@@ -8,6 +8,11 @@
     <link rel="icon" href="https://i.ibb.co/WWs5xcSX/Neuro-Bloom-Logo-nbg.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     
+    <!-- Fuente Figtree requerida para UltimaPagina -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -27,6 +32,8 @@
                     fontFamily: {
                         sans: ['Nunito', 'sans-serif'],
                         serif: ['Lora', 'serif'],
+                        // Agregamos Figtree a la configuración para usarla con Tailwind si es necesario
+                        figtree: ['Figtree', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -61,6 +68,8 @@
     <script type="text/babel" src="components/RutasBienestar.js"></script>
     <script type="text/babel" src="components/MaternidadView.js"></script>
     <script type="text/babel" src="components/RetoPremium.js"></script>
+    <!-- Agregamos UltimaPagina ANTES de NeuroBloom -->
+    <script type="text/babel" src="components/UltimaPagina.js"></script>
     <script type="text/babel" src="components/AuthModal.js"></script>
     <script type="text/babel" src="components/NeuroBloom.js"></script>
 </body>

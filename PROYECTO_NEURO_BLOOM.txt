@@ -676,9 +676,14 @@ function NeuroBloom() {
 
     const renderContent = () => {
         if (premiumSubSection === 'reto' && premiumData) {
-            return <RetoPremium premiumData={premiumData} onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} onHome={() => setActiveSection('home')} />;
+            return <RetoPremium premiumData={premiumData} onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} onHome={() => setActiveSection('home')} onIrUltima={() => setPremiumSubSection('ultima')} />;
         }
-
+        if (premiumSubSection === 'ultima') {
+            return <UltimaPagina 
+                onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} 
+                onHome={() => setActiveSection('home')} 
+            />;
+        }
         switch(activeSection) {
             case 'home':
                 return (
@@ -1590,7 +1595,7 @@ const PerfilEmocional = ({ onBack, onHome }) => {
 ARCHIVO: components\RetoPremium.js
 =================================================================
 
-const RetoPremium = ({ premiumData, onBack, onHome }) => {
+const RetoPremium = ({ premiumData, onBack, onHome, onIrUltima }) => {
     const reto = premiumData.reto_premium;
     const [step, setStep] = useState(0); 
 
@@ -1654,8 +1659,26 @@ const RetoPremium = ({ premiumData, onBack, onHome }) => {
                         <div className="bg-stone-50 p-8 rounded-2xl border border-stone-200 mt-12">
                             <p className="text-stone-500 font-light whitespace-pre-line italic">{reto.teaser_proximo}</p>
                         </div>
-                        <div className="text-center mt-12">
-                            <button onClick={onBack} className="px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Cerrar Reto</button>
+                        <div className="text-center mt-12 space-y-4">
+                            {onIrUltima ? (
+                                <>
+                                    <p className="text-stone-500 font-light italic mb-4">Cuando estés listo(a), te espera una última reflexión.</p>
+                                    <button 
+                                        onClick={onIrUltima}
+                                        data-testid="ir-ultima-pagina-btn"
+                                        className="px-10 py-4 bg-stone-800 text-white rounded-full font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"
+                                    >
+                                        🌸 Ir a La Última Página
+                                    </button>
+                                    <div className="pt-2">
+                                        <button onClick={onBack} className="text-stone-400 hover:text-stone-700 font-medium text-sm transition-colors">
+                                            o cerrar el Reto
+                                        </button>
+                                    </div>
+                                </>
+                            ) : (
+                                <button onClick={onBack} className="px-8 py-4 bg-stone-800 text-white rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform">Cerrar Reto</button>
+                            )}
                         </div>
                     </div>
                 )}
