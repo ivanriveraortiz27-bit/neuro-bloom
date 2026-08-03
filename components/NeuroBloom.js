@@ -42,7 +42,6 @@ function NeuroBloom() {
                         
                         const urlParams = new URLSearchParams(window.location.search);
                         
-                        // --- DETECCIÓN DE PAGO BLOOM PREMIUM ---
                         if (urlParams.get('payment') === 'success' && !isUserPremium) {
                             await db.collection('users').doc(currentUser.uid).update({ isPremium: true });
                             window.history.replaceState(null, '', window.location.pathname);
@@ -51,7 +50,6 @@ function NeuroBloom() {
                             return; 
                         }
 
-                        // --- DETECCIÓN DE PAGO DE CONSULTA / CITA ---
                         if (urlParams.get('cita_success') === 'true') {
                             const especialistaComprado = urlParams.get('especialista') || 'feler-munoz';
                             await db.collection('citas').add({
@@ -162,7 +160,6 @@ function NeuroBloom() {
     if (!appData || authLoading) return <div className="loading-screen"><h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2></div>;
 
     const renderContent = () => {
-        // --- NAVEGACIÓN A PANELES ESPECIALES ---
         if (activeSection === 'panel_admin') {
             return <PanelAdmin onBack={() => setActiveSection('home')} />;
         }
@@ -170,7 +167,6 @@ function NeuroBloom() {
             return <PanelPsicologo onBack={() => setActiveSection('home')} psicologoId={userRole} />;
         }
 
-        // --- NAVEGACIÓN A LA ÚLTIMA PÁGINA ---
         if (premiumSubSection === 'ultima') {
             return <UltimaPagina 
                 onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} 
@@ -178,7 +174,6 @@ function NeuroBloom() {
             />;
         }
 
-        // --- NAVEGACIÓN AL RETO PREMIUM ---
         if (premiumSubSection === 'reto' && premiumData) {
             return <RetoPremium 
                 premiumData={premiumData} 

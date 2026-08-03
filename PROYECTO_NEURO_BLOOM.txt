@@ -550,6 +550,8 @@ const MaternidadView = ({ onBack, onHome }) => {
 ARCHIVO: components\NeuroBloom.js
 =================================================================
 
+// components/NeuroBloom.js
+
 function NeuroBloom() {
     const [activeSection, setActiveSection] = useState('home');
     const [subView, setSubView] = useState(null); 
@@ -562,7 +564,7 @@ function NeuroBloom() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [user, setUser] = useState(null);
     const [isPremium, setIsPremium] = useState(false);
-    const [userRole, setUserRole] = useState('paciente'); // <-- NUEVO ESTADO PARA EL ROL
+    const [userRole, setUserRole] = useState('paciente'); 
     const [authLoading, setAuthLoading] = useState(true);
     const [showAuthModal, setShowAuthModal] = useState(false);
     
@@ -582,15 +584,17 @@ function NeuroBloom() {
                             await auth.signOut();
                             setUser(null); 
                             setIsPremium(false); 
-                            setUserRole('paciente'); // Reseteo de rol
+                            setUserRole('paciente');
                             setAuthLoading(false);
                             return;
                         }
                         
                         let isUserPremium = doc.data().isPremium === true;
-                        let role = doc.data().role || 'paciente'; // <-- LECTURA DEL ROL DESDE FIRESTORE
+                        let role = doc.data().role || 'paciente';
                         
                         const urlParams = new URLSearchParams(window.location.search);
+                        
+                        // --- DETECCIÓN DE PAGO BLOOM PREMIUM ---
                         if (urlParams.get('payment') === 'success' && !isUserPremium) {
                             await db.collection('users').doc(currentUser.uid).update({ isPremium: true });
                             window.history.replaceState(null, '', window.location.pathname);
@@ -598,10 +602,26 @@ function NeuroBloom() {
                             setActiveSection('premium_view');
                             return; 
                         }
+
+                        // --- DETECCIÓN DE PAGO DE CONSULTA / CITA ---
+                        if (urlParams.get('cita_success') === 'true') {
+                            const especialistaComprado = urlParams.get('especialista') || 'feler-munoz';
+                            await db.collection('citas').add({
+                                pacienteEmail: currentUser.email,
+                                pacienteUid: currentUser.uid,
+                                especialistaId: especialistaComprado,
+                                estado: 'pendiente',
+                                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                            });
+                            window.history.replaceState(null, '', window.location.pathname);
+                            alert('¡Pago de consulta confirmado con éxito! La especialista revisará tu agenda y se pondrá en contacto contigo a la brevedad. 🌿');
+                            setActiveSection('citas');
+                            return;
+                        }
                         
                         setUser(currentUser);
                         setIsPremium(isUserPremium);
-                        setUserRole(role); // <-- GUARDADO DEL ROL EN EL ESTADO DE REACT
+                        setUserRole(role);
                         setAuthLoading(false);
                     }, (error) => { console.error("Error al escuchar usuario:", error); setAuthLoading(false); });
                 } catch (error) {
@@ -616,7 +636,7 @@ function NeuroBloom() {
                 if (unsubscribeSnapshot) unsubscribeSnapshot();
                 setUser(null); 
                 setIsPremium(false); 
-                setUserRole('paciente'); // Reseteo de rol al cerrar sesión
+                setUserRole('paciente');
                 setAuthLoading(false);
             }
         });
@@ -694,6 +714,15 @@ function NeuroBloom() {
     if (!appData || authLoading) return <div className="loading-screen"><h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2></div>;
 
     const renderContent = () => {
+        // --- NAVEGACIÓN A PANELES ESPECIALES ---
+        if (activeSection === 'panel_admin') {
+            return <PanelAdmin onBack={() => setActiveSection('home')} />;
+        }
+        if (activeSection === 'panel_psicologo') {
+            return <PanelPsicologo onBack={() => setActiveSection('home')} psicologoId={userRole} />;
+        }
+
+        // --- NAVEGACIÓN A LA ÚLTIMA PÁGINA ---
         if (premiumSubSection === 'ultima') {
             return <UltimaPagina 
                 onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} 
@@ -701,6 +730,7 @@ function NeuroBloom() {
             />;
         }
 
+        // --- NAVEGACIÓN AL RETO PREMIUM ---
         if (premiumSubSection === 'reto' && premiumData) {
             return <RetoPremium 
                 premiumData={premiumData} 
@@ -971,7 +1001,6 @@ function NeuroBloom() {
                 );
 
             case 'library':
-                // --- VISTA DETALLE DEL CUENTO ---
                 if (subView) {
                     const cuentoData = appData.cuentos?.find(c => c.id === subView);
                     if (cuentoData) {
@@ -991,7 +1020,6 @@ function NeuroBloom() {
                                 </div>
                                 <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
                                     {cuentoData.contenido.map((parrafo, idx) => {
-                                        // Estilo especial para la nota de derechos de autor
                                         if (parrafo.startsWith("Nota: El registro de derechos")) {
                                             return (
                                                 <div key={idx} className="mt-12 pt-6 border-t border-stone-200/50 text-center">
@@ -1007,7 +1035,6 @@ function NeuroBloom() {
                     }
                 }
 
-                // --- VISTA PRINCIPAL DE LA BIBLIOTECA ---
                 return (
                     <div className="animate-fadeIn max-w-6xl mx-auto space-y-12 relative z-10">
                         <div className="w-full">
@@ -1021,7 +1048,6 @@ function NeuroBloom() {
                             <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Un espacio para nutrir tu mente y alma a través de recursos, recomendaciones y cuentos terapéuticos.</p>
                         </div>
 
-                        {/* Caja de Introducción (Libros, Películas, Podcasts) */}
                         <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-12 rounded-[2.5rem] shadow-glass border border-white mb-12">
                             <div className="flex items-center gap-4 mb-8 border-b border-stone-200/50 pb-6">
                                 <div className="p-3 rounded-full text-white shadow-md bg-brand-lilac">
@@ -1031,7 +1057,6 @@ function NeuroBloom() {
                             </div>
                             <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
                                 {appData.bloom_library?.intro_text?.map((txt, i) => {
-                                    // Separar los títulos (como PELÍCULAS:) para hacerlos negritas
                                     if (txt.includes(':') && txt.split(':')[0].length < 30) {
                                         const parts = txt.split(':');
                                         return <p key={i}><strong className="text-brand-purple font-bold tracking-wider">{parts[0]}:</strong>{parts.slice(1).join(':')}</p>;
@@ -1041,7 +1066,6 @@ function NeuroBloom() {
                             </div>
                         </div>
 
-                        {/* Grilla de Cuentos */}
                         <div className="text-center mb-8 mt-16">
                             <h3 className="text-4xl font-serif font-bold text-stone-800">Cuentos Terapéuticos</h3>
                         </div>
@@ -1169,7 +1193,7 @@ function NeuroBloom() {
                             </h2>
                             <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Inicia tu proceso de bienestar emocional. Conoce a nuestros especialistas y reserva tu espacio seguro con nosotros.</p>
                             
-                            {/* NUEVO: Nota sobre el proceso de agendado */}
+                            {/* Nota informativa sobre el proceso de pago exclusivo */}
                             <div className="mt-8 max-w-3xl mx-auto bg-brand-green/10 border border-brand-green/30 p-6 rounded-2xl text-center shadow-sm">
                                 <p className="text-stone-700 font-medium text-lg mb-2">Importante</p>
                                 <p className="text-stone-600 font-light">
@@ -1180,7 +1204,7 @@ function NeuroBloom() {
                         
                         <div className="grid md:grid-cols-2 gap-10 relative z-10">
                             {appData.especialistas?.map(esp => {
-                                // Determinamos el link de Stripe según el ID del especialista
+                                // Determinación del enlace de Stripe según el ID del especialista
                                 const stripeLink = esp.id === 'feler-munoz' 
                                     ? 'https://buy.stripe.com/aFa28q881aMZ7wN43l77O02'
                                     : esp.id === 'fernanda-regalado'
@@ -1311,6 +1335,25 @@ function NeuroBloom() {
                     </nav>
 
                     <div className="flex items-center gap-4 relative z-50">
+                        {/* Botones de acceso a paneles según el rol del usuario logueado */}
+                        {userRole === 'admin' && (
+                            <button 
+                                onClick={() => setActiveSection('panel_admin')} 
+                                className="hidden sm:flex px-4 py-2 bg-brand-purple text-white rounded-full text-xs font-bold shadow-md hover:bg-brand-purple/90 transition-all items-center gap-1.5"
+                            >
+                                <Shield size={16} /> Panel Admin
+                            </button>
+                        )}
+                        
+                        {(userRole === 'feler-munoz' || userRole === 'fernanda-regalado') && (
+                            <button 
+                                onClick={() => setActiveSection('panel_psicologo')} 
+                                className="hidden sm:flex px-4 py-2 bg-brand-green text-white rounded-full text-xs font-bold shadow-md hover:bg-brand-green/90 transition-all items-center gap-1.5"
+                            >
+                                <Calendar size={16} /> Mi Agenda
+                            </button>
+                        )}
+
                         {user ? (
                             <button onClick={handleLogout} className="hidden sm:flex text-sm font-bold text-stone-500 hover:text-brand-purple transition-colors items-center gap-2">
                                 <UserCircle size={20} /> Cerrar Sesión
@@ -1330,7 +1373,17 @@ function NeuroBloom() {
             {mobileMenuOpen && (
                 <div className="fixed inset-0 z-40 pt-28 px-6 lg:hidden animate-slideIn bg-white/95 backdrop-blur-3xl">
                     <div className="flex flex-col gap-4">
-                        <div className="mb-4 pb-4 border-b border-stone-200">
+                        <div className="mb-4 pb-4 border-b border-stone-200 flex flex-col gap-2">
+                            {userRole === 'admin' && (
+                                <button onClick={() => { setActiveSection('panel_admin'); setMobileMenuOpen(false); }} className="w-full text-left p-4 rounded-2xl font-bold text-base text-white bg-brand-purple shadow-sm flex items-center gap-2">
+                                    <Shield size={20} /> Panel Admin
+                                </button>
+                            )}
+                            {(userRole === 'feler-munoz' || userRole === 'fernanda-regalado') && (
+                                <button onClick={() => { setActiveSection('panel_psicologo'); setMobileMenuOpen(false); }} className="w-full text-left p-4 rounded-2xl font-bold text-base text-white bg-brand-green shadow-sm flex items-center gap-2">
+                                    <Calendar size={20} /> Mi Agenda
+                                </button>
+                            )}
                             {user ? (
                                 <button onClick={() => {handleLogout(); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-stone-500 bg-stone-100 flex items-center gap-3">
                                     <UserCircle size={24} /> Cerrar Sesión
@@ -1377,6 +1430,219 @@ function NeuroBloom() {
 // Renderizado final de la app
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<NeuroBloom />);
+
+=================================================================
+ARCHIVO: components\PanelAdmin.js
+=================================================================
+
+// components/PanelAdmin.js
+
+const PanelAdmin = ({ onBack }) => {
+    const [citas, setCitas] = useState([]);
+    const [usuarios, setUsuarios] = useState([]);
+    const [tab, setTab] = useState('citas');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Cargar todas las citas
+        const unsubCitas = db.collection('citas').onSnapshot((snapshot) => {
+            const data = [];
+            snapshot.forEach((doc) => data.push({ id: doc.id, ...doc.data() }));
+            data.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+            setCitas(data);
+            setLoading(false);
+        });
+
+        // Cargar todos los usuarios para gestionar roles
+        const unsubUsers = db.collection('users').onSnapshot((snapshot) => {
+            const data = [];
+            snapshot.forEach((doc) => data.push({ id: doc.id, ...doc.data() }));
+            setUsuarios(data);
+        });
+
+        return () => { unsubCitas(); unsubUsers(); };
+    }, []);
+
+    const actualizarRolUsuario = async (userId, nuevoRol) => {
+        try {
+            await db.collection('users').doc(userId).update({ role: nuevoRol });
+            alert(`Rol actualizado a "${nuevoRol}" con éxito.`);
+        } catch (err) {
+            console.error("Error cambiando rol:", err);
+            alert("No se pudo cambiar el rol.");
+        }
+    };
+
+    return (
+        <div className="animate-fadeIn max-w-6xl mx-auto py-8 relative z-10">
+            <BackButton onClick={onBack} text="Volver" />
+            <div className="bg-white/90 backdrop-blur-xl p-8 lg:p-12 rounded-[2.5rem] border border-white shadow-glass">
+                <div className="flex items-center gap-4 mb-8 border-b border-stone-200/50 pb-6">
+                    <div className="p-3 rounded-full text-white shadow-md bg-brand-purple">
+                        <Shield size={28} />
+                    </div>
+                    <div>
+                        <h2 className="text-3xl font-serif font-bold text-stone-800">Panel de Administración General</h2>
+                        <p className="text-stone-500 font-light text-sm">Control de citas globales y asignación de roles de usuario.</p>
+                    </div>
+                </div>
+
+                <div className="flex gap-4 mb-8">
+                    <button 
+                        onClick={() => setTab('citas')} 
+                        className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all ${tab === 'citas' ? 'bg-brand-purple text-white shadow-md' : 'bg-stone-100 text-stone-600'}`}
+                    >
+                        Todas las Citas ({citas.length})
+                    </button>
+                    <button 
+                        onClick={() => setTab('usuarios')} 
+                        className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all ${tab === 'usuarios' ? 'bg-brand-purple text-white shadow-md' : 'bg-stone-100 text-stone-600'}`}
+                    >
+                        Gestión de Usuarios ({usuarios.length})
+                    </button>
+                </div>
+
+                {loading ? (
+                    <div className="text-center py-12 text-brand-purple">
+                        <Loader size={36} className="mx-auto mb-2" />
+                    </div>
+                ) : tab === 'citas' ? (
+                    <div className="space-y-4">
+                        {citas.map((c) => (
+                            <div key={c.id} className="bg-white p-5 rounded-2xl border border-stone-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm">
+                                <div>
+                                    <p className="font-bold text-stone-800">{c.pacienteEmail}</p>
+                                    <p className="text-xs text-stone-500 mt-1">Especialista asignado: <strong className="text-brand-purple">{c.especialistaId}</strong></p>
+                                </div>
+                                <span className={`px-4 py-1 rounded-full text-xs font-bold uppercase ${c.estado === 'atendida' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
+                                    {c.estado || 'pendiente'}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="space-y-4">
+                        {usuarios.map((u) => (
+                            <div key={u.id} className="bg-white p-5 rounded-2xl border border-stone-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm">
+                                <div>
+                                    <p className="font-bold text-stone-800">{u.email}</p>
+                                    <p className="text-xs text-stone-400">Rol actual: <strong className="uppercase text-brand-purple">{u.role || 'paciente'}</strong></p>
+                                </div>
+                                <select 
+                                    value={u.role || 'paciente'} 
+                                    onChange={(e) => actualizarRolUsuario(u.id, e.target.value)}
+                                    className="px-4 py-2 rounded-xl border border-stone-200 text-sm font-bold text-stone-700 bg-stone-50 outline-none focus:ring-2 focus:ring-brand-purple/20"
+                                >
+                                    <option value="paciente">Paciente</option>
+                                    <option value="feler-munoz">Psicólogo (Féler Muñoz)</option>
+                                    <option value="fernanda-regalado">Psicóloga (Fernanda Regalado)</option>
+                                    <option value="admin">Administrador</option>
+                                </select>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+
+=================================================================
+ARCHIVO: components\PanelPsicologo.js
+=================================================================
+
+// components/PanelPsicologo.js
+
+const PanelPsicologo = ({ onBack, psicologoId }) => {
+    const [citas, setCitas] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Escuchamos en tiempo real las citas en Firestore asignadas a este especialista
+        const unsubscribe = db.collection('citas')
+            .where('especialistaId', '==', psicologoId)
+            .onSnapshot((snapshot) => {
+                const citasData = [];
+                snapshot.forEach((doc) => {
+                    citasData.push({ id: doc.id, ...doc.data() });
+                });
+                // Ordenar por fecha descendente
+                citasData.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+                setCitas(citasData);
+                setLoading(false);
+            }, (error) => {
+                console.error("Error al cargar citas del psicólogo:", error);
+                setLoading(false);
+            });
+
+        return () => unsubscribe();
+    }, [psicologoId]);
+
+    const cambiarEstadoCita = async (citaId, nuevoEstado) => {
+        try {
+            await db.collection('citas').doc(citaId).update({ estado: nuevoEstado });
+        } catch (err) {
+            console.error("Error al actualizar estado:", err);
+            alert("No se pudo actualizar el estado de la cita.");
+        }
+    };
+
+    return (
+        <div className="animate-fadeIn max-w-5xl mx-auto py-8 relative z-10">
+            <BackButton onClick={onBack} text="Volver" />
+            <div className="bg-white/90 backdrop-blur-xl p-8 lg:p-12 rounded-[2.5rem] border border-white shadow-glass">
+                <div className="flex items-center gap-4 mb-8 border-b border-stone-200/50 pb-6">
+                    <div className="p-3 rounded-full text-white shadow-md bg-brand-green">
+                        <Calendar size={28} />
+                    </div>
+                    <div>
+                        <h2 className="text-3xl font-serif font-bold text-stone-800">Panel de Agenda — Psicología</h2>
+                        <p className="text-stone-500 font-light text-sm">Citas agendadas y confirmadas por pacientes.</p>
+                    </div>
+                </div>
+
+                {loading ? (
+                    <div className="text-center py-12 text-brand-green">
+                        <Loader size={36} className="mx-auto mb-2" />
+                        <p className="text-sm font-light">Cargando agenda...</p>
+                    </div>
+                ) : citas.length === 0 ? (
+                    <div className="text-center py-12 bg-stone-50 rounded-2xl border border-stone-100">
+                        <p className="text-stone-500 font-light text-lg">No tienes citas agendadas por el momento.</p>
+                    </div>
+                ) : (
+                    <div className="space-y-4">
+                        {citas.map((cita) => (
+                            <div key={cita.id} className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:shadow-md transition-all">
+                                <div>
+                                    <p className="font-bold text-stone-800 text-lg">{cita.pacienteEmail}</p>
+                                    <p className="text-xs text-stone-400 font-mono mt-1">
+                                        Fecha de Pago: {cita.createdAt?.toDate ? cita.createdAt.toDate().toLocaleString('es-MX') : 'Reciente'}
+                                    </p>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${
+                                        cita.estado === 'atendida' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'
+                                    }`}>
+                                        {cita.estado || 'pendiente'}
+                                    </span>
+                                    {cita.estado !== 'atendida' && (
+                                        <button 
+                                            onClick={() => cambiarEstadoCita(cita.id, 'atendida')}
+                                            className="px-4 py-2 bg-brand-green text-white rounded-full font-bold text-xs shadow-sm hover:shadow-md transition-all"
+                                        >
+                                            Marcar Atendida
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
 
 =================================================================
 ARCHIVO: components\PerfilEmocional.js

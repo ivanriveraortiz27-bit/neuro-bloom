@@ -5,7 +5,6 @@ const PanelPsicologo = ({ onBack, psicologoId }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Escuchamos en tiempo real las citas en Firestore asignadas a este especialista
         const unsubscribe = db.collection('citas')
             .where('especialistaId', '==', psicologoId)
             .onSnapshot((snapshot) => {
@@ -13,7 +12,6 @@ const PanelPsicologo = ({ onBack, psicologoId }) => {
                 snapshot.forEach((doc) => {
                     citasData.push({ id: doc.id, ...doc.data() });
                 });
-                // Ordenar por fecha descendente
                 citasData.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
                 setCitas(citasData);
                 setLoading(false);
@@ -50,7 +48,7 @@ const PanelPsicologo = ({ onBack, psicologoId }) => {
 
                 {loading ? (
                     <div className="text-center py-12 text-brand-green">
-                        <Loader size={36} className="mx-auto mb-2" />
+                        <Loader size={36} className="mx-auto mb-2 animate-spin" />
                         <p className="text-sm font-light">Cargando agenda...</p>
                     </div>
                 ) : citas.length === 0 ? (

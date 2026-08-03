@@ -67,7 +67,7 @@ const PanelAdmin = ({ onBack }) => {
 
                 {loading ? (
                     <div className="text-center py-12 text-brand-purple">
-                        <Loader size={36} className="mx-auto mb-2" />
+                        <Loader size={36} className="mx-auto mb-2 animate-spin" />
                     </div>
                 ) : tab === 'citas' ? (
                     <div className="space-y-4">
