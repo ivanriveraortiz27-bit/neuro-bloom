@@ -127,9 +127,14 @@ function NeuroBloom() {
 
     const renderContent = () => {
         if (premiumSubSection === 'reto' && premiumData) {
-            return <RetoPremium premiumData={premiumData} onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} onHome={() => setActiveSection('home')} />;
+            return <RetoPremium premiumData={premiumData} onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} onHome={() => setActiveSection('home')} onIrUltima={() => setPremiumSubSection('ultima')} />;
         }
-
+        if (premiumSubSection === 'ultima') {
+            return <UltimaPagina 
+                onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} 
+                onHome={() => setActiveSection('home')} 
+            />;
+        }
         switch(activeSection) {
             case 'home':
                 return (
