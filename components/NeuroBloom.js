@@ -166,6 +166,10 @@ function NeuroBloom() {
         if (activeSection === 'panel_psicologo') {
             return <PanelPsicologo onBack={() => setActiveSection('home')} psicologoId={userRole} />;
         }
+        // --- NUEVA VISTA CONÓCENOS ---
+        if (activeSection === 'conocenos') {
+            return <Conocenos onBack={() => setActiveSection('home')} onHome={() => setActiveSection('home')} />;
+        }
 
         if (premiumSubSection === 'ultima') {
             return <UltimaPagina 
@@ -191,9 +195,13 @@ function NeuroBloom() {
                         <h1 className="text-2xl md:text-4xl font-serif font-bold tracking-wide mb-6 text-brand-dark" style={{ color: colors.primary }}>“Habitarte también es una forma de florecer”</h1>
                         <p className="max-w-2xl mb-12 text-lg md:text-xl text-brand-dark/80 leading-relaxed font-light">Un espacio dedicado al bienestar emocional, la creatividad y la conexión humana, floreciendo desde el interior.</p>
 
-                        <div className="flex justify-center mb-16 w-full animate-bounce" style={{animationDuration: '3s'}}>
+                        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16 w-full animate-bounce" style={{animationDuration: '3s'}}>
                             <button onClick={() => handlePremiumClick()} className="px-8 py-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-white rounded-full font-bold text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center gap-3 border-2 border-yellow-300">
                                 <Star size={28} fill="currentColor" /> Bloom Premium
+                            </button>
+                            {/* Botón para la sección Conócenos en el Inicio */}
+                            <button onClick={() => setActiveSection('conocenos')} className="px-8 py-4 bg-white/80 backdrop-blur-sm border-2 border-brand-purple/50 text-brand-purple rounded-full font-bold text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all flex items-center gap-3">
+                                <HeartHandshake size={24} /> Conócenos
                             </button>
                         </div>
                         
