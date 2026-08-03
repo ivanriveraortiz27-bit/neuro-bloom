@@ -1,3 +1,5 @@
+// components/RetoPremium.js
+
 const RetoPremium = ({ premiumData, onBack, onHome, onIrUltima }) => {
     const reto = premiumData.reto_premium;
     const [step, setStep] = useState(0); 

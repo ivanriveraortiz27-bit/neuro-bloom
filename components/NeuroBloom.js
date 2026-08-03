@@ -1,3 +1,5 @@
+// components/NeuroBloom.js
+
 function NeuroBloom() {
     const [activeSection, setActiveSection] = useState('home');
     const [subView, setSubView] = useState(null); 
@@ -126,15 +128,24 @@ function NeuroBloom() {
     if (!appData || authLoading) return <div className="loading-screen"><h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2></div>;
 
     const renderContent = () => {
-        if (premiumSubSection === 'reto' && premiumData) {
-            return <RetoPremium premiumData={premiumData} onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} onHome={() => setActiveSection('home')} onIrUltima={() => setPremiumSubSection('ultima')} />;
-        }
+        // --- NAVEGACIÓN A LA ÚLTIMA PÁGINA ---
         if (premiumSubSection === 'ultima') {
             return <UltimaPagina 
                 onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} 
                 onHome={() => setActiveSection('home')} 
             />;
         }
+
+        // --- NAVEGACIÓN AL RETO PREMIUM ---
+        if (premiumSubSection === 'reto' && premiumData) {
+            return <RetoPremium 
+                premiumData={premiumData} 
+                onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} 
+                onHome={() => setActiveSection('home')} 
+                onIrUltima={() => setPremiumSubSection('ultima')} 
+            />;
+        }
+        
         switch(activeSection) {
             case 'home':
                 return (
