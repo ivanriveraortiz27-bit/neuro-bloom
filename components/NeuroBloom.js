@@ -407,19 +407,93 @@ function NeuroBloom() {
                 );
 
             case 'library':
+                // --- VISTA DETALLE DEL CUENTO ---
+                if (subView) {
+                    const cuentoData = appData.cuentos?.find(c => c.id === subView);
+                    if (cuentoData) {
+                        return (
+                            <div className="animate-fadeIn bg-white/80 backdrop-blur-xl p-8 lg:p-14 rounded-[2.5rem] shadow-glass border border-white max-w-4xl mx-auto relative z-10">
+                                <BackButton onClick={() => setSubView(null)} text="Volver a la Biblioteca" />
+                                {cuentoData.imagen && (
+                                    <div className="mb-12 w-full flex justify-center bg-white rounded-3xl p-4 sm:p-6 border border-stone-100 shadow-sm">
+                                        <img src={cuentoData.imagen} alt={cuentoData.title} className="max-w-full rounded-2xl object-cover max-h-[60vh] w-full" />
+                                    </div>
+                                )}
+                                <div className="text-center mb-10 border-b border-stone-200/50 pb-8">
+                                    <span className="text-brand-lilac font-bold tracking-widest uppercase text-sm mb-2 block">{cuentoData.categoria}</span>
+                                    <h2 className="text-4xl lg:text-5xl font-serif font-bold text-stone-800" style={{ color: colors.primary }}>
+                                        <span className="brush-highlight">{cuentoData.title}</span>
+                                    </h2>
+                                </div>
+                                <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                    {cuentoData.contenido.map((parrafo, idx) => {
+                                        // Estilo especial para la nota de derechos de autor
+                                        if (parrafo.startsWith("Nota: El registro de derechos")) {
+                                            return (
+                                                <div key={idx} className="mt-12 pt-6 border-t border-stone-200/50 text-center">
+                                                    <p className="text-sm text-stone-400 italic">{parrafo}</p>
+                                                </div>
+                                            );
+                                        }
+                                        return <p key={idx}>{parrafo}</p>;
+                                    })}
+                                </div>
+                            </div>
+                        );
+                    }
+                }
+
+                // --- VISTA PRINCIPAL DE LA BIBLIOTECA ---
                 return (
-                    <div className="animate-fadeIn max-w-4xl mx-auto py-12 relative z-10">
-                        <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
-                        <div className="text-center">
-                            <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800">
+                    <div className="animate-fadeIn max-w-6xl mx-auto space-y-12 relative z-10">
+                        <div className="w-full">
+                            <BackButton onClick={() => setActiveSection('home')} text="Volver al Inicio" />
+                        </div>
+                        
+                        <div className="text-center mb-10">
+                            <h2 className="text-5xl font-serif font-bold mb-6 text-stone-800" style={{ color: colors.primary }}>
                                 <span className="brush-highlight">Bloom Library</span>
                             </h2>
-                            <p className="text-stone-600 mb-12 text-xl font-light">Un espacio para nutrir tu mente y alma a través de recursos, recomendaciones y cuentos terapéuticos.</p>
-                            <div className="p-20 bg-white/70 backdrop-blur-xl rounded-[3rem] border border-white shadow-glass flex flex-col items-center justify-center relative z-10">
-                                <Library size={100} className="text-brand-lilac mb-8 animate-pulse" />
-                                <h3 className="text-3xl font-serif font-bold text-stone-500 mb-4">Próximamente</h3>
-                                <p className="text-stone-500 max-w-md mx-auto text-lg font-light">Estamos protegiendo la magia de nuestras historias. El contenido estará disponible una vez finalizado el registro de derechos de autor.</p>
+                            <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Un espacio para nutrir tu mente y alma a través de recursos, recomendaciones y cuentos terapéuticos.</p>
+                        </div>
+
+                        {/* Caja de Introducción (Libros, Películas, Podcasts) */}
+                        <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-12 rounded-[2.5rem] shadow-glass border border-white mb-12">
+                            <div className="flex items-center gap-4 mb-8 border-b border-stone-200/50 pb-6">
+                                <div className="p-3 rounded-full text-white shadow-md bg-brand-lilac">
+                                    <BookHeart size={28} />
+                                </div>
+                                <h3 className="text-3xl font-serif font-bold text-stone-800">Recursos y Recomendaciones</h3>
                             </div>
+                            <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
+                                {appData.bloom_library?.intro_text?.map((txt, i) => {
+                                    // Separar los títulos (como PELÍCULAS:) para hacerlos negritas
+                                    if (txt.includes(':') && txt.split(':')[0].length < 30) {
+                                        const parts = txt.split(':');
+                                        return <p key={i}><strong className="text-brand-purple font-bold tracking-wider">{parts[0]}:</strong>{parts.slice(1).join(':')}</p>;
+                                    }
+                                    return <p key={i}>{txt}</p>;
+                                })}
+                            </div>
+                        </div>
+
+                        {/* Grilla de Cuentos */}
+                        <div className="text-center mb-8 mt-16">
+                            <h3 className="text-4xl font-serif font-bold text-stone-800">Cuentos Terapéuticos</h3>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {appData.cuentos?.map(cuento => (
+                                <div key={cuento.id} onClick={() => setSubView(cuento.id)} className="cursor-pointer bg-white/70 backdrop-blur-lg p-8 rounded-[2rem] shadow-glass border border-white hover:shadow-lg transition-all group flex flex-col hover:-translate-y-1">
+                                    <Thumbnail src={cuento.imagen} alt={cuento.title} className="w-full h-48 rounded-2xl object-cover mb-6 shadow-sm group-hover:scale-105 transition-transform border-2 border-white" fallback={<div className="w-full h-48 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform text-white shadow-sm bg-brand-lilac"><Library size={48} /></div>} />
+                                    <span className="text-brand-lilac text-xs font-bold tracking-widest uppercase mb-2">{cuento.categoria}</span>
+                                    <h3 className="text-2xl font-serif font-bold mb-3 text-stone-800 group-hover:text-brand-purple transition-colors">{cuento.title}</h3>
+                                    <p className="text-[15px] text-stone-500 line-clamp-3 flex-grow leading-relaxed font-light">{cuento.contenido[0]}</p>
+                                    <p className="text-sm font-bold text-brand-purple mt-6 tracking-wider uppercase flex items-center gap-2">
+                                        Leer cuento &rarr;
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 );

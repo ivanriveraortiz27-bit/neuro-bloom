@@ -2937,7 +2937,8 @@ ARCHIVO: datos_cuentos.json
       "Nunca supe qué pasó con Clara. Realmente me preocupa. Clara faltó muchas semanas a la secundaria después de ese incidente. Lo último que supe de ella fue que se intentó acercar a una de nuestras maestras; le contó algo. No sé si fue un secreto. La maestra se veía preocupada e intentando que la escuela hiciera algo, pero justo cuando terminó de hablar con ella se acercó la coordinadora académica y le dijo:",
       "¿Usted qué hace aquí? ¿Por qué sigue viniendo si ya está reprobada? Váyase a su casa y luego le avisamos del extraordinario.",
       "Vi en ese momento cómo nuestra maestra se tragó palabras que sólo ella sabe por qué las sintió así: enojo y decepción.",
-      "Nadie supo qué pasó con Clara hasta el día de hoy. Lo que sí es que Clara, después de ese día en el baño, jamás volvió a ser “Clara TikToker”."
+      "Nadie supo qué pasó con Clara hasta el día de hoy. Lo que sí es que Clara, después de ese día en el baño, jamás volvió a ser “Clara TikToker”.",
+      "Nota: El registro de derechos de autor de esta obra se encuentra a nombre de Tania Grajeda."
     ]
   },
   {
@@ -2984,7 +2985,8 @@ ARCHIVO: datos_cuentos.json
       "¡Quedaste en la universidad!",
       "Y frente a mis ojos apareció un enorme POSITIVO.",
       "Yo sólo pude pensar:",
-      "¿Y ahora quién soy?"
+      "¿Y ahora quién soy?",
+      "Nota: El registro de derechos de autor de esta obra se encuentra a nombre de Tania Grajeda."
     ]
   },
   {
@@ -3051,7 +3053,8 @@ ARCHIVO: datos_cuentos.json
       "Detrás de cada pantalla existe una persona.",
       "Y detrás de cada mensaje hay emociones que no siempre alcanzamos a ver.",
       "Porque a veces las heridas más profundas no son las que se hacen cara a cara.",
-      "A veces son las que se escriben desde la comodidad de una pantalla y se envían sin pensar que alguien tendrá que cargar con ellas después."
+      "A veces son las que se escriben desde la comodidad de una pantalla y se envían sin pensar que alguien tendrá que cargar con ellas después.",
+      "Nota: El registro de derechos de autor de esta obra se encuentra a nombre de Tania Grajeda."
     ]
   },
   {
@@ -3214,7 +3217,8 @@ ARCHIVO: datos_cuentos.json
       "Por un instante creyó ver movimiento en las ventanas del segundo piso, sombras, siluetas, como si alguien la observara, las tejedoras, la mujer de los vestidos, la niña…. Quizá incluso Damián.",
       "Pero cuando parpadeó ya no había nadie.",
       "Y, por primera vez, no sintió que la estaban esperando, sintió que la estaban despidiendo. Detrás de ella, la mansión permaneció en silencio, serena, como si hubiera esperado generaciones enteras para exhalar.",
-      "Y por primera vez, tanto la casa como Elara estuvieron listas para comenzar una nueva historia."
+      "Y por primera vez, tanto la casa como Elara estuvieron listas para comenzar una nueva historia.",
+      "Nota: El registro de derechos de autor de esta obra se encuentra a nombre de Tania Grajeda."
     ]
   },
   {
@@ -3272,7 +3276,8 @@ ARCHIVO: datos_cuentos.json
       "Y entonces su mamá comprendió algo que jamás olvidaría: July no caminaba lento porque estuviera equivocada. July caminaba lento porque estaba ocupada descubriendo la belleza que los demás pasaban de largo.",
       "Y desde aquel día, aunque seguía llegando después que muchos otros animales, ya no le preocupó.",
       "Porque había aprendido que cada corazón tiene su propio ritmo. Y que el suyo era perfecto tal como era.",
-      "Todos tenemos un super poder July, solo tenemos que aprender a descubrirlo y saber que no siempre los demás lo entenderán."
+      "Todos tenemos un super poder July, solo tenemos que aprender a descubrirlo y saber que no siempre los demás lo entenderán.",
+      "Nota: El registro de derechos de autor de esta obra se encuentra a nombre de Tania Grajeda."
     ]
   },
   {
@@ -3303,7 +3308,8 @@ ARCHIVO: datos_cuentos.json
       "¿Qué es todo esto, Mateo? preguntó la maestra Luna.",
       "Son cosas que guardé pensando que a alguien le daría miedo verlas. Las guardé también porque no sabía cómo hablar de ellas. Incluso esa ballena ni siquiera es mía, es de mis papás. Pero después de todo esto, creo que fue más fácil dijo Mateo, ahora con una mochila completamente normal y casi vacía.",
       "La maestra Luna le agradeció por su valentía y por hacer algo que no siempre es fácil. A veces, esconderse detrás del miedo parece la mejor opción, pero rara vez nos ayuda a sentirnos más ligeros.",
-      "Mateo caminó hacia la puerta sintiéndose liberado. Y con un brillo que nadie le conocía, salió del salón..."
+      "Mateo caminó hacia la puerta sintiéndose liberado. Y con un brillo que nadie le conocía, salió del salón...",
+      "Nota: El registro de derechos de autor de esta obra se encuentra a nombre de Tania Grajeda."
     ]
   }
 ]
