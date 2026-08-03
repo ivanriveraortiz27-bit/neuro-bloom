@@ -1,3 +1,5 @@
+// components/NeuroBloom.js
+
 function NeuroBloom() {
     const [activeSection, setActiveSection] = useState('home');
     const [subView, setSubView] = useState(null); 
@@ -10,7 +12,7 @@ function NeuroBloom() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [user, setUser] = useState(null);
     const [isPremium, setIsPremium] = useState(false);
-    const [userRole, setUserRole] = useState('paciente'); // <-- NUEVO ESTADO PARA EL ROL
+    const [userRole, setUserRole] = useState('paciente'); 
     const [authLoading, setAuthLoading] = useState(true);
     const [showAuthModal, setShowAuthModal] = useState(false);
     
@@ -30,15 +32,17 @@ function NeuroBloom() {
                             await auth.signOut();
                             setUser(null); 
                             setIsPremium(false); 
-                            setUserRole('paciente'); // Reseteo de rol
+                            setUserRole('paciente');
                             setAuthLoading(false);
                             return;
                         }
                         
                         let isUserPremium = doc.data().isPremium === true;
-                        let role = doc.data().role || 'paciente'; // <-- LECTURA DEL ROL DESDE FIRESTORE
+                        let role = doc.data().role || 'paciente';
                         
                         const urlParams = new URLSearchParams(window.location.search);
+                        
+                        // --- DETECCIÓN DE PAGO BLOOM PREMIUM ---
                         if (urlParams.get('payment') === 'success' && !isUserPremium) {
                             await db.collection('users').doc(currentUser.uid).update({ isPremium: true });
                             window.history.replaceState(null, '', window.location.pathname);
@@ -46,10 +50,26 @@ function NeuroBloom() {
                             setActiveSection('premium_view');
                             return; 
                         }
+
+                        // --- DETECCIÓN DE PAGO DE CONSULTA / CITA ---
+                        if (urlParams.get('cita_success') === 'true') {
+                            const especialistaComprado = urlParams.get('especialista') || 'feler-munoz';
+                            await db.collection('citas').add({
+                                pacienteEmail: currentUser.email,
+                                pacienteUid: currentUser.uid,
+                                especialistaId: especialistaComprado,
+                                estado: 'pendiente',
+                                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                            });
+                            window.history.replaceState(null, '', window.location.pathname);
+                            alert('¡Pago de consulta confirmado con éxito! La especialista revisará tu agenda y se pondrá en contacto contigo a la brevedad. 🌿');
+                            setActiveSection('citas');
+                            return;
+                        }
                         
                         setUser(currentUser);
                         setIsPremium(isUserPremium);
-                        setUserRole(role); // <-- GUARDADO DEL ROL EN EL ESTADO DE REACT
+                        setUserRole(role);
                         setAuthLoading(false);
                     }, (error) => { console.error("Error al escuchar usuario:", error); setAuthLoading(false); });
                 } catch (error) {
@@ -64,7 +84,7 @@ function NeuroBloom() {
                 if (unsubscribeSnapshot) unsubscribeSnapshot();
                 setUser(null); 
                 setIsPremium(false); 
-                setUserRole('paciente'); // Reseteo de rol al cerrar sesión
+                setUserRole('paciente');
                 setAuthLoading(false);
             }
         });
@@ -142,6 +162,15 @@ function NeuroBloom() {
     if (!appData || authLoading) return <div className="loading-screen"><h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2></div>;
 
     const renderContent = () => {
+        // --- NAVEGACIÓN A PANELES ESPECIALES ---
+        if (activeSection === 'panel_admin') {
+            return <PanelAdmin onBack={() => setActiveSection('home')} />;
+        }
+        if (activeSection === 'panel_psicologo') {
+            return <PanelPsicologo onBack={() => setActiveSection('home')} psicologoId={userRole} />;
+        }
+
+        // --- NAVEGACIÓN A LA ÚLTIMA PÁGINA ---
         if (premiumSubSection === 'ultima') {
             return <UltimaPagina 
                 onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} 
@@ -149,6 +178,7 @@ function NeuroBloom() {
             />;
         }
 
+        // --- NAVEGACIÓN AL RETO PREMIUM ---
         if (premiumSubSection === 'reto' && premiumData) {
             return <RetoPremium 
                 premiumData={premiumData} 
@@ -419,7 +449,6 @@ function NeuroBloom() {
                 );
 
             case 'library':
-                // --- VISTA DETALLE DEL CUENTO ---
                 if (subView) {
                     const cuentoData = appData.cuentos?.find(c => c.id === subView);
                     if (cuentoData) {
@@ -439,7 +468,6 @@ function NeuroBloom() {
                                 </div>
                                 <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
                                     {cuentoData.contenido.map((parrafo, idx) => {
-                                        // Estilo especial para la nota de derechos de autor
                                         if (parrafo.startsWith("Nota: El registro de derechos")) {
                                             return (
                                                 <div key={idx} className="mt-12 pt-6 border-t border-stone-200/50 text-center">
@@ -455,7 +483,6 @@ function NeuroBloom() {
                     }
                 }
 
-                // --- VISTA PRINCIPAL DE LA BIBLIOTECA ---
                 return (
                     <div className="animate-fadeIn max-w-6xl mx-auto space-y-12 relative z-10">
                         <div className="w-full">
@@ -469,7 +496,6 @@ function NeuroBloom() {
                             <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Un espacio para nutrir tu mente y alma a través de recursos, recomendaciones y cuentos terapéuticos.</p>
                         </div>
 
-                        {/* Caja de Introducción (Libros, Películas, Podcasts) */}
                         <div className="bg-white/80 backdrop-blur-xl p-8 lg:p-12 rounded-[2.5rem] shadow-glass border border-white mb-12">
                             <div className="flex items-center gap-4 mb-8 border-b border-stone-200/50 pb-6">
                                 <div className="p-3 rounded-full text-white shadow-md bg-brand-lilac">
@@ -479,7 +505,6 @@ function NeuroBloom() {
                             </div>
                             <div className="space-y-6 text-lg text-stone-700 leading-relaxed font-light text-justify">
                                 {appData.bloom_library?.intro_text?.map((txt, i) => {
-                                    // Separar los títulos (como PELÍCULAS:) para hacerlos negritas
                                     if (txt.includes(':') && txt.split(':')[0].length < 30) {
                                         const parts = txt.split(':');
                                         return <p key={i}><strong className="text-brand-purple font-bold tracking-wider">{parts[0]}:</strong>{parts.slice(1).join(':')}</p>;
@@ -489,7 +514,6 @@ function NeuroBloom() {
                             </div>
                         </div>
 
-                        {/* Grilla de Cuentos */}
                         <div className="text-center mb-8 mt-16">
                             <h3 className="text-4xl font-serif font-bold text-stone-800">Cuentos Terapéuticos</h3>
                         </div>
@@ -617,7 +641,7 @@ function NeuroBloom() {
                             </h2>
                             <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Inicia tu proceso de bienestar emocional. Conoce a nuestros especialistas y reserva tu espacio seguro con nosotros.</p>
                             
-                            {/* NUEVO: Nota sobre el proceso de agendado */}
+                            {/* Nota informativa sobre el proceso de pago exclusivo */}
                             <div className="mt-8 max-w-3xl mx-auto bg-brand-green/10 border border-brand-green/30 p-6 rounded-2xl text-center shadow-sm">
                                 <p className="text-stone-700 font-medium text-lg mb-2">Importante</p>
                                 <p className="text-stone-600 font-light">
@@ -628,7 +652,7 @@ function NeuroBloom() {
                         
                         <div className="grid md:grid-cols-2 gap-10 relative z-10">
                             {appData.especialistas?.map(esp => {
-                                // Determinamos el link de Stripe según el ID del especialista
+                                // Determinación del enlace de Stripe según el ID del especialista
                                 const stripeLink = esp.id === 'feler-munoz' 
                                     ? 'https://buy.stripe.com/aFa28q881aMZ7wN43l77O02'
                                     : esp.id === 'fernanda-regalado'
@@ -759,6 +783,25 @@ function NeuroBloom() {
                     </nav>
 
                     <div className="flex items-center gap-4 relative z-50">
+                        {/* Botones de acceso a paneles según el rol del usuario logueado */}
+                        {userRole === 'admin' && (
+                            <button 
+                                onClick={() => setActiveSection('panel_admin')} 
+                                className="hidden sm:flex px-4 py-2 bg-brand-purple text-white rounded-full text-xs font-bold shadow-md hover:bg-brand-purple/90 transition-all items-center gap-1.5"
+                            >
+                                <Shield size={16} /> Panel Admin
+                            </button>
+                        )}
+                        
+                        {(userRole === 'feler-munoz' || userRole === 'fernanda-regalado') && (
+                            <button 
+                                onClick={() => setActiveSection('panel_psicologo')} 
+                                className="hidden sm:flex px-4 py-2 bg-brand-green text-white rounded-full text-xs font-bold shadow-md hover:bg-brand-green/90 transition-all items-center gap-1.5"
+                            >
+                                <Calendar size={16} /> Mi Agenda
+                            </button>
+                        )}
+
                         {user ? (
                             <button onClick={handleLogout} className="hidden sm:flex text-sm font-bold text-stone-500 hover:text-brand-purple transition-colors items-center gap-2">
                                 <UserCircle size={20} /> Cerrar Sesión
@@ -778,7 +821,17 @@ function NeuroBloom() {
             {mobileMenuOpen && (
                 <div className="fixed inset-0 z-40 pt-28 px-6 lg:hidden animate-slideIn bg-white/95 backdrop-blur-3xl">
                     <div className="flex flex-col gap-4">
-                        <div className="mb-4 pb-4 border-b border-stone-200">
+                        <div className="mb-4 pb-4 border-b border-stone-200 flex flex-col gap-2">
+                            {userRole === 'admin' && (
+                                <button onClick={() => { setActiveSection('panel_admin'); setMobileMenuOpen(false); }} className="w-full text-left p-4 rounded-2xl font-bold text-base text-white bg-brand-purple shadow-sm flex items-center gap-2">
+                                    <Shield size={20} /> Panel Admin
+                                </button>
+                            )}
+                            {(userRole === 'feler-munoz' || userRole === 'fernanda-regalado') && (
+                                <button onClick={() => { setActiveSection('panel_psicologo'); setMobileMenuOpen(false); }} className="w-full text-left p-4 rounded-2xl font-bold text-base text-white bg-brand-green shadow-sm flex items-center gap-2">
+                                    <Calendar size={20} /> Mi Agenda
+                                </button>
+                            )}
                             {user ? (
                                 <button onClick={() => {handleLogout(); setMobileMenuOpen(false);}} className="w-full text-left p-5 rounded-2xl font-bold text-xl text-stone-500 bg-stone-100 flex items-center gap-3">
                                     <UserCircle size={24} /> Cerrar Sesión
