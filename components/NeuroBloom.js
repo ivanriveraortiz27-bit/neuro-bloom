@@ -1,5 +1,3 @@
-// components/NeuroBloom.js
-
 function NeuroBloom() {
     const [activeSection, setActiveSection] = useState('home');
     const [subView, setSubView] = useState(null); 
@@ -12,6 +10,7 @@ function NeuroBloom() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [user, setUser] = useState(null);
     const [isPremium, setIsPremium] = useState(false);
+    const [userRole, setUserRole] = useState('paciente'); // <-- NUEVO ESTADO PARA EL ROL
     const [authLoading, setAuthLoading] = useState(true);
     const [showAuthModal, setShowAuthModal] = useState(false);
     
@@ -29,10 +28,16 @@ function NeuroBloom() {
                         if (!doc.exists) {
                             if (unsubscribeSnapshot) unsubscribeSnapshot();
                             await auth.signOut();
-                            setUser(null); setIsPremium(false); setAuthLoading(false);
+                            setUser(null); 
+                            setIsPremium(false); 
+                            setUserRole('paciente'); // Reseteo de rol
+                            setAuthLoading(false);
                             return;
                         }
+                        
                         let isUserPremium = doc.data().isPremium === true;
+                        let role = doc.data().role || 'paciente'; // <-- LECTURA DEL ROL DESDE FIRESTORE
+                        
                         const urlParams = new URLSearchParams(window.location.search);
                         if (urlParams.get('payment') === 'success' && !isUserPremium) {
                             await db.collection('users').doc(currentUser.uid).update({ isPremium: true });
@@ -41,17 +46,26 @@ function NeuroBloom() {
                             setActiveSection('premium_view');
                             return; 
                         }
+                        
                         setUser(currentUser);
                         setIsPremium(isUserPremium);
+                        setUserRole(role); // <-- GUARDADO DEL ROL EN EL ESTADO DE REACT
                         setAuthLoading(false);
                     }, (error) => { console.error("Error al escuchar usuario:", error); setAuthLoading(false); });
                 } catch (error) {
                     console.error("Error:", error);
-                    await auth.signOut(); setUser(null); setIsPremium(false); setAuthLoading(false);
+                    await auth.signOut(); 
+                    setUser(null); 
+                    setIsPremium(false); 
+                    setUserRole('paciente');
+                    setAuthLoading(false);
                 }
             } else {
                 if (unsubscribeSnapshot) unsubscribeSnapshot();
-                setUser(null); setIsPremium(false); setAuthLoading(false);
+                setUser(null); 
+                setIsPremium(false); 
+                setUserRole('paciente'); // Reseteo de rol al cerrar sesión
+                setAuthLoading(false);
             }
         });
         return () => { unsubscribeAuth(); if (unsubscribeSnapshot) unsubscribeSnapshot(); };
@@ -128,7 +142,6 @@ function NeuroBloom() {
     if (!appData || authLoading) return <div className="loading-screen"><h2 className="loading-title animate-pulse">Despertando Neuro Bloom...</h2></div>;
 
     const renderContent = () => {
-        // --- NAVEGACIÓN A LA ÚLTIMA PÁGINA ---
         if (premiumSubSection === 'ultima') {
             return <UltimaPagina 
                 onBack={() => {setPremiumSubSection(null); setActiveSection('balance'); setBalTab('reto');}} 
@@ -136,7 +149,6 @@ function NeuroBloom() {
             />;
         }
 
-        // --- NAVEGACIÓN AL RETO PREMIUM ---
         if (premiumSubSection === 'reto' && premiumData) {
             return <RetoPremium 
                 premiumData={premiumData} 
@@ -604,35 +616,56 @@ function NeuroBloom() {
                                 <span className="brush-highlight-green">Conoce y Agenda Cita</span>
                             </h2>
                             <p className="text-stone-600 max-w-2xl mx-auto text-xl font-light">Inicia tu proceso de bienestar emocional. Conoce a nuestros especialistas y reserva tu espacio seguro con nosotros.</p>
+                            
+                            {/* NUEVO: Nota sobre el proceso de agendado */}
+                            <div className="mt-8 max-w-3xl mx-auto bg-brand-green/10 border border-brand-green/30 p-6 rounded-2xl text-center shadow-sm">
+                                <p className="text-stone-700 font-medium text-lg mb-2">Importante</p>
+                                <p className="text-stone-600 font-light">
+                                    Para garantizar la disponibilidad y el seguimiento de tu proceso, te pedimos amablemente que <strong>agendes tu cita exclusivamente a través de los enlaces proporcionados en este portal</strong>. Una vez completado tu pago, nuestra especialista se pondrá en contacto contigo para confirmar el horario.
+                                </p>
+                            </div>
                         </div>
+                        
                         <div className="grid md:grid-cols-2 gap-10 relative z-10">
-                            {appData.especialistas?.map(esp => (
-                                <div key={esp.id} className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-glass border border-white overflow-hidden flex flex-col hover:shadow-xl transition-all group">
-                                    <div className="w-full h-80 bg-stone-50 overflow-hidden relative border-b border-white">
-                                        <Thumbnail src={esp.imagen} alt={esp.nombre} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" fallback={<Activity size={80} className="text-stone-300 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />} />
-                                    </div>
-                                    <div className="p-10 flex flex-col flex-grow">
-                                        <h3 className="text-3xl font-serif font-bold text-stone-800 mb-2">{esp.nombre}</h3>
-                                        <p className="text-brand-green font-bold text-lg mb-3">{esp.titulo}</p>
-                                        {esp.cedula && <p className="text-sm text-stone-400 mb-5 font-mono">Cédula: {esp.cedula}</p>}
-                                        <p className="text-stone-600 text-[15px] mb-8 italic font-light leading-relaxed">{esp.descripcion}</p>
-                                        <div className="mb-10 flex-grow">
-                                            <h4 className="font-bold text-sm text-stone-800 mb-4 uppercase tracking-widest border-b border-stone-200 pb-2">Especialidades y Enfoque</h4>
-                                            <ul className="space-y-3">
-                                                {esp.enfoques.map((enfoque, i) => (
-                                                    <li key={i} className="text-[15px] text-stone-600 flex items-start gap-3 font-light">
-                                                        <span className="text-brand-green mt-1"><Heart size={16} fill="currentColor" /></span>
-                                                        <span className="leading-tight">{enfoque}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                            {appData.especialistas?.map(esp => {
+                                // Determinamos el link de Stripe según el ID del especialista
+                                const stripeLink = esp.id === 'feler-munoz' 
+                                    ? 'https://buy.stripe.com/aFa28q881aMZ7wN43l77O02'
+                                    : esp.id === 'fernanda-regalado'
+                                        ? 'https://buy.stripe.com/eVq4gy0Fz1cp2ctczR77O01'
+                                        : '#';
+
+                                return (
+                                    <div key={esp.id} className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-glass border border-white overflow-hidden flex flex-col hover:shadow-xl transition-all group">
+                                        <div className="w-full h-80 bg-stone-50 overflow-hidden relative border-b border-white">
+                                            <Thumbnail src={esp.imagen} alt={esp.nombre} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" fallback={<Activity size={80} className="text-stone-300 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />} />
                                         </div>
-                                        <button className="w-full py-4 rounded-full text-white font-bold text-lg shadow-md hover:-translate-y-1 hover:shadow-lg transition-all flex justify-center items-center gap-3 bg-brand-green">
-                                            <Calendar size={20} /> Agendar Cita
-                                        </button>
+                                        <div className="p-10 flex flex-col flex-grow">
+                                            <h3 className="text-3xl font-serif font-bold text-stone-800 mb-2">{esp.nombre}</h3>
+                                            <p className="text-brand-green font-bold text-lg mb-3">{esp.titulo}</p>
+                                            {esp.cedula && <p className="text-sm text-stone-400 mb-5 font-mono">Cédula: {esp.cedula}</p>}
+                                            <p className="text-stone-600 text-[15px] mb-8 italic font-light leading-relaxed">{esp.descripcion}</p>
+                                            <div className="mb-10 flex-grow">
+                                                <h4 className="font-bold text-sm text-stone-800 mb-4 uppercase tracking-widest border-b border-stone-200 pb-2">Especialidades y Enfoque</h4>
+                                                <ul className="space-y-3">
+                                                    {esp.enfoques.map((enfoque, i) => (
+                                                        <li key={i} className="text-[15px] text-stone-600 flex items-start gap-3 font-light">
+                                                            <span className="text-brand-green mt-1"><Heart size={16} fill="currentColor" /></span>
+                                                            <span className="leading-tight">{enfoque}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                            <button 
+                                                onClick={() => window.open(stripeLink, '_blank')}
+                                                className="w-full py-4 rounded-full text-white font-bold text-lg shadow-md hover:-translate-y-1 hover:shadow-lg transition-all flex justify-center items-center gap-3 bg-brand-green"
+                                            >
+                                                <Calendar size={20} /> Agendar Cita
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 );

@@ -18,6 +18,7 @@ const AuthModal = ({ onClose }) => {
                     await docRef.set({
                         email: userCredential.user.email,
                         isPremium: false,
+                        role: 'paciente', // <-- NUEVO: Asignación de rol por defecto
                         createdAt: firebase.firestore.FieldValue.serverTimestamp()
                     });
                 }
@@ -26,6 +27,7 @@ const AuthModal = ({ onClose }) => {
                 await db.collection('users').doc(userCredential.user.uid).set({
                     email: userCredential.user.email,
                     isPremium: false,
+                    role: 'paciente', // <-- NUEVO: Asignación de rol por defecto
                     createdAt: firebase.firestore.FieldValue.serverTimestamp()
                 });
             }
