@@ -1,5 +1,6 @@
 {
   "id": "ruta1",
+  "numero": 1,
   "titulo": "Ruta 1. Regular mi sistema nervioso",
   "descripcion": "Aprende a comprender las respuestas de tu cuerpo al estrés y desarrolla herramientas para recuperar la calma.",
   "modulos": [
@@ -37,7 +38,8 @@
       },
       "audio": {
         "titulo": "Volviendo a un lugar seguro",
-        "duracion": "Audio Guiado"
+        "duracion": "Audio Guiado",
+        "url": "./ruta1-modulo1.mpeg"
       },
       "hoja_trabajo": {
         "titulo": "Conociendo las señales de mi sistema nervioso",
@@ -97,7 +99,8 @@
       },
       "audio": {
         "titulo": "Mi cuerpo puede sentirse seguro nuevamente",
-        "duracion": "Audio Guiado"
+        "duracion": "Audio Guiado",
+        "url": "./ruta1-modulo2.mpeg"
       },
       "hoja_trabajo": {
         "titulo": "Mi mapa de seguridad",
@@ -156,7 +159,8 @@
       },
       "audio": {
         "titulo": "Un pequeño hábito puede cambiar mucho",
-        "duracion": "Audio Guiado"
+        "duracion": "Audio Guiado",
+        "url": "./ruta1-modulo3.mpeg"
       },
       "hoja_trabajo": {
         "titulo": "Construyendo mi rutina de calma",
@@ -209,38 +213,34 @@
         "pasos": [
           "1. ¿Cuáles son las primeras señales que me indican que necesito detenerme y cuidar de mí?",
           "2. ¿Qué herramientas de esta ruta me ayudan más a recuperar la calma? (Respiración, movimiento, escribir, etc.)",
-          "3. ¿Qué hábitos quiero conservar durante las próximas semanas?",
-          "4. ¿Quiénes forman parte de mi red de apoyo cuando necesito ayuda?",
-          "5. Escribe una frase que quieras recordar cuando atravieses un momento difícil."
+          "3. ¿Qué actividades diarias me ayudan a mantener mi sistema nervioso regulado?",
+          "4. ¿A quién puedo recurrir cuando siento que no puedo hacerlo solo/a?"
         ]
       },
       "audio": {
-        "titulo": "Volver a mí",
-        "duracion": "Audio Guiado"
+        "titulo": "Confiar en mis propios recursos",
+        "duracion": "Audio Guiado",
+        "url": "./ruta1-modulo4.mpeg"
       },
       "hoja_trabajo": {
-        "titulo": "Mi caja de herramientas",
+        "titulo": "Mi hoja de ruta",
         "contenido": [
-          "Guarda este registro donde puedas consultarlo:",
-          "• Cuando noto estas señales en mi cuerpo...",
-          "• Las herramientas que mejor funcionan para mí son...",
-          "• Las personas con quienes puedo apoyarme son...",
-          "• La frase que quiero recordar en los días difíciles es..."
+          "Esta hoja es un recordatorio de tus propios recursos.",
+          "Escribe en ella tu plan personal de bienestar y consérvala en un lugar visible.",
+          "Recuerda que no se trata de no volver a caer, sino de saber cómo levantarte."
         ]
       },
       "reto": {
-        "titulo": "Integrando el bienestar en mi vida",
+        "titulo": "Confiar en mi proceso",
         "contenido": [
-          "Durante los próximos siete días, dedica unos minutos al final de cada jornada para responder estas dos preguntas:",
-          "1. ¿Qué hice hoy para cuidar de mí?",
-          "2. ¿Qué necesito regalarme mañana para seguir fortaleciendo mi bienestar?",
-          "A veces cuidar de ti será respirar; otras veces será pedir ayuda o reconocer que tuviste un mal día."
+          "El bienestar no es una meta final, es una práctica diaria.",
+          "Esta semana, cuando notes que el estrés aparece, no te juzgues. Recuerda tu plan personal y pon en práctica una de las herramientas que elegiste."
         ]
       },
       "cierre": [
-        "Has llegado al final de esta ruta. Quizá no sientas que todo cambió de un día para otro, y eso está bien. Los cambios profundos comienzan a través de pequeñas decisiones que repetimos una y otra vez.",
-        "Durante esta ruta comprendiste mejor cómo funciona tu sistema nervioso, descubriste herramientas para recuperar la calma y comenzaste a construir hábitos sostenibles.",
-        "Lo más importante no es recordar cada ejercicio, sino saber que ahora cuentas con recursos para acompañarte con mayor comprensión y amabilidad. ¡Felicidades por dar este paso!"
+        "Has llegado al final de esta primera ruta.",
+        "Recuerda que cada paso que has dado, por pequeño que parezca, es un avance hacia una vida con mayor equilibrio.",
+        "Confía en tus recursos, confía en tu cuerpo, y recuerda que siempre puedes volver a tu plan de bienestar cuando lo necesites."
       ]
     }
   ]
