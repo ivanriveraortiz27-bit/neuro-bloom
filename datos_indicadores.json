@@ -5,6 +5,7 @@
       "title": "Ansiedad",
       "icon": "activity",
       "color": "#2196f3",
+      "imagen": "./ansiedad.jpg",
       "contenido": [
         "¿QUÉ ES?",
         "La ansiedad generalizada se caracteriza por una preocupación constante y difícil de controlar sobre distintos aspectos de la vida diaria, incluso cuando no existe una razón clara para alarmarse.",
@@ -20,6 +21,7 @@
       "title": "Autocuidado en Crisis",
       "icon": "shield",
       "color": "#9BC496",
+      "imagen": "./autocuidado.jpg",
       "contenido": [
         "No todas las etapas de la vida son estables.",
         "Hay momentos en los que el cansancio deja de ser normal. La irritabilidad aumenta. La mente no se detiene. El cuerpo se siente en alerta constante. Y entonces intentas hacer lo mismo de siempre: seguir funcionando.",
@@ -135,7 +137,7 @@
       "title": "Baja Autoestima",
       "icon": "heart",
       "color": "#b695c0",
-      "imagen": "./baja-autoestima.jpeg",
+      "imagen": "./baja_autoestima.jpg",
       "contenido": [
         "Cuando la relación contigo se vuelve dura",
         "La autoestima no es simplemente \"quererte mucho\". Es la forma en la que te miras, te hablas y te tratas cada día.",
@@ -221,6 +223,7 @@
       "title": "Burnout Emocional",
       "icon": "activity",
       "color": "#9BC496",
+      "imagen": "./burnout.jpg",
       "contenido": [
         "¿Por qué nos pasa?",
         "Durante mucho tiempo se creyó que el burnout era un problema exclusivo de quienes tenían trabajos extremadamente demandantes. Hoy sabemos que no es así.",
@@ -250,6 +253,7 @@
       "title": "Dependencia Emocional",
       "icon": "heart-handshake",
       "color": "#2196f3",
+      "imagen": "./dependencia_emocional.jpg",
       "contenido": [
         "Cuando el miedo a perder al otro te hace perderte a ti",
         "La dependencia emocional no significa amar demasiado. Significa sentir que tu bienestar, tu tranquilidad o incluso tu valor dependen de la presencia, aprobación o permanencia de otra persona.",
@@ -281,6 +285,7 @@
       "title": "Depresión",
       "icon": "activity",
       "color": "#81638b",
+      "imagen": "./depresion.jpg",
       "contenido": [
         "Cuando vivir empieza a sentirse demasiado pesado",
         "La depresión no es simplemente estar triste ni atravesar un mal día. Es una condición de salud mental que puede afectar la forma en que pensamos, sentimos y nos relacionamos con el mundo.",
@@ -325,6 +330,7 @@
       "title": "Duelo No Resuelto",
       "icon": "heart",
       "color": "#81638b",
+      "imagen": "./duelo.jpg",
       "contenido": [
         "Cuando el dolor encuentra difícil seguir su camino",
         "Perder a alguien o algo importante cambia nuestra vida. El duelo es una respuesta natural ante esas pérdidas y cada persona lo vive de una manera diferente. No existe una forma \"correcta\" de atravesarlo ni un tiempo exacto para que termine.",
@@ -357,7 +363,7 @@
       "title": "Estrés",
       "icon": "activity",
       "color": "#9BC496",
-      "imagen": "./estres.jpeg",
+      "imagen": "./estres.jpg",
       "contenido": [
         "Cuando tu cuerpo intenta ayudarte... pero permanece en alerta demasiado tiempo.",
         "El estrés es una respuesta natural de nuestro organismo ante situaciones que percibimos como desafiantes, inciertas o demandantes.",
