@@ -109,51 +109,49 @@ function NeuroBloom() {
     }, []);
 
     useEffect(() => {
-        // --- FUNCIÓN HÍBRIDA PARA CÁPSULAS ---
         const fetchCapsulas = async () => {
             try {
                 const snap = await db.collection('content_capsulas').get();
-                if (snap.empty) {
-                    const res = await fetch('./datos_capsulas.json');
-                    return await res.json();
-                } else {
-                    const data = [];
-                    snap.forEach(doc => data.push({id: doc.id, ...doc.data()}));
-                    return data.sort((a, b) => a.id.localeCompare(b.id));
-                }
-            } catch (e) {
-                console.error("Usando archivo local por error de red o permisos:", e);
-                const res = await fetch('./datos_capsulas.json');
-                return await res.json();
-            }
+                if (snap.empty) { const res = await fetch('./datos_capsulas.json'); return await res.json(); }
+                const data = []; snap.forEach(doc => data.push({id: doc.id, ...doc.data()})); return data.sort((a,b) => a.id.localeCompare(b.id));
+            } catch (e) { const res = await fetch('./datos_capsulas.json'); return await res.json(); }
         };
 
-        // --- FUNCIÓN HÍBRIDA PARA RETO DEL MES ---
         const fetchReto = async () => {
             try {
                 const doc = await db.collection('content_retos').doc('actual').get();
-                if (doc.exists) {
-                    return doc.data();
-                } else {
-                    const res = await fetch('./datos_reto.json');
-                    return await res.json();
-                }
-            } catch (e) {
-                console.error("Usando archivo local para el reto por error de red:", e);
-                const res = await fetch('./datos_reto.json');
-                return await res.json();
-            }
+                if (doc.exists) return doc.data();
+                const res = await fetch('./datos_reto.json'); return await res.json();
+            } catch (e) { const res = await fetch('./datos_reto.json'); return await res.json(); }
+        };
+
+        // --- HÍBRIDA CUENTOS ---
+        const fetchCuentos = async () => {
+            try {
+                const snap = await db.collection('content_cuentos').get();
+                if (snap.empty) { const res = await fetch('./datos_cuentos.json'); return await res.json(); }
+                const data = []; snap.forEach(doc => data.push({id: doc.id, ...doc.data()})); return data.sort((a,b) => a.id.localeCompare(b.id));
+            } catch (e) { const res = await fetch('./datos_cuentos.json'); return await res.json(); }
+        };
+
+        // --- HÍBRIDA RECURSOS ---
+        const fetchRecursos = async () => {
+            try {
+                const doc = await db.collection('content_recursos').doc('actual').get();
+                if (doc.exists) return doc.data();
+                const res = await fetch('./datos_library.json'); return await res.json();
+            } catch (e) { const res = await fetch('./datos_library.json'); return await res.json(); }
         };
 
         Promise.all([
             fetch('./datos_indicadores.json').then(res => res.json()),
             fetch('./datos_balance.json').then(res => res.json()),
-            fetchReto(),      // Nueva llamada a Firestore / JSON
-            fetchCapsulas(),  // Llamada a Firestore / JSON
+            fetchReto(),
+            fetchCapsulas(),
             fetch('./datos_especialistas.json').then(res => res.json()),
             fetch('./datos_infancias.json').then(res => res.json()),
-            fetch('./datos_library.json').then(res => res.json()),
-            fetch('./datos_cuentos.json').then(res => res.json())
+            fetchRecursos(), // Recursos en Vivo
+            fetchCuentos()   // Cuentos en Vivo
         ])
         .then(([indicadores, balance, reto_del_mes, capsulas, especialistas, detras_conducta, bloom_library, cuentos]) => {
             setAppData({
