@@ -109,11 +109,30 @@ function NeuroBloom() {
     }, []);
 
     useEffect(() => {
+        // --- FUNCIÓN HÍBRIDA PARA CÁPSULAS ---
+        const fetchCapsulas = async () => {
+            try {
+                const snap = await db.collection('content_capsulas').get();
+                if (snap.empty) {
+                    const res = await fetch('./datos_capsulas.json');
+                    return await res.json();
+                } else {
+                    const data = [];
+                    snap.forEach(doc => data.push({id: doc.id, ...doc.data()}));
+                    return data.sort((a, b) => a.id.localeCompare(b.id));
+                }
+            } catch (e) {
+                console.error("Usando archivo local por error de red o permisos:", e);
+                const res = await fetch('./datos_capsulas.json');
+                return await res.json();
+            }
+        };
+
         Promise.all([
             fetch('./datos_indicadores.json').then(res => res.json()),
             fetch('./datos_balance.json').then(res => res.json()),
             fetch('./datos_reto.json').then(res => res.json()),
-            fetch('./datos_capsulas.json').then(res => res.json()),
+            fetchCapsulas(), // Llama a la base de datos Firestore en vez del archivo estático
             fetch('./datos_especialistas.json').then(res => res.json()),
             fetch('./datos_infancias.json').then(res => res.json()),
             fetch('./datos_library.json').then(res => res.json()),
