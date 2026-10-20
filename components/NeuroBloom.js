@@ -128,11 +128,28 @@ function NeuroBloom() {
             }
         };
 
+        // --- FUNCIÓN HÍBRIDA PARA RETO DEL MES ---
+        const fetchReto = async () => {
+            try {
+                const doc = await db.collection('content_retos').doc('actual').get();
+                if (doc.exists) {
+                    return doc.data();
+                } else {
+                    const res = await fetch('./datos_reto.json');
+                    return await res.json();
+                }
+            } catch (e) {
+                console.error("Usando archivo local para el reto por error de red:", e);
+                const res = await fetch('./datos_reto.json');
+                return await res.json();
+            }
+        };
+
         Promise.all([
             fetch('./datos_indicadores.json').then(res => res.json()),
             fetch('./datos_balance.json').then(res => res.json()),
-            fetch('./datos_reto.json').then(res => res.json()),
-            fetchCapsulas(), // Llama a la base de datos Firestore en vez del archivo estático
+            fetchReto(),      // Nueva llamada a Firestore / JSON
+            fetchCapsulas(),  // Llamada a Firestore / JSON
             fetch('./datos_especialistas.json').then(res => res.json()),
             fetch('./datos_infancias.json').then(res => res.json()),
             fetch('./datos_library.json').then(res => res.json()),
